@@ -1686,7 +1686,7 @@ System.register("angular2/src/router/rules/route_paths/param_route_path", ["angu
       if (!collection_1.StringMapWrapper.contains(params.map, this.name)) {
         throw new exceptions_1.BaseException("Route generator for '" + this.name + "' was not included in parameters passed.");
       }
-      return utils_1.normalizeString(params.get(this.name));
+      return encodeDynamicSegment(utils_1.normalizeString(params.get(this.name)));
     };
     DynamicPathSegment.paramMatcher = /^:([^\/]+)$/g;
     return DynamicPathSegment;
@@ -1737,7 +1737,7 @@ System.register("angular2/src/router/rules/route_paths/param_route_path", ["angu
           }
           captured.push(currentUrlSegment.path);
           if (pathSegment instanceof DynamicPathSegment) {
-            positionalParams[pathSegment.name] = currentUrlSegment.path;
+            positionalParams[pathSegment.name] = decodeDynamicSegment(currentUrlSegment.path);
           } else if (!pathSegment.match(currentUrlSegment.path)) {
             return null;
           }
@@ -1842,6 +1842,38 @@ System.register("angular2/src/router/rules/route_paths/param_route_path", ["angu
     return ParamRoutePath;
   })();
   exports.ParamRoutePath = ParamRoutePath;
+  var REGEXP_PERCENT = /%/g;
+  var REGEXP_SLASH = /\//g;
+  var REGEXP_OPEN_PARENT = /\(/g;
+  var REGEXP_CLOSE_PARENT = /\)/g;
+  var REGEXP_SEMICOLON = /;/g;
+  function encodeDynamicSegment(value) {
+    if (lang_1.isBlank(value)) {
+      return null;
+    }
+    value = lang_1.StringWrapper.replaceAll(value, REGEXP_PERCENT, '%25');
+    value = lang_1.StringWrapper.replaceAll(value, REGEXP_SLASH, '%2F');
+    value = lang_1.StringWrapper.replaceAll(value, REGEXP_OPEN_PARENT, '%28');
+    value = lang_1.StringWrapper.replaceAll(value, REGEXP_CLOSE_PARENT, '%29');
+    value = lang_1.StringWrapper.replaceAll(value, REGEXP_SEMICOLON, '%3B');
+    return value;
+  }
+  var REGEXP_ENC_SEMICOLON = /%3B/ig;
+  var REGEXP_ENC_CLOSE_PARENT = /%29/ig;
+  var REGEXP_ENC_OPEN_PARENT = /%28/ig;
+  var REGEXP_ENC_SLASH = /%2F/ig;
+  var REGEXP_ENC_PERCENT = /%25/ig;
+  function decodeDynamicSegment(value) {
+    if (lang_1.isBlank(value)) {
+      return null;
+    }
+    value = lang_1.StringWrapper.replaceAll(value, REGEXP_ENC_SEMICOLON, ';');
+    value = lang_1.StringWrapper.replaceAll(value, REGEXP_ENC_CLOSE_PARENT, ')');
+    value = lang_1.StringWrapper.replaceAll(value, REGEXP_ENC_OPEN_PARENT, '(');
+    value = lang_1.StringWrapper.replaceAll(value, REGEXP_ENC_SLASH, '/');
+    value = lang_1.StringWrapper.replaceAll(value, REGEXP_ENC_PERCENT, '%');
+    return value;
+  }
   global.define = __define;
   return module.exports;
 });
@@ -2132,10 +2164,14 @@ System.register("angular2/src/router/directives/router_outlet", ["angular2/src/f
       var componentType = nextInstruction.componentType;
       var childRouter = this._parentRouter.childRouter(componentType);
       var providers = core_1.Injector.resolve([core_1.provide(instruction_1.RouteData, {useValue: nextInstruction.routeData}), core_1.provide(instruction_1.RouteParams, {useValue: new instruction_1.RouteParams(nextInstruction.params)}), core_1.provide(routerMod.Router, {useValue: childRouter})]);
-      return this._loader.loadNextToLocation(componentType, this._elementRef, providers).then(function(componentRef) {
-        _this._componentRef = componentRef;
+      this._componentRef = this._loader.loadNextToLocation(componentType, this._elementRef, providers);
+      return this._componentRef.then(function(componentRef) {
         if (route_lifecycle_reflector_1.hasLifecycleHook(hookMod.routerOnActivate, componentType)) {
-          return _this._componentRef.instance.routerOnActivate(nextInstruction, previousInstruction);
+          return _this._componentRef.then(function(ref) {
+            return ref.instance.routerOnActivate(nextInstruction, previousInstruction);
+          });
+        } else {
+          return componentRef;
         }
       });
     };
@@ -2144,37 +2180,52 @@ System.register("angular2/src/router/directives/router_outlet", ["angular2/src/f
       this._currentInstruction = nextInstruction;
       if (lang_1.isBlank(this._componentRef)) {
         return this.activate(nextInstruction);
+      } else {
+        return async_1.PromiseWrapper.resolve(route_lifecycle_reflector_1.hasLifecycleHook(hookMod.routerOnReuse, this._currentInstruction.componentType) ? this._componentRef.then(function(ref) {
+          return ref.instance.routerOnReuse(nextInstruction, previousInstruction);
+        }) : true);
       }
-      return async_1.PromiseWrapper.resolve(route_lifecycle_reflector_1.hasLifecycleHook(hookMod.routerOnReuse, this._currentInstruction.componentType) ? this._componentRef.instance.routerOnReuse(nextInstruction, previousInstruction) : true);
     };
     RouterOutlet.prototype.deactivate = function(nextInstruction) {
       var _this = this;
       var next = _resolveToTrue;
       if (lang_1.isPresent(this._componentRef) && lang_1.isPresent(this._currentInstruction) && route_lifecycle_reflector_1.hasLifecycleHook(hookMod.routerOnDeactivate, this._currentInstruction.componentType)) {
-        next = async_1.PromiseWrapper.resolve(this._componentRef.instance.routerOnDeactivate(nextInstruction, this._currentInstruction));
+        next = this._componentRef.then(function(ref) {
+          return ref.instance.routerOnDeactivate(nextInstruction, _this._currentInstruction);
+        });
       }
       return next.then(function(_) {
         if (lang_1.isPresent(_this._componentRef)) {
-          _this._componentRef.dispose();
+          var onDispose = _this._componentRef.then(function(ref) {
+            return ref.dispose();
+          });
           _this._componentRef = null;
+          return onDispose;
         }
       });
     };
     RouterOutlet.prototype.routerCanDeactivate = function(nextInstruction) {
+      var _this = this;
       if (lang_1.isBlank(this._currentInstruction)) {
         return _resolveToTrue;
       }
       if (route_lifecycle_reflector_1.hasLifecycleHook(hookMod.routerCanDeactivate, this._currentInstruction.componentType)) {
-        return async_1.PromiseWrapper.resolve(this._componentRef.instance.routerCanDeactivate(nextInstruction, this._currentInstruction));
+        return this._componentRef.then(function(ref) {
+          return ref.instance.routerCanDeactivate(nextInstruction, _this._currentInstruction);
+        });
+      } else {
+        return _resolveToTrue;
       }
-      return _resolveToTrue;
     };
     RouterOutlet.prototype.routerCanReuse = function(nextInstruction) {
+      var _this = this;
       var result;
       if (lang_1.isBlank(this._currentInstruction) || this._currentInstruction.componentType != nextInstruction.componentType) {
         result = false;
       } else if (route_lifecycle_reflector_1.hasLifecycleHook(hookMod.routerCanReuse, this._currentInstruction.componentType)) {
-        result = this._componentRef.instance.routerCanReuse(nextInstruction, this._currentInstruction);
+        result = this._componentRef.then(function(ref) {
+          return ref.instance.routerCanReuse(nextInstruction, _this._currentInstruction);
+        });
       } else {
         result = nextInstruction == this._currentInstruction || (lang_1.isPresent(nextInstruction.params) && lang_1.isPresent(this._currentInstruction.params) && collection_1.StringMapWrapper.equals(nextInstruction.params, this._currentInstruction.params));
       }

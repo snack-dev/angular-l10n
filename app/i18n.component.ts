@@ -1,13 +1,13 @@
 import {Component} from 'angular2/core';
 // Services.
-import {LocalizationService} from './services/localization.service';
+import {LocalizationService} from 'angular2localization/angular2localization';
 // Pipes.
-import {LocalizationPipe} from './pipes/localization.pipe';
+import {TranslatePipe} from 'angular2localization/angular2localization';
 
 @Component({
     templateUrl: './app/i18n.component.html',
-    providers: [LocalizationService, LocalizationPipe],
-    pipes: [LocalizationPipe]
+    providers: [LocalizationService, TranslatePipe],
+    pipes: [TranslatePipe]
 })
 
 export class I18nComponent {

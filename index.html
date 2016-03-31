@@ -2,14 +2,17 @@
 <html>
 
 <head>
-    <!--Sets the base href-->
-    <base href="/angular2localization/">
     
+    <!--sets the base href for GitHub Pages-->
+    <base href="/angular2localization/">
+    <!--sets the base href-->
+    <!--<base href="/">-->
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Angular 2 Localization</title>
-    <meta name="description" content="A translation service for the new Angular 2 applications using TypeScript">
+    <meta name="description" content="An Angular 2 library for i18n and l10n that implements a translation service - using TypeScript and SystemJS">
     <meta name="author" content="Roberto Simonetti">
 
     <!--frameworks-->
@@ -24,6 +27,9 @@
     <script src="dist/lib/angular2.dev.js"></script>
     <script src="dist/lib/http.dev.js"></script>
     <script src="dist/lib/router.dev.js"></script>
+
+    <!--loads angular2localization-->
+    <script src="dist/lib/angular2localization.js"></script>
 
     <!--configures SystemJS-->
     <script>
@@ -41,6 +47,9 @@
 
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!--custom styles-->
+    <link href="styles/sticky-footer-navbar.css" rel="stylesheet">
+    
 </head>
 
 <!--displays the application-->

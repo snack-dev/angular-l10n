@@ -2,10 +2,10 @@ import {Component} from 'angular2/core';
 import {NgClass} from 'angular2/common';
 import {RouteConfig, AsyncRoute, Location, ROUTER_DIRECTIVES} from 'angular2/router';
 // Services.
-import {LocaleService} from './services/locale.service'; // LocaleService class.
-import {LocalizationService} from './services/localization.service'; // LocalizationService class.
+import {LocaleService} from 'angular2localization/angular2localization'; // LocaleService class.
+import {LocalizationService} from 'angular2localization/angular2localization'; // LocalizationService class.
 // Pipes.
-import {LocalizationPipe} from './pipes/localization.pipe'; // LocalizationPipe class.
+import {TranslatePipe} from 'angular2localization/angular2localization'; // TranslatePipe class.
 // Components.
 import {HomeComponent} from './home.component';
 import {I18nComponent} from './i18n.component';
@@ -14,8 +14,8 @@ import {I18nComponent} from './i18n.component';
     selector: 'app-component',
     directives: [ROUTER_DIRECTIVES, NgClass],
     templateUrl: './app/app.component.html', // A component cannot have both pipes and @View set at the same time.
-    providers: [LocaleService, LocalizationService, LocalizationPipe], // Localization providers: inherited by all descendants.
-    pipes: [LocalizationPipe] // Add in each component to invoke the transform method.
+    providers: [LocaleService, LocalizationService, TranslatePipe], // Localization providers: inherited by all descendants.
+    pipes: [TranslatePipe] // Add in each component to invoke the transform method.
 })
 
 @RouteConfig([
@@ -45,7 +45,7 @@ export class AppComponent {
     }
     
     // Sets a new language.
-    selectLanguage(language) {
+    selectLanguage(language: string) {
 
         this.locale.setCurrentLanguage(language);
 

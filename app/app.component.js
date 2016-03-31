@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/common', 'angular2/router', './services/locale.service', './services/localization.service', './pipes/localization.pipe', './home.component', './i18n.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/common', 'angular2/router', 'angular2localization/angular2localization', './home.component', './i18n.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/common', 'angular2/router', './servi
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, router_1, locale_service_1, localization_service_1, localization_pipe_1, home_component_1, i18n_component_1;
+    var core_1, common_1, router_1, angular2localization_1, angular2localization_2, angular2localization_3, home_component_1, i18n_component_1;
     var AppComponent;
     return {
         setters:[
@@ -23,14 +23,10 @@ System.register(['angular2/core', 'angular2/common', 'angular2/router', './servi
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (locale_service_1_1) {
-                locale_service_1 = locale_service_1_1;
-            },
-            function (localization_service_1_1) {
-                localization_service_1 = localization_service_1_1;
-            },
-            function (localization_pipe_1_1) {
-                localization_pipe_1 = localization_pipe_1_1;
+            function (angular2localization_1_1) {
+                angular2localization_1 = angular2localization_1_1;
+                angular2localization_2 = angular2localization_1_1;
+                angular2localization_3 = angular2localization_1_1;
             },
             function (home_component_1_1) {
                 home_component_1 = home_component_1_1;
@@ -67,14 +63,14 @@ System.register(['angular2/core', 'angular2/common', 'angular2/router', './servi
                         selector: 'app-component',
                         directives: [router_1.ROUTER_DIRECTIVES, common_1.NgClass],
                         templateUrl: './app/app.component.html',
-                        providers: [locale_service_1.LocaleService, localization_service_1.LocalizationService, localization_pipe_1.LocalizationPipe],
-                        pipes: [localization_pipe_1.LocalizationPipe] // Add in each component to invoke the transform method.
+                        providers: [angular2localization_1.LocaleService, angular2localization_2.LocalizationService, angular2localization_3.TranslatePipe],
+                        pipes: [angular2localization_3.TranslatePipe] // Add in each component to invoke the transform method.
                     }),
                     router_1.RouteConfig([
                         new router_1.AsyncRoute({ path: '/', loader: function () { return Promise.resolve(home_component_1.HomeComponent); }, name: 'Home', useAsDefault: true }),
                         new router_1.AsyncRoute({ path: '/i18n', loader: function () { return Promise.resolve(i18n_component_1.I18nComponent); }, name: 'I18n' })
                     ]), 
-                    __metadata('design:paramtypes', [locale_service_1.LocaleService, localization_service_1.LocalizationService, router_1.Location])
+                    __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_2.LocalizationService, router_1.Location])
                 ], AppComponent);
                 return AppComponent;
             }());

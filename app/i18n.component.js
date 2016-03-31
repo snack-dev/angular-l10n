@@ -1,4 +1,4 @@
-System.register(['angular2/core', './services/localization.service', './pipes/localization.pipe'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2localization/angular2localization'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,18 +10,16 @@ System.register(['angular2/core', './services/localization.service', './pipes/lo
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, localization_service_1, localization_pipe_1;
+    var core_1, angular2localization_1, angular2localization_2;
     var I18nComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (localization_service_1_1) {
-                localization_service_1 = localization_service_1_1;
-            },
-            function (localization_pipe_1_1) {
-                localization_pipe_1 = localization_pipe_1_1;
+            function (angular2localization_1_1) {
+                angular2localization_1 = angular2localization_1_1;
+                angular2localization_2 = angular2localization_1_1;
             }],
         execute: function() {
             I18nComponent = (function () {
@@ -49,10 +47,10 @@ System.register(['angular2/core', './services/localization.service', './pipes/lo
                 I18nComponent = __decorate([
                     core_1.Component({
                         templateUrl: './app/i18n.component.html',
-                        providers: [localization_service_1.LocalizationService, localization_pipe_1.LocalizationPipe],
-                        pipes: [localization_pipe_1.LocalizationPipe]
+                        providers: [angular2localization_1.LocalizationService, angular2localization_2.TranslatePipe],
+                        pipes: [angular2localization_2.TranslatePipe]
                     }), 
-                    __metadata('design:paramtypes', [localization_service_1.LocalizationService])
+                    __metadata('design:paramtypes', [angular2localization_1.LocalizationService])
                 ], I18nComponent);
                 return I18nComponent;
             }());

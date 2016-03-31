@@ -1,6 +1,6 @@
 ﻿import {Component} from 'angular2/core';
 // Pipes.
-import {LocalizationPipe} from './pipes/localization.pipe';
+import {TranslatePipe} from 'angular2localization/angular2localization';
 
 @Component({
     template: `
@@ -25,7 +25,7 @@ import {LocalizationPipe} from './pipes/localization.pipe';
 
             </div>
             `,
-    pipes: [LocalizationPipe]
+    pipes: [TranslatePipe]
 })
 
 export class HomeComponent {
