@@ -11,22 +11,30 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">{{ 'TITLE' | translate }}</a>
+                <a class="navbar-brand" href="#">Angular 2 Localization</a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar">
                 <ul class="nav navbar-nav">
-                    <li [ngClass]="{active: location.path() == ''}"><a [routerLink]="['Home']">home</a></li>
-                    <li [ngClass]="{active: location.path() == '/i18n'}"><a [routerLink]="['I18n']">{{ 'I18N' | translate }}</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ 'CHANGE_LANGUAGE' | translate }}&nbsp;<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                    <li [ngClass]="{active: location.path() == ''}"><a [routerLink]="['Home']">Home</a></li>
+                    <li [ngClass]="{active: location.path() == '/i18n'}"><a [routerLink]="['I18n']">i18n</a></li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ 'CHANGE_COUNTRY' | translate }}&nbsp;<span class="caret"></span></a>
+                        <ul class="dropdown-menu multi-level">
 
-                            <li><a class="btn btn-default btn-block" (click)="selectLanguage('en')">&nbsp;English&nbsp;<i class="glyphicon glyphicon-ok" *ngIf="currentLanguage == 'en'"></i></a></li>
-                            <li><a class="btn btn-default btn-block" (click)="selectLanguage('it')">&nbsp;italiano&nbsp;<i class="glyphicon glyphicon-ok" *ngIf="currentLanguage == 'it'"></i></a></li>
-                            <!--add a new language here-->
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">English</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="btn btn-default btn-block" (click)="selectLocale('en', 'US', 'USD')">&nbsp;United States&nbsp;<i class="glyphicon glyphicon-ok" *ngIf="currentCountry == 'US'"></i></a></li>
+                                    <li><a class="btn btn-default btn-block" (click)="selectLocale('en', 'GB', 'GBP')">&nbsp;United Kingdom&nbsp;<i class="glyphicon glyphicon-ok" *ngIf="currentCountry == 'GB'"></i></a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Italiano</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="btn btn-default btn-block" (click)="selectLocale('it', 'IT', 'EUR')">&nbsp;Italia&nbsp;<i class="glyphicon glyphicon-ok" *ngIf="currentCountry == 'IT'"></i></a></li>
+                                </ul>
+                            </li>
 
                         </ul>
                     </li>

@@ -1,35 +1,28 @@
 ﻿import {Component} from 'angular2/core';
 // Pipes.
 import {TranslatePipe} from 'angular2localization/angular2localization';
+import {LocaleDatePipe} from 'angular2localization/angular2localization';
+import {LocaleDecimalPipe, LocalePercentPipe, LocaleCurrencyPipe} from 'angular2localization/angular2localization';
 
 @Component({
-    template: `
-            <!--home component view-->
-
-            <div class="container">
-
-                <div class="row">
-
-                    <div class="col-sm-6">
-
-                        <blockquote class="blockquote-reverse">
-
-                            <p>{{ 'DUMMY_TEXT' | translate }}</p>
-                            <footer>{{ 'AUTHOR' | translate }},&nbsp;<cite title="Source Title">{{ 'SOURCE_TITLE' | translate }}</cite></footer>
-
-                        </blockquote>
-
-                    </div>
-
-                </div>
-
-            </div>
-            `,
-    pipes: [TranslatePipe]
+    templateUrl: './app/home.component.html',
+    pipes: [TranslatePipe, LocaleDatePipe, LocaleDecimalPipe, LocalePercentPipe, LocaleCurrencyPipe]
 })
 
 export class HomeComponent {
 
-    constructor() { }
+    today: number;
+    pi: number;
+    a: number;
+    b: number;
+
+    constructor() {
+
+        this.today = Date.now();
+        this.pi = 3.14159;
+        this.a = Math.random();
+        this.b = Math.random() * 1000;
+        
+    }
 
 }

@@ -40,30 +40,37 @@ System.register(['angular2/core', 'angular2/common', 'angular2/router', 'angular
                     this.locale = locale;
                     this.localization = localization;
                     this.location = location;
-                    // Initializes the LocaleService & LocalizationService: asynchronous loading.           
-                    this.locale.addLanguage('en'); // Required: adds a new language.
+                    // Initializes LocaleService.
+                    this.locale.addLanguage('en'); // Required: adds a new language (ISO 639 two-letter code).
                     this.locale.addLanguage('it');
                     this.locale.definePreferredLanguage('en', 30); // Required: default language and expiry (No days). If the expiry is omitted, the cookie becomes a session cookie.
+                    // Optional: default country for date & numbers (ISO 3166 two-letter, uppercase code).
+                    this.locale.definePreferredCountry('US');
+                    // Optional: default currency (ISO 4217 three-letter code).
+                    this.locale.definePreferredCurrency('USD');
+                    // Initializes LocalizationService: asynchronous loading.
                     this.localization.translationProvider('./resources/locale-'); // Required: initializes the translation provider with the given path prefix.
                 }
-                Object.defineProperty(AppComponent.prototype, "currentLanguage", {
-                    // Gets the current language.
+                Object.defineProperty(AppComponent.prototype, "currentCountry", {
+                    // Gets the current country.
                     get: function () {
-                        return this.locale.getCurrentLanguage();
+                        return this.locale.getCurrentCountry();
                     },
                     enumerable: true,
                     configurable: true
                 });
-                // Sets a new language.
-                AppComponent.prototype.selectLanguage = function (language) {
+                // Sets a new locale & currency.
+                AppComponent.prototype.selectLocale = function (language, country, currency) {
                     this.locale.setCurrentLanguage(language);
+                    this.locale.setCurrentCountry(country);
+                    this.locale.setCurrentcurrency(currency);
                 };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'app-component',
                         directives: [router_1.ROUTER_DIRECTIVES, common_1.NgClass],
                         templateUrl: './app/app.component.html',
-                        providers: [angular2localization_1.LocaleService, angular2localization_2.LocalizationService, angular2localization_3.TranslatePipe],
+                        providers: [angular2localization_1.LocaleService, angular2localization_2.LocalizationService],
                         pipes: [angular2localization_3.TranslatePipe] // Add in each component to invoke the transform method.
                     }),
                     router_1.RouteConfig([

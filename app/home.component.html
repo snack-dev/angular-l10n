@@ -1,0 +1,41 @@
+<!--home component view-->
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-sm-6">
+
+            <h2>{{ 'MESSAGES' | translate }}</h2>
+
+            <blockquote class="blockquote-reverse">
+
+                <p>{{ 'DUMMY_TEXT' | translate }}</p>
+                <footer>{{ 'AUTHOR' | translate }},&nbsp;<cite title="Source Title">{{ 'SOURCE_TITLE' | translate }}</cite></footer>
+
+            </blockquote>
+
+        </div>
+
+        <div class="col-sm-6">
+
+            <h2>{{ 'DATES' | translate }}</h2>
+            <p>{{ today | localedate: 'fullDate' }}</p>
+
+            <hr>
+
+            <h2>{{ 'NUMBERS' | translate }}</h2>
+            <h4>{{ 'DECIMALS' | translate }}</h4>
+            <p>{{ 'PI' | translate }}: {{ pi | localedecimal:'1.5-5' }}</p>
+            <br>
+            <h4>{{ 'PERCENTAGES' | translate }}</h4>
+            <p>{{ a | localepercent:'1.1-1' }} </p>
+            <br>
+            <h4>{{ 'CURRENCIES' | translate }}</h4>
+            <p>{{ b | localecurrency:true:'1.2-2' }}</p>
+
+        </div>
+
+    </div>
+
+</div>

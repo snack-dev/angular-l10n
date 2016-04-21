@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2localization/angular2localization'], 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, angular2localization_1;
+    var core_1, angular2localization_1, angular2localization_2, angular2localization_3;
     var HomeComponent;
     return {
         setters:[
@@ -19,15 +19,21 @@ System.register(['angular2/core', 'angular2localization/angular2localization'], 
             },
             function (angular2localization_1_1) {
                 angular2localization_1 = angular2localization_1_1;
+                angular2localization_2 = angular2localization_1_1;
+                angular2localization_3 = angular2localization_1_1;
             }],
         execute: function() {
             HomeComponent = (function () {
                 function HomeComponent() {
+                    this.today = Date.now();
+                    this.pi = 3.14159;
+                    this.a = Math.random();
+                    this.b = Math.random() * 1000;
                 }
                 HomeComponent = __decorate([
                     core_1.Component({
-                        template: "\n            <!--home component view-->\n\n            <div class=\"container\">\n\n                <div class=\"row\">\n\n                    <div class=\"col-sm-6\">\n\n                        <blockquote class=\"blockquote-reverse\">\n\n                            <p>{{ 'DUMMY_TEXT' | translate }}</p>\n                            <footer>{{ 'AUTHOR' | translate }},&nbsp;<cite title=\"Source Title\">{{ 'SOURCE_TITLE' | translate }}</cite></footer>\n\n                        </blockquote>\n\n                    </div>\n\n                </div>\n\n            </div>\n            ",
-                        pipes: [angular2localization_1.TranslatePipe]
+                        templateUrl: './app/home.component.html',
+                        pipes: [angular2localization_1.TranslatePipe, angular2localization_2.LocaleDatePipe, angular2localization_3.LocaleDecimalPipe, angular2localization_3.LocalePercentPipe, angular2localization_3.LocaleCurrencyPipe]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], HomeComponent);

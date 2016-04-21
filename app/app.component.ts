@@ -13,8 +13,8 @@ import {I18nComponent} from './i18n.component';
 @Component({
     selector: 'app-component',
     directives: [ROUTER_DIRECTIVES, NgClass],
-    templateUrl: './app/app.component.html', // A component cannot have both pipes and @View set at the same time.
-    providers: [LocaleService, LocalizationService, TranslatePipe], // Localization providers: inherited by all descendants.
+    templateUrl: './app/app.component.html',
+    providers: [LocaleService, LocalizationService], // Localization providers: inherited by all descendants.
     pipes: [TranslatePipe] // Add in each component to invoke the transform method.
 })
 
@@ -26,28 +26,36 @@ import {I18nComponent} from './i18n.component';
 export class AppComponent {
 
     constructor(public locale: LocaleService, public localization: LocalizationService, public location: Location) {
-        
-        // Initializes the LocaleService & LocalizationService: asynchronous loading.           
-        this.locale.addLanguage('en'); // Required: adds a new language.
+                   
+        // Initializes LocaleService.
+        this.locale.addLanguage('en'); // Required: adds a new language (ISO 639 two-letter code).
         this.locale.addLanguage('it');
 
         this.locale.definePreferredLanguage('en', 30); // Required: default language and expiry (No days). If the expiry is omitted, the cookie becomes a session cookie.
-                
+
+        // Optional: default country for date & numbers (ISO 3166 two-letter, uppercase code).
+        this.locale.definePreferredCountry('US');
+        // Optional: default currency (ISO 4217 three-letter code).
+        this.locale.definePreferredCurrency('USD');
+
+        // Initializes LocalizationService: asynchronous loading.
         this.localization.translationProvider('./resources/locale-'); // Required: initializes the translation provider with the given path prefix.
 
     }
 
-    // Gets the current language.
-    get currentLanguage(): string {
+    // Gets the current country.
+    get currentCountry(): string {
 
-        return this.locale.getCurrentLanguage();
+        return this.locale.getCurrentCountry();
 
     }
-    
-    // Sets a new language.
-    selectLanguage(language: string) {
+
+    // Sets a new locale & currency.
+    selectLocale(language: string, country: string, currency: string) {
 
         this.locale.setCurrentLanguage(language);
+        this.locale.setCurrentCountry(country);
+        this.locale.setCurrentcurrency(currency);
 
     }
 

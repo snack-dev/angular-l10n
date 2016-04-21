@@ -1,5 +1,5 @@
 # Angular 2 Localization
-> An Angular 2 library for i18n and l10n that implements a translation service - using TypeScript and SystemJS.
+> An Angular 2 library to translate messages, dates and numbers.
 
 ## Sample app
-Sample application that implements the translation service: [demo](http://robisim74.github.io/angular2localization)
+Sample application that implements the translation: [demo](http://robisim74.github.io/angular2localization)
