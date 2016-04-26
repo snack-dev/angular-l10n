@@ -37,13 +37,13 @@ System.register("angular2localization/src/services/localization.service", ["angu
         function LocalizationService(http, locale) {
           this.http = http;
           this.locale = locale;
-          this.translationsData = {};
+          this.translationData = {};
           this.prefix = "";
           this.languageCode = "";
           this.isReady = false;
         }
         LocalizationService.prototype.addTranslation = function(language, translation) {
-          this.translationsData[language] = translation;
+          this.translationData[language] = translation;
           this.isReady = true;
         };
         LocalizationService.prototype.translationProvider = function(prefix) {
@@ -51,13 +51,13 @@ System.register("angular2localization/src/services/localization.service", ["angu
         };
         LocalizationService.prototype.getTranslation = function() {
           var _this = this;
-          this.translationsData = {};
+          this.translationData = {};
           this.isReady = false;
           var url = this.prefix + this.languageCode + '.json';
           this.http.get(url).map(function(res) {
             return res.json();
           }).subscribe(function(res) {
-            _this.translationsData[_this.languageCode] = res;
+            _this.translationData[_this.languageCode] = res;
           }, function(error) {
             console.error("Localization service:", error);
           }, function() {
@@ -69,8 +69,8 @@ System.register("angular2localization/src/services/localization.service", ["angu
           var _this = this;
           return new Observable_1.Observable(function(observer) {
             var value;
-            if (_this.translationsData[_this.languageCode] != null) {
-              var translation = _this.translationsData[_this.languageCode];
+            if (_this.translationData[_this.languageCode] != null) {
+              var translation = _this.translationData[_this.languageCode];
               value = translation[key];
             }
             if (value == null || value == "") {
@@ -210,14 +210,16 @@ System.register("angular2localization/src/pipes/locale-date.pipe", ["angular2/co
         function LocaleDatePipe(locale) {
           this.locale = locale;
         }
-        LocaleDatePipe.prototype.transform = function(value, args) {
+        LocaleDatePipe.prototype.transform = function(value, pattern) {
+          if (pattern === void 0) {
+            pattern = 'mediumDate';
+          }
           if (lang_1.isBlank(value))
             return null;
           if (!this.supports(value)) {
             throw new invalid_pipe_argument_exception_1.InvalidPipeArgumentException(LocaleDatePipe, value);
           }
           if (this.value != value || this.localeDate == "" || this.defaultLocale != this.locale.getDefaultLocale()) {
-            var pattern = lang_1.isPresent(args) && args.length > 0 ? args[0] : 'mediumDate';
             if (lang_1.isNumber(value)) {
               value = lang_1.DateWrapper.fromMillis(value);
             }
@@ -298,13 +300,17 @@ System.register("angular2localization/src/services/locale.service", ["angular2/c
           if (this.languageCode == "") {
             var browserLanguage = navigator.language || navigator.userLanguage || navigator.browserLanguage || navigator.systemLanguage;
             browserLanguage = browserLanguage.substring(0, 2);
-            if (this.languageCodes.indexOf(browserLanguage) != -1) {
+            if (this.languageCodes.length > 0 && this.languageCodes.indexOf(browserLanguage) != -1) {
               this.languageCode = browserLanguage;
             } else {
               this.languageCode = defaultLanguage.toLowerCase();
             }
             this.setDefaultLocale();
-            this.setCookie("locale", this.defaultLocale, this.expiry);
+            if (this.languageCodes.length > 0) {
+              this.setCookie("locale", this.defaultLocale, this.expiry);
+            }
+          } else {
+            this.setDefaultLocale();
           }
         };
         LocaleService.prototype.definePreferredCountry = function(defaultCountry) {
@@ -312,16 +318,46 @@ System.register("angular2localization/src/services/locale.service", ["angular2/c
           this.countryCode = locale.substring(3, 5);
           if (this.countryCode == "") {
             this.countryCode = defaultCountry.toUpperCase();
+            this.setDefaultLocale();
+            if (this.languageCodes.length > 0) {
+              this.setCookie("locale", this.defaultLocale, this.expiry);
+            }
+          } else {
+            this.setDefaultLocale();
           }
-          this.setDefaultLocale();
-          this.setCookie("locale", this.defaultLocale, this.expiry);
+        };
+        LocaleService.prototype.definePreferredLocale = function(defaultLanguage, defaultCountry, expiry) {
+          this.expiry = expiry;
+          var locale = this.getCookie("locale");
+          this.languageCode = locale.substring(0, 2);
+          if (this.languageCode == "") {
+            this.languageCode = defaultLanguage.toLowerCase();
+            this.countryCode = defaultCountry.toUpperCase();
+            this.setDefaultLocale();
+            if (this.languageCodes.length > 0) {
+              this.setCookie("locale", this.defaultLocale, this.expiry);
+            }
+          } else {
+            this.countryCode = locale.substring(3, 5);
+            if (this.countryCode == "") {
+              this.countryCode = defaultCountry.toUpperCase();
+              this.setDefaultLocale();
+              if (this.languageCodes.length > 0) {
+                this.setCookie("locale", this.defaultLocale, this.expiry);
+              }
+            } else {
+              this.setDefaultLocale();
+            }
+          }
         };
         LocaleService.prototype.definePreferredCurrency = function(defaultCurrency) {
           this.currencyCode = this.getCookie("currency");
           if (this.currencyCode == "") {
             this.currencyCode = defaultCurrency.toUpperCase();
+            if (this.languageCodes.length > 0) {
+              this.setCookie("currency", this.currencyCode, this.expiry);
+            }
           }
-          this.setCookie("currency", this.currencyCode, this.expiry);
         };
         LocaleService.prototype.getCurrentLanguage = function() {
           return this.languageCode;
@@ -343,6 +379,16 @@ System.register("angular2localization/src/services/locale.service", ["angular2/c
         LocaleService.prototype.setCurrentCountry = function(country) {
           country = country.toUpperCase();
           if (this.countryCode != country) {
+            this.countryCode = country;
+            this.setDefaultLocale();
+            this.setCookie("locale", this.defaultLocale, this.expiry);
+          }
+        };
+        LocaleService.prototype.setCurrentLocale = function(language, country) {
+          language = language.toLowerCase();
+          country = country.toUpperCase();
+          if (this.languageCode != language || this.countryCode != country) {
+            this.languageCode = language;
             this.countryCode = country;
             this.setDefaultLocale();
             this.setCookie("locale", this.defaultLocale, this.expiry);
@@ -396,7 +442,7 @@ System.register("angular2localization/src/services/locale.service", ["angular2/c
   };
 });
 
-System.register("angular2localization/src/pipes/locale-number.pipe", ["angular2/core", "angular2/src/facade/lang", "angular2/src/facade/exceptions", "angular2/src/facade/intl", "angular2/src/facade/collection", "angular2/src/common/pipes/invalid_pipe_argument_exception", "../services/locale.service"], function(exports_1, context_1) {
+System.register("angular2localization/src/pipes/locale-number.pipe", ["angular2/core", "angular2/src/facade/lang", "angular2/src/facade/exceptions", "angular2/src/facade/intl", "angular2/src/common/pipes/invalid_pipe_argument_exception", "../services/locale.service"], function(exports_1, context_1) {
   "use strict";
   var __moduleName = context_1 && context_1.id;
   var __extends = (this && this.__extends) || function(d, b) {
@@ -428,7 +474,6 @@ System.register("angular2localization/src/pipes/locale-number.pipe", ["angular2/
       lang_1,
       exceptions_1,
       intl_1,
-      collection_1,
       invalid_pipe_argument_exception_1,
       locale_service_1;
   var LocaleNumber,
@@ -444,8 +489,6 @@ System.register("angular2localization/src/pipes/locale-number.pipe", ["angular2/
       exceptions_1 = exceptions_1_1;
     }, function(intl_1_1) {
       intl_1 = intl_1_1;
-    }, function(collection_1_1) {
-      collection_1 = collection_1_1;
     }, function(invalid_pipe_argument_exception_1_1) {
       invalid_pipe_argument_exception_1 = invalid_pipe_argument_exception_1_1;
     }, function(locale_service_1_1) {
@@ -503,9 +546,11 @@ System.register("angular2localization/src/pipes/locale-number.pipe", ["angular2/
           _super.call(this);
           this.locale = locale;
         }
-        LocaleDecimalPipe.prototype.transform = function(value, args) {
+        LocaleDecimalPipe.prototype.transform = function(value, digits) {
+          if (digits === void 0) {
+            digits = null;
+          }
           if (this.value != value || this.localeDecimal == "" || this.defaultLocale != this.locale.getDefaultLocale()) {
-            var digits = collection_1.ListWrapper.first(args);
             this.defaultLocale = this.locale.getDefaultLocale();
             this.value = value;
             this.localeDecimal = LocaleNumber.format(this.defaultLocale, value, intl_1.NumberFormatStyle.Decimal, digits);
@@ -525,9 +570,11 @@ System.register("angular2localization/src/pipes/locale-number.pipe", ["angular2/
           _super.call(this);
           this.locale = locale;
         }
-        LocalePercentPipe.prototype.transform = function(value, args) {
+        LocalePercentPipe.prototype.transform = function(value, digits) {
+          if (digits === void 0) {
+            digits = null;
+          }
           if (this.value != value || this.localePercent == "" || this.defaultLocale != this.locale.getDefaultLocale()) {
-            var digits = collection_1.ListWrapper.first(args);
             this.defaultLocale = this.locale.getDefaultLocale();
             this.value = value;
             this.localePercent = LocaleNumber.format(this.defaultLocale, value, intl_1.NumberFormatStyle.Percent, digits);
@@ -547,10 +594,14 @@ System.register("angular2localization/src/pipes/locale-number.pipe", ["angular2/
           _super.call(this);
           this.locale = locale;
         }
-        LocaleCurrencyPipe.prototype.transform = function(value, args) {
+        LocaleCurrencyPipe.prototype.transform = function(value, symbolDisplay, digits) {
+          if (symbolDisplay === void 0) {
+            symbolDisplay = false;
+          }
+          if (digits === void 0) {
+            digits = null;
+          }
           if (this.value != value || this.localeCurrency == "" || this.currencyCode != this.locale.getCurrentCurrency() || this.defaultLocale != this.locale.getDefaultLocale()) {
-            var symbolDisplay = lang_1.isPresent(args) && args.length > 0 ? args[0] : false;
-            var digits = lang_1.isPresent(args) && args.length > 1 ? args[1] : null;
             this.currencyCode = this.locale.getCurrentCurrency();
             this.defaultLocale = this.locale.getDefaultLocale();
             this.value = value;

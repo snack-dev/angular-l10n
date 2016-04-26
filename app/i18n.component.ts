@@ -29,8 +29,9 @@ export class I18nComponent {
 
     // Instantiates a new LocalizationService for this component and for its descendants.
     constructor(public localizationI18n: LocalizationService) {
-
-        this.localizationI18n.translationProvider('./resources/locale-i18n-'); // Required: initializes the translation provider with the given path prefix.
+            
+        // Required: initializes the translation provider with the given path prefix.
+        this.localizationI18n.translationProvider('./resources/locale-i18n-');
 
     }
 

@@ -38,7 +38,8 @@ System.register(['angular2/core', 'angular2localization/angular2localization'], 
                         '=1': 'ONE_MESSAGE',
                         'other': '# MESSAGES'
                     };
-                    this.localizationI18n.translationProvider('./resources/locale-i18n-'); // Required: initializes the translation provider with the given path prefix.
+                    // Required: initializes the translation provider with the given path prefix.
+                    this.localizationI18n.translationProvider('./resources/locale-i18n-');
                 }
                 I18nComponent.prototype.addMessage = function (message) {
                     this.messages.push(message);

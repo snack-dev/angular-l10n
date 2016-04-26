@@ -1,11 +1,11 @@
 import {Component} from 'angular2/core';
 import {NgClass} from 'angular2/common';
-import {RouteConfig, AsyncRoute, Location, ROUTER_DIRECTIVES} from 'angular2/router';
+import {Location} from 'angular2/platform/common';
+import {RouteConfig, AsyncRoute, ROUTER_DIRECTIVES} from 'angular2/router';
 // Services.
-import {LocaleService} from 'angular2localization/angular2localization'; // LocaleService class.
-import {LocalizationService} from 'angular2localization/angular2localization'; // LocalizationService class.
+import {LocaleService, LocalizationService } from 'angular2localization/angular2localization';
 // Pipes.
-import {TranslatePipe} from 'angular2localization/angular2localization'; // TranslatePipe class.
+import {TranslatePipe} from 'angular2localization/angular2localization';
 // Components.
 import {HomeComponent} from './home.component';
 import {I18nComponent} from './i18n.component';
@@ -14,7 +14,7 @@ import {I18nComponent} from './i18n.component';
     selector: 'app-component',
     directives: [ROUTER_DIRECTIVES, NgClass],
     templateUrl: './app/app.component.html',
-    providers: [LocaleService, LocalizationService], // Localization providers: inherited by all descendants.
+    providers: [LocaleService, LocalizationService], // Inherited by all descendants.
     pipes: [TranslatePipe] // Add in each component to invoke the transform method.
 })
 
@@ -27,14 +27,14 @@ export class AppComponent {
 
     constructor(public locale: LocaleService, public localization: LocalizationService, public location: Location) {
                    
-        // Initializes LocaleService.
-        this.locale.addLanguage('en'); // Required: adds a new language (ISO 639 two-letter code).
+        // Adds a new language (ISO 639 two-letter code).
+        this.locale.addLanguage('en');
         this.locale.addLanguage('it');
+        // Add a new language here.
 
-        this.locale.definePreferredLanguage('en', 30); // Required: default language and expiry (No days). If the expiry is omitted, the cookie becomes a session cookie.
+        // Required: default language, country (ISO 3166 two-letter, uppercase code) and expiry (No days). If the expiry is omitted, the cookie becomes a session cookie.
+        this.locale.definePreferredLocale('en', 'US', 30);
 
-        // Optional: default country for date & numbers (ISO 3166 two-letter, uppercase code).
-        this.locale.definePreferredCountry('US');
         // Optional: default currency (ISO 4217 three-letter code).
         this.locale.definePreferredCurrency('USD');
 
@@ -53,8 +53,7 @@ export class AppComponent {
     // Sets a new locale & currency.
     selectLocale(language: string, country: string, currency: string) {
 
-        this.locale.setCurrentLanguage(language);
-        this.locale.setCurrentCountry(country);
+        this.locale.setCurrentLocale(language, country);
         this.locale.setCurrentcurrency(currency);
 
     }
