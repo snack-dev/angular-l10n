@@ -1,55 +1,52 @@
-<!--app component view-->
+<md-sidenav-layout>
 
-<header>
+  <md-sidenav #start mode="over">
 
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar">
-                    <span class="sr-only">toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Angular 2 Localization</a>
-            </div>
+    <h3>{{ 'MENU' | translate }}</h3>
+    <md-nav-list>
+      <a md-list-item [routerLink]="['Home']">{{ 'HOME' | translate }}</a>
+      <a md-list-item [routerLink]="['I18n']">{{ 'I18N' | translate }}</a>
+    </md-nav-list>
+    <h3>{{ 'CHANGE_COUNTRY' | translate }}</h3>
+    <md-nav-list>
+      <md-list-item>
+        <a md-line (click)="selectLocale('en', 'US', 'USD'); root.dir = 'ltr'">United States</a>
+        <i class="material-icons" *ngIf="currentCountry == 'US'">done</i>
+      </md-list-item>
+      <md-list-item>
+        <a md-line (click)="selectLocale('en', 'GB', 'GBP'); root.dir = 'ltr'">United Kingdom</a>
+        <i class="material-icons" *ngIf="currentCountry == 'GB'">done</i>
+      </md-list-item>
+      <md-list-item>
+        <a md-line (click)="selectLocale('it', 'IT', 'EUR'); root.dir = 'ltr'">Italia</a>
+        <i class="material-icons" *ngIf="currentCountry == 'IT'">done</i>
+      </md-list-item>
+      <md-list-item>
+        <a md-line (click)="selectLocale('ar', 'SA', 'SAR'); root.dir = 'rtl'">المملكة العربية السعودية</a>
+        <i class="material-icons" *ngIf="currentCountry == 'SA'">done</i>
+      </md-list-item>
+    </md-nav-list>
+    <h3>{{ 'RESOURCES' | translate }}</h3>
+    <md-nav-list>
+      <a md-list-item href="https://github.com/robisim74/angular2localization/tree/gh-pages">{{ 'SOURCE_CODE' | translate }}</a>
+    </md-nav-list>
 
-            <div class="collapse navbar-collapse" id="app-navbar">
-                <ul class="nav navbar-nav">
-                    <li [ngClass]="{active: location.path() == ''}"><a [routerLink]="['Home']">Home</a></li>
-                    <li [ngClass]="{active: location.path() == '/i18n'}"><a [routerLink]="['I18n']">i18n</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ 'CHANGE_COUNTRY' | translate }}&nbsp;<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-header">English</li>
-                            <li><a (click)="selectLocale('en', 'US', 'USD')">&nbsp;United States&nbsp;<i class="glyphicon glyphicon-ok" *ngIf="currentCountry == 'US'"></i></a></li>
-                            <li><a (click)="selectLocale('en', 'GB', 'GBP')">&nbsp;United Kingdom&nbsp;<i class="glyphicon glyphicon-ok" *ngIf="currentCountry == 'GB'"></i></a></li>
+  </md-sidenav>
 
-                            <li class="dropdown-header">Italiano</li>
-                            <li><a (click)="selectLocale('it', 'IT', 'EUR')">&nbsp;Italia&nbsp;<i class="glyphicon glyphicon-ok" *ngIf="currentCountry == 'IT'"></i></a></li>
-                           
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+  <div class="app-root">
 
-</header>
+    <md-toolbar color="accent">
+      <i class="material-icons" (click)="start.open()">menu</i>
+      <div class="app-toolbar">
+        <h1>{{ 'TITLE' | translate }}</h1>
+      </div>
+    </md-toolbar>
 
-<main>
+    <div #root="$implicit" [dir]="dir" class="app-content">
 
-    <!--router outlet-->
-    <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
 
-</main>
-
-<footer class="footer">
-
-    <div class="container text-center">
-        <a href="https://github.com/robisim74/angular2localization/tree/gh-pages" title="GitHub Pages">Source code</a>
     </div>
+  </div>
 
-</footer>
+</md-sidenav-layout>

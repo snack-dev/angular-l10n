@@ -1,41 +1,32 @@
-<!--home component view-->
+<div class="app-card-container">
 
-<div class="container">
+    <md-card>
+        <md-card-title>{{ 'MESSAGES' | translate }}</md-card-title>
+        <md-card-content>
+            <p>{{ 'DUMMY_TEXT' | translate }}</p>
+            <p>{{ 'AUTHOR' | translate }},&nbsp;<em>{{ 'SOURCE_TITLE' | translate }}</em></p>
+        </md-card-content>
+    </md-card>
 
-    <div class="row">
-
-        <div class="col-sm-6">
-
-            <h2>{{ 'MESSAGES' | translate }}</h2>
-
-            <blockquote class="blockquote-reverse">
-
-                <p>{{ 'DUMMY_TEXT' | translate }}</p>
-                <footer>{{ 'AUTHOR' | translate }},&nbsp;<cite title="Source Title">{{ 'SOURCE_TITLE' | translate }}</cite></footer>
-
-            </blockquote>
-
-        </div>
-
-        <div class="col-sm-6">
-
-            <h2>{{ 'DATES' | translate }}</h2>
+    <md-card>
+        <md-card-title>{{ 'DATES' | translate }}</md-card-title>
+        <md-card-content>
             <p>{{ today | localedate:'fullDate' }}</p>
+        </md-card-content>
+    </md-card>
 
-            <hr>
-
-            <h2>{{ 'NUMBERS' | translate }}</h2>
-            <h4>{{ 'DECIMALS' | translate }}</h4>
+    <md-card>
+        <md-card-title>{{ 'NUMBERS' | translate }}</md-card-title>
+        <md-card-content>
+            <h3>{{ 'DECIMALS' | translate }}</h3>
             <p>{{ 'PI' | translate }}: {{ pi | localedecimal:'1.5-5' }}</p>
             <br>
-            <h4>{{ 'PERCENTAGES' | translate }}</h4>
+            <h3>{{ 'PERCENTAGES' | translate }}</h3>
             <p>{{ a | localepercent:'1.1-1' }} </p>
             <br>
-            <h4>{{ 'CURRENCIES' | translate }}</h4>
+            <h3>{{ 'CURRENCIES' | translate }}</h3>
             <p>{{ b | localecurrency:true:'1.2-2' }}</p>
-
-        </div>
-
-    </div>
+        </md-card-content>
+    </md-card>
 
 </div>

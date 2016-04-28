@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2localization/angular2localization'], function(exports_1, context_1) {
+System.register(['angular2/core', '@angular2-material/radio/radio', '@angular2-material/radio/radio_dispatcher', '@angular2-material/input', '@angular2-material/button', 'angular2localization/angular2localization'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,24 @@ System.register(['angular2/core', 'angular2localization/angular2localization'], 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, angular2localization_1, angular2localization_2;
+    var core_1, radio_1, radio_dispatcher_1, input_1, button_1, angular2localization_1, angular2localization_2;
     var I18nComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (radio_1_1) {
+                radio_1 = radio_1_1;
+            },
+            function (radio_dispatcher_1_1) {
+                radio_dispatcher_1 = radio_dispatcher_1_1;
+            },
+            function (input_1_1) {
+                input_1 = input_1_1;
+            },
+            function (button_1_1) {
+                button_1 = button_1_1;
             },
             function (angular2localization_1_1) {
                 angular2localization_1 = angular2localization_1_1;
@@ -27,7 +39,7 @@ System.register(['angular2/core', 'angular2localization/angular2localization'], 
                 function I18nComponent(localizationI18n) {
                     this.localizationI18n = localizationI18n;
                     this.message = "";
-                    this.gender = "female";
+                    this.gender = "";
                     this.inviteMapping = {
                         'male': 'INVITE_HIM',
                         'female': 'INVITE_HER'
@@ -38,8 +50,7 @@ System.register(['angular2/core', 'angular2localization/angular2localization'], 
                         '=1': 'ONE_MESSAGE',
                         'other': '# MESSAGES'
                     };
-                    // Required: initializes the translation provider with the given path prefix.
-                    this.localizationI18n.translationProvider('./resources/locale-i18n-');
+                    this.localizationI18n.translationProvider('./resources/locale-i18n-'); // Required: initializes the translation provider with the given path prefix.
                 }
                 I18nComponent.prototype.addMessage = function (message) {
                     this.messages.push(message);
@@ -48,8 +59,9 @@ System.register(['angular2/core', 'angular2localization/angular2localization'], 
                 I18nComponent = __decorate([
                     core_1.Component({
                         templateUrl: './app/i18n.component.html',
-                        providers: [angular2localization_1.LocalizationService, angular2localization_2.TranslatePipe],
-                        pipes: [angular2localization_2.TranslatePipe]
+                        providers: [angular2localization_1.LocalizationService, radio_dispatcher_1.MdRadioDispatcher],
+                        pipes: [angular2localization_2.TranslatePipe],
+                        directives: [radio_1.MdRadioButton, input_1.MD_INPUT_DIRECTIVES, button_1.MdButton]
                     }), 
                     __metadata('design:paramtypes', [angular2localization_1.LocalizationService])
                 ], I18nComponent);

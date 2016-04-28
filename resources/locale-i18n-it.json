@@ -1,4 +1,6 @@
 {
+    "GENDER": "Genere",
+    "PLURAL": "Numero",
     "FEMALE": "femmina",
     "MALE": "maschio",
     "INVITE_HER": "Invitala",

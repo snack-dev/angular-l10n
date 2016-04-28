@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    
+
     <!--sets the base href for GitHub Pages-->
     <base href="/angular2localization/">
     <!--sets the base href-->
@@ -15,41 +15,84 @@
     <meta name="description" content="An Angular 2 library to translate messages, dates and numbers">
     <meta name="author" content="Roberto Simonetti">
 
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!--frameworks-->
     <!--loads Angular 2 libraries-->
     <!--IE required polyfills, in this exact order-->
     <script src="dist/lib/es6-shim.min.js"></script>
     <script src="dist/lib/system-polyfills.js"></script>
 
-    <script src="dist/lib/angular2-polyfills.js"></script>
+    <script src="dist/lib/angular2-polyfills.min.js"></script>
     <script src="dist/lib/system.src.js"></script>
-    <script src="dist/lib/Rx.js"></script>
-    <script src="dist/lib/angular2.dev.js"></script>
-    <script src="dist/lib/http.dev.js"></script>
-    <script src="dist/lib/router.dev.js"></script>
+    <script src="dist/lib/Rx.min.js"></script>
+    <script src="dist/lib/angular2.min.js"></script>
+    <script src="dist/lib/http.min.js"></script>
+    <script src="dist/lib/router.min.js"></script>
 
     <!--loads angular2localization-->
-    <script src="dist/lib/angular2localization.js"></script>
+    <script src="dist/lib/angular2localization.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.6/hammer.min.js"></script>
 
     <!--configures SystemJS-->
     <script>
         System.config({
-            packages: {        
+            packages: {
                 app: {
                     format: 'register',
                     defaultExtension: 'js'
+                },
+                '@angular2-material/core': {
+                    format: 'cjs',
+                    defaultExtension: 'js',
+                    main: 'core.js'
+                },
+                '@angular2-material/sidenav': {
+                    format: 'cjs',
+                    defaultExtension: 'js',
+                    main: 'sidenav.js'
+                },
+                '@angular2-material/toolbar': {
+                    format: 'cjs',
+                    defaultExtension: 'js',
+                    main: 'toolbar.js'
+                },
+                '@angular2-material/card': {
+                    format: 'cjs',
+                    defaultExtension: 'js',
+                    main: 'card.js'
+                },
+                '@angular2-material/button': {
+                    format: 'cjs',
+                    defaultExtension: 'js',
+                    main: 'button.js'
+                },
+                '@angular2-material/radio': {
+                    format: 'cjs',
+                    defaultExtension: 'js',
+                    main: 'radio.js'
+                },
+                '@angular2-material/input': {
+                    format: 'cjs',
+                    defaultExtension: 'js',
+                    main: 'input.js'
+                },
+                '@angular2-material/list': {
+                    format: 'cjs',
+                    defaultExtension: 'js',
+                    main: 'list.js'
                 }
             }
-        });
+        }); 
         System.import('app/main')
                 .then(null, console.error.bind(console));
     </script>
 
     <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <!--custom styles-->
-    <link href="styles/sticky-footer-navbar.css" rel="stylesheet">
-    
+    <link href="styles/app.css" rel="stylesheet">
+
 </head>
 
 <!--displays the application-->
@@ -59,10 +102,8 @@
     <app-component></app-component>
 
     <!--scripts-->
-    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!--Internationalization API support-->
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en-US,Intl.~locale.en-GB,Intl.~locale.it-IT"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en-US,Intl.~locale.en-GB,Intl.~locale.it-IT,Intl.~locale.ar-SA"></script>
 
 </body>
 

@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2localization/angular2localization'], function(exports_1, context_1) {
+System.register(['angular2/core', '@angular2-material/card', 'angular2localization/angular2localization'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(['angular2/core', 'angular2localization/angular2localization'], 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, angular2localization_1, angular2localization_2, angular2localization_3;
+    var core_1, card_1, angular2localization_1, angular2localization_2, angular2localization_3;
     var HomeComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (card_1_1) {
+                card_1 = card_1_1;
             },
             function (angular2localization_1_1) {
                 angular2localization_1 = angular2localization_1_1;
@@ -33,7 +36,8 @@ System.register(['angular2/core', 'angular2localization/angular2localization'], 
                 HomeComponent = __decorate([
                     core_1.Component({
                         templateUrl: './app/home.component.html',
-                        pipes: [angular2localization_1.TranslatePipe, angular2localization_2.LocaleDatePipe, angular2localization_3.LocaleDecimalPipe, angular2localization_3.LocalePercentPipe, angular2localization_3.LocaleCurrencyPipe]
+                        pipes: [angular2localization_1.TranslatePipe, angular2localization_2.LocaleDatePipe, angular2localization_3.LocaleDecimalPipe, angular2localization_3.LocalePercentPipe, angular2localization_3.LocaleCurrencyPipe],
+                        directives: [card_1.MD_CARD_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], HomeComponent);

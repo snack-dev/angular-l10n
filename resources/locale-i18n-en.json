@@ -1,4 +1,6 @@
 {
+    "GENDER": "Gender",
+    "PLURAL": "Plural",
     "FEMALE": "female",
     "MALE": "male",
     "INVITE_HER": "Invite her",

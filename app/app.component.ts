@@ -1,7 +1,11 @@
 import {Component} from 'angular2/core';
 import {NgClass} from 'angular2/common';
-import {Location} from 'angular2/platform/common';
 import {RouteConfig, AsyncRoute, ROUTER_DIRECTIVES} from 'angular2/router';
+// Angular 2 Material.
+import {Dir} from '@angular2-material/core/rtl/dir';
+import {MD_SIDENAV_DIRECTIVES} from '@angular2-material/sidenav';
+import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
+import {MdToolbar} from '@angular2-material/toolbar';
 // Services.
 import {LocaleService, LocalizationService } from 'angular2localization/angular2localization';
 // Pipes.
@@ -10,9 +14,11 @@ import {TranslatePipe} from 'angular2localization/angular2localization';
 import {HomeComponent} from './home.component';
 import {I18nComponent} from './i18n.component';
 
+export type LayoutDirection = 'ltr' | 'rtl';
+
 @Component({
     selector: 'app-component',
-    directives: [ROUTER_DIRECTIVES, NgClass],
+    directives: [ROUTER_DIRECTIVES, NgClass, Dir, MD_SIDENAV_DIRECTIVES, MD_LIST_DIRECTIVES, MdToolbar],
     templateUrl: './app/app.component.html',
     providers: [LocaleService, LocalizationService], // Inherited by all descendants.
     pipes: [TranslatePipe] // Add in each component to invoke the transform method.
@@ -25,11 +31,14 @@ import {I18nComponent} from './i18n.component';
 
 export class AppComponent {
 
-    constructor(public locale: LocaleService, public localization: LocalizationService, public location: Location) {
-                   
+    dir: LayoutDirection;
+
+    constructor(public locale: LocaleService, public localization: LocalizationService) {
+
         // Adds a new language (ISO 639 two-letter code).
         this.locale.addLanguage('en');
         this.locale.addLanguage('it');
+        this.locale.addLanguage('ar');
         // Add a new language here.
 
         // Required: default language, country (ISO 3166 two-letter, uppercase code) and expiry (No days). If the expiry is omitted, the cookie becomes a session cookie.
@@ -40,6 +49,17 @@ export class AppComponent {
 
         // Initializes LocalizationService: asynchronous loading.
         this.localization.translationProvider('./resources/locale-'); // Required: initializes the translation provider with the given path prefix.
+
+        // Initializes direction.
+        if (this.locale.getCurrentLanguage() == "ar") {
+
+            this.dir = 'rtl';
+
+        } else {
+
+            this.dir = 'ltr';
+
+        }
 
     }
 

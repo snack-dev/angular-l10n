@@ -1,4 +1,9 @@
 import {Component} from 'angular2/core';
+// Angular 2 Material.
+import {MdRadioButton} from '@angular2-material/radio/radio';
+import {MdRadioDispatcher} from '@angular2-material/radio/radio_dispatcher';
+import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
+import {MdButton} from '@angular2-material/button';
 // Services.
 import {LocalizationService} from 'angular2localization/angular2localization';
 // Pipes.
@@ -6,15 +11,16 @@ import {TranslatePipe} from 'angular2localization/angular2localization';
 
 @Component({
     templateUrl: './app/i18n.component.html',
-    providers: [LocalizationService, TranslatePipe],
-    pipes: [TranslatePipe]
+    providers: [LocalizationService, MdRadioDispatcher],
+    pipes: [TranslatePipe],
+    directives: [MdRadioButton, MD_INPUT_DIRECTIVES, MdButton]
 })
 
 export class I18nComponent {
 
     message: string = "";
 
-    gender: string = "female";
+    gender: string = "";
     inviteMapping: any = {
         'male': 'INVITE_HIM',
         'female': 'INVITE_HER'
@@ -29,9 +35,8 @@ export class I18nComponent {
 
     // Instantiates a new LocalizationService for this component and for its descendants.
     constructor(public localizationI18n: LocalizationService) {
-            
-        // Required: initializes the translation provider with the given path prefix.
-        this.localizationI18n.translationProvider('./resources/locale-i18n-');
+
+        this.localizationI18n.translationProvider('./resources/locale-i18n-'); // Required: initializes the translation provider with the given path prefix.
 
     }
 
