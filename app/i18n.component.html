@@ -3,8 +3,8 @@
     <md-card>
         <md-card-title>{{ 'GENDER' | translate }}</md-card-title>
         <md-card-content>
-            <md-radio-button name="gender" #female value="female" (click)="gender = female.value">{{ 'FEMALE' | translate }}</md-radio-button>
-            <md-radio-button name="gender" #male value="male" (click)="gender = male.value">{{ 'MALE' | translate }}</md-radio-button>
+            <md-radio-button name="gender" ref-female value="female" (click)="gender = female.value">{{ 'FEMALE' | translate }}</md-radio-button>
+            <md-radio-button name="gender" ref-male value="male" (click)="gender = male.value">{{ 'MALE' | translate }}</md-radio-button>
             <br>
             <br>
             <p *ngIf="gender != ''">{{ gender | i18nSelect: inviteMapping | translate }}.</p>
@@ -16,7 +16,7 @@
         <md-card-content>
             <form (ngSubmit)="addMessage(message)">
                 <md-input [(ngModel)]="message" style="width: 100%" placeholder="{{ 'ADD_MESSAGE' | translate }}" required></md-input>
-                <button md-raised-button>{{ 'ADD' | translate }}</button>
+                <button md-raised-button color="primary">{{ 'ADD' | translate }}</button>
                 <br>
                 <br>
                 <p>{{ messages.length | i18nPlural: messageMapping | translate}}.</p>
