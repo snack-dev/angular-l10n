@@ -1,4 +1,4 @@
-System.register(['angular2/core', '@angular2-material/radio/radio', '@angular2-material/radio/radio_dispatcher', '@angular2-material/input', '@angular2-material/button', 'angular2localization/angular2localization'], function(exports_1, context_1) {
+System.register(['angular2/core', '@angular2-material/card', '@angular2-material/radio/radio', '@angular2-material/radio/radio_dispatcher', '@angular2-material/input', '@angular2-material/button', 'angular2localization/angular2localization'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(['angular2/core', '@angular2-material/radio/radio', '@angular2-m
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, radio_1, radio_dispatcher_1, input_1, button_1, angular2localization_1, angular2localization_2;
+    var core_1, card_1, radio_1, radio_dispatcher_1, input_1, button_1, angular2localization_1, angular2localization_2;
     var I18nComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (card_1_1) {
+                card_1 = card_1_1;
             },
             function (radio_1_1) {
                 radio_1 = radio_1_1;
@@ -61,7 +64,7 @@ System.register(['angular2/core', '@angular2-material/radio/radio', '@angular2-m
                         templateUrl: './app/i18n.component.html',
                         providers: [angular2localization_1.LocalizationService, radio_dispatcher_1.MdRadioDispatcher],
                         pipes: [angular2localization_2.TranslatePipe],
-                        directives: [radio_1.MdRadioButton, input_1.MD_INPUT_DIRECTIVES, button_1.MdButton]
+                        directives: [card_1.MD_CARD_DIRECTIVES, radio_1.MdRadioButton, input_1.MD_INPUT_DIRECTIVES, button_1.MdButton]
                     }), 
                     __metadata('design:paramtypes', [angular2localization_1.LocalizationService])
                 ], I18nComponent);

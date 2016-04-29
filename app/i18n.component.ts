@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
 // Angular 2 Material.
+import {MD_CARD_DIRECTIVES} from '@angular2-material/card';
 import {MdRadioButton} from '@angular2-material/radio/radio';
 import {MdRadioDispatcher} from '@angular2-material/radio/radio_dispatcher';
 import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
@@ -13,7 +14,7 @@ import {TranslatePipe} from 'angular2localization/angular2localization';
     templateUrl: './app/i18n.component.html',
     providers: [LocalizationService, MdRadioDispatcher],
     pipes: [TranslatePipe],
-    directives: [MdRadioButton, MD_INPUT_DIRECTIVES, MdButton]
+    directives: [MD_CARD_DIRECTIVES, MdRadioButton, MD_INPUT_DIRECTIVES, MdButton]
 })
 
 export class I18nComponent {
