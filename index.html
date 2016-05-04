@@ -30,8 +30,7 @@
     <!--configures SystemJS-->
     <script src="systemjs.config.js"></script>
     <script>
-        System.import('app')
-                .then(null, console.error.bind(console));
+        System.import('app').catch(function(err){ console.error(err); });
     </script>
 
     <!--CSS-->
@@ -43,7 +42,7 @@
 
 <body>
 
-    <app-component></app-component>
+    <app-component>Loading...</app-component>
 
     <!--scripts-->
     <!--Internationalization API support-->
