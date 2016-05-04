@@ -1,6 +1,6 @@
-import {Component} from 'angular2/core';
-import {NgClass} from 'angular2/common';
-import {RouteConfig, AsyncRoute, ROUTER_DIRECTIVES} from 'angular2/router';
+import {Component} from '@angular/core';
+import {NgClass} from '@angular/common';
+import {RouteConfig, AsyncRoute, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 // Angular 2 Material.
 import {Dir} from '@angular2-material/core/rtl/dir';
 import {MD_SIDENAV_DIRECTIVES} from '@angular2-material/sidenav';
