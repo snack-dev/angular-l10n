@@ -1,17 +1,13 @@
 <md-sidenav-layout>
 
   <md-sidenav ref-start mode="over">
-    
+
     <md-nav-list>
       <h3>{{ 'MENU' | translate }}</h3>
-      <md-list-item>
-        <a [routerLink]="['Home']">{{ 'HOME' | translate }}</a>
-      </md-list-item>
-      <md-list-item>
-        <a [routerLink]="['I18n']">{{ 'I18N' | translate }}</a>
-      </md-list-item>
+      <a md-list-item [routerLink]="['/home']">{{ 'HOME' | translate }}</a>
+      <a md-list-item [routerLink]="['/i18n']">{{ 'I18N' | translate }}</a>
     </md-nav-list>
-    
+
     <md-nav-list>
       <h3>{{ 'CHANGE_COUNTRY' | translate }}</h3>
       <md-list-item>
@@ -31,7 +27,7 @@
         <i class="material-icons" *ngIf="currentCountry == 'SA'">done</i>
       </md-list-item>
     </md-nav-list>
-        
+
     <md-nav-list>
       <h3>{{ 'RESOURCES' | translate }}</h3>
       <a md-list-item href="https://github.com/robisim74/angular2localization/tree/gh-pages">{{ 'SOURCE_CODE' | translate }}</a>

@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/common', '@angular/router-deprecated', '@angular2-material/core/rtl/dir', '@angular2-material/sidenav', '@angular2-material/list', '@angular2-material/toolbar', 'angular2localization/angular2localization', './home.component', './i18n.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/common', '@angular/router', '@angular2-material/core/rtl/dir', '@angular2-material/sidenav', '@angular2-material/list', '@angular2-material/toolbar', 'angular2localization/angular2localization', './home.component', './i18n.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, router_deprecated_1, dir_1, sidenav_1, list_1, toolbar_1, angular2localization_1, angular2localization_2, home_component_1, i18n_component_1;
+    var core_1, common_1, router_1, dir_1, sidenav_1, list_1, toolbar_1, angular2localization_1, angular2localization_2, home_component_1, i18n_component_1;
     var AppComponent;
     return {
         setters:[
@@ -20,8 +20,8 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
             function (common_1_1) {
                 common_1 = common_1_1;
             },
-            function (router_deprecated_1_1) {
-                router_deprecated_1 = router_deprecated_1_1;
+            function (router_1_1) {
+                router_1 = router_1_1;
             },
             function (dir_1_1) {
                 dir_1 = dir_1_1;
@@ -47,7 +47,8 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
             }],
         execute: function() {
             AppComponent = (function () {
-                function AppComponent(locale, localization) {
+                function AppComponent(router, locale, localization) {
+                    this.router = router;
                     this.locale = locale;
                     this.localization = localization;
                     // Adds a new language (ISO 639 two-letter code).
@@ -69,6 +70,9 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                         this.dir = 'ltr';
                     }
                 }
+                AppComponent.prototype.ngOnInit = function () {
+                    this.router.navigate(['/home']);
+                };
                 Object.defineProperty(AppComponent.prototype, "currentCountry", {
                     // Gets the current country.
                     get: function () {
@@ -85,16 +89,16 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'app-component',
-                        directives: [router_deprecated_1.ROUTER_DIRECTIVES, common_1.NgClass, dir_1.Dir, sidenav_1.MD_SIDENAV_DIRECTIVES, list_1.MD_LIST_DIRECTIVES, toolbar_1.MdToolbar],
+                        directives: [router_1.ROUTER_DIRECTIVES, common_1.NgClass, dir_1.Dir, sidenav_1.MD_SIDENAV_DIRECTIVES, list_1.MD_LIST_DIRECTIVES, toolbar_1.MdToolbar],
                         templateUrl: './app/app.component.html',
                         providers: [angular2localization_1.LocaleService, angular2localization_1.LocalizationService],
                         pipes: [angular2localization_2.TranslatePipe] // Add in each component to invoke the transform method.
                     }),
-                    router_deprecated_1.RouteConfig([
-                        new router_deprecated_1.AsyncRoute({ path: '/', loader: function () { return Promise.resolve(home_component_1.HomeComponent); }, name: 'Home', useAsDefault: true }),
-                        new router_deprecated_1.AsyncRoute({ path: '/i18n', loader: function () { return Promise.resolve(i18n_component_1.I18nComponent); }, name: 'I18n' })
+                    router_1.Routes([
+                        { path: '/home', component: home_component_1.HomeComponent },
+                        { path: '/i18n', component: i18n_component_1.I18nComponent }
                     ]), 
-                    __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
+                    __metadata('design:paramtypes', [router_1.Router, angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
                 ], AppComponent);
                 return AppComponent;
             }());

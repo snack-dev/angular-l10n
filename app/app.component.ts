@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgClass} from '@angular/common';
-import {RouteConfig, AsyncRoute, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+import {Routes, Router, ROUTER_DIRECTIVES} from '@angular/router';
 // Angular 2 Material.
 import {Dir} from '@angular2-material/core/rtl/dir';
 import {MD_SIDENAV_DIRECTIVES} from '@angular2-material/sidenav';
@@ -24,16 +24,16 @@ export type LayoutDirection = 'ltr' | 'rtl';
     pipes: [TranslatePipe] // Add in each component to invoke the transform method.
 })
 
-@RouteConfig([
-    new AsyncRoute({ path: '/', loader: () => Promise.resolve(HomeComponent), name: 'Home', useAsDefault: true }),
-    new AsyncRoute({ path: '/i18n', loader: () => Promise.resolve(I18nComponent), name: 'I18n' })
+@Routes([
+    { path: '/home', component: HomeComponent },
+    { path: '/i18n', component: I18nComponent }
 ])
 
 export class AppComponent {
 
     dir: LayoutDirection;
 
-    constructor(public locale: LocaleService, public localization: LocalizationService) {
+    constructor(private router: Router, public locale: LocaleService, public localization: LocalizationService) {
 
         // Adds a new language (ISO 639 two-letter code).
         this.locale.addLanguage('en');
@@ -60,6 +60,12 @@ export class AppComponent {
             this.dir = 'ltr';
 
         }
+
+    }
+
+    ngOnInit() {
+
+        this.router.navigate(['/home']);
 
     }
 
