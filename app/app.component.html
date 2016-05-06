@@ -6,6 +6,7 @@
       <h3>{{ 'MENU' | translate }}</h3>
       <a md-list-item [routerLink]="['/home']">{{ 'HOME' | translate }}</a>
       <a md-list-item [routerLink]="['/i18n']">{{ 'I18N' | translate }}</a>
+      <a md-list-item [routerLink]="['/list']">{{ 'LIST' | translate }}</a>
     </md-nav-list>
 
     <md-nav-list>
@@ -42,6 +43,9 @@
       <div class="app-toolbar">
         <h1>{{ 'TITLE' | translate }}</h1>
       </div>
+      <md-toolbar-row>
+        <p>{{ 'SUBTITLE' | translate }}</p>
+      </md-toolbar-row>
     </md-toolbar>
 
     <div ref-root="$implicit" [dir]="dir" class="app-content">

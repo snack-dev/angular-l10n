@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {NgClass} from '@angular/common';
 import {Routes, Router, ROUTER_DIRECTIVES} from '@angular/router';
 // Angular 2 Material.
 import {Dir} from '@angular2-material/core/rtl/dir';
@@ -13,12 +12,13 @@ import {TranslatePipe} from 'angular2localization/angular2localization';
 // Components.
 import {HomeComponent} from './home.component';
 import {I18nComponent} from './i18n.component';
+import {ListComponent} from './list.component';
 
 export type LayoutDirection = 'ltr' | 'rtl';
 
 @Component({
     selector: 'app-component',
-    directives: [ROUTER_DIRECTIVES, NgClass, Dir, MD_SIDENAV_DIRECTIVES, MD_LIST_DIRECTIVES, MdToolbar],
+    directives: [ROUTER_DIRECTIVES, Dir, MD_SIDENAV_DIRECTIVES, MD_LIST_DIRECTIVES, MdToolbar],
     templateUrl: './app/app.component.html',
     providers: [LocaleService, LocalizationService], // Inherited by all descendants.
     pipes: [TranslatePipe] // Add in each component to invoke the transform method.
@@ -26,7 +26,8 @@ export type LayoutDirection = 'ltr' | 'rtl';
 
 @Routes([
     { path: '/home', component: HomeComponent },
-    { path: '/i18n', component: I18nComponent }
+    { path: '/i18n', component: I18nComponent },
+    { path: '/list', component: ListComponent }
 ])
 
 export class AppComponent {
