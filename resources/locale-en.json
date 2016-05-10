@@ -17,5 +17,20 @@
     "DECIMALS": "Decimals",
     "PI": "Pi",
     "PERCENTAGES": "Percentages",
-    "CURRENCIES": "Currencies"
+    "CURRENCIES": "Currencies",
+    "GENDER": "Gender",
+    "PLURAL": "Plural",
+    "female": "female",
+    "male": "male",
+    "Invite_her": "Invite her",
+    "Invite_him": "Invite him",
+    "ADD_MESSAGE": "Add a new message",
+    "ADD": "Add",
+    "No_messages": "No messages",
+    "One_message": "One message",
+    "messages": "messages",
+    "System Architect": "System Architect",
+    "Accountant": "Accountant",
+    "Junior Technical Author": "Junior Technical Author",
+    "Senior Javascript Developer": "Senior Javascript Developer"
 }

@@ -1,6 +1,11 @@
 System.register(['@angular/core', '@angular2-material/card', 'angular2localization/angular2localization'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
+    var __extends = (this && this.__extends) || function (d, b) {
+        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,7 +15,7 @@ System.register(['@angular/core', '@angular2-material/card', 'angular2localizati
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, card_1, angular2localization_1, angular2localization_2, angular2localization_3;
+    var core_1, card_1, angular2localization_1, angular2localization_2, angular2localization_3, angular2localization_4;
     var HomeComponent;
     return {
         setters:[
@@ -24,10 +29,15 @@ System.register(['@angular/core', '@angular2-material/card', 'angular2localizati
                 angular2localization_1 = angular2localization_1_1;
                 angular2localization_2 = angular2localization_1_1;
                 angular2localization_3 = angular2localization_1_1;
+                angular2localization_4 = angular2localization_1_1;
             }],
         execute: function() {
-            HomeComponent = (function () {
-                function HomeComponent() {
+            HomeComponent = (function (_super) {
+                __extends(HomeComponent, _super);
+                function HomeComponent(locale, localization) {
+                    _super.call(this, locale, localization);
+                    this.locale = locale;
+                    this.localization = localization;
                     this.today = Date.now();
                     this.pi = 3.14159;
                     this.a = Math.random();
@@ -36,13 +46,13 @@ System.register(['@angular/core', '@angular2-material/card', 'angular2localizati
                 HomeComponent = __decorate([
                     core_1.Component({
                         templateUrl: './app/home.component.html',
-                        pipes: [angular2localization_1.TranslatePipe, angular2localization_2.LocaleDatePipe, angular2localization_3.LocaleDecimalPipe, angular2localization_3.LocalePercentPipe, angular2localization_3.LocaleCurrencyPipe],
+                        pipes: [angular2localization_2.TranslatePipe, angular2localization_3.LocaleDatePipe, angular2localization_4.LocaleDecimalPipe, angular2localization_4.LocalePercentPipe, angular2localization_4.LocaleCurrencyPipe],
                         directives: [card_1.MD_CARD_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
                 ], HomeComponent);
                 return HomeComponent;
-            }());
+            }(angular2localization_1.Locale));
             exports_1("HomeComponent", HomeComponent);
         }
     }

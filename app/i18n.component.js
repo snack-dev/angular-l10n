@@ -1,6 +1,11 @@
 System.register(['@angular/core', '@angular2-material/card', '@angular2-material/radio/radio', '@angular2-material/radio/radio_dispatcher', '@angular2-material/input', '@angular2-material/button', 'angular2localization/angular2localization'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
+    var __extends = (this && this.__extends) || function (d, b) {
+        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -37,23 +42,23 @@ System.register(['@angular/core', '@angular2-material/card', '@angular2-material
                 angular2localization_2 = angular2localization_1_1;
             }],
         execute: function() {
-            I18nComponent = (function () {
-                // Instantiates a new LocalizationService for this component and for its descendants.
-                function I18nComponent(localizationI18n) {
-                    this.localizationI18n = localizationI18n;
+            I18nComponent = (function (_super) {
+                __extends(I18nComponent, _super);
+                function I18nComponent(localization) {
+                    _super.call(this, null, localization);
+                    this.localization = localization;
                     this.message = "";
                     this.gender = "";
                     this.inviteMapping = {
-                        'male': 'INVITE_HIM',
-                        'female': 'INVITE_HER'
+                        'male': 'Invite_him',
+                        'female': 'Invite_her'
                     };
                     this.messages = [];
                     this.messageMapping = {
-                        '=0': 'NO_MESSAGES',
-                        '=1': 'ONE_MESSAGE',
-                        'other': '# MESSAGES'
+                        '=0': 'No_messages',
+                        '=1': 'One_message',
+                        'other': '# messages'
                     };
-                    this.localizationI18n.translationProvider('./resources/locale-i18n-'); // Required: initializes the translation provider with the given path prefix.
                 }
                 I18nComponent.prototype.addMessage = function (message) {
                     this.messages.push(message);
@@ -62,14 +67,14 @@ System.register(['@angular/core', '@angular2-material/card', '@angular2-material
                 I18nComponent = __decorate([
                     core_1.Component({
                         templateUrl: './app/i18n.component.html',
-                        providers: [angular2localization_1.LocalizationService, radio_dispatcher_1.MdRadioDispatcher],
+                        providers: [radio_dispatcher_1.MdRadioDispatcher],
                         pipes: [angular2localization_2.TranslatePipe],
                         directives: [card_1.MD_CARD_DIRECTIVES, radio_1.MdRadioButton, input_1.MD_INPUT_DIRECTIVES, button_1.MdButton]
                     }), 
                     __metadata('design:paramtypes', [angular2localization_1.LocalizationService])
                 ], I18nComponent);
                 return I18nComponent;
-            }());
+            }(angular2localization_1.Locale));
             exports_1("I18nComponent", I18nComponent);
         }
     }

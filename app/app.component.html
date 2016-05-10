@@ -3,14 +3,14 @@
   <md-sidenav ref-start mode="over">
 
     <md-nav-list>
-      <h3>{{ 'MENU' | translate }}</h3>
-      <a md-list-item [routerLink]="['/home']">{{ 'HOME' | translate }}</a>
-      <a md-list-item [routerLink]="['/i18n']">{{ 'I18N' | translate }}</a>
-      <a md-list-item [routerLink]="['/list']">{{ 'LIST' | translate }}</a>
+      <h3>{{ 'MENU' | translate:lang }}</h3>
+        <a md-list-item [routerLink]="['/home']">{{ 'HOME' | translate:lang }}</a>
+        <a md-list-item [routerLink]="['/i18n']">{{ 'I18N' | translate:lang }}</a>
+        <a md-list-item [routerLink]="['/list']">{{ 'LIST' | translate:lang }}</a>
     </md-nav-list>
 
     <md-nav-list>
-      <h3>{{ 'CHANGE_COUNTRY' | translate }}</h3>
+      <h3>{{ 'CHANGE_COUNTRY' | translate:lang }}</h3>
       <md-list-item>
         <a md-line (click)="selectLocale('en', 'US', 'USD'); root.dir = 'ltr'">United States</a>
         <i class="material-icons" *ngIf="currentCountry == 'US'">done</i>
@@ -30,8 +30,8 @@
     </md-nav-list>
 
     <md-nav-list>
-      <h3>{{ 'RESOURCES' | translate }}</h3>
-      <a md-list-item href="https://github.com/robisim74/angular2localization/tree/gh-pages">{{ 'SOURCE_CODE' | translate }}</a>
+      <h3>{{ 'RESOURCES' | translate:lang }}</h3>
+      <a md-list-item href="https://github.com/robisim74/angular2localization/tree/gh-pages">{{ 'SOURCE_CODE' | translate:lang }}</a>
     </md-nav-list>
 
   </md-sidenav>
@@ -41,10 +41,10 @@
     <md-toolbar color="warn">
       <i class="material-icons" (click)="start.open()">menu</i>
       <div class="app-toolbar">
-        <h1>{{ 'TITLE' | translate }}</h1>
+        <h1>{{ 'TITLE' | translate:lang }}</h1>
       </div>
       <md-toolbar-row>
-        <p>{{ 'SUBTITLE' | translate }}</p>
+        <p>{{ 'SUBTITLE' | translate:lang }}</p>
       </md-toolbar-row>
     </md-toolbar>
 

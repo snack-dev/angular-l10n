@@ -1,6 +1,11 @@
 System.register(['@angular/core', '@angular/router', '@angular2-material/core/rtl/dir', '@angular2-material/sidenav', '@angular2-material/list', '@angular2-material/toolbar', 'angular2localization/angular2localization', './home.component', './i18n.component', './list.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
+    var __extends = (this && this.__extends) || function (d, b) {
+        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -46,8 +51,10 @@ System.register(['@angular/core', '@angular/router', '@angular2-material/core/rt
                 list_component_1 = list_component_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
+            AppComponent = (function (_super) {
+                __extends(AppComponent, _super);
                 function AppComponent(router, locale, localization) {
+                    _super.call(this, null, localization);
                     this.router = router;
                     this.locale = locale;
                     this.localization = localization;
@@ -62,6 +69,7 @@ System.register(['@angular/core', '@angular/router', '@angular2-material/core/rt
                     this.locale.definePreferredCurrency('USD');
                     // Initializes LocalizationService: asynchronous loading.
                     this.localization.translationProvider('./resources/locale-'); // Required: initializes the translation provider with the given path prefix.
+                    this.localization.updateTranslation(); // Need to update the translation.
                     // Initializes direction.
                     if (this.locale.getCurrentLanguage() == "ar") {
                         this.dir = 'rtl';
@@ -84,7 +92,8 @@ System.register(['@angular/core', '@angular/router', '@angular2-material/core/rt
                 // Sets a new locale & currency.
                 AppComponent.prototype.selectLocale = function (language, country, currency) {
                     this.locale.setCurrentLocale(language, country);
-                    this.locale.setCurrentcurrency(currency);
+                    this.localization.updateTranslation(); // Need to update the translation.
+                    this.locale.setCurrentCurrency(currency);
                 };
                 AppComponent = __decorate([
                     core_1.Component({
@@ -92,7 +101,7 @@ System.register(['@angular/core', '@angular/router', '@angular2-material/core/rt
                         directives: [router_1.ROUTER_DIRECTIVES, dir_1.Dir, sidenav_1.MD_SIDENAV_DIRECTIVES, list_1.MD_LIST_DIRECTIVES, toolbar_1.MdToolbar],
                         templateUrl: './app/app.component.html',
                         providers: [angular2localization_1.LocaleService, angular2localization_1.LocalizationService],
-                        pipes: [angular2localization_2.TranslatePipe] // Add in each component to invoke the transform method.
+                        pipes: [angular2localization_2.TranslatePipe]
                     }),
                     router_1.Routes([
                         { path: '/home', component: home_component_1.HomeComponent },
@@ -102,7 +111,7 @@ System.register(['@angular/core', '@angular/router', '@angular2-material/core/rt
                     __metadata('design:paramtypes', [router_1.Router, angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
                 ], AppComponent);
                 return AppComponent;
-            }());
+            }(angular2localization_1.Locale));
             exports_1("AppComponent", AppComponent);
         }
     }

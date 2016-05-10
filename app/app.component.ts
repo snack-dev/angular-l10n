@@ -6,7 +6,7 @@ import {MD_SIDENAV_DIRECTIVES} from '@angular2-material/sidenav';
 import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
 import {MdToolbar} from '@angular2-material/toolbar';
 // Services.
-import {LocaleService, LocalizationService } from 'angular2localization/angular2localization';
+import {Locale, LocaleService, LocalizationService} from 'angular2localization/angular2localization';
 // Pipes.
 import {TranslatePipe} from 'angular2localization/angular2localization';
 // Components.
@@ -21,7 +21,7 @@ export type LayoutDirection = 'ltr' | 'rtl';
     directives: [ROUTER_DIRECTIVES, Dir, MD_SIDENAV_DIRECTIVES, MD_LIST_DIRECTIVES, MdToolbar],
     templateUrl: './app/app.component.html',
     providers: [LocaleService, LocalizationService], // Inherited by all descendants.
-    pipes: [TranslatePipe] // Add in each component to invoke the transform method.
+    pipes: [TranslatePipe]
 })
 
 @Routes([
@@ -30,11 +30,12 @@ export type LayoutDirection = 'ltr' | 'rtl';
     { path: '/list', component: ListComponent }
 ])
 
-export class AppComponent {
+export class AppComponent extends Locale {
 
     dir: LayoutDirection;
 
     constructor(private router: Router, public locale: LocaleService, public localization: LocalizationService) {
+        super(null, localization);
 
         // Adds a new language (ISO 639 two-letter code).
         this.locale.addLanguage('en');
@@ -50,6 +51,7 @@ export class AppComponent {
 
         // Initializes LocalizationService: asynchronous loading.
         this.localization.translationProvider('./resources/locale-'); // Required: initializes the translation provider with the given path prefix.
+        this.localization.updateTranslation(); // Need to update the translation.
 
         // Initializes direction.
         if (this.locale.getCurrentLanguage() == "ar") {
@@ -81,7 +83,9 @@ export class AppComponent {
     selectLocale(language: string, country: string, currency: string) {
 
         this.locale.setCurrentLocale(language, country);
-        this.locale.setCurrentcurrency(currency);
+        this.localization.updateTranslation(); // Need to update the translation.
+
+        this.locale.setCurrentCurrency(currency);
 
     }
 

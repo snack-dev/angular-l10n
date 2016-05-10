@@ -6,39 +6,36 @@ import {MdRadioDispatcher} from '@angular2-material/radio/radio_dispatcher';
 import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
 import {MdButton} from '@angular2-material/button';
 // Services.
-import {LocalizationService} from 'angular2localization/angular2localization';
+import {Locale, LocalizationService} from 'angular2localization/angular2localization';
 // Pipes.
 import {TranslatePipe} from 'angular2localization/angular2localization';
 
 @Component({
     templateUrl: './app/i18n.component.html',
-    providers: [LocalizationService, MdRadioDispatcher],
+    providers: [MdRadioDispatcher],
     pipes: [TranslatePipe],
     directives: [MD_CARD_DIRECTIVES, MdRadioButton, MD_INPUT_DIRECTIVES, MdButton]
 })
 
-export class I18nComponent {
+export class I18nComponent extends Locale {
 
     message: string = "";
 
     gender: string = "";
     inviteMapping: any = {
-        'male': 'INVITE_HIM',
-        'female': 'INVITE_HER'
+        'male': 'Invite_him',
+        'female': 'Invite_her'
     }
 
     messages: any = [];
     messageMapping: any = {
-        '=0': 'NO_MESSAGES',
-        '=1': 'ONE_MESSAGE',
-        'other': '# MESSAGES'
+        '=0': 'No_messages',
+        '=1': 'One_message',
+        'other': '# messages'
     }
 
-    // Instantiates a new LocalizationService for this component and for its descendants.
-    constructor(public localizationI18n: LocalizationService) {
-
-        this.localizationI18n.translationProvider('./resources/locale-i18n-'); // Required: initializes the translation provider with the given path prefix.
-
+    constructor(public localization: LocalizationService) {
+        super(null, localization);
     }
 
     addMessage(message: string) {

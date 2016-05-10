@@ -1,57 +1,16 @@
 <div class="app-card-container">
 
-    <!--Array of Data objects-->
-    <md-card *ngFor="let item of DATA | translatearray: {'name': '', 
-                                                         'position': {
-                                                            'pipe': 'translate'
-                                                            }, 
-                                                         'salary': {
-                                                            'pipe': 'localecurrency', 
-                                                            'symbolDisplay': true, 
-                                                            'digitInfo': '1.0-0'
-                                                            },
-                                                         'startDate': {
-                                                            'pipe': 'localedate', 
-                                                            'format': 'mediumDate'
-                                                            }
-                                                        }">
+    <md-card *ngFor="let item of DATA">
         <md-card-title>{{ item.name }}</md-card-title>
         <md-card-content>
             <md-list>
                 <md-list-item>
-                    <h3 md-line>{{ item.position }}</h3>
-                    <p md-line>{{ item.salary }}</p>
-                    <p md-line>{{ item.startDate }}</p>
+                    <h3 md-line>{{ item.position | translate:lang }}</h3>
+                    <p md-line>{{ item.salary | localecurrency:defaultLocale:currency:true:'1.0-0' }}</p>
+                    <p md-line>{{ item.startDate | localedate:defaultLocale:'mediumDate' }}</p>
                 </md-list-item>
             </md-list>
         </md-card-content>
     </md-card>
-
-    <!--Array of arrays-->
-    <!--<md-card *ngFor="let item of DATA | translatearray: {'0': '', 
-                                                         '1': {
-                                                            'pipe': 'translate'
-                                                            }, 
-                                                         '2': {
-                                                            'pipe': 'localecurrency', 
-                                                            'symbolDisplay': true, 
-                                                            'digitInfo': '1.0-0'
-                                                            },
-                                                         '3': {
-                                                            'pipe': 'localedate', 
-                                                            'format': 'mediumDate'
-                                                            }
-                                                        }">
-        <md-card-title>{{ item['0'] }}</md-card-title>
-        <md-card-content>
-            <md-list>
-                <md-list-item>
-                    <h3 md-line>{{ item['1'] }}</h3>
-                    <p md-line>{{ item['2'] }}</p>
-                    <p md-line>{{ item['3'] }}</p>
-                </md-list-item>
-            </md-list>
-        </md-card-content>
-    </md-card>-->
 
 </div>
