@@ -19,9 +19,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!--frameworks-->
-    <!--loads Angular 2 libraries-->
-    <!--Polyfill(s) for older browsers-->
+    <!--Polyfills for older browsers-->
     <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <!--Internationalization API support-->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en-US,Intl.~locale.en-GB,Intl.~locale.it-IT,Intl.~locale.ar-SA"></script>
 
     <script src="node_modules/zone.js/dist/zone.js"></script>
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
@@ -43,10 +44,6 @@
 <body>
 
     <app-component>Loading...</app-component>
-
-    <!--scripts-->
-    <!--Internationalization API support-->
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en-US,Intl.~locale.en-GB,Intl.~locale.it-IT,Intl.~locale.ar-SA"></script>
 
 </body>
 
