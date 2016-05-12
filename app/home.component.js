@@ -40,8 +40,11 @@ System.register(['@angular/core', '@angular2-material/card', 'angular2localizati
                     this.localization = localization;
                     this.today = Date.now();
                     this.pi = 3.14159;
-                    this.a = Math.random();
-                    this.b = Math.random() * 1000;
+                    this.a = Math.round(Math.random() * 100) / 100;
+                    this.b = Math.round(Math.random() * 1000000) / 100;
+                    this.intlSupport = angular2localization_1.IntlSupport.DateTimeFormat(this.locale.getDefaultLocale())
+                        && angular2localization_1.IntlSupport.NumberFormat(this.locale.getDefaultLocale())
+                        && angular2localization_1.IntlSupport.Collator(this.localization.languageCode);
                 }
                 HomeComponent = __decorate([
                     core_1.Component({

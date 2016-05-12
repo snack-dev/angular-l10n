@@ -16,7 +16,7 @@
         <md-card-content>
             <form (ngSubmit)="addMessage(message)">
                 <md-input [(ngModel)]="message" style="width: 100%" placeholder="{{ 'ADD_MESSAGE' | translate:lang }}" required></md-input>
-                <button md-raised-button color="warn">{{ 'ADD' | translate:lang }}</button>
+                <button type="submit" md-raised-button color="primary">{{ 'ADD' | translate:lang }}</button>
                 <br>
                 <br>
                 <p>{{ messages.length | i18nPlural:messageMapping | translate:lang}}.</p>

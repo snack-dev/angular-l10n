@@ -30,7 +30,7 @@ export type LayoutDirection = 'ltr' | 'rtl';
     { path: '/list', component: ListComponent }
 ])
 
-export class AppComponent extends Locale {
+export class AppComponent extends Locale implements OnInit {
 
     dir: LayoutDirection;
 

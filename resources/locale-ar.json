@@ -32,5 +32,9 @@
     "System Architect": "مهندس النظام",
     "Accountant": "محاسب",
     "Junior Technical Author": "جونيور الفني المؤلف",
-    "Senior Javascript Developer": "كبار جافا سكريبت المطور"
+    "Senior Javascript Developer": "كبار جافا سكريبت المطور",
+    "ORDER_BY_POSITION": "الترتيب حسب وضع",
+    "ORDER_BY_DESC_POSITION": "التصنيف تنازليا حسب وضع",
+    "SEARCH_BY_POSITION": "البحث عن طريق وضع",
+    "INTL_SUPPORT": "المتصفح لا يدعم جميع ميزات هذا التطبيق. يرجى النظر في استخدام متصفح آخر."
 }
