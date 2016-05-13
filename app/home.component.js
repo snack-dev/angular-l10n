@@ -44,7 +44,7 @@ System.register(['@angular/core', '@angular2-material/card', 'angular2localizati
                     this.b = Math.round(Math.random() * 1000000) / 100;
                     this.intlSupport = angular2localization_1.IntlSupport.DateTimeFormat(this.locale.getDefaultLocale())
                         && angular2localization_1.IntlSupport.NumberFormat(this.locale.getDefaultLocale())
-                        && angular2localization_1.IntlSupport.Collator(this.localization.languageCode);
+                        && angular2localization_1.IntlSupport.Collator(this.locale.getCurrentLanguage());
                 }
                 HomeComponent = __decorate([
                     core_1.Component({

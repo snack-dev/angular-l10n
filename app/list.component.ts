@@ -7,7 +7,7 @@ import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
 import {MdButton} from '@angular2-material/button';
 import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
 // Services.
-import {Locale, LocaleService, LocalizationService} from 'angular2localization/angular2localization';
+import {Locale, LocaleService, LocalizationService, IntlSupport} from 'angular2localization/angular2localization';
 // Pipes.
 import {TranslatePipe} from 'angular2localization/angular2localization';
 import {LocaleDatePipe} from 'angular2localization/angular2localization';
@@ -19,7 +19,15 @@ import {LocaleCurrencyPipe} from 'angular2localization/angular2localization';
     directives: [MD_CARD_DIRECTIVES, MD_LIST_DIRECTIVES, MdButton, MD_INPUT_DIRECTIVES]
 })
 
+@Component({
+    templateUrl: './app/list.component.html',
+    pipes: [TranslatePipe, LocaleDatePipe, LocaleCurrencyPipe],
+    directives: [MD_CARD_DIRECTIVES, MD_LIST_DIRECTIVES, MdButton, MD_INPUT_DIRECTIVES]
+})
+
 export class ListComponent extends Locale {
+
+    intlSupport: boolean;
 
     DATA: Array<Data>;
 
@@ -49,6 +57,8 @@ export class ListComponent extends Locale {
 
     constructor(public locale: LocaleService, public localization: LocalizationService) {
         super(locale, localization);
+
+        this.intlSupport = IntlSupport.Collator(this.locale.getCurrentLanguage());
 
         this.DATA = this.loadData();
         this.keyNames.push('position');

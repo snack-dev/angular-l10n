@@ -64,7 +64,7 @@ md-list, md-nav-list {
 }
 
 .app-card-container md-card {
-    margin: 0 16px 16px 0;
+    margin: 8px;
     width: 350px;
 }
 
@@ -76,15 +76,16 @@ md-list, md-nav-list {
 }
 
 .app-main-container > .app-card-container {
-    -webkit-flex: 3 1 auto;
-            flex: 3 1 auto;
+    -webkit-flex: 3 1 60%;
+            flex: 3 1 60%;
     -webkit-order: 1;
             order: 1;
 }
 
 .app-main-container > .app-aside-container {
-    -webkit-flex: 1 1 auto;
-            flex: 1 1 auto;
+    margin: 8px;
+    -webkit-flex: 1 1 40%;
+            flex: 1 1 40%;
     -webkit-order: 2;
             order: 2;
 }

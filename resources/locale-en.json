@@ -36,5 +36,5 @@
     "ORDER_BY_POSITION": "Order by position",
     "ORDER_BY_DESC_POSITION": "Order by descending position",
     "SEARCH_BY_POSITION": "Search by position",
-    "INTL_SUPPORT": "The browser does not support all the features of this app. Please consider using another browser."
+    "INTL_SUPPORT": "The browser does not support all the features of this app."
 }

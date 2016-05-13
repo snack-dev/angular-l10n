@@ -35,7 +35,7 @@ export class HomeComponent extends Locale {
 
         this.intlSupport = IntlSupport.DateTimeFormat(this.locale.getDefaultLocale())
             && IntlSupport.NumberFormat(this.locale.getDefaultLocale())
-            && IntlSupport.Collator(this.localization.languageCode);
+            && IntlSupport.Collator(this.locale.getCurrentLanguage());
 
     }
 
