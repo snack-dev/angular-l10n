@@ -10,7 +10,6 @@
         "noImplicitAny": true
     },
     "exclude": [
-        "node_modules",
-        "@angular2-material"
+        "node_modules"
     ]
 }

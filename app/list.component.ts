@@ -19,12 +19,6 @@ import {LocaleCurrencyPipe} from 'angular2localization/angular2localization';
     directives: [MD_CARD_DIRECTIVES, MD_LIST_DIRECTIVES, MdButton, MD_INPUT_DIRECTIVES]
 })
 
-@Component({
-    templateUrl: './app/list.component.html',
-    pipes: [TranslatePipe, LocaleDatePipe, LocaleCurrencyPipe],
-    directives: [MD_CARD_DIRECTIVES, MD_LIST_DIRECTIVES, MdButton, MD_INPUT_DIRECTIVES]
-})
-
 export class ListComponent extends Locale {
 
     intlSupport: boolean;
@@ -46,7 +40,7 @@ export class ListComponent extends Locale {
     // Async methods.
     /*get ASYNC_DATA(): Observable<Array<Data>> {
 
-        return new Observable((observer: Observer<Array<Data>>) => {
+        return new Observable<any>((observer: Observer<Array<Data>>) => {
 
             observer.next(this.DATA);
             observer.complete();

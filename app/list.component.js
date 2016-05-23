@@ -46,7 +46,7 @@ System.register(['@angular/core', '@angular2-material/card', '@angular2-material
                 // Async methods.
                 /*get ASYNC_DATA(): Observable<Array<Data>> {
             
-                    return new Observable((observer: Observer<Array<Data>>) => {
+                    return new Observable<any>((observer: Observer<Array<Data>>) => {
             
                         observer.next(this.DATA);
                         observer.complete();
@@ -145,11 +145,6 @@ System.register(['@angular/core', '@angular2-material/card', '@angular2-material
                     return DATA;
                 };
                 ListComponent = __decorate([
-                    core_1.Component({
-                        templateUrl: './app/list.component.html',
-                        pipes: [angular2localization_2.TranslatePipe, angular2localization_3.LocaleDatePipe, angular2localization_4.LocaleCurrencyPipe],
-                        directives: [card_1.MD_CARD_DIRECTIVES, list_1.MD_LIST_DIRECTIVES, button_1.MdButton, input_1.MD_INPUT_DIRECTIVES]
-                    }),
                     core_1.Component({
                         templateUrl: './app/list.component.html',
                         pipes: [angular2localization_2.TranslatePipe, angular2localization_3.LocaleDatePipe, angular2localization_4.LocaleCurrencyPipe],

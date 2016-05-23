@@ -7,7 +7,7 @@
             <md-radio-button name="gender" ref-male value="male" (click)="gender = male.value">{{ 'male' | translate:lang }}</md-radio-button>
             <br>
             <br>
-            <p *ngIf="gender != ''">{{ gender | i18nSelect:inviteMapping | translate:lang }}.</p>
+            <p *ngIf="gender != ''">{{ gender | i18nSelect:inviteMapping | translate:lang }}</p>
         </md-card-content>
     </md-card>
 
@@ -19,7 +19,7 @@
                 <button type="submit" md-raised-button color="primary">{{ 'ADD' | translate:lang }}</button>
                 <br>
                 <br>
-                <p>{{ messages.length | i18nPlural:messageMapping | translate:lang}}.</p>
+                <p>{{ messages.length | i18nPlural:messageMapping | translate:lang}}</p>
             </form>
         </md-card-content>
     </md-card>
