@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', '@angular2-material/core/rtl/dir', '@angular2-material/sidenav', '@angular2-material/list', '@angular2-material/toolbar', 'angular2localization/angular2localization', './home.component', './i18n.component', './list.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '@angular2-material/core/rtl/dir', '@angular2-material/sidenav', '@angular2-material/list', '@angular2-material/toolbar', 'angular2localization/angular2localization', './home.component', './i18n.component', './list.component', './validation.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
@@ -15,7 +15,7 @@ System.register(['@angular/core', '@angular/router', '@angular2-material/core/rt
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, dir_1, sidenav_1, list_1, toolbar_1, angular2localization_1, angular2localization_2, home_component_1, i18n_component_1, list_component_1;
+    var core_1, router_1, dir_1, sidenav_1, list_1, toolbar_1, angular2localization_1, angular2localization_2, home_component_1, i18n_component_1, list_component_1, validation_component_1;
     var AppComponent;
     return {
         setters:[
@@ -49,6 +49,9 @@ System.register(['@angular/core', '@angular/router', '@angular2-material/core/rt
             },
             function (list_component_1_1) {
                 list_component_1 = list_component_1_1;
+            },
+            function (validation_component_1_1) {
+                validation_component_1 = validation_component_1_1;
             }],
         execute: function() {
             AppComponent = (function (_super) {
@@ -106,7 +109,8 @@ System.register(['@angular/core', '@angular/router', '@angular2-material/core/rt
                     router_1.Routes([
                         { path: '/home', component: home_component_1.HomeComponent },
                         { path: '/i18n', component: i18n_component_1.I18nComponent },
-                        { path: '/list', component: list_component_1.ListComponent }
+                        { path: '/list', component: list_component_1.ListComponent },
+                        { path: '/validation', component: validation_component_1.ValidationComponent }
                     ]), 
                     __metadata('design:paramtypes', [router_1.Router, angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
                 ], AppComponent);

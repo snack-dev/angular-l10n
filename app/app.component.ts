@@ -13,6 +13,7 @@ import {TranslatePipe} from 'angular2localization/angular2localization';
 import {HomeComponent} from './home.component';
 import {I18nComponent} from './i18n.component';
 import {ListComponent} from './list.component';
+import {ValidationComponent} from './validation.component';
 
 export type LayoutDirection = 'ltr' | 'rtl';
 
@@ -27,7 +28,8 @@ export type LayoutDirection = 'ltr' | 'rtl';
 @Routes([
     { path: '/home', component: HomeComponent },
     { path: '/i18n', component: I18nComponent },
-    { path: '/list', component: ListComponent }
+    { path: '/list', component: ListComponent },
+    { path: '/validation', component: ValidationComponent }
 ])
 
 export class AppComponent extends Locale implements OnInit {
