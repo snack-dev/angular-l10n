@@ -7,7 +7,7 @@
             <form [ngFormModel]="numberForm" (ngSubmit)="onSubmit(numberForm.value)">
                 <div>
                     <md-input placeholder="{{ 0 | localedecimal:defaultLocale:digits }}" ref-decimal="ngForm" [ngFormControl]="numberForm.controls['decimal']"
-                        [(ngModel)]="value" (keyup)="decimal.control.valid ? parsedValue : parsedValue = null" style="width: 100%" maxLength="50"></md-input>
+                        [(ngModel)]="value" (keyup)="decimal.control.valid ? parsedValue : parsedValue = null" style="width: 100%"></md-input>
 
                     <div *ngIf="decimal.control.hasError('format') && value != ''" style="color: #D32F2F;">
                         {{ 'NUMBER_IS_INVALID' | translate:lang }} {{ 0 | localedecimal:defaultLocale:digits }}
