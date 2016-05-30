@@ -1,2 +1,10 @@
 $ cat .gitignore
+/node_modules
 /typings
+/bundles
+/src
+
+*.js
+*.d.ts
+
+!*.config.js

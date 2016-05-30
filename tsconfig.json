@@ -1,9 +1,10 @@
-﻿{
+{
     "compilerOptions": {
         "target": "es5",
-        "module": "system",
+        "module": "commonjs",
         "moduleResolution": "node",
-        "sourceMap": false,
+        "inlineSourceMap": true,
+        "inlineSources": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "removeComments": false,

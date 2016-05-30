@@ -1,27 +1,9 @@
-System.register(['@angular/platform-browser-dynamic', '@angular/core', '@angular/http', '@angular/router', './app.component'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    var platform_browser_dynamic_1, core_1, http_1, router_1, app_component_1;
-    return {
-        setters:[
-            function (platform_browser_dynamic_1_1) {
-                platform_browser_dynamic_1 = platform_browser_dynamic_1_1;
-            },
-            function (core_1_1) {
-                core_1 = core_1_1;
-            },
-            function (http_1_1) {
-                http_1 = http_1_1;
-            },
-            function (router_1_1) {
-                router_1 = router_1_1;
-            },
-            function (app_component_1_1) {
-                app_component_1 = app_component_1_1;
-            }],
-        execute: function() {
-            core_1.enableProdMode();
-            platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent, [router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS]);
-        }
-    }
-});
+"use strict";
+var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
+var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
+var router_1 = require('@angular/router');
+var app_component_1 = require('./app.component');
+core_1.enableProdMode();
+platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent, [router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS]);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm1haW4udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLHlDQUEyQixtQ0FBbUMsQ0FBQyxDQUFBO0FBQy9ELHFCQUE2QixlQUFlLENBQUMsQ0FBQTtBQUM3QyxxQkFBNkIsZUFBZSxDQUFDLENBQUE7QUFDN0MsdUJBQStCLGlCQUFpQixDQUFDLENBQUE7QUFDakQsOEJBQTJCLGlCQUFpQixDQUFDLENBQUE7QUFFN0MscUJBQWMsRUFBRSxDQUFDO0FBRWpCLG9DQUFTLENBQUMsNEJBQVksRUFBRSxDQUFDLHlCQUFnQixFQUFFLHFCQUFjLENBQUMsQ0FBQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtib290c3RyYXB9ICAgIGZyb20gJ0Bhbmd1bGFyL3BsYXRmb3JtLWJyb3dzZXItZHluYW1pYyc7XHJcbmltcG9ydCB7ZW5hYmxlUHJvZE1vZGV9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xyXG5pbXBvcnQge0hUVFBfUFJPVklERVJTfSBmcm9tICdAYW5ndWxhci9odHRwJztcclxuaW1wb3J0IHtST1VURVJfUFJPVklERVJTfSBmcm9tICdAYW5ndWxhci9yb3V0ZXInO1xyXG5pbXBvcnQge0FwcENvbXBvbmVudH0gZnJvbSAnLi9hcHAuY29tcG9uZW50JztcclxuXHJcbmVuYWJsZVByb2RNb2RlKCk7XHJcblxyXG5ib290c3RyYXAoQXBwQ29tcG9uZW50LCBbUk9VVEVSX1BST1ZJREVSUywgSFRUUF9QUk9WSURFUlNdKTsiXX0=

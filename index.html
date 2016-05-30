@@ -18,32 +18,22 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!--frameworks-->
-    <!--Polyfills for older browsers-->
-    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
     <!--Internationalization API support-->
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en-US,Intl.~locale.en-GB,Intl.~locale.it-IT,Intl.~locale.ar-SA"></script>
-
-    <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/reflect-metadata/Reflect.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-
-    <!--configures SystemJS-->
-    <script src="systemjs.config.js"></script>
-    <script>
-        System.import('app').catch(function(err){ console.error(err); });
-    </script>
 
     <!--CSS-->
     <link href="styles/app.css" rel="stylesheet">
 
 </head>
 
-<!--displays the application-->
-
 <body>
 
     <app-component>Loading...</app-component>
+
+    <!--loads libraries-->
+    <script src="dist/vendor.bundle.js"></script>
+    <!--loads the application-->
+    <script src="dist/app.bundle.js"></script>
 
 </body>
 
