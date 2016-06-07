@@ -1,6 +1,6 @@
 {
   "name": "angular2localization-sample",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "An Angular 2 library to translate messages, dates and numbers",
   "main": "",
   "scripts": {
@@ -44,7 +44,7 @@
     "@angular2-material/radio": "^2.0.0-alpha.5",
     "@angular2-material/sidenav": "^2.0.0-alpha.5",
     "@angular2-material/toolbar": "^2.0.0-alpha.5",
-    "angular2localization": "0.8.1",
+    "angular2localization": "0.8.2",
     "core-js": "^2.4.0",
     "hammerjs": "^2.0.8",
     "reflect-metadata": "^0.1.3",
@@ -54,8 +54,8 @@
   "devDependencies": {
     "ts-loader": "0.8.2",
     "typescript": "1.8.10",
-    "typings": "0.7.12",
-    "webpack": "1.13.0",
+    "typings": "1.0.4",
+    "webpack": "1.13.1",
     "webpack-dev-server": "1.14.1"
   }
 }
