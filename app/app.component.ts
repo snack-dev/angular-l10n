@@ -39,7 +39,7 @@ export class AppComponent extends Locale implements OnInit {
     constructor(private router: Router, public locale: LocaleService, public localization: LocalizationService) {
         super(null, localization);
 
-        // Adds a new language (ISO 639 two-letter code).
+        // Adds a new language (ISO 639 two-letter or three-letter code).
         this.locale.addLanguage('en');
         this.locale.addLanguage('it');
         this.locale.addLanguage('ar');
@@ -85,8 +85,6 @@ export class AppComponent extends Locale implements OnInit {
     selectLocale(language: string, country: string, currency: string) {
 
         this.locale.setCurrentLocale(language, country);
-        this.localization.updateTranslation(); // Need to update the translation.
-
         this.locale.setCurrentCurrency(currency);
 
     }

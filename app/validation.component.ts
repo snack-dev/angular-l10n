@@ -53,7 +53,6 @@ export class ValidationComponent extends Locale {
     // NgControl.
     /*constructor(public locale: LocaleService, public localization: LocalizationService) {
         super(locale, localization)
-
     }
 
     onSubmit(value: string) {

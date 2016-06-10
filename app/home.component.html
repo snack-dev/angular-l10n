@@ -9,7 +9,7 @@
         <md-card-title>{{ 'MESSAGES' | translate:lang }}</md-card-title>
         <md-card-content>
             <p>{{ 'DUMMY_TEXT' | translate:lang }}</p>
-            <p>{{ 'AUTHOR' | translate:lang }},&nbsp;<em>{{ 'SOURCE_TITLE' | translate:lang }}</em></p>
+            <p>{{ 'AUTHOR' | translate:lang }}&nbsp;<em>{{ 'SOURCE_TITLE' | translate:lang }}</em></p>
         </md-card-content>
     </md-card>
 
@@ -24,7 +24,7 @@
         <md-card-title>{{ 'NUMBERS' | translate:lang }}</md-card-title>
         <md-card-content>
             <h3>{{ 'DECIMALS' | translate:lang }}</h3>
-            <p>{{ 'PI' | translate:lang }}: {{ pi | localedecimal:defaultLocale:'1.5-5' }}</p>
+            <p>{{ 'PI' | translate:lang }}&nbsp;{{ pi | localedecimal:defaultLocale:'1.5-5' }}</p>
             <br>
             <h3>{{ 'PERCENTAGES' | translate:lang }}</h3>
             <p>{{ a | localepercent:defaultLocale:'1.0-0' }} </p>

@@ -15,6 +15,7 @@ import {LocaleCurrencyPipe} from 'angular2localization/angular2localization';
 
 @Component({
     templateUrl: './app/list.component.html',
+    providers: [LocalizationService], // Inherited by all descendants.
     pipes: [TranslatePipe, LocaleDatePipe, LocaleCurrencyPipe],
     directives: [MD_CARD_DIRECTIVES, MD_LIST_DIRECTIVES, MdButton, MD_INPUT_DIRECTIVES]
 })
@@ -52,6 +53,10 @@ export class ListComponent extends Locale {
     constructor(public locale: LocaleService, public localization: LocalizationService) {
         super(locale, localization);
 
+        // Instantiates a new LocalizationService for this component and for its descendants.
+        this.localization.translationProvider('./resources/locale-list-'); // Required: initializes the translation provider with the given path prefix.
+        this.localization.updateTranslation(); // Need to update the translation.
+
         this.intlSupport = IntlSupport.Collator(this.locale.getCurrentLanguage());
 
         this.DATA = this.loadData();
@@ -64,19 +69,23 @@ export class ListComponent extends Locale {
 
     orderBy(keyName: string, order?: string) {
 
-        this.DATA = this.localization.sort(this.DATA, keyName, order, "", { sensitivity: 'variant' });
+        if (this.keyName != keyName || this.order != order) {
 
-        // Async methods.
-        /*this.localization.sortAsync(this.DATA, keyName, order, "", { sensitivity: 'variant' }).forEach(
+            this.DATA = this.localization.sort(this.DATA, keyName, order, "", { sensitivity: 'variant' });
 
-            // Next.
-            (list: Array<Data>) => { this.DATA = list }
+            // Async methods.
+            /*this.localization.sortAsync(this.DATA, keyName, order, "", { sensitivity: 'variant' }).forEach(
+    
+                // Next.
+                (list: Array<Data>) => { this.DATA = list }
+    
+            );*/
 
-        );*/
+            // Stores parameters.
+            this.keyName = keyName;
+            this.order = order;
 
-        // Stores parameters.
-        this.keyName = keyName;
-        this.order = order;
+        }
 
     }
 
