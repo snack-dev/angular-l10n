@@ -25,6 +25,18 @@ var button_1 = require('@angular2-material/button');
 var angular2localization_1 = require('angular2localization/angular2localization');
 // Pipes.
 var angular2localization_2 = require('angular2localization/angular2localization');
+var MessagesLocalization = (function (_super) {
+    __extends(MessagesLocalization, _super);
+    function MessagesLocalization() {
+        _super.apply(this, arguments);
+    }
+    MessagesLocalization.prototype.getPluralCategory = function (value) {
+        if (value > 1) {
+            return 'other';
+        }
+    };
+    return MessagesLocalization;
+}(common_1.NgLocalization));
 var I18nComponent = (function (_super) {
     __extends(I18nComponent, _super);
     function I18nComponent(localization) {
@@ -40,8 +52,7 @@ var I18nComponent = (function (_super) {
         this.messageMapping = {
             '=0': 'No_messages',
             '=1': 'One_message',
-            '=2': '2 messages',
-            '=3': '3 messages'
+            'other': '# messages'
         };
     }
     I18nComponent.prototype.addMessage = function (value) {
@@ -51,7 +62,7 @@ var I18nComponent = (function (_super) {
     I18nComponent = __decorate([
         core_1.Component({
             templateUrl: './app/i18n.component.html',
-            providers: [core_2.MdUniqueSelectionDispatcher, common_1.NgLocalization],
+            providers: [core_2.MdUniqueSelectionDispatcher, { provide: common_1.NgLocalization, useClass: MessagesLocalization }],
             pipes: [angular2localization_2.TranslatePipe],
             directives: [card_1.MD_CARD_DIRECTIVES, radio_1.MdRadioButton, input_1.MD_INPUT_DIRECTIVES, button_1.MdButton]
         }), 

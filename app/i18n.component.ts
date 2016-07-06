@@ -11,9 +11,17 @@ import {Locale, LocalizationService} from 'angular2localization/angular2localiza
 // Pipes.
 import {TranslatePipe} from 'angular2localization/angular2localization';
 
+class MessagesLocalization extends NgLocalization {
+   getPluralCategory(value: any) {
+      if(value > 1) {
+        return 'other';
+     }
+  }
+}
+
 @Component({
     templateUrl: './app/i18n.component.html',
-    providers: [MdUniqueSelectionDispatcher, NgLocalization],
+    providers: [MdUniqueSelectionDispatcher, {provide: NgLocalization, useClass: MessagesLocalization}],
     pipes: [TranslatePipe],
     directives: [MD_CARD_DIRECTIVES, MdRadioButton, MD_INPUT_DIRECTIVES, MdButton]
 })
@@ -32,9 +40,7 @@ export class I18nComponent extends Locale {
     messageMapping: any = {
         '=0': 'No_messages',
         '=1': 'One_message',
-        '=2': '2 messages',
-        '=3': '3 messages'
-        /*'other': '# messages' https://github.com/angular/angular/issues/9793 */
+        'other': '# messages' 
     }
 
     constructor(public localization: LocalizationService) {
