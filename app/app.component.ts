@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Routes, Router, ROUTER_DIRECTIVES} from '@angular/router';
+import {Component} from '@angular/core';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 // Angular 2 Material.
 import {Dir} from '@angular2-material/core/rtl/dir';
 import {MD_SIDENAV_DIRECTIVES} from '@angular2-material/sidenav';
@@ -9,11 +9,6 @@ import {MdToolbar} from '@angular2-material/toolbar';
 import {Locale, LocaleService, LocalizationService} from 'angular2localization/angular2localization';
 // Pipes.
 import {TranslatePipe} from 'angular2localization/angular2localization';
-// Components.
-import {HomeComponent} from './home.component';
-import {I18nComponent} from './i18n.component';
-import {ListComponent} from './list.component';
-import {ValidationComponent} from './validation.component';
 
 export type LayoutDirection = 'ltr' | 'rtl';
 
@@ -25,18 +20,11 @@ export type LayoutDirection = 'ltr' | 'rtl';
     pipes: [TranslatePipe]
 })
 
-@Routes([
-    { path: '/home', component: HomeComponent },
-    { path: '/i18n', component: I18nComponent },
-    { path: '/list', component: ListComponent },
-    { path: '/validation', component: ValidationComponent }
-])
-
-export class AppComponent extends Locale implements OnInit {
+export class AppComponent extends Locale {
 
     dir: LayoutDirection;
 
-    constructor(private router: Router, public locale: LocaleService, public localization: LocalizationService) {
+    constructor(public locale: LocaleService, public localization: LocalizationService) {
         super(null, localization);
 
         // Adds a new language (ISO 639 two-letter or three-letter code).
@@ -65,12 +53,6 @@ export class AppComponent extends Locale implements OnInit {
             this.dir = 'ltr';
 
         }
-
-    }
-
-    ngOnInit() {
-
-        this.router.navigate(['/home']);
 
     }
 

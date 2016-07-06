@@ -1,9 +1,9 @@
 "use strict";
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
+var forms_1 = require('@angular/forms');
 var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
-var router_1 = require('@angular/router');
 var app_component_1 = require('./app.component');
+var app_routes_1 = require('./app.routes');
+var http_1 = require('@angular/http');
 core_1.enableProdMode();
-platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent, [router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS]);
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm1haW4udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLHlDQUEyQixtQ0FBbUMsQ0FBQyxDQUFBO0FBQy9ELHFCQUE2QixlQUFlLENBQUMsQ0FBQTtBQUM3QyxxQkFBNkIsZUFBZSxDQUFDLENBQUE7QUFDN0MsdUJBQStCLGlCQUFpQixDQUFDLENBQUE7QUFDakQsOEJBQTJCLGlCQUFpQixDQUFDLENBQUE7QUFFN0MscUJBQWMsRUFBRSxDQUFDO0FBRWpCLG9DQUFTLENBQUMsNEJBQVksRUFBRSxDQUFDLHlCQUFnQixFQUFFLHFCQUFjLENBQUMsQ0FBQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtib290c3RyYXB9ICAgIGZyb20gJ0Bhbmd1bGFyL3BsYXRmb3JtLWJyb3dzZXItZHluYW1pYyc7XHJcbmltcG9ydCB7ZW5hYmxlUHJvZE1vZGV9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xyXG5pbXBvcnQge0hUVFBfUFJPVklERVJTfSBmcm9tICdAYW5ndWxhci9odHRwJztcclxuaW1wb3J0IHtST1VURVJfUFJPVklERVJTfSBmcm9tICdAYW5ndWxhci9yb3V0ZXInO1xyXG5pbXBvcnQge0FwcENvbXBvbmVudH0gZnJvbSAnLi9hcHAuY29tcG9uZW50JztcclxuXHJcbmVuYWJsZVByb2RNb2RlKCk7XHJcblxyXG5ib290c3RyYXAoQXBwQ29tcG9uZW50LCBbUk9VVEVSX1BST1ZJREVSUywgSFRUUF9QUk9WSURFUlNdKTsiXX0=
+platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent, [app_routes_1.APP_ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS, forms_1.disableDeprecatedForms(), forms_1.provideForms()]);

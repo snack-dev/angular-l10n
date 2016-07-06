@@ -14,9 +14,9 @@
     <md-card>
         <md-card-title>{{ 'PLURAL' | translate:lang }}</md-card-title>
         <md-card-content>
-            <form (ngSubmit)="addMessage(message)">
-                <md-input [(ngModel)]="message" style="width: 100%" placeholder="{{ 'ADD_MESSAGE' | translate:lang }}" required></md-input>
-                <button type="submit" md-raised-button color="primary">{{ 'ADD' | translate:lang }}</button>
+            <form (ngSubmit)="addMessage(i18nForm.value)" #i18nForm="ngForm">
+                <md-input [(ngModel)]="message" name="message" style="width: 100%" placeholder="{{ 'ADD_MESSAGE' | translate:lang }}" required></md-input>
+                <button type="submit" [disabled]="messages.length > 2" md-raised-button color="primary">{{ 'ADD' | translate:lang }}</button>
                 <br>
                 <br>
                 <p>{{ messages.length | i18nPlural:messageMapping | translate:lang }}</p>

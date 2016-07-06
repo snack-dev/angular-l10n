@@ -41,9 +41,6 @@
         <button type="submit" md-raised-button color="primary" (click)="orderBy('position', 'desc')">{{ 'ORDER_BY_DESC_POSITION' | translate:lang }}</button><br>
 
         <md-input ref-s (keyup)="search(s.value)" placeholder="{{ 'SEARCH_BY_POSITION' | translate:lang}}"></md-input>
-        <button md-icon-button (click)="s.value = ''; reset()">
-            <i class="material-icons md-24">clear</i>
-        </button>
 
     </div>
 

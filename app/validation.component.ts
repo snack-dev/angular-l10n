@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-// FormBuilder with NgFormControl.
-import {FormBuilder, ControlGroup} from '@angular/common';
+// FormBuilder with formControl.
+import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, AbstractControl} from '@angular/forms';
 // Angular 2 Material.
 import {MD_CARD_DIRECTIVES} from '@angular2-material/card';
 import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
@@ -10,20 +10,18 @@ import {Locale, LocaleService, LocalizationService, LocaleParser} from 'angular2
 // Pipes.
 import {TranslatePipe} from 'angular2localization/angular2localization';
 import {LocaleDecimalPipe} from 'angular2localization/angular2localization';
-// Directives for FormBuilder with NgFormControl.
+// Directives for FormBuilder with formControl.
 import {LocaleNumberValidator, validateLocaleNumber} from 'angular2localization/angular2localization';
-// Directives for NgControl.
+// Directives for ngModel.
 /*import {LocaleNumberValidator} from 'angular2localization/angular2localization';*/
 
 @Component({
     templateUrl: './app/validation.component.html',
     pipes: [TranslatePipe, LocaleDecimalPipe],
-    directives: [LocaleNumberValidator, MD_CARD_DIRECTIVES, MD_INPUT_DIRECTIVES, MdButton]
+    directives: [FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, LocaleNumberValidator, MD_CARD_DIRECTIVES, MD_INPUT_DIRECTIVES, MdButton]
 })
 
 export class ValidationComponent extends Locale {
-
-    value: string = "";
 
     // Options.
     digits: string = "1.2-2";
@@ -32,8 +30,9 @@ export class ValidationComponent extends Locale {
 
     parsedValue: number = null;
 
-    // FormBuilder with NgFormControl.
-    numberForm: ControlGroup;
+    // FormBuilder with formControl.
+    /*numberForm: FormGroup;
+    decimal: AbstractControl;
 
     constructor(public locale: LocaleService, public localization: LocalizationService, private fb: FormBuilder) {
         super(locale, localization)
@@ -42,16 +41,19 @@ export class ValidationComponent extends Locale {
             'decimal': ['', validateLocaleNumber(this.locale, this.digits, this.minValue, this.maxValue)]
         });
 
+        // 'decimal' control. 
+        this.decimal = this.numberForm.controls['decimal'];
+
     }
 
     onSubmit(value: any) {
 
         this.parsedValue = LocaleParser.Number(value.decimal, this.locale.getDefaultLocale());
 
-    }
+    }*/
 
-    // NgControl.
-    /*constructor(public locale: LocaleService, public localization: LocalizationService) {
+    // ngModel.
+    constructor(public locale: LocaleService, public localization: LocalizationService) {
         super(locale, localization)
     }
 
@@ -59,6 +61,6 @@ export class ValidationComponent extends Locale {
 
         this.parsedValue = LocaleParser.Number(value, this.locale.getDefaultLocale());
 
-    }*/
+    }
 
 }
