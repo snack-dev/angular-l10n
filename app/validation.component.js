@@ -15,20 +15,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 // FormBuilder with formControl.
-var forms_1 = require('@angular/forms');
+/*import { FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, AbstractControl } from '@angular/forms';*/
 // Angular 2 Material.
-var card_1 = require('@angular2-material/card');
-var input_1 = require('@angular2-material/input');
-var button_1 = require('@angular2-material/button');
+var material_1 = require('./shared/material');
 // Services.
 var angular2localization_1 = require('angular2localization/angular2localization');
 // Pipes.
 var angular2localization_2 = require('angular2localization/angular2localization');
 var angular2localization_3 = require('angular2localization/angular2localization');
 // Directives for FormBuilder with formControl.
-var angular2localization_4 = require('angular2localization/angular2localization');
+/*import { LocaleNumberValidator, validateLocaleNumber } from 'angular2localization/angular2localization';*/
 // Directives for ngModel.
-/*import {LocaleNumberValidator} from 'angular2localization/angular2localization';*/
+var angular2localization_4 = require('angular2localization/angular2localization');
 var ValidationComponent = (function (_super) {
     __extends(ValidationComponent, _super);
     // FormBuilder with formControl.
@@ -69,8 +67,9 @@ var ValidationComponent = (function (_super) {
     ValidationComponent = __decorate([
         core_1.Component({
             templateUrl: './app/validation.component.html',
-            pipes: [angular2localization_2.TranslatePipe, angular2localization_3.LocaleDecimalPipe],
-            directives: [forms_1.FORM_DIRECTIVES, forms_1.REACTIVE_FORM_DIRECTIVES, angular2localization_4.LocaleNumberValidator, card_1.MD_CARD_DIRECTIVES, input_1.MD_INPUT_DIRECTIVES, button_1.MdButton]
+            /*directives: [FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, LocaleNumberValidator, MD_CARD_DIRECTIVES, MD_INPUT_DIRECTIVES, MdButton],*/ // FormBuilder with formControl.
+            directives: [angular2localization_4.LocaleNumberValidator, material_1.MD_CARD_DIRECTIVES, material_1.MD_INPUT_DIRECTIVES, material_1.MdButton],
+            pipes: [angular2localization_2.TranslatePipe, angular2localization_3.LocaleDecimalPipe]
         }), 
         __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
     ], ValidationComponent);

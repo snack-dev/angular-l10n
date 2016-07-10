@@ -14,11 +14,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+// Async methods.
+/*import { Observer } from 'rxjs/Observer';
+import { Observable } from 'rxjs/Observable';*/
 // Angular 2 Material.
-var card_1 = require('@angular2-material/card');
-var list_1 = require('@angular2-material/list');
-var button_1 = require('@angular2-material/button');
-var input_1 = require('@angular2-material/input');
+var material_1 = require('./shared/material');
 // Services.
 var angular2localization_1 = require('angular2localization/angular2localization');
 // Pipes.
@@ -136,9 +136,9 @@ var ListComponent = (function (_super) {
     ListComponent = __decorate([
         core_1.Component({
             templateUrl: './app/list.component.html',
+            directives: [material_1.MD_CARD_DIRECTIVES, material_1.MD_LIST_DIRECTIVES, material_1.MD_INPUT_DIRECTIVES, material_1.MdButton],
             providers: [angular2localization_1.LocalizationService],
-            pipes: [angular2localization_2.TranslatePipe, angular2localization_3.LocaleDatePipe, angular2localization_4.LocaleCurrencyPipe],
-            directives: [card_1.MD_CARD_DIRECTIVES, list_1.MD_LIST_DIRECTIVES, button_1.MdButton, input_1.MD_INPUT_DIRECTIVES]
+            pipes: [angular2localization_2.TranslatePipe, angular2localization_3.LocaleDatePipe, angular2localization_4.LocaleCurrencyPipe]
         }), 
         __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
     ], ListComponent);

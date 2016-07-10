@@ -1,23 +1,26 @@
-import {Component} from '@angular/core';
-import {Observer} from 'rxjs/Observer';
-import {Observable} from 'rxjs/Observable';
+import { Component } from '@angular/core';
+// Async methods.
+/*import { Observer } from 'rxjs/Observer';
+import { Observable } from 'rxjs/Observable';*/
 // Angular 2 Material.
-import {MD_CARD_DIRECTIVES} from '@angular2-material/card';
-import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
-import {MdButton} from '@angular2-material/button';
-import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
+import {
+    MD_CARD_DIRECTIVES,
+    MD_LIST_DIRECTIVES,
+    MD_INPUT_DIRECTIVES,
+    MdButton
+} from './shared/material';
 // Services.
-import {Locale, LocaleService, LocalizationService, IntlSupport} from 'angular2localization/angular2localization';
+import { Locale, LocaleService, LocalizationService, IntlSupport } from 'angular2localization/angular2localization';
 // Pipes.
-import {TranslatePipe} from 'angular2localization/angular2localization';
-import {LocaleDatePipe} from 'angular2localization/angular2localization';
-import {LocaleCurrencyPipe} from 'angular2localization/angular2localization';
+import { TranslatePipe } from 'angular2localization/angular2localization';
+import { LocaleDatePipe } from 'angular2localization/angular2localization';
+import { LocaleCurrencyPipe } from 'angular2localization/angular2localization';
 
 @Component({
     templateUrl: './app/list.component.html',
+    directives: [MD_CARD_DIRECTIVES, MD_LIST_DIRECTIVES, MD_INPUT_DIRECTIVES, MdButton],
     providers: [LocalizationService], // Inherited by all descendants.
-    pipes: [TranslatePipe, LocaleDatePipe, LocaleCurrencyPipe],
-    directives: [MD_CARD_DIRECTIVES, MD_LIST_DIRECTIVES, MdButton, MD_INPUT_DIRECTIVES]
+    pipes: [TranslatePipe, LocaleDatePipe, LocaleCurrencyPipe]
 })
 
 export class ListComponent extends Locale {
@@ -67,7 +70,7 @@ export class ListComponent extends Locale {
 
     }
 
-    orderBy(keyName: string, order?: string) {
+    orderBy(keyName: string, order?: string): void {
 
         if (this.keyName != keyName || this.order != order) {
 
@@ -89,7 +92,7 @@ export class ListComponent extends Locale {
 
     }
 
-    search(s: string) {
+    search(s: string): void {
 
         // Initializes the data if the search string is shorter than the previous.
         if (s.length < this.s.length) {
@@ -120,7 +123,7 @@ export class ListComponent extends Locale {
 
     }
 
-    reset() {
+    reset(): void {
 
         // Initializes the data.
         this.DATA = this.loadData();
@@ -132,9 +135,9 @@ export class ListComponent extends Locale {
     loadData(): Array<any> {
 
         // Mock data.    
-        var DATA = new Array<Data>();
+        var DATA: Array<Data> = new Array<Data>();
 
-        var data = new Data();
+        var data: Data = new Data();
 
         data.name = "Tiger Nixon";
         data.position = "System Architect";

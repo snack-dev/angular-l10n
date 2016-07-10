@@ -16,11 +16,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 // Angular 2 Material.
-var card_1 = require('@angular2-material/card');
-var radio_1 = require('@angular2-material/radio/radio');
-var core_2 = require('@angular2-material/core');
-var input_1 = require('@angular2-material/input');
-var button_1 = require('@angular2-material/button');
+var material_1 = require('./shared/material');
 // Services.
 var angular2localization_1 = require('angular2localization/angular2localization');
 // Pipes.
@@ -62,9 +58,9 @@ var I18nComponent = (function (_super) {
     I18nComponent = __decorate([
         core_1.Component({
             templateUrl: './app/i18n.component.html',
-            providers: [core_2.MdUniqueSelectionDispatcher, { provide: common_1.NgLocalization, useClass: MessagesLocalization }],
-            pipes: [angular2localization_2.TranslatePipe],
-            directives: [card_1.MD_CARD_DIRECTIVES, radio_1.MdRadioButton, input_1.MD_INPUT_DIRECTIVES, button_1.MdButton]
+            directives: [material_1.MD_CARD_DIRECTIVES, material_1.MdRadioButton, material_1.MD_INPUT_DIRECTIVES, material_1.MdButton],
+            providers: [material_1.MdUniqueSelectionDispatcher, { provide: common_1.NgLocalization, useClass: MessagesLocalization }],
+            pipes: [angular2localization_2.TranslatePipe]
         }), 
         __metadata('design:paramtypes', [angular2localization_1.LocalizationService])
     ], I18nComponent);

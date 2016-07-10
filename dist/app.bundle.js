@@ -7,16 +7,16 @@ webpackJsonp([0],{
 	var platform_browser_dynamic_1 = __webpack_require__(1);
 	var forms_1 = __webpack_require__(328);
 	var core_1 = __webpack_require__(5);
-	var app_component_1 = __webpack_require__(365);
-	var app_routes_1 = __webpack_require__(458);
-	var http_1 = __webpack_require__(428);
+	var http_1 = __webpack_require__(365);
+	var app_component_1 = __webpack_require__(386);
+	var app_routes_1 = __webpack_require__(481);
 	core_1.enableProdMode();
 	platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent, [app_routes_1.APP_ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS, forms_1.disableDeprecatedForms(), forms_1.provideForms()]);
 
 
 /***/ },
 
-/***/ 365:
+/***/ 386:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -35,16 +35,13 @@ webpackJsonp([0],{
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(5);
-	var router_1 = __webpack_require__(366);
+	var router_1 = __webpack_require__(387);
 	// Angular 2 Material.
-	var dir_1 = __webpack_require__(418);
-	var sidenav_1 = __webpack_require__(419);
-	var list_1 = __webpack_require__(423);
-	var toolbar_1 = __webpack_require__(425);
+	var material_1 = __webpack_require__(439);
 	// Services.
-	var angular2localization_1 = __webpack_require__(426);
+	var angular2localization_1 = __webpack_require__(470);
 	// Pipes.
-	var angular2localization_2 = __webpack_require__(426);
+	var angular2localization_2 = __webpack_require__(470);
 	var AppComponent = (function (_super) {
 	    __extends(AppComponent, _super);
 	    function AppComponent(locale, localization) {
@@ -87,8 +84,8 @@ webpackJsonp([0],{
 	    AppComponent = __decorate([
 	        core_1.Component({
 	            selector: 'app-component',
-	            directives: [router_1.ROUTER_DIRECTIVES, dir_1.Dir, sidenav_1.MD_SIDENAV_DIRECTIVES, list_1.MD_LIST_DIRECTIVES, toolbar_1.MdToolbar],
 	            templateUrl: './app/app.component.html',
+	            directives: [router_1.ROUTER_DIRECTIVES, material_1.Dir, material_1.MD_SIDENAV_DIRECTIVES, material_1.MD_LIST_DIRECTIVES, material_1.MdToolbar],
 	            providers: [angular2localization_1.LocaleService, angular2localization_1.LocalizationService],
 	            pipes: [angular2localization_2.TranslatePipe]
 	        }), 
@@ -101,16 +98,37 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 458:
+/***/ 439:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var router_1 = __webpack_require__(366);
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	// Angular 2 Material barrel.
+	__export(__webpack_require__(440));
+	__export(__webpack_require__(441));
+	__export(__webpack_require__(445));
+	__export(__webpack_require__(447));
+	__export(__webpack_require__(448));
+	__export(__webpack_require__(449));
+	__export(__webpack_require__(451));
+	__export(__webpack_require__(468));
+	__export(__webpack_require__(469));
+
+
+/***/ },
+
+/***/ 481:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var router_1 = __webpack_require__(387);
 	// Components.
-	var home_component_1 = __webpack_require__(459);
-	var i18n_component_1 = __webpack_require__(461);
-	var list_component_1 = __webpack_require__(483);
-	var validation_component_1 = __webpack_require__(484);
+	var home_component_1 = __webpack_require__(482);
+	var i18n_component_1 = __webpack_require__(483);
+	var list_component_1 = __webpack_require__(484);
+	var validation_component_1 = __webpack_require__(485);
 	exports.routes = [
 	    { path: '', redirectTo: 'home', terminal: true },
 	    { path: 'home', component: home_component_1.HomeComponent },
@@ -125,7 +143,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 459:
+/***/ 482:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -145,13 +163,13 @@ webpackJsonp([0],{
 	};
 	var core_1 = __webpack_require__(5);
 	// Angular 2 Material.
-	var card_1 = __webpack_require__(460);
+	var material_1 = __webpack_require__(439);
 	// Services.
-	var angular2localization_1 = __webpack_require__(426);
+	var angular2localization_1 = __webpack_require__(470);
 	// Pipes.
-	var angular2localization_2 = __webpack_require__(426);
-	var angular2localization_3 = __webpack_require__(426);
-	var angular2localization_4 = __webpack_require__(426);
+	var angular2localization_2 = __webpack_require__(470);
+	var angular2localization_3 = __webpack_require__(470);
+	var angular2localization_4 = __webpack_require__(470);
 	var HomeComponent = (function (_super) {
 	    __extends(HomeComponent, _super);
 	    function HomeComponent(locale, localization) {
@@ -169,8 +187,8 @@ webpackJsonp([0],{
 	    HomeComponent = __decorate([
 	        core_1.Component({
 	            templateUrl: './app/home.component.html',
-	            pipes: [angular2localization_2.TranslatePipe, angular2localization_3.LocaleDatePipe, angular2localization_4.LocaleDecimalPipe, angular2localization_4.LocalePercentPipe, angular2localization_4.LocaleCurrencyPipe],
-	            directives: [card_1.MD_CARD_DIRECTIVES]
+	            directives: [material_1.MD_CARD_DIRECTIVES],
+	            pipes: [angular2localization_2.TranslatePipe, angular2localization_3.LocaleDatePipe, angular2localization_4.LocaleDecimalPipe, angular2localization_4.LocalePercentPipe, angular2localization_4.LocaleCurrencyPipe]
 	        }), 
 	        __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
 	    ], HomeComponent);
@@ -181,7 +199,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 461:
+/***/ 483:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -202,15 +220,11 @@ webpackJsonp([0],{
 	var core_1 = __webpack_require__(5);
 	var common_1 = __webpack_require__(2);
 	// Angular 2 Material.
-	var card_1 = __webpack_require__(460);
-	var radio_1 = __webpack_require__(462);
-	var core_2 = __webpack_require__(464);
-	var input_1 = __webpack_require__(481);
-	var button_1 = __webpack_require__(482);
+	var material_1 = __webpack_require__(439);
 	// Services.
-	var angular2localization_1 = __webpack_require__(426);
+	var angular2localization_1 = __webpack_require__(470);
 	// Pipes.
-	var angular2localization_2 = __webpack_require__(426);
+	var angular2localization_2 = __webpack_require__(470);
 	var MessagesLocalization = (function (_super) {
 	    __extends(MessagesLocalization, _super);
 	    function MessagesLocalization() {
@@ -248,9 +262,9 @@ webpackJsonp([0],{
 	    I18nComponent = __decorate([
 	        core_1.Component({
 	            templateUrl: './app/i18n.component.html',
-	            providers: [core_2.MdUniqueSelectionDispatcher, { provide: common_1.NgLocalization, useClass: MessagesLocalization }],
-	            pipes: [angular2localization_2.TranslatePipe],
-	            directives: [card_1.MD_CARD_DIRECTIVES, radio_1.MdRadioButton, input_1.MD_INPUT_DIRECTIVES, button_1.MdButton]
+	            directives: [material_1.MD_CARD_DIRECTIVES, material_1.MdRadioButton, material_1.MD_INPUT_DIRECTIVES, material_1.MdButton],
+	            providers: [material_1.MdUniqueSelectionDispatcher, { provide: common_1.NgLocalization, useClass: MessagesLocalization }],
+	            pipes: [angular2localization_2.TranslatePipe]
 	        }), 
 	        __metadata('design:paramtypes', [angular2localization_1.LocalizationService])
 	    ], I18nComponent);
@@ -261,7 +275,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 483:
+/***/ 484:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -280,17 +294,17 @@ webpackJsonp([0],{
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(5);
+	// Async methods.
+	/*import { Observer } from 'rxjs/Observer';
+	import { Observable } from 'rxjs/Observable';*/
 	// Angular 2 Material.
-	var card_1 = __webpack_require__(460);
-	var list_1 = __webpack_require__(423);
-	var button_1 = __webpack_require__(482);
-	var input_1 = __webpack_require__(481);
+	var material_1 = __webpack_require__(439);
 	// Services.
-	var angular2localization_1 = __webpack_require__(426);
+	var angular2localization_1 = __webpack_require__(470);
 	// Pipes.
-	var angular2localization_2 = __webpack_require__(426);
-	var angular2localization_3 = __webpack_require__(426);
-	var angular2localization_4 = __webpack_require__(426);
+	var angular2localization_2 = __webpack_require__(470);
+	var angular2localization_3 = __webpack_require__(470);
+	var angular2localization_4 = __webpack_require__(470);
 	var ListComponent = (function (_super) {
 	    __extends(ListComponent, _super);
 	    // Async methods.
@@ -402,9 +416,9 @@ webpackJsonp([0],{
 	    ListComponent = __decorate([
 	        core_1.Component({
 	            templateUrl: './app/list.component.html',
+	            directives: [material_1.MD_CARD_DIRECTIVES, material_1.MD_LIST_DIRECTIVES, material_1.MD_INPUT_DIRECTIVES, material_1.MdButton],
 	            providers: [angular2localization_1.LocalizationService],
-	            pipes: [angular2localization_2.TranslatePipe, angular2localization_3.LocaleDatePipe, angular2localization_4.LocaleCurrencyPipe],
-	            directives: [card_1.MD_CARD_DIRECTIVES, list_1.MD_LIST_DIRECTIVES, button_1.MdButton, input_1.MD_INPUT_DIRECTIVES]
+	            pipes: [angular2localization_2.TranslatePipe, angular2localization_3.LocaleDatePipe, angular2localization_4.LocaleCurrencyPipe]
 	        }), 
 	        __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
 	    ], ListComponent);
@@ -421,7 +435,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 484:
+/***/ 485:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -441,20 +455,18 @@ webpackJsonp([0],{
 	};
 	var core_1 = __webpack_require__(5);
 	// FormBuilder with formControl.
-	var forms_1 = __webpack_require__(328);
+	/*import { FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, AbstractControl } from '@angular/forms';*/
 	// Angular 2 Material.
-	var card_1 = __webpack_require__(460);
-	var input_1 = __webpack_require__(481);
-	var button_1 = __webpack_require__(482);
+	var material_1 = __webpack_require__(439);
 	// Services.
-	var angular2localization_1 = __webpack_require__(426);
+	var angular2localization_1 = __webpack_require__(470);
 	// Pipes.
-	var angular2localization_2 = __webpack_require__(426);
-	var angular2localization_3 = __webpack_require__(426);
+	var angular2localization_2 = __webpack_require__(470);
+	var angular2localization_3 = __webpack_require__(470);
 	// Directives for FormBuilder with formControl.
-	var angular2localization_4 = __webpack_require__(426);
+	/*import { LocaleNumberValidator, validateLocaleNumber } from 'angular2localization/angular2localization';*/
 	// Directives for ngModel.
-	/*import {LocaleNumberValidator} from 'angular2localization/angular2localization';*/
+	var angular2localization_4 = __webpack_require__(470);
 	var ValidationComponent = (function (_super) {
 	    __extends(ValidationComponent, _super);
 	    // FormBuilder with formControl.
@@ -495,8 +507,9 @@ webpackJsonp([0],{
 	    ValidationComponent = __decorate([
 	        core_1.Component({
 	            templateUrl: './app/validation.component.html',
-	            pipes: [angular2localization_2.TranslatePipe, angular2localization_3.LocaleDecimalPipe],
-	            directives: [forms_1.FORM_DIRECTIVES, forms_1.REACTIVE_FORM_DIRECTIVES, angular2localization_4.LocaleNumberValidator, card_1.MD_CARD_DIRECTIVES, input_1.MD_INPUT_DIRECTIVES, button_1.MdButton]
+	            /*directives: [FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, LocaleNumberValidator, MD_CARD_DIRECTIVES, MD_INPUT_DIRECTIVES, MdButton],*/ // FormBuilder with formControl.
+	            directives: [angular2localization_4.LocaleNumberValidator, material_1.MD_CARD_DIRECTIVES, material_1.MD_INPUT_DIRECTIVES, material_1.MdButton],
+	            pipes: [angular2localization_2.TranslatePipe, angular2localization_3.LocaleDecimalPipe]
 	        }), 
 	        __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
 	    ], ValidationComponent);

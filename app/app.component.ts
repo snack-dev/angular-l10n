@@ -1,21 +1,23 @@
-import {Component} from '@angular/core';
-import {ROUTER_DIRECTIVES} from '@angular/router';
+import { Component } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 // Angular 2 Material.
-import {Dir} from '@angular2-material/core/rtl/dir';
-import {MD_SIDENAV_DIRECTIVES} from '@angular2-material/sidenav';
-import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
-import {MdToolbar} from '@angular2-material/toolbar';
+import {
+    Dir,
+    MD_SIDENAV_DIRECTIVES,
+    MD_LIST_DIRECTIVES,
+    MdToolbar
+} from './shared/material';
 // Services.
-import {Locale, LocaleService, LocalizationService} from 'angular2localization/angular2localization';
+import { Locale, LocaleService, LocalizationService } from 'angular2localization/angular2localization';
 // Pipes.
-import {TranslatePipe} from 'angular2localization/angular2localization';
+import { TranslatePipe } from 'angular2localization/angular2localization';
 
 export type LayoutDirection = 'ltr' | 'rtl';
 
 @Component({
     selector: 'app-component',
-    directives: [ROUTER_DIRECTIVES, Dir, MD_SIDENAV_DIRECTIVES, MD_LIST_DIRECTIVES, MdToolbar],
     templateUrl: './app/app.component.html',
+    directives: [ROUTER_DIRECTIVES, Dir, MD_SIDENAV_DIRECTIVES, MD_LIST_DIRECTIVES, MdToolbar],
     providers: [LocaleService, LocalizationService], // Inherited by all descendants.
     pipes: [TranslatePipe]
 })
@@ -64,7 +66,7 @@ export class AppComponent extends Locale {
     }
 
     // Sets a new locale & currency.
-    selectLocale(language: string, country: string, currency: string) {
+    selectLocale(language: string, country: string, currency: string): void {
 
         this.locale.setCurrentLocale(language, country);
         this.locale.setCurrentCurrency(currency);

@@ -15,7 +15,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 // Angular 2 Material.
-var card_1 = require('@angular2-material/card');
+var material_1 = require('./shared/material');
 // Services.
 var angular2localization_1 = require('angular2localization/angular2localization');
 // Pipes.
@@ -39,8 +39,8 @@ var HomeComponent = (function (_super) {
     HomeComponent = __decorate([
         core_1.Component({
             templateUrl: './app/home.component.html',
-            pipes: [angular2localization_2.TranslatePipe, angular2localization_3.LocaleDatePipe, angular2localization_4.LocaleDecimalPipe, angular2localization_4.LocalePercentPipe, angular2localization_4.LocaleCurrencyPipe],
-            directives: [card_1.MD_CARD_DIRECTIVES]
+            directives: [material_1.MD_CARD_DIRECTIVES],
+            pipes: [angular2localization_2.TranslatePipe, angular2localization_3.LocaleDatePipe, angular2localization_4.LocaleDecimalPipe, angular2localization_4.LocalePercentPipe, angular2localization_4.LocaleCurrencyPipe]
         }), 
         __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
     ], HomeComponent);

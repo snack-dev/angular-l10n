@@ -16,10 +16,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 // Angular 2 Material.
-var dir_1 = require('@angular2-material/core/rtl/dir');
-var sidenav_1 = require('@angular2-material/sidenav');
-var list_1 = require('@angular2-material/list');
-var toolbar_1 = require('@angular2-material/toolbar');
+var material_1 = require('./shared/material');
 // Services.
 var angular2localization_1 = require('angular2localization/angular2localization');
 // Pipes.
@@ -66,8 +63,8 @@ var AppComponent = (function (_super) {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'app-component',
-            directives: [router_1.ROUTER_DIRECTIVES, dir_1.Dir, sidenav_1.MD_SIDENAV_DIRECTIVES, list_1.MD_LIST_DIRECTIVES, toolbar_1.MdToolbar],
             templateUrl: './app/app.component.html',
+            directives: [router_1.ROUTER_DIRECTIVES, material_1.Dir, material_1.MD_SIDENAV_DIRECTIVES, material_1.MD_LIST_DIRECTIVES, material_1.MdToolbar],
             providers: [angular2localization_1.LocaleService, angular2localization_1.LocalizationService],
             pipes: [angular2localization_2.TranslatePipe]
         }), 

@@ -1,24 +1,27 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 // FormBuilder with formControl.
-import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, AbstractControl} from '@angular/forms';
+/*import { FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, AbstractControl } from '@angular/forms';*/
 // Angular 2 Material.
-import {MD_CARD_DIRECTIVES} from '@angular2-material/card';
-import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
-import {MdButton} from '@angular2-material/button';
+import {
+    MD_CARD_DIRECTIVES,
+    MD_INPUT_DIRECTIVES,
+    MdButton
+} from './shared/material';
 // Services.
-import {Locale, LocaleService, LocalizationService, LocaleParser} from 'angular2localization/angular2localization';
+import { Locale, LocaleService, LocalizationService, LocaleParser } from 'angular2localization/angular2localization';
 // Pipes.
-import {TranslatePipe} from 'angular2localization/angular2localization';
-import {LocaleDecimalPipe} from 'angular2localization/angular2localization';
+import { TranslatePipe } from 'angular2localization/angular2localization';
+import { LocaleDecimalPipe } from 'angular2localization/angular2localization';
 // Directives for FormBuilder with formControl.
-import {LocaleNumberValidator, validateLocaleNumber} from 'angular2localization/angular2localization';
+/*import { LocaleNumberValidator, validateLocaleNumber } from 'angular2localization/angular2localization';*/
 // Directives for ngModel.
-/*import {LocaleNumberValidator} from 'angular2localization/angular2localization';*/
+import { LocaleNumberValidator } from 'angular2localization/angular2localization';
 
 @Component({
     templateUrl: './app/validation.component.html',
-    pipes: [TranslatePipe, LocaleDecimalPipe],
-    directives: [FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, LocaleNumberValidator, MD_CARD_DIRECTIVES, MD_INPUT_DIRECTIVES, MdButton]
+    /*directives: [FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, LocaleNumberValidator, MD_CARD_DIRECTIVES, MD_INPUT_DIRECTIVES, MdButton],*/ // FormBuilder with formControl.
+    directives: [LocaleNumberValidator, MD_CARD_DIRECTIVES, MD_INPUT_DIRECTIVES, MdButton],
+    pipes: [TranslatePipe, LocaleDecimalPipe]
 })
 
 export class ValidationComponent extends Locale {
@@ -54,10 +57,10 @@ export class ValidationComponent extends Locale {
 
     // ngModel.
     constructor(public locale: LocaleService, public localization: LocalizationService) {
-        super(locale, localization)
+        super(locale, localization);
     }
 
-    onSubmit(value: string) {
+    onSubmit(value: string): void {
 
         this.parsedValue = LocaleParser.Number(value, this.locale.getDefaultLocale());
 

@@ -27,7 +27,7 @@ import '@angular2-material/list';
 import '@angular2-material/radio';
 import '@angular2-material/toolbar';
 
-import 'hammerjs'
+import 'hammerjs';
 
 // angular2localization.
 import 'angular2localization/angular2localization';
