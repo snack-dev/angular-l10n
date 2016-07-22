@@ -67,3 +67,4 @@ var I18nComponent = (function (_super) {
     return I18nComponent;
 }(angular2localization_1.Locale));
 exports.I18nComponent = I18nComponent;
+//# sourceMappingURL=i18n.component.js.map

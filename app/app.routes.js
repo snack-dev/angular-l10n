@@ -15,3 +15,4 @@ exports.routes = [
 exports.APP_ROUTER_PROVIDERS = [
     router_1.provideRouter(exports.routes)
 ];
+//# sourceMappingURL=app.routes.js.map

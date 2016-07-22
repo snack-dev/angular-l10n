@@ -12,3 +12,4 @@ __export(require('@angular2-material/radio/radio'));
 __export(require('@angular2-material/core'));
 __export(require('@angular2-material/input'));
 __export(require('@angular2-material/button'));
+//# sourceMappingURL=material.js.map

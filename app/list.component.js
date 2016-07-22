@@ -151,3 +151,4 @@ var Data = (function () {
     return Data;
 }());
 exports.Data = Data;
+//# sourceMappingURL=list.component.js.map

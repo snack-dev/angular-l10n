@@ -73,3 +73,4 @@ var AppComponent = (function (_super) {
     return AppComponent;
 }(angular2localization_1.Locale));
 exports.AppComponent = AppComponent;
+//# sourceMappingURL=app.component.js.map

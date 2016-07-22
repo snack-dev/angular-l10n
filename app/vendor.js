@@ -27,3 +27,4 @@ require('@angular2-material/toolbar');
 require('hammerjs');
 // angular2localization.
 require('angular2localization/angular2localization');
+//# sourceMappingURL=vendor.js.map

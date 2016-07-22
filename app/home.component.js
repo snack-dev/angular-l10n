@@ -47,3 +47,4 @@ var HomeComponent = (function (_super) {
     return HomeComponent;
 }(angular2localization_1.Locale));
 exports.HomeComponent = HomeComponent;
+//# sourceMappingURL=home.component.js.map
