@@ -2,25 +2,16 @@ import { Component } from '@angular/core';
 // Async methods.
 /*import { Observer } from 'rxjs/Observer';
 import { Observable } from 'rxjs/Observable';*/
-// Angular 2 Material.
-import {
-    MD_CARD_DIRECTIVES,
-    MD_LIST_DIRECTIVES,
-    MD_INPUT_DIRECTIVES,
-    MdButton
-} from './shared/material';
 // Services.
 import { Locale, LocaleService, LocalizationService, IntlSupport } from 'angular2localization/angular2localization';
 // Pipes.
-import { TranslatePipe } from 'angular2localization/angular2localization';
 import { LocaleDatePipe } from 'angular2localization/angular2localization';
 import { LocaleCurrencyPipe } from 'angular2localization/angular2localization';
 
 @Component({
     templateUrl: './app/list.component.html',
-    directives: [MD_CARD_DIRECTIVES, MD_LIST_DIRECTIVES, MD_INPUT_DIRECTIVES, MdButton],
     providers: [LocalizationService], // Inherited by all descendants.
-    pipes: [TranslatePipe, LocaleDatePipe, LocaleCurrencyPipe]
+    pipes: [LocaleDatePipe, LocaleCurrencyPipe]
 })
 
 export class ListComponent extends Locale {

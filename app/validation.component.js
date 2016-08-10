@@ -15,18 +15,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 // FormBuilder with formControl.
-/*import { FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, AbstractControl } from '@angular/forms';*/
-// Angular 2 Material.
-var material_1 = require('./shared/material');
+/*import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';*/
 // Services.
 var angular2localization_1 = require('angular2localization/angular2localization');
 // Pipes.
 var angular2localization_2 = require('angular2localization/angular2localization');
-var angular2localization_3 = require('angular2localization/angular2localization');
 // Directives for FormBuilder with formControl.
 /*import { LocaleNumberValidator, validateLocaleNumber } from 'angular2localization/angular2localization';*/
 // Directives for ngModel.
-var angular2localization_4 = require('angular2localization/angular2localization');
+var angular2localization_3 = require('angular2localization/angular2localization');
 var ValidationComponent = (function (_super) {
     __extends(ValidationComponent, _super);
     // FormBuilder with formControl.
@@ -34,7 +31,7 @@ var ValidationComponent = (function (_super) {
     decimal: AbstractControl;
 
     constructor(public locale: LocaleService, public localization: LocalizationService, private fb: FormBuilder) {
-        super(locale, localization)
+        super(locale, localization);
 
         this.numberForm = fb.group({
             'decimal': ['', validateLocaleNumber(this.locale, this.digits, this.minValue, this.maxValue)]
@@ -45,7 +42,7 @@ var ValidationComponent = (function (_super) {
 
     }
 
-    onSubmit(value: any) {
+    onSubmit(value: any): void {
 
         this.parsedValue = LocaleParser.Number(value.decimal, this.locale.getDefaultLocale());
 
@@ -67,9 +64,8 @@ var ValidationComponent = (function (_super) {
     ValidationComponent = __decorate([
         core_1.Component({
             templateUrl: './app/validation.component.html',
-            /*directives: [FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, LocaleNumberValidator, MD_CARD_DIRECTIVES, MD_INPUT_DIRECTIVES, MdButton],*/ // FormBuilder with formControl.
-            directives: [angular2localization_4.LocaleNumberValidator, material_1.MD_CARD_DIRECTIVES, material_1.MD_INPUT_DIRECTIVES, material_1.MdButton],
-            pipes: [angular2localization_2.TranslatePipe, angular2localization_3.LocaleDecimalPipe]
+            directives: [angular2localization_3.LocaleNumberValidator],
+            pipes: [angular2localization_2.LocaleDecimalPipe]
         }), 
         __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
     ], ValidationComponent);

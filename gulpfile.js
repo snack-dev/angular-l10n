@@ -11,10 +11,11 @@ gulp.task('lint', () => {
 
     return gulp.src(['app/*.ts', 'app/**/*.ts'])
         .pipe(tslint({
+            configuration: tslintConfig,
             tslint: require('tslint').default,
-            configuration: tslintConfig
+            formatter: 'prose'
         }))
-        .pipe(tslint.report('prose', { emitError: true }));
+        .pipe(tslint.report());
 
 });
 

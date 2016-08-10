@@ -17,14 +17,11 @@ var core_1 = require('@angular/core');
 // Async methods.
 /*import { Observer } from 'rxjs/Observer';
 import { Observable } from 'rxjs/Observable';*/
-// Angular 2 Material.
-var material_1 = require('./shared/material');
 // Services.
 var angular2localization_1 = require('angular2localization/angular2localization');
 // Pipes.
 var angular2localization_2 = require('angular2localization/angular2localization');
 var angular2localization_3 = require('angular2localization/angular2localization');
-var angular2localization_4 = require('angular2localization/angular2localization');
 var ListComponent = (function (_super) {
     __extends(ListComponent, _super);
     // Async methods.
@@ -136,9 +133,8 @@ var ListComponent = (function (_super) {
     ListComponent = __decorate([
         core_1.Component({
             templateUrl: './app/list.component.html',
-            directives: [material_1.MD_CARD_DIRECTIVES, material_1.MD_LIST_DIRECTIVES, material_1.MD_INPUT_DIRECTIVES, material_1.MdButton],
             providers: [angular2localization_1.LocalizationService],
-            pipes: [angular2localization_2.TranslatePipe, angular2localization_3.LocaleDatePipe, angular2localization_4.LocaleCurrencyPipe]
+            pipes: [angular2localization_2.LocaleDatePipe, angular2localization_3.LocaleCurrencyPipe]
         }), 
         __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
     ], ListComponent);

@@ -1,17 +1,7 @@
 import { Component } from '@angular/core';
 import { NgLocalization } from '@angular/common';
-// Angular 2 Material.
-import {
-    MD_CARD_DIRECTIVES,
-    MdRadioButton,
-    MdUniqueSelectionDispatcher,
-    MD_INPUT_DIRECTIVES,
-    MdButton
-} from './shared/material';
 // Services.
 import { Locale, LocalizationService } from 'angular2localization/angular2localization';
-// Pipes.
-import { TranslatePipe } from 'angular2localization/angular2localization';
 
 class MessagesLocalization extends NgLocalization {
     getPluralCategory(value: any): string {
@@ -23,9 +13,7 @@ class MessagesLocalization extends NgLocalization {
 
 @Component({
     templateUrl: './app/i18n.component.html',
-    directives: [MD_CARD_DIRECTIVES, MdRadioButton, MD_INPUT_DIRECTIVES, MdButton],
-    providers: [MdUniqueSelectionDispatcher, { provide: NgLocalization, useClass: MessagesLocalization }],
-    pipes: [TranslatePipe]
+    providers: [{ provide: NgLocalization, useClass: MessagesLocalization }]
 })
 
 export class I18nComponent extends Locale {

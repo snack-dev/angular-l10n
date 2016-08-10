@@ -1,17 +1,13 @@
 ﻿import { Component } from '@angular/core';
-// Angular 2 Material.
-import { MD_CARD_DIRECTIVES } from './shared/material';
 // Services.
 import { Locale, LocaleService, LocalizationService, IntlSupport } from 'angular2localization/angular2localization';
 // Pipes.
-import { TranslatePipe } from 'angular2localization/angular2localization';
 import { LocaleDatePipe } from 'angular2localization/angular2localization';
 import { LocaleDecimalPipe, LocalePercentPipe, LocaleCurrencyPipe } from 'angular2localization/angular2localization';
 
 @Component({
     templateUrl: './app/home.component.html',
-    directives: [MD_CARD_DIRECTIVES],
-    pipes: [TranslatePipe, LocaleDatePipe, LocaleDecimalPipe, LocalePercentPipe, LocaleCurrencyPipe]
+    pipes: [LocaleDatePipe, LocaleDecimalPipe, LocalePercentPipe, LocaleCurrencyPipe]
 })
 
 export class HomeComponent extends Locale {

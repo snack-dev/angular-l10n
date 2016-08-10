@@ -1,25 +1,12 @@
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
-// Angular 2 Material.
-import {
-    Dir,
-    MD_SIDENAV_DIRECTIVES,
-    MD_LIST_DIRECTIVES,
-    MdToolbar
-} from './shared/material';
 // Services.
 import { Locale, LocaleService, LocalizationService } from 'angular2localization/angular2localization';
-// Pipes.
-import { TranslatePipe } from 'angular2localization/angular2localization';
 
 export type LayoutDirection = 'ltr' | 'rtl';
 
 @Component({
     selector: 'app-component',
-    templateUrl: './app/app.component.html',
-    directives: [ROUTER_DIRECTIVES, Dir, MD_SIDENAV_DIRECTIVES, MD_LIST_DIRECTIVES, MdToolbar],
-    providers: [LocaleService, LocalizationService], // Inherited by all descendants.
-    pipes: [TranslatePipe]
+    templateUrl: './app/app.component.html'
 })
 
 export class AppComponent extends Locale {

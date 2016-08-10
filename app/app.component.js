@@ -14,13 +14,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-// Angular 2 Material.
-var material_1 = require('./shared/material');
 // Services.
 var angular2localization_1 = require('angular2localization/angular2localization');
-// Pipes.
-var angular2localization_2 = require('angular2localization/angular2localization');
 var AppComponent = (function (_super) {
     __extends(AppComponent, _super);
     function AppComponent(locale, localization) {
@@ -63,10 +58,7 @@ var AppComponent = (function (_super) {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'app-component',
-            templateUrl: './app/app.component.html',
-            directives: [router_1.ROUTER_DIRECTIVES, material_1.Dir, material_1.MD_SIDENAV_DIRECTIVES, material_1.MD_LIST_DIRECTIVES, material_1.MdToolbar],
-            providers: [angular2localization_1.LocaleService, angular2localization_1.LocalizationService],
-            pipes: [angular2localization_2.TranslatePipe]
+            templateUrl: './app/app.component.html'
         }), 
         __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
     ], AppComponent);
