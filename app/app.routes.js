@@ -12,5 +12,5 @@ var appRoutes = [
     { path: 'list', component: list_component_1.ListComponent },
     { path: 'validation', component: validation_component_1.ValidationComponent }
 ];
-exports.routing = router_1.RouterModule.forRoot(appRoutes);
+exports.routing = router_1.RouterModule.forRoot(appRoutes, { useHash: true });
 //# sourceMappingURL=app.routes.js.map

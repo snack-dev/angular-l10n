@@ -4,14 +4,10 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';*/
 // Services.
 import { Locale, LocaleService, LocalizationService, IntlSupport } from 'angular2localization/angular2localization';
-// Pipes.
-import { LocaleDatePipe } from 'angular2localization/angular2localization';
-import { LocaleCurrencyPipe } from 'angular2localization/angular2localization';
 
 @Component({
     templateUrl: './app/list.component.html',
-    providers: [LocalizationService], // Inherited by all descendants.
-    pipes: [LocaleDatePipe, LocaleCurrencyPipe]
+    providers: [LocalizationService] // Inherited by all descendants.
 })
 
 export class ListComponent extends Locale {

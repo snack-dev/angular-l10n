@@ -3,17 +3,11 @@ import { Component } from '@angular/core';
 /*import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';*/
 // Services.
 import { Locale, LocaleService, LocalizationService, LocaleParser } from 'angular2localization/angular2localization';
-// Pipes.
-import { LocaleDecimalPipe } from 'angular2localization/angular2localization';
 // Directives for FormBuilder with formControl.
-/*import { LocaleNumberValidator, validateLocaleNumber } from 'angular2localization/angular2localization';*/
-// Directives for ngModel.
-import { LocaleNumberValidator } from 'angular2localization/angular2localization';
+/*import {validateLocaleNumber} from './directives/locale-number-validator.directive';*/
 
 @Component({
-    templateUrl: './app/validation.component.html',
-    directives: [LocaleNumberValidator],
-    pipes: [LocaleDecimalPipe]
+    templateUrl: './app/validation.component.html'
 })
 
 export class ValidationComponent extends Locale {

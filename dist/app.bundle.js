@@ -50,6 +50,8 @@ webpackJsonp([0],{
 	var angular2localization_1 = __webpack_require__(399);
 	// Pipes.
 	var angular2localization_2 = __webpack_require__(399);
+	// Directives.
+	var angular2localization_3 = __webpack_require__(399);
 	var AppModule = (function () {
 	    function AppModule() {
 	    }
@@ -76,7 +78,12 @@ webpackJsonp([0],{
 	                i18n_component_1.I18nComponent,
 	                list_component_1.ListComponent,
 	                validation_component_1.ValidationComponent,
-	                angular2localization_2.TranslatePipe
+	                angular2localization_2.TranslatePipe,
+	                angular2localization_2.LocaleDatePipe,
+	                angular2localization_2.LocaleDecimalPipe,
+	                angular2localization_2.LocalePercentPipe,
+	                angular2localization_2.LocaleCurrencyPipe,
+	                angular2localization_3.LocaleNumberValidator
 	            ],
 	            providers: [
 	                angular2localization_1.LocaleService,
@@ -184,7 +191,7 @@ webpackJsonp([0],{
 	    { path: 'list', component: list_component_1.ListComponent },
 	    { path: 'validation', component: validation_component_1.ValidationComponent }
 	];
-	exports.routing = router_1.RouterModule.forRoot(appRoutes);
+	exports.routing = router_1.RouterModule.forRoot(appRoutes, { useHash: true });
 
 
 /***/ },
@@ -210,9 +217,6 @@ webpackJsonp([0],{
 	var core_1 = __webpack_require__(11);
 	// Services.
 	var angular2localization_1 = __webpack_require__(399);
-	// Pipes.
-	var angular2localization_2 = __webpack_require__(399);
-	var angular2localization_3 = __webpack_require__(399);
 	var HomeComponent = (function (_super) {
 	    __extends(HomeComponent, _super);
 	    function HomeComponent(locale, localization) {
@@ -229,8 +233,7 @@ webpackJsonp([0],{
 	    }
 	    HomeComponent = __decorate([
 	        core_1.Component({
-	            templateUrl: './app/home.component.html',
-	            pipes: [angular2localization_2.LocaleDatePipe, angular2localization_3.LocaleDecimalPipe, angular2localization_3.LocalePercentPipe, angular2localization_3.LocaleCurrencyPipe]
+	            templateUrl: './app/home.component.html'
 	        }), 
 	        __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
 	    ], HomeComponent);
@@ -335,9 +338,6 @@ webpackJsonp([0],{
 	import { Observable } from 'rxjs/Observable';*/
 	// Services.
 	var angular2localization_1 = __webpack_require__(399);
-	// Pipes.
-	var angular2localization_2 = __webpack_require__(399);
-	var angular2localization_3 = __webpack_require__(399);
 	var ListComponent = (function (_super) {
 	    __extends(ListComponent, _super);
 	    // Async methods.
@@ -449,8 +449,7 @@ webpackJsonp([0],{
 	    ListComponent = __decorate([
 	        core_1.Component({
 	            templateUrl: './app/list.component.html',
-	            providers: [angular2localization_1.LocalizationService],
-	            pipes: [angular2localization_2.LocaleDatePipe, angular2localization_3.LocaleCurrencyPipe]
+	            providers: [angular2localization_1.LocalizationService] // Inherited by all descendants.
 	        }), 
 	        __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
 	    ], ListComponent);
@@ -490,12 +489,8 @@ webpackJsonp([0],{
 	/*import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';*/
 	// Services.
 	var angular2localization_1 = __webpack_require__(399);
-	// Pipes.
-	var angular2localization_2 = __webpack_require__(399);
 	// Directives for FormBuilder with formControl.
-	/*import { LocaleNumberValidator, validateLocaleNumber } from 'angular2localization/angular2localization';*/
-	// Directives for ngModel.
-	var angular2localization_3 = __webpack_require__(399);
+	/*import {validateLocaleNumber} from './directives/locale-number-validator.directive';*/
 	var ValidationComponent = (function (_super) {
 	    __extends(ValidationComponent, _super);
 	    // FormBuilder with formControl.
@@ -535,9 +530,7 @@ webpackJsonp([0],{
 	    };
 	    ValidationComponent = __decorate([
 	        core_1.Component({
-	            templateUrl: './app/validation.component.html',
-	            directives: [angular2localization_3.LocaleNumberValidator],
-	            pipes: [angular2localization_2.LocaleDecimalPipe]
+	            templateUrl: './app/validation.component.html'
 	        }), 
 	        __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
 	    ], ValidationComponent);

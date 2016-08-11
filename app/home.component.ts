@@ -1,13 +1,9 @@
 ﻿import { Component } from '@angular/core';
 // Services.
 import { Locale, LocaleService, LocalizationService, IntlSupport } from 'angular2localization/angular2localization';
-// Pipes.
-import { LocaleDatePipe } from 'angular2localization/angular2localization';
-import { LocaleDecimalPipe, LocalePercentPipe, LocaleCurrencyPipe } from 'angular2localization/angular2localization';
 
 @Component({
-    templateUrl: './app/home.component.html',
-    pipes: [LocaleDatePipe, LocaleDecimalPipe, LocalePercentPipe, LocaleCurrencyPipe]
+    templateUrl: './app/home.component.html'
 })
 
 export class HomeComponent extends Locale {

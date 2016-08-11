@@ -19,9 +19,6 @@ var core_1 = require('@angular/core');
 import { Observable } from 'rxjs/Observable';*/
 // Services.
 var angular2localization_1 = require('angular2localization/angular2localization');
-// Pipes.
-var angular2localization_2 = require('angular2localization/angular2localization');
-var angular2localization_3 = require('angular2localization/angular2localization');
 var ListComponent = (function (_super) {
     __extends(ListComponent, _super);
     // Async methods.
@@ -133,8 +130,7 @@ var ListComponent = (function (_super) {
     ListComponent = __decorate([
         core_1.Component({
             templateUrl: './app/list.component.html',
-            providers: [angular2localization_1.LocalizationService],
-            pipes: [angular2localization_2.LocaleDatePipe, angular2localization_3.LocaleCurrencyPipe]
+            providers: [angular2localization_1.LocalizationService] // Inherited by all descendants.
         }), 
         __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
     ], ListComponent);

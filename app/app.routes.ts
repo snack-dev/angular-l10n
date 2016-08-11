@@ -14,4 +14,4 @@ const appRoutes: Routes = [
     { path: 'validation', component: ValidationComponent }
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes, { useHash: true });

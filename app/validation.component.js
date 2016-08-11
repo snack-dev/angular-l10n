@@ -18,12 +18,8 @@ var core_1 = require('@angular/core');
 /*import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';*/
 // Services.
 var angular2localization_1 = require('angular2localization/angular2localization');
-// Pipes.
-var angular2localization_2 = require('angular2localization/angular2localization');
 // Directives for FormBuilder with formControl.
-/*import { LocaleNumberValidator, validateLocaleNumber } from 'angular2localization/angular2localization';*/
-// Directives for ngModel.
-var angular2localization_3 = require('angular2localization/angular2localization');
+/*import {validateLocaleNumber} from './directives/locale-number-validator.directive';*/
 var ValidationComponent = (function (_super) {
     __extends(ValidationComponent, _super);
     // FormBuilder with formControl.
@@ -63,9 +59,7 @@ var ValidationComponent = (function (_super) {
     };
     ValidationComponent = __decorate([
         core_1.Component({
-            templateUrl: './app/validation.component.html',
-            directives: [angular2localization_3.LocaleNumberValidator],
-            pipes: [angular2localization_2.LocaleDecimalPipe]
+            templateUrl: './app/validation.component.html'
         }), 
         __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
     ], ValidationComponent);

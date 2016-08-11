@@ -16,9 +16,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 // Services.
 var angular2localization_1 = require('angular2localization/angular2localization');
-// Pipes.
-var angular2localization_2 = require('angular2localization/angular2localization');
-var angular2localization_3 = require('angular2localization/angular2localization');
 var HomeComponent = (function (_super) {
     __extends(HomeComponent, _super);
     function HomeComponent(locale, localization) {
@@ -35,8 +32,7 @@ var HomeComponent = (function (_super) {
     }
     HomeComponent = __decorate([
         core_1.Component({
-            templateUrl: './app/home.component.html',
-            pipes: [angular2localization_2.LocaleDatePipe, angular2localization_3.LocaleDecimalPipe, angular2localization_3.LocalePercentPipe, angular2localization_3.LocaleCurrencyPipe]
+            templateUrl: './app/home.component.html'
         }), 
         __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
     ], HomeComponent);

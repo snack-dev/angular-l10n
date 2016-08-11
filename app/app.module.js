@@ -32,6 +32,8 @@ var validation_component_1 = require('./validation.component');
 var angular2localization_1 = require('angular2localization/angular2localization');
 // Pipes.
 var angular2localization_2 = require('angular2localization/angular2localization');
+// Directives.
+var angular2localization_3 = require('angular2localization/angular2localization');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -58,7 +60,12 @@ var AppModule = (function () {
                 i18n_component_1.I18nComponent,
                 list_component_1.ListComponent,
                 validation_component_1.ValidationComponent,
-                angular2localization_2.TranslatePipe
+                angular2localization_2.TranslatePipe,
+                angular2localization_2.LocaleDatePipe,
+                angular2localization_2.LocaleDecimalPipe,
+                angular2localization_2.LocalePercentPipe,
+                angular2localization_2.LocaleCurrencyPipe,
+                angular2localization_3.LocaleNumberValidator
             ],
             providers: [
                 angular2localization_1.LocaleService,

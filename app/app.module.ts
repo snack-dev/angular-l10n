@@ -22,7 +22,15 @@ import { ValidationComponent } from './validation.component';
 // Services.
 import { LocaleService, LocalizationService } from 'angular2localization/angular2localization';
 // Pipes.
-import { TranslatePipe } from 'angular2localization/angular2localization';
+import {
+    TranslatePipe,
+    LocaleDatePipe,
+    LocaleDecimalPipe,
+    LocalePercentPipe,
+    LocaleCurrencyPipe
+} from 'angular2localization/angular2localization';
+// Directives.
+import { LocaleNumberValidator } from 'angular2localization/angular2localization';
 
 @NgModule({
     imports: [
@@ -46,7 +54,12 @@ import { TranslatePipe } from 'angular2localization/angular2localization';
         I18nComponent,
         ListComponent,
         ValidationComponent,
-        TranslatePipe
+        TranslatePipe,
+        LocaleDatePipe,
+        LocaleDecimalPipe,
+        LocalePercentPipe,
+        LocaleCurrencyPipe,
+        LocaleNumberValidator
     ],
     providers: [
         LocaleService,
