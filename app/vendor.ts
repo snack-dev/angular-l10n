@@ -26,6 +26,7 @@ import '@angular2-material/input';
 import '@angular2-material/list';
 import '@angular2-material/radio';
 import '@angular2-material/toolbar';
+import '@angular2-material/icon';
 
 import 'hammerjs';
 

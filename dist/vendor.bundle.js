@@ -30,7 +30,7 @@
 /******/ 	// "0" means "already loaded"
 /******/ 	// Array means "loading", array contains callbacks
 /******/ 	var installedChunks = {
-/******/ 		1:0
+/******/ 		2:0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -76,7 +76,7 @@
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
 /******/
-/******/ 			script.src = __webpack_require__.p + "" + chunkId + "../dist/" + ({"0":"app"}[chunkId]||chunkId) + ".bundle.js";
+/******/ 			script.src = __webpack_require__.p + "./dist/" + ({"0":"app"}[chunkId]||chunkId) + ".bundle.js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
@@ -100,33 +100,34 @@
 
 	"use strict";
 	// Polyfill(s) for older browsers.
-	__webpack_require__(491);
+	__webpack_require__(510);
 	// Reflect Metadata.
-	__webpack_require__(492);
+	__webpack_require__(511);
 	// RxJS.
-	__webpack_require__(493);
+	__webpack_require__(512);
 	// Zone.
-	__webpack_require__(710);
+	__webpack_require__(717);
 	// Angular 2.
 	__webpack_require__(205);
 	__webpack_require__(2);
 	__webpack_require__(11);
-	__webpack_require__(376);
+	__webpack_require__(342);
 	__webpack_require__(203);
 	__webpack_require__(1);
 	__webpack_require__(413);
 	// Angular 2 Material.
-	__webpack_require__(711);
+	__webpack_require__(718);
+	__webpack_require__(493);
+	__webpack_require__(489);
+	__webpack_require__(482);
+	__webpack_require__(492);
+	__webpack_require__(486);
+	__webpack_require__(490);
 	__webpack_require__(488);
-	__webpack_require__(484);
-	__webpack_require__(477);
-	__webpack_require__(487);
-	__webpack_require__(481);
-	__webpack_require__(485);
-	__webpack_require__(483);
-	__webpack_require__(729);
+	__webpack_require__(496);
+	__webpack_require__(736);
 	// angular2localization.
-	__webpack_require__(399);
+	__webpack_require__(339);
 
 
 /***/ },
@@ -50018,266 +50019,1199 @@
 
 /***/ },
 /* 337 */,
-/* 338 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(339));
-	//# sourceMappingURL=index.js.map
-
-/***/ },
+/* 338 */,
 /* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
 	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	/**
-	 * @module
-	 * @description
-	 * This module is used for handling user input, by defining and building a {@link FormGroup} that
-	 * consists of
-	 * {@link FormControl} objects, and mapping them onto the DOM. {@link FormControl} objects can then
-	 * be used
-	 * to read information
-	 * from the form DOM elements.
-	 *
-	 * Forms providers are not included in default providers; you must import these providers
-	 * explicitly.
-	 */
-	var directives_1 = __webpack_require__(340);
-	exports.FORM_DIRECTIVES = directives_1.FORM_DIRECTIVES;
-	exports.REACTIVE_FORM_DIRECTIVES = directives_1.REACTIVE_FORM_DIRECTIVES;
-	var abstract_control_directive_1 = __webpack_require__(351);
-	exports.AbstractControlDirective = abstract_control_directive_1.AbstractControlDirective;
-	var abstract_form_group_directive_1 = __webpack_require__(364);
-	exports.AbstractFormGroupDirective = abstract_form_group_directive_1.AbstractFormGroupDirective;
-	var checkbox_value_accessor_1 = __webpack_require__(341);
-	exports.CheckboxControlValueAccessor = checkbox_value_accessor_1.CheckboxControlValueAccessor;
-	var control_container_1 = __webpack_require__(362);
-	exports.ControlContainer = control_container_1.ControlContainer;
-	var control_value_accessor_1 = __webpack_require__(342);
-	exports.NG_VALUE_ACCESSOR = control_value_accessor_1.NG_VALUE_ACCESSOR;
-	var default_value_accessor_1 = __webpack_require__(343);
-	exports.DefaultValueAccessor = default_value_accessor_1.DefaultValueAccessor;
-	var ng_control_1 = __webpack_require__(346);
-	exports.NgControl = ng_control_1.NgControl;
-	var ng_control_status_1 = __webpack_require__(345);
-	exports.NgControlStatus = ng_control_status_1.NgControlStatus;
-	var ng_form_1 = __webpack_require__(352);
-	exports.NgForm = ng_form_1.NgForm;
-	var ng_model_1 = __webpack_require__(363);
-	exports.NgModel = ng_model_1.NgModel;
-	var ng_model_group_1 = __webpack_require__(365);
-	exports.NgModelGroup = ng_model_group_1.NgModelGroup;
-	var form_control_directive_1 = __webpack_require__(368);
-	exports.FormControlDirective = form_control_directive_1.FormControlDirective;
-	var form_control_name_1 = __webpack_require__(369);
-	exports.FormControlName = form_control_name_1.FormControlName;
-	var form_group_directive_1 = __webpack_require__(371);
-	exports.FormGroupDirective = form_group_directive_1.FormGroupDirective;
-	var form_group_name_1 = __webpack_require__(372);
-	exports.FormArrayName = form_group_name_1.FormArrayName;
-	var form_group_name_2 = __webpack_require__(372);
-	exports.FormGroupName = form_group_name_2.FormGroupName;
-	var select_control_value_accessor_1 = __webpack_require__(360);
-	exports.NgSelectOption = select_control_value_accessor_1.NgSelectOption;
-	exports.SelectControlValueAccessor = select_control_value_accessor_1.SelectControlValueAccessor;
-	var select_multiple_control_value_accessor_1 = __webpack_require__(361);
-	exports.SelectMultipleControlValueAccessor = select_multiple_control_value_accessor_1.SelectMultipleControlValueAccessor;
-	var validators_1 = __webpack_require__(373);
-	exports.MaxLengthValidator = validators_1.MaxLengthValidator;
-	exports.MinLengthValidator = validators_1.MinLengthValidator;
-	exports.PatternValidator = validators_1.PatternValidator;
-	exports.RequiredValidator = validators_1.RequiredValidator;
-	var form_builder_1 = __webpack_require__(374);
-	exports.FormBuilder = form_builder_1.FormBuilder;
-	var model_1 = __webpack_require__(354);
-	exports.AbstractControl = model_1.AbstractControl;
-	exports.FormArray = model_1.FormArray;
-	exports.FormControl = model_1.FormControl;
-	exports.FormGroup = model_1.FormGroup;
-	var validators_2 = __webpack_require__(356);
-	exports.NG_ASYNC_VALIDATORS = validators_2.NG_ASYNC_VALIDATORS;
-	exports.NG_VALIDATORS = validators_2.NG_VALIDATORS;
-	exports.Validators = validators_2.Validators;
-	__export(__webpack_require__(375));
-	//# sourceMappingURL=forms.js.map
+	var core_1 = __webpack_require__(11);
+	// Services.
+	var locale_service_1 = __webpack_require__(340);
+	var localization_service_1 = __webpack_require__(341);
+	// Pipes.
+	var translate_pipe_1 = __webpack_require__(367);
+	var locale_date_pipe_1 = __webpack_require__(369);
+	var locale_number_pipe_1 = __webpack_require__(370);
+	// Directives.
+	var locale_number_validator_directive_1 = __webpack_require__(371);
+	// Exports services, pipes & directives.
+	__export(__webpack_require__(341));
+	__export(__webpack_require__(340));
+	__export(__webpack_require__(411));
+	__export(__webpack_require__(368));
+	__export(__webpack_require__(366));
+	__export(__webpack_require__(410));
+	__export(__webpack_require__(367));
+	__export(__webpack_require__(369));
+	__export(__webpack_require__(370));
+	__export(__webpack_require__(371));
+	// Modules.
+	var LocaleModule = (function () {
+	    function LocaleModule() {
+	    }
+	    LocaleModule.forRoot = function () {
+	        return {
+	            ngModule: LocaleModule,
+	            providers: [locale_service_1.LocaleService]
+	        };
+	    };
+	    LocaleModule = __decorate([
+	        core_1.NgModule({
+	            declarations: [
+	                locale_date_pipe_1.LocaleDatePipe,
+	                locale_number_pipe_1.LocaleDecimalPipe,
+	                locale_number_pipe_1.LocalePercentPipe,
+	                locale_number_pipe_1.LocaleCurrencyPipe,
+	                locale_number_validator_directive_1.LocaleNumberValidator
+	            ],
+	            exports: [
+	                locale_date_pipe_1.LocaleDatePipe,
+	                locale_number_pipe_1.LocaleDecimalPipe,
+	                locale_number_pipe_1.LocalePercentPipe,
+	                locale_number_pipe_1.LocaleCurrencyPipe,
+	                locale_number_validator_directive_1.LocaleNumberValidator
+	            ]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], LocaleModule);
+	    return LocaleModule;
+	}());
+	exports.LocaleModule = LocaleModule;
+	var LocalizationModule = (function () {
+	    function LocalizationModule() {
+	    }
+	    LocalizationModule.forRoot = function () {
+	        return {
+	            ngModule: LocalizationModule,
+	            providers: [localization_service_1.LocalizationService]
+	        };
+	    };
+	    LocalizationModule = __decorate([
+	        core_1.NgModule({
+	            declarations: [
+	                translate_pipe_1.TranslatePipe
+	            ],
+	            exports: [
+	                translate_pipe_1.TranslatePipe
+	            ]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], LocalizationModule);
+	    return LocalizationModule;
+	}());
+	exports.LocalizationModule = LocalizationModule;
+	
+	//# sourceMappingURL=angular2localization.js.map
+
 
 /***/ },
 /* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
+	 * ANGULAR 2 LOCALIZATION
+	 * An Angular 2 library to translate messages, dates and numbers.
+	 * Written by Roberto Simonetti.
+	 * MIT license.
+	 * https://github.com/robisim74/angular2localization
 	 */
 	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
 	var core_1 = __webpack_require__(11);
-	var checkbox_value_accessor_1 = __webpack_require__(341);
-	var default_value_accessor_1 = __webpack_require__(343);
-	var ng_control_status_1 = __webpack_require__(345);
-	var ng_form_1 = __webpack_require__(352);
-	var ng_model_1 = __webpack_require__(363);
-	var ng_model_group_1 = __webpack_require__(365);
-	var number_value_accessor_1 = __webpack_require__(358);
-	var radio_control_value_accessor_1 = __webpack_require__(359);
-	var form_control_directive_1 = __webpack_require__(368);
-	var form_control_name_1 = __webpack_require__(369);
-	var form_group_directive_1 = __webpack_require__(371);
-	var form_group_name_1 = __webpack_require__(372);
-	var select_control_value_accessor_1 = __webpack_require__(360);
-	var select_multiple_control_value_accessor_1 = __webpack_require__(361);
-	var validators_1 = __webpack_require__(373);
-	var checkbox_value_accessor_2 = __webpack_require__(341);
-	exports.CheckboxControlValueAccessor = checkbox_value_accessor_2.CheckboxControlValueAccessor;
-	var default_value_accessor_2 = __webpack_require__(343);
-	exports.DefaultValueAccessor = default_value_accessor_2.DefaultValueAccessor;
-	var ng_control_1 = __webpack_require__(346);
-	exports.NgControl = ng_control_1.NgControl;
-	var ng_control_status_2 = __webpack_require__(345);
-	exports.NgControlStatus = ng_control_status_2.NgControlStatus;
-	var ng_form_2 = __webpack_require__(352);
-	exports.NgForm = ng_form_2.NgForm;
-	var ng_model_2 = __webpack_require__(363);
-	exports.NgModel = ng_model_2.NgModel;
-	var ng_model_group_2 = __webpack_require__(365);
-	exports.NgModelGroup = ng_model_group_2.NgModelGroup;
-	var number_value_accessor_2 = __webpack_require__(358);
-	exports.NumberValueAccessor = number_value_accessor_2.NumberValueAccessor;
-	var radio_control_value_accessor_2 = __webpack_require__(359);
-	exports.RadioControlValueAccessor = radio_control_value_accessor_2.RadioControlValueAccessor;
-	var form_control_directive_2 = __webpack_require__(368);
-	exports.FormControlDirective = form_control_directive_2.FormControlDirective;
-	var form_control_name_2 = __webpack_require__(369);
-	exports.FormControlName = form_control_name_2.FormControlName;
-	var form_group_directive_2 = __webpack_require__(371);
-	exports.FormGroupDirective = form_group_directive_2.FormGroupDirective;
-	var form_group_name_2 = __webpack_require__(372);
-	exports.FormArrayName = form_group_name_2.FormArrayName;
-	exports.FormGroupName = form_group_name_2.FormGroupName;
-	var select_control_value_accessor_2 = __webpack_require__(360);
-	exports.NgSelectOption = select_control_value_accessor_2.NgSelectOption;
-	exports.SelectControlValueAccessor = select_control_value_accessor_2.SelectControlValueAccessor;
-	var select_multiple_control_value_accessor_2 = __webpack_require__(361);
-	exports.NgSelectMultipleOption = select_multiple_control_value_accessor_2.NgSelectMultipleOption;
-	exports.SelectMultipleControlValueAccessor = select_multiple_control_value_accessor_2.SelectMultipleControlValueAccessor;
-	var validators_2 = __webpack_require__(373);
-	exports.MaxLengthValidator = validators_2.MaxLengthValidator;
-	exports.MinLengthValidator = validators_2.MinLengthValidator;
-	exports.PatternValidator = validators_2.PatternValidator;
-	exports.RequiredValidator = validators_2.RequiredValidator;
-	exports.SHARED_FORM_DIRECTIVES = [
-	    select_control_value_accessor_1.NgSelectOption, select_multiple_control_value_accessor_1.NgSelectMultipleOption, default_value_accessor_1.DefaultValueAccessor, number_value_accessor_1.NumberValueAccessor,
-	    checkbox_value_accessor_1.CheckboxControlValueAccessor, select_control_value_accessor_1.SelectControlValueAccessor, select_multiple_control_value_accessor_1.SelectMultipleControlValueAccessor,
-	    radio_control_value_accessor_1.RadioControlValueAccessor, ng_control_status_1.NgControlStatus, validators_1.RequiredValidator, validators_1.MinLengthValidator,
-	    validators_1.MaxLengthValidator, validators_1.PatternValidator
-	];
-	exports.TEMPLATE_DRIVEN_DIRECTIVES = [ng_model_1.NgModel, ng_model_group_1.NgModelGroup, ng_form_1.NgForm];
-	exports.REACTIVE_DRIVEN_DIRECTIVES = [form_control_directive_1.FormControlDirective, form_group_directive_1.FormGroupDirective, form_control_name_1.FormControlName, form_group_name_1.FormGroupName, form_group_name_1.FormArrayName];
 	/**
+	 * LocaleService class.
+	 * Defines language, default locale & currency.
 	 *
-	 * A list of all the form directives used as part of a `@Component` annotation.
+	 * Instantiate this class only once in the bootstrap component in order to access the data of location from anywhere in the application:
 	 *
-	 *  This is a shorthand for importing them each individually.
+	 * FIRST SCENARIO - Dates & numbers.
 	 *
-	 * ### Example
+	 * import {LocaleService} from 'angular2localization/angular2localization';
+	 * ...
+	 * export class AppComponent {
 	 *
-	 * ```typescript
-	 * @Component({
-	 *   selector: 'my-app',
-	 *   directives: [FORM_DIRECTIVES]
-	 * })
-	 * class MyApp {}
-	 * ```
-	 * @experimental
+	 *     constructor(public locale: LocaleService) {
+	 *
+	 *         // Required: default language (ISO 639 two-letter or three-letter code) and country (ISO 3166 two-letter, uppercase code).
+	 *         this.locale.definePreferredLocale('en', 'US');
+	 *
+	 *         // Optional: default currency (ISO 4217 three-letter code).
+	 *         this.locale.definePreferredCurrency('USD');
+	 *
+	 *      }
+	 *
+	 * }
+	 *
+	 * SECOND SCENARIO - Messages.
+	 *
+	 * import {LocaleService, LocalizationService} from 'angular2localization/angular2localization';
+	 * ...
+	 * export class AppComponent {
+	 *
+	 *     constructor(public locale: LocaleService, public localization: LocalizationService) {
+	 *
+	 *         // Adds a new language (ISO 639 two-letter or three-letter code).
+	 *         this.locale.addLanguage('en');
+	 *         // Add a new language here.
+	 *
+	 *         // Required: default language and expiry (No days). If the expiry is omitted, the cookie becomes a session cookie.
+	 *         this.locale.definePreferredLanguage('en', 30);
+	 *
+	 *     }
+	 *
+	 * }
+	 *
+	 * THIRD SCENARIO - Messages, dates & numbers.
+	 *
+	 * import {LocaleService, LocalizationService} from 'angular2localization/angular2localization';
+	 * ...
+	 * export class AppComponent {
+	 *
+	 *     constructor(public locale: LocaleService, public localization: LocalizationService) {
+	 *
+	 *         // Adds a new language (ISO 639 two-letter or three-letter code).
+	 *         this.locale.addLanguage('en');
+	 *         // Add a new language here.
+	 *
+	 *         // Required: default language, country (ISO 3166 two-letter, uppercase code) and expiry (No days). If the expiry is omitted, the cookie becomes a session cookie.
+	 *         this.locale.definePreferredLocale('en', 'US', 30);
+	 *
+	 *         // Optional: default currency (ISO 4217 three-letter code).
+	 *         this.locale.definePreferredCurrency('USD');
+	 *
+	 *     }
+	 *
+	 * }
+	 *
+	 * Changing language.
+	 *
+	 * To change language at runtime, call the following method:
+	 *
+	 * this.locale.setCurrentLanguage(language);
+	 *
+	 * where 'language' is the two-letter or three-letter code of the new language (ISO 639).
+	 *
+	 *
+	 * Changing locale.
+	 *
+	 * To change locale at runtime, call the following method:
+	 *
+	 * this.locale.setCurrentLocale(language, country);
+	 *
+	 * where 'language' is the two-letter or three-letter code of the new language (ISO 639)
+	 * and 'country' is the two-letter, uppercase code of the new country (ISO 3166).
+	 *
+	 *
+	 * Changing currency.
+	 *
+	 * To change currency at runtime, call the following method:
+	 *
+	 * this.locale.setCurrentCurrency(currency);
+	 *
+	 * where 'currency' is the three-letter code of the new currency (ISO 4217).
+	 *
+	 * @author Roberto Simonetti
 	 */
-	exports.FORM_DIRECTIVES = [exports.TEMPLATE_DRIVEN_DIRECTIVES, exports.SHARED_FORM_DIRECTIVES];
-	/**
-	 * @experimental
-	 */
-	exports.REACTIVE_FORM_DIRECTIVES = [exports.REACTIVE_DRIVEN_DIRECTIVES, exports.SHARED_FORM_DIRECTIVES];
-	var InternalFormsSharedModule = (function () {
-	    function InternalFormsSharedModule() {
+	var LocaleService = (function () {
+	    function LocaleService() {
+	        /**
+	         * Output for event current language code changed.
+	         */
+	        this.languageCodeChanged = new core_1.EventEmitter();
+	        /**
+	         * Output for event current country code changed.
+	         */
+	        this.countryCodeChanged = new core_1.EventEmitter();
+	        /**
+	         * Output for event current currency code changed.
+	         */
+	        this.currencyCodeChanged = new core_1.EventEmitter();
+	        /**
+	         * Output for event script code changed.
+	         */
+	        this.scriptCodeChanged = new core_1.EventEmitter();
+	        /**
+	         * Output for event numbering system changed.
+	         */
+	        this.numberingSystemChanged = new core_1.EventEmitter();
+	        /**
+	         * Output for event calendar changed.
+	         */
+	        this.calendarChanged = new core_1.EventEmitter();
+	        /**
+	         * Enable/disable cookie.
+	         */
+	        this.enableCookie = false;
+	        /**
+	         * Enable/disable Local Storage.
+	         */
+	        this.enableLocalStorage = false;
+	        /**
+	         * The available language codes.
+	         */
+	        this.languageCodes = [];
+	        this.languageCode = "";
+	        this.countryCode = "";
+	        this.currencyCode = "";
+	        this.defaultLocale = "";
+	        this.scriptCode = "";
+	        this.numberingSystem = "";
+	        this.calendar = "";
+	        // Counts the reference to the service.
+	        LocaleService.referenceCounter++;
+	        // Enables the cookies for the first instance of the service (see issue #11).
+	        if (LocaleService.referenceCounter == 1) {
+	            this.enableCookie = true;
+	        }
 	    }
-	    /** @nocollapse */
-	    InternalFormsSharedModule.decorators = [
-	        { type: core_1.NgModule, args: [{ declarations: exports.SHARED_FORM_DIRECTIVES, exports: exports.SHARED_FORM_DIRECTIVES },] },
-	    ];
-	    return InternalFormsSharedModule;
+	    /**
+	     * Adds a new language.
+	     *
+	     * @param language The two-letter or three-letter code of the new language
+	     */
+	    LocaleService.prototype.addLanguage = function (language) {
+	        this.languageCodes.push(language);
+	    };
+	    /**
+	     * Sets Local Storage as default.
+	     */
+	    LocaleService.prototype.useLocalStorage = function () {
+	        this.enableLocalStorage = true;
+	    };
+	    /**
+	     * Defines the preferred language.
+	     * Selects the current language of the browser if it has been added, else the default language.
+	     *
+	     * @param defaultLanguage The two-letter or three-letter code of the default language
+	     * @param expiry Number of days on the expiry. If omitted, the cookie becomes a session cookie
+	     */
+	    LocaleService.prototype.definePreferredLanguage = function (defaultLanguage, expiry) {
+	        this.expiry = expiry;
+	        // Parses the storage "locale" to extract the codes.
+	        this.parseStorage("locale");
+	        if (this.languageCode == "") {
+	            this.languageCode = defaultLanguage;
+	            // Verifies browser language.
+	            var browserLanguage = "";
+	            if (typeof navigator.language != "undefined") {
+	                browserLanguage = navigator.language;
+	            }
+	            else if (typeof navigator.userLanguage != "undefined") {
+	                browserLanguage = navigator.userLanguage;
+	            }
+	            else if (typeof navigator.browserLanguage != "undefined") {
+	                browserLanguage = navigator.browserLanguage;
+	            }
+	            else if (typeof navigator.systemLanguage != "undefined") {
+	                browserLanguage = navigator.systemLanguage;
+	            }
+	            // Tries to gets the current language of browser.
+	            if (browserLanguage != "") {
+	                var index = browserLanguage.indexOf("-");
+	                if (index != -1) {
+	                    browserLanguage = browserLanguage.substring(0, index); // Gets the language code.
+	                }
+	                if (this.languageCodes.length > 0 && this.languageCodes.indexOf(browserLanguage) != -1) {
+	                    this.languageCode = browserLanguage;
+	                }
+	            }
+	        }
+	        // Sets the default locale.
+	        this.setDefaultLocale();
+	    };
+	    /**
+	     * Defines preferred languange and country, regardless of the browser language.
+	     *
+	     * @param defaultLanguage The two-letter or three-letter code of the default language
+	     * @param defaultCountry The two-letter, uppercase code of the default country
+	     * @param expiry Number of days on the expiry. If omitted, the cookie becomes a session cookie
+	     * @param script The optional four-letter script code
+	     * @param numberingSystem The optional numbering system to be used
+	     * @param calendar The optional calendar to be used
+	     */
+	    LocaleService.prototype.definePreferredLocale = function (defaultLanguage, defaultCountry, expiry, script, numberingSystem, calendar) {
+	        if (script === void 0) { script = ""; }
+	        if (numberingSystem === void 0) { numberingSystem = ""; }
+	        if (calendar === void 0) { calendar = ""; }
+	        this.expiry = expiry;
+	        // Parses the storage "locale" to extract the codes & the extension.
+	        this.parseStorage("locale");
+	        if (this.languageCode == "" || this.countryCode == "") {
+	            this.languageCode = defaultLanguage;
+	            this.countryCode = defaultCountry;
+	            this.scriptCode = script;
+	            this.numberingSystem = numberingSystem;
+	            this.calendar = calendar;
+	        }
+	        // Sets the default locale.
+	        this.setDefaultLocale();
+	    };
+	    /**
+	     * Defines the preferred currency.
+	     *
+	     * @param defaultCurrency The three-letter code of the default currency
+	     */
+	    LocaleService.prototype.definePreferredCurrency = function (defaultCurrency) {
+	        // Parses the storage "currency" to extract the code.
+	        this.parseStorage("currency");
+	        if (this.currencyCode == "") {
+	            this.currencyCode = defaultCurrency;
+	        }
+	        // Sets the storage "currency".
+	        this.setStorage("currency", this.currencyCode);
+	    };
+	    /**
+	     * Gets the current language.
+	     *
+	     * @return The two-letter or three-letter code of the current language
+	     */
+	    LocaleService.prototype.getCurrentLanguage = function () {
+	        return this.languageCode;
+	    };
+	    /**
+	     * Gets the current country.
+	     *
+	     * @return The two-letter, uppercase code of the current country
+	     */
+	    LocaleService.prototype.getCurrentCountry = function () {
+	        return this.countryCode;
+	    };
+	    /**
+	     * Gets the current currency.
+	     *
+	     * @return The three-letter code of the current currency
+	     */
+	    LocaleService.prototype.getCurrentCurrency = function () {
+	        return this.currencyCode;
+	    };
+	    /**
+	     * Gets the script.
+	     *
+	     * @return The four-letter code of the script
+	     */
+	    LocaleService.prototype.getScript = function () {
+	        return this.scriptCode;
+	    };
+	    /**
+	     * Gets the numbering system.
+	     *
+	     * @return The numbering system
+	     */
+	    LocaleService.prototype.getNumberingSystem = function () {
+	        return this.numberingSystem;
+	    };
+	    /**
+	     * Gets the calendar.
+	     *
+	     * @return The calendar
+	     */
+	    LocaleService.prototype.getCalendar = function () {
+	        return this.calendar;
+	    };
+	    /**
+	     * Sets the current language.
+	     *
+	     * @param language The two-letter or three-letter code of the new language
+	     */
+	    LocaleService.prototype.setCurrentLanguage = function (language) {
+	        // Checks if the language has changed.
+	        if (this.languageCode != language) {
+	            // Assigns the value & sends an event.
+	            this.languageCode = language;
+	            this.languageCodeChanged.emit(language);
+	            // Sets the default locale.
+	            this.setDefaultLocale();
+	        }
+	    };
+	    /**
+	     * Sets the current locale.
+	     *
+	     * @param language The two-letter or three-letter code of the new language
+	     * @param country The two-letter, uppercase code of the new country
+	     * @param script The optional four-letter script code
+	     * @param numberingSystem The optional numbering system to be used
+	     * @param calendar The optional calendar to be used
+	     */
+	    LocaleService.prototype.setCurrentLocale = function (language, country, script, numberingSystem, calendar) {
+	        if (script === void 0) { script = ""; }
+	        if (numberingSystem === void 0) { numberingSystem = ""; }
+	        if (calendar === void 0) { calendar = ""; }
+	        // Checks if language, country, script or extension have changed.
+	        if (this.languageCode != language || this.countryCode != country || this.scriptCode != script || this.numberingSystem != numberingSystem || this.calendar != calendar) {
+	            // Assigns the values & sends the events.
+	            if (this.languageCode != language) {
+	                this.languageCode = language;
+	                this.languageCodeChanged.emit(language);
+	            }
+	            if (this.countryCode != country) {
+	                this.countryCode = country;
+	                this.countryCodeChanged.emit(country);
+	            }
+	            if (this.scriptCode != script) {
+	                this.scriptCode = script;
+	                this.scriptCodeChanged.emit(script);
+	            }
+	            if (this.numberingSystem != numberingSystem) {
+	                this.numberingSystem = numberingSystem;
+	                this.numberingSystemChanged.emit(numberingSystem);
+	            }
+	            if (this.calendar != calendar) {
+	                this.calendar = calendar;
+	                this.calendarChanged.emit(calendar);
+	            }
+	            // Sets the default locale.
+	            this.setDefaultLocale();
+	        }
+	    };
+	    /**
+	     * Sets the current currency.
+	     *
+	     * @param currency The three-letter code of the new currency
+	     */
+	    LocaleService.prototype.setCurrentCurrency = function (currency) {
+	        // Checks if the currency has changed.
+	        if (this.currencyCode != currency) {
+	            // Assigns the value & sends an event.
+	            this.currencyCode = currency;
+	            this.currencyCodeChanged.emit(currency);
+	            // Sets the storage "currency".
+	            this.setStorage("currency", this.currencyCode);
+	        }
+	    };
+	    /**
+	     * Gets the default locale.
+	     *
+	     * @return The default locale
+	     */
+	    LocaleService.prototype.getDefaultLocale = function () {
+	        return this.defaultLocale;
+	    };
+	    /**
+	     * Builds the default locale.
+	     */
+	    LocaleService.prototype.setDefaultLocale = function () {
+	        this.defaultLocale = this.languageCode;
+	        this.defaultLocale += this.scriptCode != "" ? "-" + this.scriptCode : "";
+	        this.defaultLocale += this.countryCode != "" ? "-" + this.countryCode : "";
+	        // Adds the 'u' (Unicode) extension.
+	        this.defaultLocale += this.numberingSystem != "" || this.calendar != "" ? "-u" : "";
+	        // Adds numbering system.
+	        this.defaultLocale += this.numberingSystem != "" ? "-nu-" + this.numberingSystem : "";
+	        // Adds calendar.
+	        this.defaultLocale += this.calendar != "" ? "-ca-" + this.calendar : "";
+	        // Sets the storage "locale".
+	        this.setStorage("locale", this.defaultLocale);
+	    };
+	    /**
+	     * Parses the storage to extract the codes & the extension.
+	     *
+	     * @param name The name of the storage
+	     */
+	    LocaleService.prototype.parseStorage = function (name) {
+	        var storage = "";
+	        if (this.enableLocalStorage && this.verifyLocalStorage) {
+	            storage = this.getLocalStorage(name);
+	        }
+	        else if (this.enableCookie && this.languageCodes.length > 0 && this.verifyCookie) {
+	            storage = this.getCookie(name);
+	        }
+	        if (storage != "") {
+	            // Looks for the 'u' (Unicode) extension.
+	            var index = storage.search("-u");
+	            if (index != -1) {
+	                var extensions = storage.substring(index + 1).split("-");
+	                switch (extensions.length) {
+	                    case 3:
+	                        if (extensions[1] == "nu") {
+	                            this.numberingSystem = extensions[2];
+	                        }
+	                        else if (extensions[1] == "ca") {
+	                            this.calendar = extensions[2];
+	                        }
+	                        break;
+	                    case 5:
+	                        this.numberingSystem = extensions[2];
+	                        this.calendar = extensions[4];
+	                        break;
+	                }
+	                // Extracts the codes.
+	                storage = storage.substring(0, index);
+	            }
+	            // Splits the string to each hyphen.
+	            var codes = storage.split("-");
+	            switch (codes.length) {
+	                case 1:
+	                    if (name == "locale") {
+	                        this.languageCode = codes[0];
+	                    }
+	                    else if (name == "currency") {
+	                        this.currencyCode = codes[0];
+	                    }
+	                    break;
+	                case 2:
+	                    this.languageCode = codes[0];
+	                    this.countryCode = codes[1];
+	                    break;
+	                case 3:
+	                    this.languageCode = codes[0];
+	                    this.scriptCode = codes[1];
+	                    this.countryCode = codes[2];
+	                    break;
+	            }
+	        }
+	    };
+	    /**
+	     * Checks browser support for Local Storage.
+	     *
+	     * @return True if Web Storage is supported.
+	     */
+	    LocaleService.prototype.verifyLocalStorage = function () {
+	        return typeof Storage != "undefined";
+	    };
+	    /**
+	     * Checks browser support for cookies.
+	     *
+	     * @return True if cookies are supported.
+	     */
+	    LocaleService.prototype.verifyCookie = function () {
+	        return typeof navigator.cookieEnabled != "undefined" && navigator.cookieEnabled;
+	    };
+	    /**
+	     * Sets the storage.
+	     *
+	     * @param name The name of the storage
+	     * @param value The value of the storage
+	     */
+	    LocaleService.prototype.setStorage = function (name, value) {
+	        if (this.enableLocalStorage && this.verifyLocalStorage) {
+	            this.setLocalStorage(name, value);
+	        }
+	        else if (this.enableCookie == true && this.languageCodes.length > 0 && this.verifyCookie) {
+	            this.setCookie(name, value, this.expiry);
+	        }
+	    };
+	    /**
+	     * Saves Local Storage value.
+	     *
+	     * @param name The name of the storage
+	     * @param value The value of the storage
+	     */
+	    LocaleService.prototype.setLocalStorage = function (name, value) {
+	        localStorage.setItem(name, value);
+	    };
+	    /**
+	     * Saves Local Storage value.
+	     *
+	     * @param name The name of the storage
+	     * @return The value of the storage
+	     */
+	    LocaleService.prototype.getLocalStorage = function (name) {
+	        // If the storage is not found, returns an empty string.
+	        return localStorage.getItem(name) != null ? localStorage.getItem(name) : "";
+	    };
+	    /**
+	     * Sets the cookie.
+	     *
+	     * @param name The name of the cookie
+	     * @param value The value of the cookie
+	     * @param days Number of days on the expiry
+	     */
+	    LocaleService.prototype.setCookie = function (name, value, days) {
+	        if (days != null) {
+	            // Adds the expiry date (in UTC time).
+	            var expirationDate = new Date();
+	            expirationDate.setTime(expirationDate.getTime() + (days * 24 * 60 * 60 * 1000));
+	            var expires = "; expires=" + expirationDate.toUTCString();
+	        }
+	        else {
+	            // By default, the cookie is deleted when the browser is closed.
+	            var expires = "";
+	        }
+	        // Creates the cookie.
+	        document.cookie = name + "=" + value + expires + "; path=/";
+	    };
+	    /**
+	     * Gets the cookie.
+	     *
+	     * @param name The name of the cookie
+	     * @return The value of the cookie
+	     */
+	    LocaleService.prototype.getCookie = function (name) {
+	        // The text to search for.
+	        name += "=";
+	        // Splits document.cookie on semicolons into an array.
+	        var ca = document.cookie.split(";");
+	        // Loops through the ca array, and reads out each value.
+	        for (var i = 0; i < ca.length; i++) {
+	            var c = ca[i];
+	            while (c.charAt(0) == " ") {
+	                c = c.substring(1);
+	            }
+	            // If the cookie is found, returns the value of the cookie.
+	            if (c.indexOf(name) == 0) {
+	                return c.substring(name.length, c.length);
+	            }
+	        }
+	        // If the cookie is not found, returns an empty string.
+	        return "";
+	    };
+	    /**
+	     * Reference counter for the service.
+	     */
+	    LocaleService.referenceCounter = 0;
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', core_1.EventEmitter)
+	    ], LocaleService.prototype, "languageCodeChanged", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', core_1.EventEmitter)
+	    ], LocaleService.prototype, "countryCodeChanged", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', core_1.EventEmitter)
+	    ], LocaleService.prototype, "currencyCodeChanged", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', core_1.EventEmitter)
+	    ], LocaleService.prototype, "scriptCodeChanged", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', core_1.EventEmitter)
+	    ], LocaleService.prototype, "numberingSystemChanged", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', core_1.EventEmitter)
+	    ], LocaleService.prototype, "calendarChanged", void 0);
+	    LocaleService = __decorate([
+	        core_1.Injectable(), 
+	        __metadata('design:paramtypes', [])
+	    ], LocaleService);
+	    return LocaleService;
 	}());
-	exports.InternalFormsSharedModule = InternalFormsSharedModule;
-	//# sourceMappingURL=directives.js.map
+	exports.LocaleService = LocaleService;
+	
+	//# sourceMappingURL=locale.service.js.map
+
 
 /***/ },
 /* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
+	 * ANGULAR 2 LOCALIZATION
+	 * An Angular 2 library to translate messages, dates and numbers.
+	 * Written by Roberto Simonetti.
+	 * MIT license.
+	 * https://github.com/robisim74/angular2localization
 	 */
 	"use strict";
-	var core_1 = __webpack_require__(11);
-	var control_value_accessor_1 = __webpack_require__(342);
-	exports.CHECKBOX_VALUE_ACCESSOR = {
-	    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
-	    useExisting: core_1.forwardRef(function () { return CheckboxControlValueAccessor; }),
-	    multi: true
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
-	var CheckboxControlValueAccessor = (function () {
-	    function CheckboxControlValueAccessor(_renderer, _elementRef) {
-	        this._renderer = _renderer;
-	        this._elementRef = _elementRef;
-	        this.onChange = function (_) { };
-	        this.onTouched = function () { };
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(11);
+	var http_1 = __webpack_require__(342);
+	var Observable_1 = __webpack_require__(70);
+	__webpack_require__(364);
+	// Services.
+	var locale_service_1 = __webpack_require__(340);
+	var Intl_support_1 = __webpack_require__(366);
+	/**
+	 * LocalizationService class.
+	 * Gets the translation data and performs operations.
+	 *
+	 * Direct loading.
+	 *
+	 * To initialize LocalizationService for the direct loading, add the following code in the body of constructor of the bootstrap component:
+	 *
+	 * var translationEN = {
+	 *      TITLE: 'Angular 2 Localization',
+	 *      CHANGE_LANGUAGE: 'Change language',
+	 *      ...
+	 * }
+	 * // Add a new translation here.
+	 *
+	 * // Required: adds a new translation with the given language code.
+	 * this.localization.addTranslation('en', translationEN);
+	 * // Add a new translation with the given language code here.
+	 * this.localization.updateTranslation(); // Need to update the translation.
+	 *
+	 * Asynchronous loading.
+	 *
+	 * To initialize LocalizationService for the asynchronous loading, add the following code in the body of constructor of the bootstrap component:
+	 *
+	 * // Required: initializes the translation provider with the given path prefix.
+	 * this.localization.translationProvider('./resources/locale-');
+	 * this.localization.updateTranslation(); // Need to update the translation.
+	 *
+	 * and create the json files of the translations such as 'locale-en.json':
+	 *
+	 * {
+	 *     "TITLE": "Angular 2 Localization",
+	 *     "CHANGE_LANGUAGE": "Change language",
+	 *     ...
+	 * }
+	 *
+	 * @author Roberto Simonetti
+	 */
+	var LocalizationService = (function () {
+	    function LocalizationService(http, locale) {
+	        var _this = this;
+	        this.http = http;
+	        this.locale = locale;
+	        /**
+	         * Output for event translation changed.
+	         */
+	        this.translationChanged = new core_1.EventEmitter();
+	        /**
+	         * The translation data: {languageCode: {key: value}}.
+	         */
+	        this.translationData = {};
+	        this.prefix = "";
+	        this.loadingMode = LoadingMode.Unknown;
+	        this.languageCode = "";
+	        // Initializes the loading mode.
+	        this.loadingMode = LoadingMode.Direct;
+	        // Initializes the service state.
+	        this.serviceState = ServiceState.isWaiting;
+	        // When the language changes, subscribes to the event & call updateTranslation method.
+	        this.locale.languageCodeChanged.subscribe(
+	        // Generator or next.
+	        function (language) { return _this.updateTranslation(language); });
 	    }
-	    CheckboxControlValueAccessor.prototype.writeValue = function (value) {
-	        this._renderer.setElementProperty(this._elementRef.nativeElement, 'checked', value);
+	    /**
+	     * Direct loading: adds new translation data.
+	     *
+	     * @param language The two-letter code of the language for the translation data
+	     * @param translation The new translation data
+	     */
+	    LocalizationService.prototype.addTranslation = function (language, translation) {
+	        // Adds the new translation data.
+	        this.translationData[language] = translation;
 	    };
-	    CheckboxControlValueAccessor.prototype.registerOnChange = function (fn) { this.onChange = fn; };
-	    CheckboxControlValueAccessor.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
-	    /** @nocollapse */
-	    CheckboxControlValueAccessor.decorators = [
-	        { type: core_1.Directive, args: [{
-	                    selector: 'input[type=checkbox][formControlName],input[type=checkbox][formControl],input[type=checkbox][ngModel]',
-	                    host: { '(change)': 'onChange($event.target.checked)', '(blur)': 'onTouched()' },
-	                    providers: [exports.CHECKBOX_VALUE_ACCESSOR]
-	                },] },
-	    ];
-	    /** @nocollapse */
-	    CheckboxControlValueAccessor.ctorParameters = [
-	        { type: core_1.Renderer, },
-	        { type: core_1.ElementRef, },
-	    ];
-	    return CheckboxControlValueAccessor;
+	    /**
+	     * Asynchronous loading: defines the translation provider.
+	     *
+	     * @param prefix The path prefix of the json files
+	     * @param dataFormat Data format: default value is 'json'.
+	     * @param webAPI True if the asynchronous loading uses a Web API to get the data.
+	     */
+	    LocalizationService.prototype.translationProvider = function (prefix, dataFormat, webAPI) {
+	        if (dataFormat === void 0) { dataFormat = "json"; }
+	        if (webAPI === void 0) { webAPI = false; }
+	        this.prefix = prefix;
+	        this.dataFormat = dataFormat;
+	        this.webAPI = webAPI;
+	        // Updates the loading mode.
+	        this.loadingMode = LoadingMode.Async;
+	    };
+	    /**
+	     * Translates a key.
+	     *
+	     * @param key The key to be translated
+	     * @return The value of translation
+	     */
+	    LocalizationService.prototype.translate = function (key) {
+	        var value;
+	        if (this.translationData[this.languageCode] != null) {
+	            // Gets the translation by language code. 
+	            var translation = this.translationData[this.languageCode];
+	            // Gets the value of translation by key.   
+	            value = translation[key];
+	        }
+	        // If the value of translation is not present, the same key is returned (see issue #1).
+	        if (value == null || value == "") {
+	            value = key;
+	        }
+	        return value;
+	    };
+	    /**
+	     * Translates a key.
+	     *
+	     * @param key The key to be translated
+	     * @return An observable of the value of translation
+	     */
+	    LocalizationService.prototype.translateAsync = function (key) {
+	        var _this = this;
+	        return new Observable_1.Observable(function (observer) {
+	            // Gets the value of translation for the key.
+	            var value = _this.translate(key);
+	            observer.next(value);
+	            observer.complete();
+	        });
+	    };
+	    /**
+	     * Updates the language code and loads the translation data for the asynchronous loading.
+	     *
+	     * @param language The two-letter or three-letter code of the language
+	     */
+	    LocalizationService.prototype.updateTranslation = function (language) {
+	        if (language === void 0) { language = this.locale.getCurrentLanguage(); }
+	        if (language != "" && language != this.languageCode) {
+	            // Asynchronous loading.
+	            if (this.loadingMode == LoadingMode.Async) {
+	                // Updates the translation data.  
+	                this.getTranslation(language);
+	            }
+	            else {
+	                // Updates the language code of the service.
+	                this.languageCode = language;
+	                // Updates the service state.
+	                this.serviceState = ServiceState.isReady;
+	            }
+	        }
+	    };
+	    /* Intl.Collator */
+	    /**
+	     * Compares two keys by the value of translation & the current language code.
+	     *
+	     * @param key1, key2 The keys of the values to compare
+	     * @param extension
+	     * @param options
+	     * @return A negative value if the value of translation of key1 comes before the value of translation of key2; a positive value if key1 comes after key2; 0 if they are considered equal or Intl.Collator is not supported
+	     * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Collator
+	     */
+	    LocalizationService.prototype.compare = function (key1, key2, extension, options) {
+	        // Checks for support for Intl.
+	        if (Intl_support_1.IntlSupport.Collator(this.languageCode) == false) {
+	            return 0;
+	        }
+	        // Gets the value of translation for the keys.
+	        var value1 = this.translate(key1);
+	        var value2 = this.translate(key2);
+	        var locale = this.addExtension(this.languageCode, extension);
+	        return new Intl.Collator(locale).compare(value1, value2);
+	    };
+	    /**
+	     * Sorts an array of objects or an array of arrays by the current language code.
+	     *
+	     * @param list The array to be sorted
+	     * @param keyName The column that contains the keys of the values to be ordered
+	     * @param order 'asc' or 'desc'. The default value is 'asc'.
+	     * @param extension
+	     * @param options
+	     * @return The same sorted list or the same list if Intl.Collator is not supported
+	     * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Collator
+	     */
+	    LocalizationService.prototype.sort = function (list, keyName, order, extension, options) {
+	        if (list == null || keyName == null || Intl_support_1.IntlSupport.Collator(this.languageCode) == false) {
+	            return list;
+	        }
+	        // Gets the value of translation for the keys.
+	        for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
+	            var item = list_1[_i];
+	            // Gets the value of translation for the key.
+	            var value = this.translate(item[keyName]);
+	            // Adds a new column for translated values.
+	            var translated = keyName.concat("Translated");
+	            // Updates the value in the list.
+	            item[translated] = value;
+	        }
+	        var locale = this.addExtension(this.languageCode, extension);
+	        // Intl.Collator.
+	        var collator = new Intl.Collator(locale, options); // It can be passed directly to Array.prototype.sort.
+	        list.sort(function (a, b) {
+	            return collator.compare(a[translated], b[translated]);
+	        });
+	        // Removes the column of translated values.
+	        var index = list.indexOf(translated, 0);
+	        if (index > -1) {
+	            list.splice(index, 1);
+	        }
+	        // Descending order.
+	        if (order != null && order == "desc") {
+	            list.reverse();
+	        }
+	        return list;
+	    };
+	    /**
+	     * Sorts an array of objects or an array of arrays by the current language code.
+	     *
+	     * @param list The array to be sorted
+	     * @param keyName The column that contains the keys of the values to be ordered
+	     * @param order 'asc' or 'desc'. The default value is 'asc'.
+	     * @param extension
+	     * @param options
+	     * @return An observable of the sorted list or of the same list if Intl.Collator is not supported
+	     * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Collator
+	     */
+	    LocalizationService.prototype.sortAsync = function (list, keyName, order, extension, options) {
+	        var _this = this;
+	        return new Observable_1.Observable(function (observer) {
+	            // Gets the sorted list.
+	            observer.next(_this.sort(list, keyName, order, extension, options));
+	            observer.complete();
+	        });
+	    };
+	    /**
+	     * Matches a string into an array of objects or an array of arrays.
+	     *
+	     * @param s The string to search
+	     * @param list The array to look for
+	     * @param keyNames An array that contains the columns to look for
+	     * @param options
+	     * @return A filtered list or the same list if Intl.Collator is not supported
+	     * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Collator
+	     */
+	    LocalizationService.prototype.search = function (s, list, keyNames, options) {
+	        var _this = this;
+	        if (options === void 0) { options = { usage: 'search' }; }
+	        if (list == null || keyNames == null || s == "" || Intl_support_1.IntlSupport.Collator(this.languageCode) == false) {
+	            return list;
+	        }
+	        // Gets the value of translation for the each column.
+	        var translated = new Array();
+	        var i = 0;
+	        for (var i = 0; i < keyNames.length; i++) {
+	            // Adds a new column for translated values.
+	            translated.push(keyNames[i].concat("Translated"));
+	            for (var _i = 0, list_2 = list; _i < list_2.length; _i++) {
+	                var item = list_2[_i];
+	                // Gets the values of translation for the column.
+	                var value = this.translate(item[keyNames[i]]);
+	                // Updates the value in the list.
+	                item[translated[i]] = value;
+	            }
+	        }
+	        var locale = this.languageCode;
+	        // Intl.Collator.
+	        var collator = new Intl.Collator(locale, options);
+	        var matches = list.filter(function (v) {
+	            var found = false;
+	            for (var i = 0; i < translated.length; i++) {
+	                // Calls matching algorithm.
+	                if (_this.match(v[translated[i]], s, collator)) {
+	                    found = true;
+	                    break;
+	                }
+	            }
+	            return found;
+	        });
+	        // Removes the columns of translated values.
+	        for (var i = 0; i < translated.length; i++) {
+	            var index = matches.indexOf(translated[i], 0);
+	            if (index > -1) {
+	                matches.splice(index, 1);
+	            }
+	        }
+	        return matches;
+	    };
+	    /**
+	     * Matches a string into an array of objects or an array of arrays.
+	     *
+	     * @param s The string to search
+	     * @param list The array to look for
+	     * @param keyNames An array that contains the columns to look for
+	     * @param options
+	     * @return An observable for each element of the filtered list or the same list if Intl.Collator is not supported
+	     * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Collator
+	     */
+	    LocalizationService.prototype.searchAsync = function (s, list, keyNames, options) {
+	        var _this = this;
+	        if (options === void 0) { options = { usage: 'search' }; }
+	        if (list == null) {
+	            return null;
+	        }
+	        if (keyNames == null || s == "" || Intl_support_1.IntlSupport.Collator(this.languageCode) == false) {
+	            return new Observable_1.Observable(function (observer) {
+	                for (var _i = 0, list_3 = list; _i < list_3.length; _i++) {
+	                    var item = list_3[_i];
+	                    observer.next(item);
+	                }
+	                observer.complete();
+	            });
+	        }
+	        return new Observable_1.Observable(function (observer) {
+	            // Gets the value of translation for the each column.
+	            var translated = new Array();
+	            var i = 0;
+	            for (var i = 0; i < keyNames.length; i++) {
+	                // Adds a new column for translated values.
+	                translated.push(keyNames[i].concat("Translated"));
+	                for (var _i = 0, list_4 = list; _i < list_4.length; _i++) {
+	                    var item = list_4[_i];
+	                    // Gets the values of translation for the column.
+	                    var value = _this.translate(item[keyNames[i]]);
+	                    // Updates the value in the list.
+	                    item[translated[i]] = value;
+	                }
+	            }
+	            var locale = _this.languageCode;
+	            // Intl.Collator.
+	            var collator = new Intl.Collator(locale, options);
+	            for (var _a = 0, list_5 = list; _a < list_5.length; _a++) {
+	                var v = list_5[_a];
+	                for (var i = 0; i < translated.length; i++) {
+	                    // Calls matching algorithm.
+	                    if (_this.match(v[translated[i]], s, collator)) {
+	                        observer.next(v);
+	                        break;
+	                    }
+	                }
+	            }
+	            // Removes the columns of translated values.
+	            for (var i = 0; i < translated.length; i++) {
+	                var index = list.indexOf(translated[i], 0);
+	                if (index > -1) {
+	                    list.splice(index, 1);
+	                }
+	            }
+	            observer.complete();
+	        });
+	    };
+	    LocalizationService.prototype.addExtension = function (locale, extension) {
+	        // Adds extension.
+	        if (extension != null && extension != "") {
+	            locale = locale + "-" + extension;
+	        }
+	        return locale;
+	    };
+	    /**
+	     * Matching algorithm.
+	     *
+	     * @param v The value
+	     * @param s The string to search
+	     * return True if match, otherwise false
+	     */
+	    LocalizationService.prototype.match = function (v, s, collator) {
+	        var vLength = v.length;
+	        var sLength = s.length;
+	        if (sLength > vLength) {
+	            return false;
+	        } // The search string is longer than value.
+	        if (sLength == vLength) {
+	            return collator.compare(v, s) === 0;
+	        }
+	        // Tries to search the substring.
+	        var found = false;
+	        for (var i = 0; i < vLength - (sLength - 1); i++) {
+	            var str = v.substr(i, sLength);
+	            if (collator.compare(str, s) === 0) {
+	                found = true;
+	                break;
+	            }
+	        }
+	        return found;
+	    };
+	    /**
+	     * Asynchronous loading: gets translation data.
+	     *
+	     * @param language The two-letter or three-letter code of the language
+	     */
+	    LocalizationService.prototype.getTranslation = function (language) {
+	        var _this = this;
+	        // Initializes the translation data & the service state.
+	        this.translationData = {};
+	        this.serviceState = ServiceState.isLoading;
+	        // Builds the URL.
+	        var url = this.prefix;
+	        if (this.webAPI == true) {
+	            // Absolute URL for Web API.
+	            url += language;
+	        }
+	        else {
+	            // Relative server path for 'json' files.
+	            url += language + "." + this.dataFormat;
+	        }
+	        // Angular 2 Http module.
+	        this.http.get(url)
+	            .map(function (res) { return res.json(); })
+	            .subscribe(
+	        // Observer or next.
+	        function (res) {
+	            // Assigns the observer to the translation data.
+	            _this.translationData[language] = res;
+	        }, 
+	        // Error.
+	        function (error) {
+	            console.error("Localization service:", error);
+	        }, 
+	        // Complete.
+	        function () {
+	            // Updates the service state.
+	            _this.serviceState = ServiceState.isReady;
+	            // Updates the language code of the service.
+	            _this.languageCode = language;
+	            // Sends an event.
+	            _this.translationChanged.emit(true);
+	        });
+	    };
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', core_1.EventEmitter)
+	    ], LocalizationService.prototype, "translationChanged", void 0);
+	    LocalizationService = __decorate([
+	        core_1.Injectable(), 
+	        __metadata('design:paramtypes', [http_1.Http, locale_service_1.LocaleService])
+	    ], LocalizationService);
+	    return LocalizationService;
 	}());
-	exports.CheckboxControlValueAccessor = CheckboxControlValueAccessor;
-	//# sourceMappingURL=checkbox_value_accessor.js.map
+	exports.LocalizationService = LocalizationService;
+	/**
+	 * Defines the service state.
+	 */
+	(function (ServiceState) {
+	    /**
+	     * The translation data has been loaded.
+	     */
+	    ServiceState[ServiceState["isReady"] = 0] = "isReady";
+	    /**
+	     * The service is loading the data.
+	     */
+	    ServiceState[ServiceState["isLoading"] = 1] = "isLoading";
+	    /**
+	     * The service is waiting for the data.
+	     */
+	    ServiceState[ServiceState["isWaiting"] = 2] = "isWaiting";
+	})(exports.ServiceState || (exports.ServiceState = {}));
+	var ServiceState = exports.ServiceState;
+	/**
+	 * Defines the loading mode.
+	 */
+	(function (LoadingMode) {
+	    /**
+	     * Initial state.
+	     */
+	    LoadingMode[LoadingMode["Unknown"] = 0] = "Unknown";
+	    /**
+	     * Direct loading.
+	     */
+	    LoadingMode[LoadingMode["Direct"] = 1] = "Direct";
+	    /**
+	     * Asynchronous loading.
+	     */
+	    LoadingMode[LoadingMode["Async"] = 2] = "Async";
+	})(exports.LoadingMode || (exports.LoadingMode = {}));
+	var LoadingMode = exports.LoadingMode;
+	
+	//# sourceMappingURL=localization.service.js.map
+
 
 /***/ },
 /* 342 */
@@ -50291,15 +51225,11 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var core_1 = __webpack_require__(11);
-	/**
-	 * Used to provide a {@link ControlValueAccessor} for form controls.
-	 *
-	 * See {@link DefaultValueAccessor} for how to implement one.
-	 * @experimental
-	 */
-	exports.NG_VALUE_ACCESSOR = new core_1.OpaqueToken('NgValueAccessor');
-	//# sourceMappingURL=control_value_accessor.js.map
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(343));
+	//# sourceMappingURL=index.js.map
 
 /***/ },
 /* 343 */
@@ -50313,50 +51243,442 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
+	/**
+	 * @module
+	 * @description
+	 * The http module provides services to perform http requests. To get started, see the {@link Http}
+	 * class.
+	 */
 	var core_1 = __webpack_require__(11);
-	var lang_1 = __webpack_require__(344);
-	var control_value_accessor_1 = __webpack_require__(342);
-	exports.DEFAULT_VALUE_ACCESSOR = {
-	    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
-	    useExisting: core_1.forwardRef(function () { return DefaultValueAccessor; }),
-	    multi: true
-	};
-	var DefaultValueAccessor = (function () {
-	    function DefaultValueAccessor(_renderer, _elementRef) {
-	        this._renderer = _renderer;
-	        this._elementRef = _elementRef;
-	        this.onChange = function (_) { };
-	        this.onTouched = function () { };
+	var browser_jsonp_1 = __webpack_require__(344);
+	var browser_xhr_1 = __webpack_require__(346);
+	var jsonp_backend_1 = __webpack_require__(347);
+	var xhr_backend_1 = __webpack_require__(360);
+	var base_request_options_1 = __webpack_require__(361);
+	var base_response_options_1 = __webpack_require__(348);
+	var http_1 = __webpack_require__(362);
+	var interfaces_1 = __webpack_require__(355);
+	var browser_xhr_2 = __webpack_require__(346);
+	exports.BrowserXhr = browser_xhr_2.BrowserXhr;
+	var jsonp_backend_2 = __webpack_require__(347);
+	exports.JSONPBackend = jsonp_backend_2.JSONPBackend;
+	exports.JSONPConnection = jsonp_backend_2.JSONPConnection;
+	var xhr_backend_2 = __webpack_require__(360);
+	exports.CookieXSRFStrategy = xhr_backend_2.CookieXSRFStrategy;
+	exports.XHRBackend = xhr_backend_2.XHRBackend;
+	exports.XHRConnection = xhr_backend_2.XHRConnection;
+	var base_request_options_2 = __webpack_require__(361);
+	exports.BaseRequestOptions = base_request_options_2.BaseRequestOptions;
+	exports.RequestOptions = base_request_options_2.RequestOptions;
+	var base_response_options_2 = __webpack_require__(348);
+	exports.BaseResponseOptions = base_response_options_2.BaseResponseOptions;
+	exports.ResponseOptions = base_response_options_2.ResponseOptions;
+	var enums_1 = __webpack_require__(349);
+	exports.ReadyState = enums_1.ReadyState;
+	exports.RequestMethod = enums_1.RequestMethod;
+	exports.ResponseContentType = enums_1.ResponseContentType;
+	exports.ResponseType = enums_1.ResponseType;
+	var headers_1 = __webpack_require__(350);
+	exports.Headers = headers_1.Headers;
+	var http_2 = __webpack_require__(362);
+	exports.Http = http_2.Http;
+	exports.Jsonp = http_2.Jsonp;
+	var interfaces_2 = __webpack_require__(355);
+	exports.Connection = interfaces_2.Connection;
+	exports.ConnectionBackend = interfaces_2.ConnectionBackend;
+	exports.XSRFStrategy = interfaces_2.XSRFStrategy;
+	var static_request_1 = __webpack_require__(363);
+	exports.Request = static_request_1.Request;
+	var static_response_1 = __webpack_require__(356);
+	exports.Response = static_response_1.Response;
+	var url_search_params_1 = __webpack_require__(359);
+	exports.QueryEncoder = url_search_params_1.QueryEncoder;
+	exports.URLSearchParams = url_search_params_1.URLSearchParams;
+	/**
+	 * Provides a basic set of injectables to use the {@link Http} service in any application.
+	 *
+	 * The `HTTP_PROVIDERS` should be included either in a component's injector,
+	 * or in the root injector when bootstrapping an application.
+	 *
+	 * ### Example ([live demo](http://plnkr.co/edit/snj7Nv?p=preview))
+	 *
+	 * ```
+	 * import {Component} from '@angular/core';
+	 * import {bootstrap} from '@angular/platform-browser/browser';
+	 * import {NgFor} from '@angular/common';
+	 * import {HTTP_PROVIDERS, Http} from '@angular/http';
+	 *
+	 * @Component({
+	 *   selector: 'app',
+	 *   providers: [HTTP_PROVIDERS],
+	 *   template: `
+	 *     <div>
+	 *       <h1>People</h1>
+	 *       <ul>
+	 *         <li *ngFor="let person of people">
+	 *           {{person.name}}
+	 *         </li>
+	 *       </ul>
+	 *     </div>
+	 *   `,
+	 *   directives: [NgFor]
+	 * })
+	 * export class App {
+	 *   people: Object[];
+	 *   constructor(http:Http) {
+	 *     http.get('people.json').subscribe(res => {
+	 *       this.people = res.json();
+	 *     });
+	 *   }
+	 *   active:boolean = false;
+	 *   toggleActiveState() {
+	 *     this.active = !this.active;
+	 *   }
+	 * }
+	 *
+	 * bootstrap(App)
+	 *   .catch(err => console.error(err));
+	 * ```
+	 *
+	 * The primary public API included in `HTTP_PROVIDERS` is the {@link Http} class.
+	 * However, other providers required by `Http` are included,
+	 * which may be beneficial to override in certain cases.
+	 *
+	 * The providers included in `HTTP_PROVIDERS` include:
+	 *  * {@link Http}
+	 *  * {@link XHRBackend}
+	 *  * {@link XSRFStrategy} - Bound to {@link CookieXSRFStrategy} class (see below)
+	 *  * `BrowserXHR` - Private factory to create `XMLHttpRequest` instances
+	 *  * {@link RequestOptions} - Bound to {@link BaseRequestOptions} class
+	 *  * {@link ResponseOptions} - Bound to {@link BaseResponseOptions} class
+	 *
+	 * There may be cases where it makes sense to extend the base request options,
+	 * such as to add a search string to be appended to all URLs.
+	 * To accomplish this, a new provider for {@link RequestOptions} should
+	 * be added in the same injector as `HTTP_PROVIDERS`.
+	 *
+	 * ### Example ([live demo](http://plnkr.co/edit/aCMEXi?p=preview))
+	 *
+	 * ```
+	 * import {provide} from '@angular/core';
+	 * import {bootstrap} from '@angular/platform-browser/browser';
+	 * import {HTTP_PROVIDERS, BaseRequestOptions, RequestOptions} from '@angular/http';
+	 *
+	 * class MyOptions extends BaseRequestOptions {
+	 *   search: string = 'coreTeam=true';
+	 * }
+	 *
+	 * bootstrap(App, [HTTP_PROVIDERS, {provide: RequestOptions, useClass: MyOptions}])
+	 *   .catch(err => console.error(err));
+	 * ```
+	 *
+	 * Likewise, to use a mock backend for unit tests, the {@link XHRBackend}
+	 * provider should be bound to {@link MockBackend}.
+	 *
+	 * ### Example ([live demo](http://plnkr.co/edit/7LWALD?p=preview))
+	 *
+	 * ```
+	 * import {provide} from '@angular/core';
+	 * import {bootstrap} from '@angular/platform-browser/browser';
+	 * import {HTTP_PROVIDERS, Http, Response, XHRBackend} from '@angular/http';
+	 * import {MockBackend} from '@angular/http/testing';
+	 *
+	 * var people = [{name: 'Jeff'}, {name: 'Tobias'}];
+	 *
+	 * var injector = Injector.resolveAndCreate([
+	 *   HTTP_PROVIDERS,
+	 *   MockBackend,
+	 *   {provide: XHRBackend, useExisting: MockBackend}
+	 * ]);
+	 * var http = injector.get(Http);
+	 * var backend = injector.get(MockBackend);
+	 *
+	 * // Listen for any new requests
+	 * backend.connections.observer({
+	 *   next: connection => {
+	 *     var response = new Response({body: people});
+	 *     setTimeout(() => {
+	 *       // Send a response to the request
+	 *       connection.mockRespond(response);
+	 *     });
+	 *   }
+	 * });
+	 *
+	 * http.get('people.json').observer({
+	 *   next: res => {
+	 *     // Response came from mock backend
+	 *     console.log('first person', res.json()[0].name);
+	 *   }
+	 * });
+	 * ```
+	 *
+	 * `XSRFStrategy` allows customizing how the application protects itself against Cross Site Request
+	 * Forgery (XSRF) attacks. By default, Angular will look for a cookie called `'XSRF-TOKEN'`, and set
+	 * an HTTP request header called `'X-XSRF-TOKEN'` with the value of the cookie on each request,
+	 * allowing the server side to validate that the request comes from its own front end.
+	 *
+	 * Applications can override the names used by configuring a different `XSRFStrategy` instance. Most
+	 * commonly, applications will configure a `CookieXSRFStrategy` with different cookie or header
+	 * names, but if needed, they can supply a completely custom implementation.
+	 *
+	 * See the security documentation for more information.
+	 *
+	 * ### Example
+	 *
+	 * ```
+	 * import {provide} from '@angular/core';
+	 * import {bootstrap} from '@angular/platform-browser/browser';
+	 * import {HTTP_PROVIDERS, XSRFStrategy, CookieXSRFStrategy} from '@angular/http';
+	 *
+	 * bootstrap(
+	 *     App,
+	 *     [HTTP_PROVIDERS, {provide: XSRFStrategy,
+	 *         useValue: new CookieXSRFStrategy('MY-XSRF-COOKIE-NAME', 'X-MY-XSRF-HEADER-NAME')}])
+	 *   .catch(err => console.error(err));
+	 * ```
+	 *
+	 * @deprecated
+	 */
+	exports.HTTP_PROVIDERS = [
+	    // TODO(pascal): use factory type annotations once supported in DI
+	    // issue: https://github.com/angular/angular/issues/3183
+	    { provide: http_1.Http, useFactory: httpFactory, deps: [xhr_backend_1.XHRBackend, base_request_options_1.RequestOptions] },
+	    browser_xhr_1.BrowserXhr,
+	    { provide: base_request_options_1.RequestOptions, useClass: base_request_options_1.BaseRequestOptions },
+	    { provide: base_response_options_1.ResponseOptions, useClass: base_response_options_1.BaseResponseOptions },
+	    xhr_backend_1.XHRBackend,
+	    { provide: interfaces_1.XSRFStrategy, useFactory: _createDefaultCookieXSRFStrategy },
+	];
+	/**
+	 * @experimental
+	 */
+	function _createDefaultCookieXSRFStrategy() {
+	    return new xhr_backend_1.CookieXSRFStrategy();
+	}
+	exports._createDefaultCookieXSRFStrategy = _createDefaultCookieXSRFStrategy;
+	/**
+	 * @experimental
+	 */
+	function httpFactory(xhrBackend, requestOptions) {
+	    return new http_1.Http(xhrBackend, requestOptions);
+	}
+	exports.httpFactory = httpFactory;
+	/**
+	 * See {@link HTTP_PROVIDERS} instead.
+	 *
+	 * @deprecated
+	 */
+	exports.HTTP_BINDINGS = exports.HTTP_PROVIDERS;
+	/**
+	 * Provides a basic set of providers to use the {@link Jsonp} service in any application.
+	 *
+	 * The `JSONP_PROVIDERS` should be included either in a component's injector,
+	 * or in the root injector when bootstrapping an application.
+	 *
+	 * ### Example ([live demo](http://plnkr.co/edit/vmeN4F?p=preview))
+	 *
+	 * ```
+	 * import {Component} from '@angular/core';
+	 * import {NgFor} from '@angular/common';
+	 * import {JSONP_PROVIDERS, Jsonp} from '@angular/http';
+	 *
+	 * @Component({
+	 *   selector: 'app',
+	 *   providers: [JSONP_PROVIDERS],
+	 *   template: `
+	 *     <div>
+	 *       <h1>People</h1>
+	 *       <ul>
+	 *         <li *ngFor="let person of people">
+	 *           {{person.name}}
+	 *         </li>
+	 *       </ul>
+	 *     </div>
+	 *   `,
+	 *   directives: [NgFor]
+	 * })
+	 * export class App {
+	 *   people: Array<Object>;
+	 *   constructor(jsonp:Jsonp) {
+	 *     jsonp.request('people.json').subscribe(res => {
+	 *       this.people = res.json();
+	 *     })
+	 *   }
+	 * }
+	 * ```
+	 *
+	 * The primary public API included in `JSONP_PROVIDERS` is the {@link Jsonp} class.
+	 * However, other providers required by `Jsonp` are included,
+	 * which may be beneficial to override in certain cases.
+	 *
+	 * The providers included in `JSONP_PROVIDERS` include:
+	 *  * {@link Jsonp}
+	 *  * {@link JSONPBackend}
+	 *  * `BrowserJsonp` - Private factory
+	 *  * {@link RequestOptions} - Bound to {@link BaseRequestOptions} class
+	 *  * {@link ResponseOptions} - Bound to {@link BaseResponseOptions} class
+	 *
+	 * There may be cases where it makes sense to extend the base request options,
+	 * such as to add a search string to be appended to all URLs.
+	 * To accomplish this, a new provider for {@link RequestOptions} should
+	 * be added in the same injector as `JSONP_PROVIDERS`.
+	 *
+	 * ### Example ([live demo](http://plnkr.co/edit/TFug7x?p=preview))
+	 *
+	 * ```
+	 * import {provide} from '@angular/core';
+	 * import {bootstrap} from '@angular/platform-browser/browser';
+	 * import {JSONP_PROVIDERS, BaseRequestOptions, RequestOptions} from '@angular/http';
+	 *
+	 * class MyOptions extends BaseRequestOptions {
+	 *   search: string = 'coreTeam=true';
+	 * }
+	 *
+	 * bootstrap(App, [JSONP_PROVIDERS, {provide: RequestOptions, useClass: MyOptions}])
+	 *   .catch(err => console.error(err));
+	 * ```
+	 *
+	 * Likewise, to use a mock backend for unit tests, the {@link JSONPBackend}
+	 * provider should be bound to {@link MockBackend}.
+	 *
+	 * ### Example ([live demo](http://plnkr.co/edit/HDqZWL?p=preview))
+	 *
+	 * ```
+	 * import {provide, Injector} from '@angular/core';
+	 * import {JSONP_PROVIDERS, Jsonp, Response, JSONPBackend} from '@angular/http';
+	 * import {MockBackend} from '@angular/http/testing';
+	 *
+	 * var people = [{name: 'Jeff'}, {name: 'Tobias'}];
+	 * var injector = Injector.resolveAndCreate([
+	 *   JSONP_PROVIDERS,
+	 *   MockBackend,
+	 *   {provide: JSONPBackend, useExisting: MockBackend}
+	 * ]);
+	 * var jsonp = injector.get(Jsonp);
+	 * var backend = injector.get(MockBackend);
+	 *
+	 * // Listen for any new requests
+	 * backend.connections.observer({
+	 *   next: connection => {
+	 *     var response = new Response({body: people});
+	 *     setTimeout(() => {
+	 *       // Send a response to the request
+	 *       connection.mockRespond(response);
+	 *     });
+	 *   }
+	 * });
+	
+	 * jsonp.get('people.json').observer({
+	 *   next: res => {
+	 *     // Response came from mock backend
+	 *     console.log('first person', res.json()[0].name);
+	 *   }
+	 * });
+	 * ```
+	 *
+	 * @experimental
+	 */
+	exports.JSONP_PROVIDERS = [
+	    // TODO(pascal): use factory type annotations once supported in DI
+	    // issue: https://github.com/angular/angular/issues/3183
+	    { provide: http_1.Jsonp, useFactory: jsonpFactory, deps: [jsonp_backend_1.JSONPBackend, base_request_options_1.RequestOptions] },
+	    browser_jsonp_1.BrowserJsonp,
+	    { provide: base_request_options_1.RequestOptions, useClass: base_request_options_1.BaseRequestOptions },
+	    { provide: base_response_options_1.ResponseOptions, useClass: base_response_options_1.BaseResponseOptions },
+	    { provide: jsonp_backend_1.JSONPBackend, useClass: jsonp_backend_1.JSONPBackend_ },
+	];
+	function jsonpFactory(jsonpBackend, requestOptions) {
+	    return new http_1.Jsonp(jsonpBackend, requestOptions);
+	}
+	/**
+	 * See {@link JSONP_PROVIDERS} instead.
+	 *
+	 * @deprecated
+	 */
+	exports.JSON_BINDINGS = exports.JSONP_PROVIDERS;
+	var HttpModule = (function () {
+	    function HttpModule() {
 	    }
-	    DefaultValueAccessor.prototype.writeValue = function (value) {
-	        var normalizedValue = lang_1.isBlank(value) ? '' : value;
-	        this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', normalizedValue);
-	    };
-	    DefaultValueAccessor.prototype.registerOnChange = function (fn) { this.onChange = fn; };
-	    DefaultValueAccessor.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
 	    /** @nocollapse */
-	    DefaultValueAccessor.decorators = [
-	        { type: core_1.Directive, args: [{
-	                    selector: 'input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]',
-	                    // TODO: vsavkin replace the above selector with the one below it once
-	                    // https://github.com/angular/angular/issues/3011 is implemented
-	                    // selector: '[ngControl],[ngModel],[ngFormControl]',
-	                    host: { '(input)': 'onChange($event.target.value)', '(blur)': 'onTouched()' },
-	                    providers: [exports.DEFAULT_VALUE_ACCESSOR]
-	                },] },
+	    HttpModule.decorators = [
+	        { type: core_1.NgModule, args: [{ providers: exports.HTTP_PROVIDERS },] },
 	    ];
-	    /** @nocollapse */
-	    DefaultValueAccessor.ctorParameters = [
-	        { type: core_1.Renderer, },
-	        { type: core_1.ElementRef, },
-	    ];
-	    return DefaultValueAccessor;
+	    return HttpModule;
 	}());
-	exports.DefaultValueAccessor = DefaultValueAccessor;
-	//# sourceMappingURL=default_value_accessor.js.map
+	exports.HttpModule = HttpModule;
+	var JsonpModule = (function () {
+	    function JsonpModule() {
+	    }
+	    /** @nocollapse */
+	    JsonpModule.decorators = [
+	        { type: core_1.NgModule, args: [{ providers: exports.JSONP_PROVIDERS },] },
+	    ];
+	    return JsonpModule;
+	}());
+	exports.JsonpModule = JsonpModule;
+	//# sourceMappingURL=http.js.map
 
 /***/ },
 /* 344 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var core_1 = __webpack_require__(11);
+	var lang_1 = __webpack_require__(345);
+	var _nextRequestId = 0;
+	exports.JSONP_HOME = '__ng_jsonp__';
+	var _jsonpConnections = null;
+	function _getJsonpConnections() {
+	    if (_jsonpConnections === null) {
+	        _jsonpConnections = lang_1.global[exports.JSONP_HOME] = {};
+	    }
+	    return _jsonpConnections;
+	}
+	var BrowserJsonp = (function () {
+	    function BrowserJsonp() {
+	    }
+	    // Construct a <script> element with the specified URL
+	    BrowserJsonp.prototype.build = function (url) {
+	        var node = document.createElement('script');
+	        node.src = url;
+	        return node;
+	    };
+	    BrowserJsonp.prototype.nextRequestID = function () { return "__req" + _nextRequestId++; };
+	    BrowserJsonp.prototype.requestCallback = function (id) { return exports.JSONP_HOME + "." + id + ".finished"; };
+	    BrowserJsonp.prototype.exposeConnection = function (id, connection) {
+	        var connections = _getJsonpConnections();
+	        connections[id] = connection;
+	    };
+	    BrowserJsonp.prototype.removeConnection = function (id) {
+	        var connections = _getJsonpConnections();
+	        connections[id] = null;
+	    };
+	    // Attach the <script> element to the DOM
+	    BrowserJsonp.prototype.send = function (node) { document.body.appendChild((node)); };
+	    // Remove <script> element from the DOM
+	    BrowserJsonp.prototype.cleanup = function (node) {
+	        if (node.parentNode) {
+	            node.parentNode.removeChild((node));
+	        }
+	    };
+	    /** @nocollapse */
+	    BrowserJsonp.decorators = [
+	        { type: core_1.Injectable },
+	    ];
+	    return BrowserJsonp;
+	}());
+	exports.BrowserJsonp = BrowserJsonp;
+	//# sourceMappingURL=browser_jsonp.js.map
+
+/***/ },
+/* 345 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -50777,90 +52099,6 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 345 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	var core_1 = __webpack_require__(11);
-	var lang_1 = __webpack_require__(344);
-	var ng_control_1 = __webpack_require__(346);
-	var NgControlStatus = (function () {
-	    function NgControlStatus(cd) {
-	        this._cd = cd;
-	    }
-	    Object.defineProperty(NgControlStatus.prototype, "ngClassUntouched", {
-	        get: function () {
-	            return lang_1.isPresent(this._cd.control) ? this._cd.control.untouched : false;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(NgControlStatus.prototype, "ngClassTouched", {
-	        get: function () {
-	            return lang_1.isPresent(this._cd.control) ? this._cd.control.touched : false;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(NgControlStatus.prototype, "ngClassPristine", {
-	        get: function () {
-	            return lang_1.isPresent(this._cd.control) ? this._cd.control.pristine : false;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(NgControlStatus.prototype, "ngClassDirty", {
-	        get: function () {
-	            return lang_1.isPresent(this._cd.control) ? this._cd.control.dirty : false;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(NgControlStatus.prototype, "ngClassValid", {
-	        get: function () {
-	            return lang_1.isPresent(this._cd.control) ? this._cd.control.valid : false;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(NgControlStatus.prototype, "ngClassInvalid", {
-	        get: function () {
-	            return lang_1.isPresent(this._cd.control) ? !this._cd.control.valid : false;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    /** @nocollapse */
-	    NgControlStatus.decorators = [
-	        { type: core_1.Directive, args: [{
-	                    selector: '[formControlName],[ngModel],[formControl]',
-	                    host: {
-	                        '[class.ng-untouched]': 'ngClassUntouched',
-	                        '[class.ng-touched]': 'ngClassTouched',
-	                        '[class.ng-pristine]': 'ngClassPristine',
-	                        '[class.ng-dirty]': 'ngClassDirty',
-	                        '[class.ng-valid]': 'ngClassValid',
-	                        '[class.ng-invalid]': 'ngClassInvalid'
-	                    }
-	                },] },
-	    ];
-	    /** @nocollapse */
-	    NgControlStatus.ctorParameters = [
-	        { type: ng_control_1.NgControl, decorators: [{ type: core_1.Self },] },
-	    ];
-	    return NgControlStatus;
-	}());
-	exports.NgControlStatus = NgControlStatus;
-	//# sourceMappingURL=ng_control_status.js.map
-
-/***/ },
 /* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -50872,42 +52110,21 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var exceptions_1 = __webpack_require__(347);
-	var abstract_control_directive_1 = __webpack_require__(351);
-	/**
-	 * A base class that all control directive extend.
-	 * It binds a {@link Control} object to a DOM element.
-	 *
-	 * Used internally by Angular forms.
-	 *
-	 * @experimental
-	 */
-	var NgControl = (function (_super) {
-	    __extends(NgControl, _super);
-	    function NgControl() {
-	        _super.apply(this, arguments);
-	        this.name = null;
-	        this.valueAccessor = null;
+	var core_1 = __webpack_require__(11);
+	var BrowserXhr = (function () {
+	    function BrowserXhr() {
 	    }
-	    Object.defineProperty(NgControl.prototype, "validator", {
-	        get: function () { return exceptions_1.unimplemented(); },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(NgControl.prototype, "asyncValidator", {
-	        get: function () { return exceptions_1.unimplemented(); },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    return NgControl;
-	}(abstract_control_directive_1.AbstractControlDirective));
-	exports.NgControl = NgControl;
-	//# sourceMappingURL=ng_control.js.map
+	    BrowserXhr.prototype.build = function () { return (new XMLHttpRequest()); };
+	    /** @nocollapse */
+	    BrowserXhr.decorators = [
+	        { type: core_1.Injectable },
+	    ];
+	    /** @nocollapse */
+	    BrowserXhr.ctorParameters = [];
+	    return BrowserXhr;
+	}());
+	exports.BrowserXhr = BrowserXhr;
+	//# sourceMappingURL=browser_xhr.js.map
 
 /***/ },
 /* 347 */
@@ -50926,86 +52143,150 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var base_wrapped_exception_1 = __webpack_require__(348);
-	var exception_handler_1 = __webpack_require__(349);
-	var exception_handler_2 = __webpack_require__(349);
-	exports.ExceptionHandler = exception_handler_2.ExceptionHandler;
+	var core_1 = __webpack_require__(11);
+	var Observable_1 = __webpack_require__(70);
+	var base_response_options_1 = __webpack_require__(348);
+	var enums_1 = __webpack_require__(349);
+	var exceptions_1 = __webpack_require__(352);
+	var lang_1 = __webpack_require__(345);
+	var interfaces_1 = __webpack_require__(355);
+	var static_response_1 = __webpack_require__(356);
+	var browser_jsonp_1 = __webpack_require__(344);
+	var JSONP_ERR_NO_CALLBACK = 'JSONP injected script did not invoke callback.';
+	var JSONP_ERR_WRONG_METHOD = 'JSONP requests must use GET request method.';
 	/**
-	 * @stable
+	 * Abstract base class for an in-flight JSONP request.
+	 *
+	 * @experimental
 	 */
-	var BaseException = (function (_super) {
-	    __extends(BaseException, _super);
-	    function BaseException(message) {
-	        if (message === void 0) { message = '--'; }
-	        _super.call(this, message);
-	        this.message = message;
-	        this.stack = (new Error(message)).stack;
+	var JSONPConnection = (function () {
+	    function JSONPConnection() {
 	    }
-	    BaseException.prototype.toString = function () { return this.message; };
-	    return BaseException;
-	}(Error));
-	exports.BaseException = BaseException;
+	    return JSONPConnection;
+	}());
+	exports.JSONPConnection = JSONPConnection;
+	var JSONPConnection_ = (function (_super) {
+	    __extends(JSONPConnection_, _super);
+	    function JSONPConnection_(req, _dom, baseResponseOptions) {
+	        var _this = this;
+	        _super.call(this);
+	        this._dom = _dom;
+	        this.baseResponseOptions = baseResponseOptions;
+	        this._finished = false;
+	        if (req.method !== enums_1.RequestMethod.Get) {
+	            throw exceptions_1.makeTypeError(JSONP_ERR_WRONG_METHOD);
+	        }
+	        this.request = req;
+	        this.response = new Observable_1.Observable(function (responseObserver) {
+	            _this.readyState = enums_1.ReadyState.Loading;
+	            var id = _this._id = _dom.nextRequestID();
+	            _dom.exposeConnection(id, _this);
+	            // Workaround Dart
+	            // url = url.replace(/=JSONP_CALLBACK(&|$)/, `generated method`);
+	            var callback = _dom.requestCallback(_this._id);
+	            var url = req.url;
+	            if (url.indexOf('=JSONP_CALLBACK&') > -1) {
+	                url = lang_1.StringWrapper.replace(url, '=JSONP_CALLBACK&', "=" + callback + "&");
+	            }
+	            else if (url.lastIndexOf('=JSONP_CALLBACK') === url.length - '=JSONP_CALLBACK'.length) {
+	                url = url.substring(0, url.length - '=JSONP_CALLBACK'.length) + ("=" + callback);
+	            }
+	            var script = _this._script = _dom.build(url);
+	            var onLoad = function (event) {
+	                if (_this.readyState === enums_1.ReadyState.Cancelled)
+	                    return;
+	                _this.readyState = enums_1.ReadyState.Done;
+	                _dom.cleanup(script);
+	                if (!_this._finished) {
+	                    var responseOptions_1 = new base_response_options_1.ResponseOptions({ body: JSONP_ERR_NO_CALLBACK, type: enums_1.ResponseType.Error, url: url });
+	                    if (lang_1.isPresent(baseResponseOptions)) {
+	                        responseOptions_1 = baseResponseOptions.merge(responseOptions_1);
+	                    }
+	                    responseObserver.error(new static_response_1.Response(responseOptions_1));
+	                    return;
+	                }
+	                var responseOptions = new base_response_options_1.ResponseOptions({ body: _this._responseData, url: url });
+	                if (lang_1.isPresent(_this.baseResponseOptions)) {
+	                    responseOptions = _this.baseResponseOptions.merge(responseOptions);
+	                }
+	                responseObserver.next(new static_response_1.Response(responseOptions));
+	                responseObserver.complete();
+	            };
+	            var onError = function (error) {
+	                if (_this.readyState === enums_1.ReadyState.Cancelled)
+	                    return;
+	                _this.readyState = enums_1.ReadyState.Done;
+	                _dom.cleanup(script);
+	                var responseOptions = new base_response_options_1.ResponseOptions({ body: error.message, type: enums_1.ResponseType.Error });
+	                if (lang_1.isPresent(baseResponseOptions)) {
+	                    responseOptions = baseResponseOptions.merge(responseOptions);
+	                }
+	                responseObserver.error(new static_response_1.Response(responseOptions));
+	            };
+	            script.addEventListener('load', onLoad);
+	            script.addEventListener('error', onError);
+	            _dom.send(script);
+	            return function () {
+	                _this.readyState = enums_1.ReadyState.Cancelled;
+	                script.removeEventListener('load', onLoad);
+	                script.removeEventListener('error', onError);
+	                if (lang_1.isPresent(script)) {
+	                    _this._dom.cleanup(script);
+	                }
+	            };
+	        });
+	    }
+	    JSONPConnection_.prototype.finished = function (data) {
+	        // Don't leak connections
+	        this._finished = true;
+	        this._dom.removeConnection(this._id);
+	        if (this.readyState === enums_1.ReadyState.Cancelled)
+	            return;
+	        this._responseData = data;
+	    };
+	    return JSONPConnection_;
+	}(JSONPConnection));
+	exports.JSONPConnection_ = JSONPConnection_;
 	/**
-	 * Wraps an exception and provides additional context or information.
-	 * @stable
+	 * A {@link ConnectionBackend} that uses the JSONP strategy of making requests.
+	 *
+	 * @experimental
 	 */
-	var WrappedException = (function (_super) {
-	    __extends(WrappedException, _super);
-	    function WrappedException(_wrapperMessage, _originalException /** TODO #9100 */, _originalStack /** TODO #9100 */, _context /** TODO #9100 */) {
-	        _super.call(this, _wrapperMessage);
-	        this._wrapperMessage = _wrapperMessage;
-	        this._originalException = _originalException;
-	        this._originalStack = _originalStack;
-	        this._context = _context;
-	        this._wrapperStack = (new Error(_wrapperMessage)).stack;
+	var JSONPBackend = (function (_super) {
+	    __extends(JSONPBackend, _super);
+	    function JSONPBackend() {
+	        _super.apply(this, arguments);
 	    }
-	    Object.defineProperty(WrappedException.prototype, "wrapperMessage", {
-	        get: function () { return this._wrapperMessage; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(WrappedException.prototype, "wrapperStack", {
-	        get: function () { return this._wrapperStack; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(WrappedException.prototype, "originalException", {
-	        get: function () { return this._originalException; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(WrappedException.prototype, "originalStack", {
-	        get: function () { return this._originalStack; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(WrappedException.prototype, "context", {
-	        get: function () { return this._context; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(WrappedException.prototype, "message", {
-	        get: function () { return exception_handler_1.ExceptionHandler.exceptionToString(this); },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    WrappedException.prototype.toString = function () { return this.message; };
-	    return WrappedException;
-	}(base_wrapped_exception_1.BaseWrappedException));
-	exports.WrappedException = WrappedException;
-	function makeTypeError(message) {
-	    return new TypeError(message);
-	}
-	exports.makeTypeError = makeTypeError;
-	function unimplemented() {
-	    throw new BaseException('unimplemented');
-	}
-	exports.unimplemented = unimplemented;
-	//# sourceMappingURL=exceptions.js.map
+	    return JSONPBackend;
+	}(interfaces_1.ConnectionBackend));
+	exports.JSONPBackend = JSONPBackend;
+	var JSONPBackend_ = (function (_super) {
+	    __extends(JSONPBackend_, _super);
+	    function JSONPBackend_(_browserJSONP, _baseResponseOptions) {
+	        _super.call(this);
+	        this._browserJSONP = _browserJSONP;
+	        this._baseResponseOptions = _baseResponseOptions;
+	    }
+	    JSONPBackend_.prototype.createConnection = function (request) {
+	        return new JSONPConnection_(request, this._browserJSONP, this._baseResponseOptions);
+	    };
+	    /** @nocollapse */
+	    JSONPBackend_.decorators = [
+	        { type: core_1.Injectable },
+	    ];
+	    /** @nocollapse */
+	    JSONPBackend_.ctorParameters = [
+	        { type: browser_jsonp_1.BrowserJsonp, },
+	        { type: base_response_options_1.ResponseOptions, },
+	    ];
+	    return JSONPBackend_;
+	}(JSONPBackend));
+	exports.JSONPBackend_ = JSONPBackend_;
+	//# sourceMappingURL=jsonp_backend.js.map
 
 /***/ },
 /* 348 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * @license
@@ -51020,54 +52301,106 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
+	var core_1 = __webpack_require__(11);
+	var lang_1 = __webpack_require__(345);
+	var enums_1 = __webpack_require__(349);
+	var headers_1 = __webpack_require__(350);
 	/**
-	 * A base class for the WrappedException that can be used to identify
-	 * a WrappedException from ExceptionHandler without adding circular
-	 * dependency.
+	 * Creates a response options object to be optionally provided when instantiating a
+	 * {@link Response}.
+	 *
+	 * This class is based on the `ResponseInit` description in the [Fetch
+	 * Spec](https://fetch.spec.whatwg.org/#responseinit).
+	 *
+	 * All values are null by default. Typical defaults can be found in the
+	 * {@link BaseResponseOptions} class, which sub-classes `ResponseOptions`.
+	 *
+	 * This class may be used in tests to build {@link Response Responses} for
+	 * mock responses (see {@link MockBackend}).
+	 *
+	 * ### Example ([live demo](http://plnkr.co/edit/P9Jkk8e8cz6NVzbcxEsD?p=preview))
+	 *
+	 * ```typescript
+	 * import {ResponseOptions, Response} from '@angular/http';
+	 *
+	 * var options = new ResponseOptions({
+	 *   body: '{"name":"Jeff"}'
+	 * });
+	 * var res = new Response(options);
+	 *
+	 * console.log('res.json():', res.json()); // Object {name: "Jeff"}
+	 * ```
+	 *
+	 * @experimental
 	 */
-	var BaseWrappedException = (function (_super) {
-	    __extends(BaseWrappedException, _super);
-	    function BaseWrappedException(message) {
-	        _super.call(this, message);
+	var ResponseOptions = (function () {
+	    function ResponseOptions(_a) {
+	        var _b = _a === void 0 ? {} : _a, body = _b.body, status = _b.status, headers = _b.headers, statusText = _b.statusText, type = _b.type, url = _b.url;
+	        this.body = lang_1.isPresent(body) ? body : null;
+	        this.status = lang_1.isPresent(status) ? status : null;
+	        this.headers = lang_1.isPresent(headers) ? headers : null;
+	        this.statusText = lang_1.isPresent(statusText) ? statusText : null;
+	        this.type = lang_1.isPresent(type) ? type : null;
+	        this.url = lang_1.isPresent(url) ? url : null;
 	    }
-	    Object.defineProperty(BaseWrappedException.prototype, "wrapperMessage", {
-	        get: function () { return ''; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(BaseWrappedException.prototype, "wrapperStack", {
-	        get: function () { return null; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(BaseWrappedException.prototype, "originalException", {
-	        get: function () { return null; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(BaseWrappedException.prototype, "originalStack", {
-	        get: function () { return null; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(BaseWrappedException.prototype, "context", {
-	        get: function () { return null; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(BaseWrappedException.prototype, "message", {
-	        get: function () { return ''; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    return BaseWrappedException;
-	}(Error));
-	exports.BaseWrappedException = BaseWrappedException;
-	//# sourceMappingURL=base_wrapped_exception.js.map
+	    /**
+	     * Creates a copy of the `ResponseOptions` instance, using the optional input as values to
+	     * override
+	     * existing values. This method will not change the values of the instance on which it is being
+	     * called.
+	     *
+	     * This may be useful when sharing a base `ResponseOptions` object inside tests,
+	     * where certain properties may change from test to test.
+	     *
+	     * ### Example ([live demo](http://plnkr.co/edit/1lXquqFfgduTFBWjNoRE?p=preview))
+	     *
+	     * ```typescript
+	     * import {ResponseOptions, Response} from '@angular/http';
+	     *
+	     * var options = new ResponseOptions({
+	     *   body: {name: 'Jeff'}
+	     * });
+	     * var res = new Response(options.merge({
+	     *   url: 'https://google.com'
+	     * }));
+	     * console.log('options.url:', options.url); // null
+	     * console.log('res.json():', res.json()); // Object {name: "Jeff"}
+	     * console.log('res.url:', res.url); // https://google.com
+	     * ```
+	     */
+	    ResponseOptions.prototype.merge = function (options) {
+	        return new ResponseOptions({
+	            body: lang_1.isPresent(options) && lang_1.isPresent(options.body) ? options.body : this.body,
+	            status: lang_1.isPresent(options) && lang_1.isPresent(options.status) ? options.status : this.status,
+	            headers: lang_1.isPresent(options) && lang_1.isPresent(options.headers) ? options.headers : this.headers,
+	            statusText: lang_1.isPresent(options) && lang_1.isPresent(options.statusText) ? options.statusText :
+	                this.statusText,
+	            type: lang_1.isPresent(options) && lang_1.isPresent(options.type) ? options.type : this.type,
+	            url: lang_1.isPresent(options) && lang_1.isPresent(options.url) ? options.url : this.url,
+	        });
+	    };
+	    return ResponseOptions;
+	}());
+	exports.ResponseOptions = ResponseOptions;
+	var BaseResponseOptions = (function (_super) {
+	    __extends(BaseResponseOptions, _super);
+	    function BaseResponseOptions() {
+	        _super.call(this, { status: 200, statusText: 'Ok', type: enums_1.ResponseType.Default, headers: new headers_1.Headers() });
+	    }
+	    /** @nocollapse */
+	    BaseResponseOptions.decorators = [
+	        { type: core_1.Injectable },
+	    ];
+	    /** @nocollapse */
+	    BaseResponseOptions.ctorParameters = [];
+	    return BaseResponseOptions;
+	}(ResponseOptions));
+	exports.BaseResponseOptions = BaseResponseOptions;
+	//# sourceMappingURL=base_response_options.js.map
 
 /***/ },
 /* 349 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	/**
 	 * @license
@@ -51077,138 +52410,74 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var base_wrapped_exception_1 = __webpack_require__(348);
-	var collection_1 = __webpack_require__(350);
-	var lang_1 = __webpack_require__(344);
-	var _ArrayLogger = (function () {
-	    function _ArrayLogger() {
-	        this.res = [];
-	    }
-	    _ArrayLogger.prototype.log = function (s) { this.res.push(s); };
-	    _ArrayLogger.prototype.logError = function (s) { this.res.push(s); };
-	    _ArrayLogger.prototype.logGroup = function (s) { this.res.push(s); };
-	    _ArrayLogger.prototype.logGroupEnd = function () { };
-	    ;
-	    return _ArrayLogger;
-	}());
 	/**
-	 * Provides a hook for centralized exception handling.
-	 *
-	 * The default implementation of `ExceptionHandler` prints error messages to the `Console`. To
-	 * intercept error handling,
-	 * write a custom exception handler that replaces this default as appropriate for your app.
-	 *
-	 * ### Example
-	 *
-	 * ```javascript
-	 *
-	 * class MyExceptionHandler implements ExceptionHandler {
-	 *   call(error, stackTrace = null, reason = null) {
-	 *     // do something with the exception
-	 *   }
-	 * }
-	 *
-	 * bootstrap(MyApp, [{provide: ExceptionHandler, useClass: MyExceptionHandler}])
-	 *
-	 * ```
-	 * @stable
+	 * Supported http methods.
+	 * @experimental
 	 */
-	var ExceptionHandler = (function () {
-	    function ExceptionHandler(_logger, _rethrowException) {
-	        if (_rethrowException === void 0) { _rethrowException = true; }
-	        this._logger = _logger;
-	        this._rethrowException = _rethrowException;
-	    }
-	    ExceptionHandler.exceptionToString = function (exception, stackTrace, reason) {
-	        if (stackTrace === void 0) { stackTrace = null; }
-	        if (reason === void 0) { reason = null; }
-	        var l = new _ArrayLogger();
-	        var e = new ExceptionHandler(l, false);
-	        e.call(exception, stackTrace, reason);
-	        return l.res.join('\n');
-	    };
-	    ExceptionHandler.prototype.call = function (exception, stackTrace, reason) {
-	        if (stackTrace === void 0) { stackTrace = null; }
-	        if (reason === void 0) { reason = null; }
-	        var originalException = this._findOriginalException(exception);
-	        var originalStack = this._findOriginalStack(exception);
-	        var context = this._findContext(exception);
-	        this._logger.logGroup("EXCEPTION: " + this._extractMessage(exception));
-	        if (lang_1.isPresent(stackTrace) && lang_1.isBlank(originalStack)) {
-	            this._logger.logError('STACKTRACE:');
-	            this._logger.logError(this._longStackTrace(stackTrace));
-	        }
-	        if (lang_1.isPresent(reason)) {
-	            this._logger.logError("REASON: " + reason);
-	        }
-	        if (lang_1.isPresent(originalException)) {
-	            this._logger.logError("ORIGINAL EXCEPTION: " + this._extractMessage(originalException));
-	        }
-	        if (lang_1.isPresent(originalStack)) {
-	            this._logger.logError('ORIGINAL STACKTRACE:');
-	            this._logger.logError(this._longStackTrace(originalStack));
-	        }
-	        if (lang_1.isPresent(context)) {
-	            this._logger.logError('ERROR CONTEXT:');
-	            this._logger.logError(context);
-	        }
-	        this._logger.logGroupEnd();
-	        // We rethrow exceptions, so operations like 'bootstrap' will result in an error
-	        // when an exception happens. If we do not rethrow, bootstrap will always succeed.
-	        if (this._rethrowException)
-	            throw exception;
-	    };
-	    /** @internal */
-	    ExceptionHandler.prototype._extractMessage = function (exception) {
-	        return exception instanceof base_wrapped_exception_1.BaseWrappedException ? exception.wrapperMessage :
-	            exception.toString();
-	    };
-	    /** @internal */
-	    ExceptionHandler.prototype._longStackTrace = function (stackTrace) {
-	        return collection_1.isListLikeIterable(stackTrace) ? stackTrace.join('\n\n-----async gap-----\n') :
-	            stackTrace.toString();
-	    };
-	    /** @internal */
-	    ExceptionHandler.prototype._findContext = function (exception) {
-	        try {
-	            if (!(exception instanceof base_wrapped_exception_1.BaseWrappedException))
-	                return null;
-	            return lang_1.isPresent(exception.context) ? exception.context :
-	                this._findContext(exception.originalException);
-	        }
-	        catch (e) {
-	            // exception.context can throw an exception. if it happens, we ignore the context.
-	            return null;
-	        }
-	    };
-	    /** @internal */
-	    ExceptionHandler.prototype._findOriginalException = function (exception) {
-	        if (!(exception instanceof base_wrapped_exception_1.BaseWrappedException))
-	            return null;
-	        var e = exception.originalException;
-	        while (e instanceof base_wrapped_exception_1.BaseWrappedException && lang_1.isPresent(e.originalException)) {
-	            e = e.originalException;
-	        }
-	        return e;
-	    };
-	    /** @internal */
-	    ExceptionHandler.prototype._findOriginalStack = function (exception) {
-	        if (!(exception instanceof base_wrapped_exception_1.BaseWrappedException))
-	            return null;
-	        var e = exception;
-	        var stack = exception.originalStack;
-	        while (e instanceof base_wrapped_exception_1.BaseWrappedException && lang_1.isPresent(e.originalException)) {
-	            e = e.originalException;
-	            if (e instanceof base_wrapped_exception_1.BaseWrappedException && lang_1.isPresent(e.originalException)) {
-	                stack = e.originalStack;
-	            }
-	        }
-	        return stack;
-	    };
-	    return ExceptionHandler;
-	}());
-	exports.ExceptionHandler = ExceptionHandler;
-	//# sourceMappingURL=exception_handler.js.map
+	(function (RequestMethod) {
+	    RequestMethod[RequestMethod["Get"] = 0] = "Get";
+	    RequestMethod[RequestMethod["Post"] = 1] = "Post";
+	    RequestMethod[RequestMethod["Put"] = 2] = "Put";
+	    RequestMethod[RequestMethod["Delete"] = 3] = "Delete";
+	    RequestMethod[RequestMethod["Options"] = 4] = "Options";
+	    RequestMethod[RequestMethod["Head"] = 5] = "Head";
+	    RequestMethod[RequestMethod["Patch"] = 6] = "Patch";
+	})(exports.RequestMethod || (exports.RequestMethod = {}));
+	var RequestMethod = exports.RequestMethod;
+	/**
+	 * All possible states in which a connection can be, based on
+	 * [States](http://www.w3.org/TR/XMLHttpRequest/#states) from the `XMLHttpRequest` spec, but with an
+	 * additional "CANCELLED" state.
+	 * @experimental
+	 */
+	(function (ReadyState) {
+	    ReadyState[ReadyState["Unsent"] = 0] = "Unsent";
+	    ReadyState[ReadyState["Open"] = 1] = "Open";
+	    ReadyState[ReadyState["HeadersReceived"] = 2] = "HeadersReceived";
+	    ReadyState[ReadyState["Loading"] = 3] = "Loading";
+	    ReadyState[ReadyState["Done"] = 4] = "Done";
+	    ReadyState[ReadyState["Cancelled"] = 5] = "Cancelled";
+	})(exports.ReadyState || (exports.ReadyState = {}));
+	var ReadyState = exports.ReadyState;
+	/**
+	 * Acceptable response types to be associated with a {@link Response}, based on
+	 * [ResponseType](https://fetch.spec.whatwg.org/#responsetype) from the Fetch spec.
+	 * @experimental
+	 */
+	(function (ResponseType) {
+	    ResponseType[ResponseType["Basic"] = 0] = "Basic";
+	    ResponseType[ResponseType["Cors"] = 1] = "Cors";
+	    ResponseType[ResponseType["Default"] = 2] = "Default";
+	    ResponseType[ResponseType["Error"] = 3] = "Error";
+	    ResponseType[ResponseType["Opaque"] = 4] = "Opaque";
+	})(exports.ResponseType || (exports.ResponseType = {}));
+	var ResponseType = exports.ResponseType;
+	/**
+	 * Supported content type to be automatically associated with a {@link Request}.
+	 * @experimental
+	 */
+	(function (ContentType) {
+	    ContentType[ContentType["NONE"] = 0] = "NONE";
+	    ContentType[ContentType["JSON"] = 1] = "JSON";
+	    ContentType[ContentType["FORM"] = 2] = "FORM";
+	    ContentType[ContentType["FORM_DATA"] = 3] = "FORM_DATA";
+	    ContentType[ContentType["TEXT"] = 4] = "TEXT";
+	    ContentType[ContentType["BLOB"] = 5] = "BLOB";
+	    ContentType[ContentType["ARRAY_BUFFER"] = 6] = "ARRAY_BUFFER";
+	})(exports.ContentType || (exports.ContentType = {}));
+	var ContentType = exports.ContentType;
+	/**
+	 * Define which buffer to use to store the response
+	 * @experimental
+	 */
+	(function (ResponseContentType) {
+	    ResponseContentType[ResponseContentType["Text"] = 0] = "Text";
+	    ResponseContentType[ResponseContentType["Json"] = 1] = "Json";
+	    ResponseContentType[ResponseContentType["ArrayBuffer"] = 2] = "ArrayBuffer";
+	    ResponseContentType[ResponseContentType["Blob"] = 3] = "Blob";
+	})(exports.ResponseContentType || (exports.ResponseContentType = {}));
+	var ResponseContentType = exports.ResponseContentType;
+	//# sourceMappingURL=enums.js.map
 
 /***/ },
 /* 350 */
@@ -51222,7 +52491,163 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var lang_1 = __webpack_require__(344);
+	var collection_1 = __webpack_require__(351);
+	var exceptions_1 = __webpack_require__(352);
+	var lang_1 = __webpack_require__(345);
+	/**
+	 * Polyfill for [Headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers/Headers), as
+	 * specified in the [Fetch Spec](https://fetch.spec.whatwg.org/#headers-class).
+	 *
+	 * The only known difference between this `Headers` implementation and the spec is the
+	 * lack of an `entries` method.
+	 *
+	 * ### Example ([live demo](http://plnkr.co/edit/MTdwT6?p=preview))
+	 *
+	 * ```
+	 * import {Headers} from '@angular/http';
+	 *
+	 * var firstHeaders = new Headers();
+	 * firstHeaders.append('Content-Type', 'image/jpeg');
+	 * console.log(firstHeaders.get('Content-Type')) //'image/jpeg'
+	 *
+	 * // Create headers from Plain Old JavaScript Object
+	 * var secondHeaders = new Headers({
+	 *   'X-My-Custom-Header': 'Angular'
+	 * });
+	 * console.log(secondHeaders.get('X-My-Custom-Header')); //'Angular'
+	 *
+	 * var thirdHeaders = new Headers(secondHeaders);
+	 * console.log(thirdHeaders.get('X-My-Custom-Header')); //'Angular'
+	 * ```
+	 *
+	 * @experimental
+	 */
+	var Headers = (function () {
+	    function Headers(headers) {
+	        var _this = this;
+	        if (headers instanceof Headers) {
+	            this._headersMap = headers._headersMap;
+	            return;
+	        }
+	        this._headersMap = new collection_1.Map();
+	        if (lang_1.isBlank(headers)) {
+	            return;
+	        }
+	        // headers instanceof StringMap
+	        collection_1.StringMapWrapper.forEach(headers, function (v, k) {
+	            _this._headersMap.set(normalize(k), collection_1.isListLikeIterable(v) ? v : [v]);
+	        });
+	    }
+	    /**
+	     * Returns a new Headers instance from the given DOMString of Response Headers
+	     */
+	    Headers.fromResponseHeaderString = function (headersString) {
+	        var headers = new Headers();
+	        headersString.split('\n').forEach(function (line) {
+	            var index = line.indexOf(':');
+	            if (index > 0) {
+	                var key = line.substring(0, index);
+	                var value = line.substring(index + 1).trim();
+	                headers.set(key, value);
+	            }
+	        });
+	        return headers;
+	    };
+	    /**
+	     * Appends a header to existing list of header values for a given header name.
+	     */
+	    Headers.prototype.append = function (name, value) {
+	        name = normalize(name);
+	        var mapName = this._headersMap.get(name);
+	        var list = collection_1.isListLikeIterable(mapName) ? mapName : [];
+	        list.push(value);
+	        this._headersMap.set(name, list);
+	    };
+	    /**
+	     * Deletes all header values for the given name.
+	     */
+	    Headers.prototype.delete = function (name) { this._headersMap.delete(normalize(name)); };
+	    Headers.prototype.forEach = function (fn) {
+	        this._headersMap.forEach(fn);
+	    };
+	    /**
+	     * Returns first header that matches given name.
+	     */
+	    Headers.prototype.get = function (header) { return collection_1.ListWrapper.first(this._headersMap.get(normalize(header))); };
+	    /**
+	     * Check for existence of header by given name.
+	     */
+	    Headers.prototype.has = function (header) { return this._headersMap.has(normalize(header)); };
+	    /**
+	     * Provides names of set headers
+	     */
+	    Headers.prototype.keys = function () { return collection_1.MapWrapper.keys(this._headersMap); };
+	    /**
+	     * Sets or overrides header value for given name.
+	     */
+	    Headers.prototype.set = function (header, value) {
+	        var list = [];
+	        if (collection_1.isListLikeIterable(value)) {
+	            var pushValue = value.join(',');
+	            list.push(pushValue);
+	        }
+	        else {
+	            list.push(value);
+	        }
+	        this._headersMap.set(normalize(header), list);
+	    };
+	    /**
+	     * Returns values of all headers.
+	     */
+	    Headers.prototype.values = function () { return collection_1.MapWrapper.values(this._headersMap); };
+	    /**
+	     * Returns string of all headers.
+	     */
+	    Headers.prototype.toJSON = function () {
+	        var serializableHeaders = {};
+	        this._headersMap.forEach(function (values, name) {
+	            var list = [];
+	            collection_1.iterateListLike(values, function (val /** TODO #9100 */) { return list = collection_1.ListWrapper.concat(list, val.split(',')); });
+	            serializableHeaders[normalize(name)] = list;
+	        });
+	        return serializableHeaders;
+	    };
+	    /**
+	     * Returns list of header values for a given name.
+	     */
+	    Headers.prototype.getAll = function (header) {
+	        var headers = this._headersMap.get(normalize(header));
+	        return collection_1.isListLikeIterable(headers) ? headers : [];
+	    };
+	    /**
+	     * This method is not implemented.
+	     */
+	    Headers.prototype.entries = function () { throw new exceptions_1.BaseException('"entries" method is not implemented on Headers class'); };
+	    return Headers;
+	}());
+	exports.Headers = Headers;
+	// "HTTP character sets are identified by case-insensitive tokens"
+	// Spec at https://tools.ietf.org/html/rfc2616
+	// This implementation is same as NodeJS.
+	// see https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_message_headers
+	function normalize(name) {
+	    return name.toLowerCase();
+	}
+	//# sourceMappingURL=headers.js.map
+
+/***/ },
+/* 351 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var lang_1 = __webpack_require__(345);
 	exports.Map = lang_1.global.Map;
 	exports.Set = lang_1.global.Set;
 	// Safari and Internet Explorer do not support the iterable parameter to the
@@ -51585,7 +53010,7 @@
 	//# sourceMappingURL=collection.js.map
 
 /***/ },
-/* 351 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -51596,8 +53021,3664 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var exceptions_1 = __webpack_require__(347);
-	var lang_1 = __webpack_require__(344);
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var base_wrapped_exception_1 = __webpack_require__(353);
+	var exception_handler_1 = __webpack_require__(354);
+	var exception_handler_2 = __webpack_require__(354);
+	exports.ExceptionHandler = exception_handler_2.ExceptionHandler;
+	/**
+	 * @stable
+	 */
+	var BaseException = (function (_super) {
+	    __extends(BaseException, _super);
+	    function BaseException(message) {
+	        if (message === void 0) { message = '--'; }
+	        _super.call(this, message);
+	        this.message = message;
+	        this.stack = (new Error(message)).stack;
+	    }
+	    BaseException.prototype.toString = function () { return this.message; };
+	    return BaseException;
+	}(Error));
+	exports.BaseException = BaseException;
+	/**
+	 * Wraps an exception and provides additional context or information.
+	 * @stable
+	 */
+	var WrappedException = (function (_super) {
+	    __extends(WrappedException, _super);
+	    function WrappedException(_wrapperMessage, _originalException /** TODO #9100 */, _originalStack /** TODO #9100 */, _context /** TODO #9100 */) {
+	        _super.call(this, _wrapperMessage);
+	        this._wrapperMessage = _wrapperMessage;
+	        this._originalException = _originalException;
+	        this._originalStack = _originalStack;
+	        this._context = _context;
+	        this._wrapperStack = (new Error(_wrapperMessage)).stack;
+	    }
+	    Object.defineProperty(WrappedException.prototype, "wrapperMessage", {
+	        get: function () { return this._wrapperMessage; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(WrappedException.prototype, "wrapperStack", {
+	        get: function () { return this._wrapperStack; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(WrappedException.prototype, "originalException", {
+	        get: function () { return this._originalException; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(WrappedException.prototype, "originalStack", {
+	        get: function () { return this._originalStack; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(WrappedException.prototype, "context", {
+	        get: function () { return this._context; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(WrappedException.prototype, "message", {
+	        get: function () { return exception_handler_1.ExceptionHandler.exceptionToString(this); },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    WrappedException.prototype.toString = function () { return this.message; };
+	    return WrappedException;
+	}(base_wrapped_exception_1.BaseWrappedException));
+	exports.WrappedException = WrappedException;
+	function makeTypeError(message) {
+	    return new TypeError(message);
+	}
+	exports.makeTypeError = makeTypeError;
+	function unimplemented() {
+	    throw new BaseException('unimplemented');
+	}
+	exports.unimplemented = unimplemented;
+	//# sourceMappingURL=exceptions.js.map
+
+/***/ },
+/* 353 */
+/***/ function(module, exports) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	/**
+	 * A base class for the WrappedException that can be used to identify
+	 * a WrappedException from ExceptionHandler without adding circular
+	 * dependency.
+	 */
+	var BaseWrappedException = (function (_super) {
+	    __extends(BaseWrappedException, _super);
+	    function BaseWrappedException(message) {
+	        _super.call(this, message);
+	    }
+	    Object.defineProperty(BaseWrappedException.prototype, "wrapperMessage", {
+	        get: function () { return ''; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(BaseWrappedException.prototype, "wrapperStack", {
+	        get: function () { return null; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(BaseWrappedException.prototype, "originalException", {
+	        get: function () { return null; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(BaseWrappedException.prototype, "originalStack", {
+	        get: function () { return null; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(BaseWrappedException.prototype, "context", {
+	        get: function () { return null; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(BaseWrappedException.prototype, "message", {
+	        get: function () { return ''; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    return BaseWrappedException;
+	}(Error));
+	exports.BaseWrappedException = BaseWrappedException;
+	//# sourceMappingURL=base_wrapped_exception.js.map
+
+/***/ },
+/* 354 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var base_wrapped_exception_1 = __webpack_require__(353);
+	var collection_1 = __webpack_require__(351);
+	var lang_1 = __webpack_require__(345);
+	var _ArrayLogger = (function () {
+	    function _ArrayLogger() {
+	        this.res = [];
+	    }
+	    _ArrayLogger.prototype.log = function (s) { this.res.push(s); };
+	    _ArrayLogger.prototype.logError = function (s) { this.res.push(s); };
+	    _ArrayLogger.prototype.logGroup = function (s) { this.res.push(s); };
+	    _ArrayLogger.prototype.logGroupEnd = function () { };
+	    ;
+	    return _ArrayLogger;
+	}());
+	/**
+	 * Provides a hook for centralized exception handling.
+	 *
+	 * The default implementation of `ExceptionHandler` prints error messages to the `Console`. To
+	 * intercept error handling,
+	 * write a custom exception handler that replaces this default as appropriate for your app.
+	 *
+	 * ### Example
+	 *
+	 * ```javascript
+	 *
+	 * class MyExceptionHandler implements ExceptionHandler {
+	 *   call(error, stackTrace = null, reason = null) {
+	 *     // do something with the exception
+	 *   }
+	 * }
+	 *
+	 * bootstrap(MyApp, [{provide: ExceptionHandler, useClass: MyExceptionHandler}])
+	 *
+	 * ```
+	 * @stable
+	 */
+	var ExceptionHandler = (function () {
+	    function ExceptionHandler(_logger, _rethrowException) {
+	        if (_rethrowException === void 0) { _rethrowException = true; }
+	        this._logger = _logger;
+	        this._rethrowException = _rethrowException;
+	    }
+	    ExceptionHandler.exceptionToString = function (exception, stackTrace, reason) {
+	        if (stackTrace === void 0) { stackTrace = null; }
+	        if (reason === void 0) { reason = null; }
+	        var l = new _ArrayLogger();
+	        var e = new ExceptionHandler(l, false);
+	        e.call(exception, stackTrace, reason);
+	        return l.res.join('\n');
+	    };
+	    ExceptionHandler.prototype.call = function (exception, stackTrace, reason) {
+	        if (stackTrace === void 0) { stackTrace = null; }
+	        if (reason === void 0) { reason = null; }
+	        var originalException = this._findOriginalException(exception);
+	        var originalStack = this._findOriginalStack(exception);
+	        var context = this._findContext(exception);
+	        this._logger.logGroup("EXCEPTION: " + this._extractMessage(exception));
+	        if (lang_1.isPresent(stackTrace) && lang_1.isBlank(originalStack)) {
+	            this._logger.logError('STACKTRACE:');
+	            this._logger.logError(this._longStackTrace(stackTrace));
+	        }
+	        if (lang_1.isPresent(reason)) {
+	            this._logger.logError("REASON: " + reason);
+	        }
+	        if (lang_1.isPresent(originalException)) {
+	            this._logger.logError("ORIGINAL EXCEPTION: " + this._extractMessage(originalException));
+	        }
+	        if (lang_1.isPresent(originalStack)) {
+	            this._logger.logError('ORIGINAL STACKTRACE:');
+	            this._logger.logError(this._longStackTrace(originalStack));
+	        }
+	        if (lang_1.isPresent(context)) {
+	            this._logger.logError('ERROR CONTEXT:');
+	            this._logger.logError(context);
+	        }
+	        this._logger.logGroupEnd();
+	        // We rethrow exceptions, so operations like 'bootstrap' will result in an error
+	        // when an exception happens. If we do not rethrow, bootstrap will always succeed.
+	        if (this._rethrowException)
+	            throw exception;
+	    };
+	    /** @internal */
+	    ExceptionHandler.prototype._extractMessage = function (exception) {
+	        return exception instanceof base_wrapped_exception_1.BaseWrappedException ? exception.wrapperMessage :
+	            exception.toString();
+	    };
+	    /** @internal */
+	    ExceptionHandler.prototype._longStackTrace = function (stackTrace) {
+	        return collection_1.isListLikeIterable(stackTrace) ? stackTrace.join('\n\n-----async gap-----\n') :
+	            stackTrace.toString();
+	    };
+	    /** @internal */
+	    ExceptionHandler.prototype._findContext = function (exception) {
+	        try {
+	            if (!(exception instanceof base_wrapped_exception_1.BaseWrappedException))
+	                return null;
+	            return lang_1.isPresent(exception.context) ? exception.context :
+	                this._findContext(exception.originalException);
+	        }
+	        catch (e) {
+	            // exception.context can throw an exception. if it happens, we ignore the context.
+	            return null;
+	        }
+	    };
+	    /** @internal */
+	    ExceptionHandler.prototype._findOriginalException = function (exception) {
+	        if (!(exception instanceof base_wrapped_exception_1.BaseWrappedException))
+	            return null;
+	        var e = exception.originalException;
+	        while (e instanceof base_wrapped_exception_1.BaseWrappedException && lang_1.isPresent(e.originalException)) {
+	            e = e.originalException;
+	        }
+	        return e;
+	    };
+	    /** @internal */
+	    ExceptionHandler.prototype._findOriginalStack = function (exception) {
+	        if (!(exception instanceof base_wrapped_exception_1.BaseWrappedException))
+	            return null;
+	        var e = exception;
+	        var stack = exception.originalStack;
+	        while (e instanceof base_wrapped_exception_1.BaseWrappedException && lang_1.isPresent(e.originalException)) {
+	            e = e.originalException;
+	            if (e instanceof base_wrapped_exception_1.BaseWrappedException && lang_1.isPresent(e.originalException)) {
+	                stack = e.originalStack;
+	            }
+	        }
+	        return stack;
+	    };
+	    return ExceptionHandler;
+	}());
+	exports.ExceptionHandler = ExceptionHandler;
+	//# sourceMappingURL=exception_handler.js.map
+
+/***/ },
+/* 355 */
+/***/ function(module, exports) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	/**
+	 * Abstract class from which real backends are derived.
+	 *
+	 * The primary purpose of a `ConnectionBackend` is to create new connections to fulfill a given
+	 * {@link Request}.
+	 *
+	 * @experimental
+	 */
+	var ConnectionBackend = (function () {
+	    function ConnectionBackend() {
+	    }
+	    return ConnectionBackend;
+	}());
+	exports.ConnectionBackend = ConnectionBackend;
+	/**
+	 * Abstract class from which real connections are derived.
+	 *
+	 * @experimental
+	 */
+	var Connection = (function () {
+	    function Connection() {
+	    }
+	    return Connection;
+	}());
+	exports.Connection = Connection;
+	/**
+	 * An XSRFStrategy configures XSRF protection (e.g. via headers) on an HTTP request.
+	 *
+	 * @experimental
+	 */
+	var XSRFStrategy = (function () {
+	    function XSRFStrategy() {
+	    }
+	    return XSRFStrategy;
+	}());
+	exports.XSRFStrategy = XSRFStrategy;
+	//# sourceMappingURL=interfaces.js.map
+
+/***/ },
+/* 356 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var body_1 = __webpack_require__(357);
+	/**
+	 * Creates `Response` instances from provided values.
+	 *
+	 * Though this object isn't
+	 * usually instantiated by end-users, it is the primary object interacted with when it comes time to
+	 * add data to a view.
+	 *
+	 * ### Example
+	 *
+	 * ```
+	 * http.request('my-friends.txt').subscribe(response => this.friends = response.text());
+	 * ```
+	 *
+	 * The Response's interface is inspired by the Response constructor defined in the [Fetch
+	 * Spec](https://fetch.spec.whatwg.org/#response-class), but is considered a static value whose body
+	 * can be accessed many times. There are other differences in the implementation, but this is the
+	 * most significant.
+	 *
+	 * @experimental
+	 */
+	var Response = (function (_super) {
+	    __extends(Response, _super);
+	    function Response(responseOptions) {
+	        _super.call(this);
+	        this._body = responseOptions.body;
+	        this.status = responseOptions.status;
+	        this.ok = (this.status >= 200 && this.status <= 299);
+	        this.statusText = responseOptions.statusText;
+	        this.headers = responseOptions.headers;
+	        this.type = responseOptions.type;
+	        this.url = responseOptions.url;
+	    }
+	    Response.prototype.toString = function () {
+	        return "Response with status: " + this.status + " " + this.statusText + " for URL: " + this.url;
+	    };
+	    return Response;
+	}(body_1.Body));
+	exports.Response = Response;
+	//# sourceMappingURL=static_response.js.map
+
+/***/ },
+/* 357 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var lang_1 = __webpack_require__(345);
+	var http_utils_1 = __webpack_require__(358);
+	var url_search_params_1 = __webpack_require__(359);
+	/**
+	 * HTTP request body used by both {@link Request} and {@link Response}
+	 * https://fetch.spec.whatwg.org/#body
+	 */
+	var Body = (function () {
+	    function Body() {
+	    }
+	    /**
+	     * Attempts to return body as parsed `JSON` object, or raises an exception.
+	     */
+	    Body.prototype.json = function () {
+	        if (lang_1.isString(this._body)) {
+	            return lang_1.Json.parse(this._body);
+	        }
+	        if (this._body instanceof ArrayBuffer) {
+	            return lang_1.Json.parse(this.text());
+	        }
+	        return this._body;
+	    };
+	    /**
+	     * Returns the body as a string, presuming `toString()` can be called on the response body.
+	     */
+	    Body.prototype.text = function () {
+	        if (this._body instanceof url_search_params_1.URLSearchParams) {
+	            return this._body.toString();
+	        }
+	        if (this._body instanceof ArrayBuffer) {
+	            return String.fromCharCode.apply(null, new Uint16Array(this._body));
+	        }
+	        if (http_utils_1.isJsObject(this._body)) {
+	            return lang_1.Json.stringify(this._body);
+	        }
+	        return this._body.toString();
+	    };
+	    /**
+	     * Return the body as an ArrayBuffer
+	     */
+	    Body.prototype.arrayBuffer = function () {
+	        if (this._body instanceof ArrayBuffer) {
+	            return this._body;
+	        }
+	        return http_utils_1.stringToArrayBuffer(this.text());
+	    };
+	    /**
+	      * Returns the request's body as a Blob, assuming that body exists.
+	      */
+	    Body.prototype.blob = function () {
+	        if (this._body instanceof Blob) {
+	            return this._body;
+	        }
+	        if (this._body instanceof ArrayBuffer) {
+	            return new Blob([this._body]);
+	        }
+	        throw new Error('The request body isn\'t either a blob or an array buffer');
+	    };
+	    return Body;
+	}());
+	exports.Body = Body;
+	//# sourceMappingURL=body.js.map
+
+/***/ },
+/* 358 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var exceptions_1 = __webpack_require__(352);
+	var lang_1 = __webpack_require__(345);
+	var enums_1 = __webpack_require__(349);
+	function normalizeMethodName(method) {
+	    if (lang_1.isString(method)) {
+	        var originalMethod = method;
+	        method = method
+	            .replace(/(\w)(\w*)/g, function (g0, g1, g2) { return g1.toUpperCase() + g2.toLowerCase(); });
+	        method = enums_1.RequestMethod[method];
+	        if (typeof method !== 'number')
+	            throw exceptions_1.makeTypeError("Invalid request method. The method \"" + originalMethod + "\" is not supported.");
+	    }
+	    return method;
+	}
+	exports.normalizeMethodName = normalizeMethodName;
+	exports.isSuccess = function (status) { return (status >= 200 && status < 300); };
+	function getResponseURL(xhr) {
+	    if ('responseURL' in xhr) {
+	        return xhr.responseURL;
+	    }
+	    if (/^X-Request-URL:/m.test(xhr.getAllResponseHeaders())) {
+	        return xhr.getResponseHeader('X-Request-URL');
+	    }
+	    return;
+	}
+	exports.getResponseURL = getResponseURL;
+	function stringToArrayBuffer(input) {
+	    var view = new Uint16Array(input.length);
+	    for (var i = 0, strLen = input.length; i < strLen; i++) {
+	        view[i] = input.charCodeAt(i);
+	    }
+	    return view.buffer;
+	}
+	exports.stringToArrayBuffer = stringToArrayBuffer;
+	var lang_2 = __webpack_require__(345);
+	exports.isJsObject = lang_2.isJsObject;
+	//# sourceMappingURL=http_utils.js.map
+
+/***/ },
+/* 359 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var collection_1 = __webpack_require__(351);
+	var lang_1 = __webpack_require__(345);
+	function paramParser(rawParams) {
+	    if (rawParams === void 0) { rawParams = ''; }
+	    var map = new collection_1.Map();
+	    if (rawParams.length > 0) {
+	        var params = rawParams.split('&');
+	        params.forEach(function (param) {
+	            var eqIdx = param.indexOf('=');
+	            var _a = eqIdx == -1 ? [param, ''] : [param.slice(0, eqIdx), param.slice(eqIdx + 1)], key = _a[0], val = _a[1];
+	            var list = map.get(key) || [];
+	            list.push(val);
+	            map.set(key, list);
+	        });
+	    }
+	    return map;
+	}
+	/**
+	 * @experimental
+	 **/
+	var QueryEncoder = (function () {
+	    function QueryEncoder() {
+	    }
+	    QueryEncoder.prototype.encodeKey = function (k) { return standardEncoding(k); };
+	    QueryEncoder.prototype.encodeValue = function (v) { return standardEncoding(v); };
+	    return QueryEncoder;
+	}());
+	exports.QueryEncoder = QueryEncoder;
+	function standardEncoding(v) {
+	    return encodeURIComponent(v)
+	        .replace(/%40/gi, '@')
+	        .replace(/%3A/gi, ':')
+	        .replace(/%24/gi, '$')
+	        .replace(/%2C/gi, ',')
+	        .replace(/%3B/gi, ';')
+	        .replace(/%2B/gi, '+')
+	        .replace(/%3D/gi, ';')
+	        .replace(/%3F/gi, '?')
+	        .replace(/%2F/gi, '/');
+	}
+	/**
+	 * Map-like representation of url search parameters, based on
+	 * [URLSearchParams](https://url.spec.whatwg.org/#urlsearchparams) in the url living standard,
+	 * with several extensions for merging URLSearchParams objects:
+	 *   - setAll()
+	 *   - appendAll()
+	 *   - replaceAll()
+	 *
+	 * This class accepts an optional second parameter of ${@link QueryEncoder},
+	 * which is used to serialize parameters before making a request. By default,
+	 * `QueryEncoder` encodes keys and values of parameters using `encodeURIComponent`,
+	 * and then un-encodes certain characters that are allowed to be part of the query
+	 * according to IETF RFC 3986: https://tools.ietf.org/html/rfc3986.
+	 *
+	 * These are the characters that are not encoded: `! $ \' ( ) * + , ; A 9 - . _ ~ ? /`
+	 *
+	 * If the set of allowed query characters is not acceptable for a particular backend,
+	 * `QueryEncoder` can be subclassed and provided as the 2nd argument to URLSearchParams.
+	 *
+	 * ```
+	 * import {URLSearchParams, QueryEncoder} from '@angular/http';
+	 * class MyQueryEncoder extends QueryEncoder {
+	 *   encodeKey(k: string): string {
+	 *     return myEncodingFunction(k);
+	 *   }
+	 *
+	 *   encodeValue(v: string): string {
+	 *     return myEncodingFunction(v);
+	 *   }
+	 * }
+	 *
+	 * let params = new URLSearchParams('', new MyQueryEncoder());
+	 * ```
+	 * @experimental
+	 */
+	var URLSearchParams = (function () {
+	    function URLSearchParams(rawParams, queryEncoder) {
+	        if (rawParams === void 0) { rawParams = ''; }
+	        if (queryEncoder === void 0) { queryEncoder = new QueryEncoder(); }
+	        this.rawParams = rawParams;
+	        this.queryEncoder = queryEncoder;
+	        this.paramsMap = paramParser(rawParams);
+	    }
+	    URLSearchParams.prototype.clone = function () {
+	        var clone = new URLSearchParams('', this.queryEncoder);
+	        clone.appendAll(this);
+	        return clone;
+	    };
+	    URLSearchParams.prototype.has = function (param) { return this.paramsMap.has(param); };
+	    URLSearchParams.prototype.get = function (param) {
+	        var storedParam = this.paramsMap.get(param);
+	        if (collection_1.isListLikeIterable(storedParam)) {
+	            return collection_1.ListWrapper.first(storedParam);
+	        }
+	        else {
+	            return null;
+	        }
+	    };
+	    URLSearchParams.prototype.getAll = function (param) {
+	        var mapParam = this.paramsMap.get(param);
+	        return lang_1.isPresent(mapParam) ? mapParam : [];
+	    };
+	    URLSearchParams.prototype.set = function (param, val) {
+	        var mapParam = this.paramsMap.get(param);
+	        var list = lang_1.isPresent(mapParam) ? mapParam : [];
+	        collection_1.ListWrapper.clear(list);
+	        list.push(val);
+	        this.paramsMap.set(param, list);
+	    };
+	    // A merge operation
+	    // For each name-values pair in `searchParams`, perform `set(name, values[0])`
+	    //
+	    // E.g: "a=[1,2,3], c=[8]" + "a=[4,5,6], b=[7]" = "a=[4], c=[8], b=[7]"
+	    //
+	    // TODO(@caitp): document this better
+	    URLSearchParams.prototype.setAll = function (searchParams) {
+	        var _this = this;
+	        searchParams.paramsMap.forEach(function (value, param) {
+	            var mapParam = _this.paramsMap.get(param);
+	            var list = lang_1.isPresent(mapParam) ? mapParam : [];
+	            collection_1.ListWrapper.clear(list);
+	            list.push(value[0]);
+	            _this.paramsMap.set(param, list);
+	        });
+	    };
+	    URLSearchParams.prototype.append = function (param, val) {
+	        var mapParam = this.paramsMap.get(param);
+	        var list = lang_1.isPresent(mapParam) ? mapParam : [];
+	        list.push(val);
+	        this.paramsMap.set(param, list);
+	    };
+	    // A merge operation
+	    // For each name-values pair in `searchParams`, perform `append(name, value)`
+	    // for each value in `values`.
+	    //
+	    // E.g: "a=[1,2], c=[8]" + "a=[3,4], b=[7]" = "a=[1,2,3,4], c=[8], b=[7]"
+	    //
+	    // TODO(@caitp): document this better
+	    URLSearchParams.prototype.appendAll = function (searchParams) {
+	        var _this = this;
+	        searchParams.paramsMap.forEach(function (value, param) {
+	            var mapParam = _this.paramsMap.get(param);
+	            var list = lang_1.isPresent(mapParam) ? mapParam : [];
+	            for (var i = 0; i < value.length; ++i) {
+	                list.push(value[i]);
+	            }
+	            _this.paramsMap.set(param, list);
+	        });
+	    };
+	    // A merge operation
+	    // For each name-values pair in `searchParams`, perform `delete(name)`,
+	    // followed by `set(name, values)`
+	    //
+	    // E.g: "a=[1,2,3], c=[8]" + "a=[4,5,6], b=[7]" = "a=[4,5,6], c=[8], b=[7]"
+	    //
+	    // TODO(@caitp): document this better
+	    URLSearchParams.prototype.replaceAll = function (searchParams) {
+	        var _this = this;
+	        searchParams.paramsMap.forEach(function (value, param) {
+	            var mapParam = _this.paramsMap.get(param);
+	            var list = lang_1.isPresent(mapParam) ? mapParam : [];
+	            collection_1.ListWrapper.clear(list);
+	            for (var i = 0; i < value.length; ++i) {
+	                list.push(value[i]);
+	            }
+	            _this.paramsMap.set(param, list);
+	        });
+	    };
+	    URLSearchParams.prototype.toString = function () {
+	        var _this = this;
+	        var paramsList = [];
+	        this.paramsMap.forEach(function (values, k) {
+	            values.forEach(function (v) { return paramsList.push(_this.queryEncoder.encodeKey(k) + '=' + _this.queryEncoder.encodeValue(v)); });
+	        });
+	        return paramsList.join('&');
+	    };
+	    URLSearchParams.prototype.delete = function (param) { this.paramsMap.delete(param); };
+	    return URLSearchParams;
+	}());
+	exports.URLSearchParams = URLSearchParams;
+	//# sourceMappingURL=url_search_params.js.map
+
+/***/ },
+/* 360 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var core_1 = __webpack_require__(11);
+	var platform_browser_1 = __webpack_require__(203);
+	var Observable_1 = __webpack_require__(70);
+	var base_response_options_1 = __webpack_require__(348);
+	var enums_1 = __webpack_require__(349);
+	var lang_1 = __webpack_require__(345);
+	var headers_1 = __webpack_require__(350);
+	var http_utils_1 = __webpack_require__(358);
+	var interfaces_1 = __webpack_require__(355);
+	var static_response_1 = __webpack_require__(356);
+	var browser_xhr_1 = __webpack_require__(346);
+	var XSSI_PREFIX = /^\)\]\}',?\n/;
+	/**
+	 * Creates connections using `XMLHttpRequest`. Given a fully-qualified
+	 * request, an `XHRConnection` will immediately create an `XMLHttpRequest` object and send the
+	 * request.
+	 *
+	 * This class would typically not be created or interacted with directly inside applications, though
+	 * the {@link MockConnection} may be interacted with in tests.
+	 *
+	 * @experimental
+	 */
+	var XHRConnection = (function () {
+	    function XHRConnection(req, browserXHR, baseResponseOptions) {
+	        var _this = this;
+	        this.request = req;
+	        this.response = new Observable_1.Observable(function (responseObserver) {
+	            var _xhr = browserXHR.build();
+	            _xhr.open(enums_1.RequestMethod[req.method].toUpperCase(), req.url);
+	            if (lang_1.isPresent(req.withCredentials)) {
+	                _xhr.withCredentials = req.withCredentials;
+	            }
+	            // load event handler
+	            var onLoad = function () {
+	                // responseText is the old-school way of retrieving response (supported by IE8 & 9)
+	                // response/responseType properties were introduced in XHR Level2 spec (supported by
+	                // IE10)
+	                var body = lang_1.isPresent(_xhr.response) ? _xhr.response : _xhr.responseText;
+	                // Implicitly strip a potential XSSI prefix.
+	                if (lang_1.isString(body))
+	                    body = body.replace(XSSI_PREFIX, '');
+	                var headers = headers_1.Headers.fromResponseHeaderString(_xhr.getAllResponseHeaders());
+	                var url = http_utils_1.getResponseURL(_xhr);
+	                // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
+	                var status = _xhr.status === 1223 ? 204 : _xhr.status;
+	                // fix status code when it is 0 (0 status is undocumented).
+	                // Occurs when accessing file resources or on Android 4.1 stock browser
+	                // while retrieving files from application cache.
+	                if (status === 0) {
+	                    status = body ? 200 : 0;
+	                }
+	                var statusText = _xhr.statusText || 'OK';
+	                var responseOptions = new base_response_options_1.ResponseOptions({ body: body, status: status, headers: headers, statusText: statusText, url: url });
+	                if (lang_1.isPresent(baseResponseOptions)) {
+	                    responseOptions = baseResponseOptions.merge(responseOptions);
+	                }
+	                var response = new static_response_1.Response(responseOptions);
+	                response.ok = http_utils_1.isSuccess(status);
+	                if (response.ok) {
+	                    responseObserver.next(response);
+	                    // TODO(gdi2290): defer complete if array buffer until done
+	                    responseObserver.complete();
+	                    return;
+	                }
+	                responseObserver.error(response);
+	            };
+	            // error event handler
+	            var onError = function (err) {
+	                var responseOptions = new base_response_options_1.ResponseOptions({
+	                    body: err,
+	                    type: enums_1.ResponseType.Error,
+	                    status: _xhr.status,
+	                    statusText: _xhr.statusText,
+	                });
+	                if (lang_1.isPresent(baseResponseOptions)) {
+	                    responseOptions = baseResponseOptions.merge(responseOptions);
+	                }
+	                responseObserver.error(new static_response_1.Response(responseOptions));
+	            };
+	            _this.setDetectedContentType(req, _xhr);
+	            if (lang_1.isPresent(req.headers)) {
+	                req.headers.forEach(function (values, name) { return _xhr.setRequestHeader(name, values.join(',')); });
+	            }
+	            // Select the correct buffer type to store the response
+	            if (lang_1.isPresent(req.responseType) && lang_1.isPresent(_xhr.responseType)) {
+	                switch (req.responseType) {
+	                    case enums_1.ResponseContentType.ArrayBuffer:
+	                        _xhr.responseType = 'arraybuffer';
+	                        break;
+	                    case enums_1.ResponseContentType.Json:
+	                        _xhr.responseType = 'json';
+	                        break;
+	                    case enums_1.ResponseContentType.Text:
+	                        _xhr.responseType = 'text';
+	                        break;
+	                    case enums_1.ResponseContentType.Blob:
+	                        _xhr.responseType = 'blob';
+	                        break;
+	                    default:
+	                        throw new Error('The selected responseType is not supported');
+	                }
+	            }
+	            _xhr.addEventListener('load', onLoad);
+	            _xhr.addEventListener('error', onError);
+	            _xhr.send(_this.request.getBody());
+	            return function () {
+	                _xhr.removeEventListener('load', onLoad);
+	                _xhr.removeEventListener('error', onError);
+	                _xhr.abort();
+	            };
+	        });
+	    }
+	    XHRConnection.prototype.setDetectedContentType = function (req /** TODO #9100 */, _xhr /** TODO #9100 */) {
+	        // Skip if a custom Content-Type header is provided
+	        if (lang_1.isPresent(req.headers) && lang_1.isPresent(req.headers.get('Content-Type'))) {
+	            return;
+	        }
+	        // Set the detected content type
+	        switch (req.contentType) {
+	            case enums_1.ContentType.NONE:
+	                break;
+	            case enums_1.ContentType.JSON:
+	                _xhr.setRequestHeader('content-type', 'application/json');
+	                break;
+	            case enums_1.ContentType.FORM:
+	                _xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+	                break;
+	            case enums_1.ContentType.TEXT:
+	                _xhr.setRequestHeader('content-type', 'text/plain');
+	                break;
+	            case enums_1.ContentType.BLOB:
+	                var blob = req.blob();
+	                if (blob.type) {
+	                    _xhr.setRequestHeader('content-type', blob.type);
+	                }
+	                break;
+	        }
+	    };
+	    return XHRConnection;
+	}());
+	exports.XHRConnection = XHRConnection;
+	/**
+	 * `XSRFConfiguration` sets up Cross Site Request Forgery (XSRF) protection for the application
+	 * using a cookie. See {@link https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)}
+	 * for more information on XSRF.
+	 *
+	 * Applications can configure custom cookie and header names by binding an instance of this class
+	 * with different `cookieName` and `headerName` values. See the main HTTP documentation for more
+	 * details.
+	 *
+	 * @experimental
+	 */
+	var CookieXSRFStrategy = (function () {
+	    function CookieXSRFStrategy(_cookieName, _headerName) {
+	        if (_cookieName === void 0) { _cookieName = 'XSRF-TOKEN'; }
+	        if (_headerName === void 0) { _headerName = 'X-XSRF-TOKEN'; }
+	        this._cookieName = _cookieName;
+	        this._headerName = _headerName;
+	    }
+	    CookieXSRFStrategy.prototype.configureRequest = function (req) {
+	        var xsrfToken = platform_browser_1.__platform_browser_private__.getDOM().getCookie(this._cookieName);
+	        if (xsrfToken && !req.headers.has(this._headerName)) {
+	            req.headers.set(this._headerName, xsrfToken);
+	        }
+	    };
+	    return CookieXSRFStrategy;
+	}());
+	exports.CookieXSRFStrategy = CookieXSRFStrategy;
+	var XHRBackend = (function () {
+	    function XHRBackend(_browserXHR, _baseResponseOptions, _xsrfStrategy) {
+	        this._browserXHR = _browserXHR;
+	        this._baseResponseOptions = _baseResponseOptions;
+	        this._xsrfStrategy = _xsrfStrategy;
+	    }
+	    XHRBackend.prototype.createConnection = function (request) {
+	        this._xsrfStrategy.configureRequest(request);
+	        return new XHRConnection(request, this._browserXHR, this._baseResponseOptions);
+	    };
+	    /** @nocollapse */
+	    XHRBackend.decorators = [
+	        { type: core_1.Injectable },
+	    ];
+	    /** @nocollapse */
+	    XHRBackend.ctorParameters = [
+	        { type: browser_xhr_1.BrowserXhr, },
+	        { type: base_response_options_1.ResponseOptions, },
+	        { type: interfaces_1.XSRFStrategy, },
+	    ];
+	    return XHRBackend;
+	}());
+	exports.XHRBackend = XHRBackend;
+	//# sourceMappingURL=xhr_backend.js.map
+
+/***/ },
+/* 361 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var core_1 = __webpack_require__(11);
+	var lang_1 = __webpack_require__(345);
+	var enums_1 = __webpack_require__(349);
+	var headers_1 = __webpack_require__(350);
+	var http_utils_1 = __webpack_require__(358);
+	var url_search_params_1 = __webpack_require__(359);
+	/**
+	 * Creates a request options object to be optionally provided when instantiating a
+	 * {@link Request}.
+	 *
+	 * This class is based on the `RequestInit` description in the [Fetch
+	 * Spec](https://fetch.spec.whatwg.org/#requestinit).
+	 *
+	 * All values are null by default. Typical defaults can be found in the {@link BaseRequestOptions}
+	 * class, which sub-classes `RequestOptions`.
+	 *
+	 * ### Example ([live demo](http://plnkr.co/edit/7Wvi3lfLq41aQPKlxB4O?p=preview))
+	 *
+	 * ```typescript
+	 * import {RequestOptions, Request, RequestMethod} from '@angular/http';
+	 *
+	 * var options = new RequestOptions({
+	 *   method: RequestMethod.Post,
+	 *   url: 'https://google.com'
+	 * });
+	 * var req = new Request(options);
+	 * console.log('req.method:', RequestMethod[req.method]); // Post
+	 * console.log('options.url:', options.url); // https://google.com
+	 * ```
+	 *
+	 * @experimental
+	 */
+	var RequestOptions = (function () {
+	    function RequestOptions(_a) {
+	        var _b = _a === void 0 ? {} : _a, method = _b.method, headers = _b.headers, body = _b.body, url = _b.url, search = _b.search, withCredentials = _b.withCredentials, responseType = _b.responseType;
+	        this.method = lang_1.isPresent(method) ? http_utils_1.normalizeMethodName(method) : null;
+	        this.headers = lang_1.isPresent(headers) ? headers : null;
+	        this.body = lang_1.isPresent(body) ? body : null;
+	        this.url = lang_1.isPresent(url) ? url : null;
+	        this.search = lang_1.isPresent(search) ?
+	            (lang_1.isString(search) ? new url_search_params_1.URLSearchParams((search)) : (search)) :
+	            null;
+	        this.withCredentials = lang_1.isPresent(withCredentials) ? withCredentials : null;
+	        this.responseType = lang_1.isPresent(responseType) ? responseType : null;
+	    }
+	    /**
+	     * Creates a copy of the `RequestOptions` instance, using the optional input as values to override
+	     * existing values. This method will not change the values of the instance on which it is being
+	     * called.
+	     *
+	     * Note that `headers` and `search` will override existing values completely if present in
+	     * the `options` object. If these values should be merged, it should be done prior to calling
+	     * `merge` on the `RequestOptions` instance.
+	     *
+	     * ### Example ([live demo](http://plnkr.co/edit/6w8XA8YTkDRcPYpdB9dk?p=preview))
+	     *
+	     * ```typescript
+	     * import {RequestOptions, Request, RequestMethod} from '@angular/http';
+	     *
+	     * var options = new RequestOptions({
+	     *   method: RequestMethod.Post
+	     * });
+	     * var req = new Request(options.merge({
+	     *   url: 'https://google.com'
+	     * }));
+	     * console.log('req.method:', RequestMethod[req.method]); // Post
+	     * console.log('options.url:', options.url); // null
+	     * console.log('req.url:', req.url); // https://google.com
+	     * ```
+	     */
+	    RequestOptions.prototype.merge = function (options) {
+	        return new RequestOptions({
+	            method: lang_1.isPresent(options) && lang_1.isPresent(options.method) ? options.method : this.method,
+	            headers: lang_1.isPresent(options) && lang_1.isPresent(options.headers) ? options.headers : this.headers,
+	            body: lang_1.isPresent(options) && lang_1.isPresent(options.body) ? options.body : this.body,
+	            url: lang_1.isPresent(options) && lang_1.isPresent(options.url) ? options.url : this.url,
+	            search: lang_1.isPresent(options) && lang_1.isPresent(options.search) ?
+	                (lang_1.isString(options.search) ? new url_search_params_1.URLSearchParams((options.search)) :
+	                    (options.search).clone()) :
+	                this.search,
+	            withCredentials: lang_1.isPresent(options) && lang_1.isPresent(options.withCredentials) ?
+	                options.withCredentials :
+	                this.withCredentials,
+	            responseType: lang_1.isPresent(options) && lang_1.isPresent(options.responseType) ? options.responseType :
+	                this.responseType
+	        });
+	    };
+	    return RequestOptions;
+	}());
+	exports.RequestOptions = RequestOptions;
+	var BaseRequestOptions = (function (_super) {
+	    __extends(BaseRequestOptions, _super);
+	    function BaseRequestOptions() {
+	        _super.call(this, { method: enums_1.RequestMethod.Get, headers: new headers_1.Headers() });
+	    }
+	    /** @nocollapse */
+	    BaseRequestOptions.decorators = [
+	        { type: core_1.Injectable },
+	    ];
+	    /** @nocollapse */
+	    BaseRequestOptions.ctorParameters = [];
+	    return BaseRequestOptions;
+	}(RequestOptions));
+	exports.BaseRequestOptions = BaseRequestOptions;
+	//# sourceMappingURL=base_request_options.js.map
+
+/***/ },
+/* 362 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var core_1 = __webpack_require__(11);
+	var exceptions_1 = __webpack_require__(352);
+	var lang_1 = __webpack_require__(345);
+	var base_request_options_1 = __webpack_require__(361);
+	var enums_1 = __webpack_require__(349);
+	var interfaces_1 = __webpack_require__(355);
+	var static_request_1 = __webpack_require__(363);
+	function httpRequest(backend, request) {
+	    return backend.createConnection(request).response;
+	}
+	function mergeOptions(defaultOpts, providedOpts, method, url) {
+	    var newOptions = defaultOpts;
+	    if (lang_1.isPresent(providedOpts)) {
+	        // Hack so Dart can used named parameters
+	        return newOptions.merge(new base_request_options_1.RequestOptions({
+	            method: providedOpts.method || method,
+	            url: providedOpts.url || url,
+	            search: providedOpts.search,
+	            headers: providedOpts.headers,
+	            body: providedOpts.body,
+	            withCredentials: providedOpts.withCredentials,
+	            responseType: providedOpts.responseType
+	        }));
+	    }
+	    if (lang_1.isPresent(method)) {
+	        return newOptions.merge(new base_request_options_1.RequestOptions({ method: method, url: url }));
+	    }
+	    else {
+	        return newOptions.merge(new base_request_options_1.RequestOptions({ url: url }));
+	    }
+	}
+	var Http = (function () {
+	    function Http(_backend, _defaultOptions) {
+	        this._backend = _backend;
+	        this._defaultOptions = _defaultOptions;
+	    }
+	    /**
+	     * Performs any type of http request. First argument is required, and can either be a url or
+	     * a {@link Request} instance. If the first argument is a url, an optional {@link RequestOptions}
+	     * object can be provided as the 2nd argument. The options object will be merged with the values
+	     * of {@link BaseRequestOptions} before performing the request.
+	     */
+	    Http.prototype.request = function (url, options) {
+	        var responseObservable;
+	        if (lang_1.isString(url)) {
+	            responseObservable = httpRequest(this._backend, new static_request_1.Request(mergeOptions(this._defaultOptions, options, enums_1.RequestMethod.Get, url)));
+	        }
+	        else if (url instanceof static_request_1.Request) {
+	            responseObservable = httpRequest(this._backend, url);
+	        }
+	        else {
+	            throw exceptions_1.makeTypeError('First argument must be a url string or Request instance.');
+	        }
+	        return responseObservable;
+	    };
+	    /**
+	     * Performs a request with `get` http method.
+	     */
+	    Http.prototype.get = function (url, options) {
+	        return httpRequest(this._backend, new static_request_1.Request(mergeOptions(this._defaultOptions, options, enums_1.RequestMethod.Get, url)));
+	    };
+	    /**
+	     * Performs a request with `post` http method.
+	     */
+	    Http.prototype.post = function (url, body, options) {
+	        return httpRequest(this._backend, new static_request_1.Request(mergeOptions(this._defaultOptions.merge(new base_request_options_1.RequestOptions({ body: body })), options, enums_1.RequestMethod.Post, url)));
+	    };
+	    /**
+	     * Performs a request with `put` http method.
+	     */
+	    Http.prototype.put = function (url, body, options) {
+	        return httpRequest(this._backend, new static_request_1.Request(mergeOptions(this._defaultOptions.merge(new base_request_options_1.RequestOptions({ body: body })), options, enums_1.RequestMethod.Put, url)));
+	    };
+	    /**
+	     * Performs a request with `delete` http method.
+	     */
+	    Http.prototype.delete = function (url, options) {
+	        return httpRequest(this._backend, new static_request_1.Request(mergeOptions(this._defaultOptions, options, enums_1.RequestMethod.Delete, url)));
+	    };
+	    /**
+	     * Performs a request with `patch` http method.
+	     */
+	    Http.prototype.patch = function (url, body, options) {
+	        return httpRequest(this._backend, new static_request_1.Request(mergeOptions(this._defaultOptions.merge(new base_request_options_1.RequestOptions({ body: body })), options, enums_1.RequestMethod.Patch, url)));
+	    };
+	    /**
+	     * Performs a request with `head` http method.
+	     */
+	    Http.prototype.head = function (url, options) {
+	        return httpRequest(this._backend, new static_request_1.Request(mergeOptions(this._defaultOptions, options, enums_1.RequestMethod.Head, url)));
+	    };
+	    /**
+	     * Performs a request with `options` http method.
+	     */
+	    Http.prototype.options = function (url, options) {
+	        return httpRequest(this._backend, new static_request_1.Request(mergeOptions(this._defaultOptions, options, enums_1.RequestMethod.Options, url)));
+	    };
+	    /** @nocollapse */
+	    Http.decorators = [
+	        { type: core_1.Injectable },
+	    ];
+	    /** @nocollapse */
+	    Http.ctorParameters = [
+	        { type: interfaces_1.ConnectionBackend, },
+	        { type: base_request_options_1.RequestOptions, },
+	    ];
+	    return Http;
+	}());
+	exports.Http = Http;
+	var Jsonp = (function (_super) {
+	    __extends(Jsonp, _super);
+	    function Jsonp(backend, defaultOptions) {
+	        _super.call(this, backend, defaultOptions);
+	    }
+	    /**
+	     * Performs any type of http request. First argument is required, and can either be a url or
+	     * a {@link Request} instance. If the first argument is a url, an optional {@link RequestOptions}
+	     * object can be provided as the 2nd argument. The options object will be merged with the values
+	     * of {@link BaseRequestOptions} before performing the request.
+	     *
+	     * @security Regular XHR is the safest alternative to JSONP for most applications, and is
+	     * supported by all current browsers. Because JSONP creates a `<script>` element with
+	     * contents retrieved from a remote source, attacker-controlled data introduced by an untrusted
+	     * source could expose your application to XSS risks. Data exposed by JSONP may also be
+	     * readable by malicious third-party websites. In addition, JSONP introduces potential risk for
+	     * future security issues (e.g. content sniffing).  For more detail, see the
+	     * [Security Guide](http://g.co/ng/security).
+	     */
+	    Jsonp.prototype.request = function (url, options) {
+	        var responseObservable;
+	        if (lang_1.isString(url)) {
+	            url =
+	                new static_request_1.Request(mergeOptions(this._defaultOptions, options, enums_1.RequestMethod.Get, url));
+	        }
+	        if (url instanceof static_request_1.Request) {
+	            if (url.method !== enums_1.RequestMethod.Get) {
+	                exceptions_1.makeTypeError('JSONP requests must use GET request method.');
+	            }
+	            responseObservable = httpRequest(this._backend, url);
+	        }
+	        else {
+	            throw exceptions_1.makeTypeError('First argument must be a url string or Request instance.');
+	        }
+	        return responseObservable;
+	    };
+	    /** @nocollapse */
+	    Jsonp.decorators = [
+	        { type: core_1.Injectable },
+	    ];
+	    /** @nocollapse */
+	    Jsonp.ctorParameters = [
+	        { type: interfaces_1.ConnectionBackend, },
+	        { type: base_request_options_1.RequestOptions, },
+	    ];
+	    return Jsonp;
+	}(Http));
+	exports.Jsonp = Jsonp;
+	//# sourceMappingURL=http.js.map
+
+/***/ },
+/* 363 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var lang_1 = __webpack_require__(345);
+	var body_1 = __webpack_require__(357);
+	var enums_1 = __webpack_require__(349);
+	var headers_1 = __webpack_require__(350);
+	var http_utils_1 = __webpack_require__(358);
+	var url_search_params_1 = __webpack_require__(359);
+	// TODO(jeffbcross): properly implement body accessors
+	/**
+	 * Creates `Request` instances from provided values.
+	 *
+	 * The Request's interface is inspired by the Request constructor defined in the [Fetch
+	 * Spec](https://fetch.spec.whatwg.org/#request-class),
+	 * but is considered a static value whose body can be accessed many times. There are other
+	 * differences in the implementation, but this is the most significant.
+	 *
+	 * `Request` instances are typically created by higher-level classes, like {@link Http} and
+	 * {@link Jsonp}, but it may occasionally be useful to explicitly create `Request` instances.
+	 * One such example is when creating services that wrap higher-level services, like {@link Http},
+	 * where it may be useful to generate a `Request` with arbitrary headers and search params.
+	 *
+	 * ```typescript
+	 * import {Injectable, Injector} from '@angular/core';
+	 * import {HTTP_PROVIDERS, Http, Request, RequestMethod} from '@angular/http';
+	 *
+	 * @Injectable()
+	 * class AutoAuthenticator {
+	 *   constructor(public http:Http) {}
+	 *   request(url:string) {
+	 *     return this.http.request(new Request({
+	 *       method: RequestMethod.Get,
+	 *       url: url,
+	 *       search: 'password=123'
+	 *     }));
+	 *   }
+	 * }
+	 *
+	 * var injector = Injector.resolveAndCreate([HTTP_PROVIDERS, AutoAuthenticator]);
+	 * var authenticator = injector.get(AutoAuthenticator);
+	 * authenticator.request('people.json').subscribe(res => {
+	 *   //URL should have included '?password=123'
+	 *   console.log('people', res.json());
+	 * });
+	 * ```
+	 *
+	 * @experimental
+	 */
+	var Request = (function (_super) {
+	    __extends(Request, _super);
+	    function Request(requestOptions) {
+	        _super.call(this);
+	        // TODO: assert that url is present
+	        var url = requestOptions.url;
+	        this.url = requestOptions.url;
+	        if (lang_1.isPresent(requestOptions.search)) {
+	            var search = requestOptions.search.toString();
+	            if (search.length > 0) {
+	                var prefix = '?';
+	                if (lang_1.StringWrapper.contains(this.url, '?')) {
+	                    prefix = (this.url[this.url.length - 1] == '&') ? '' : '&';
+	                }
+	                // TODO: just delete search-query-looking string in url?
+	                this.url = url + prefix + search;
+	            }
+	        }
+	        this._body = requestOptions.body;
+	        this.method = http_utils_1.normalizeMethodName(requestOptions.method);
+	        // TODO(jeffbcross): implement behavior
+	        // Defaults to 'omit', consistent with browser
+	        // TODO(jeffbcross): implement behavior
+	        this.headers = new headers_1.Headers(requestOptions.headers);
+	        this.contentType = this.detectContentType();
+	        this.withCredentials = requestOptions.withCredentials;
+	        this.responseType = requestOptions.responseType;
+	    }
+	    /**
+	     * Returns the content type enum based on header options.
+	     */
+	    Request.prototype.detectContentType = function () {
+	        switch (this.headers.get('content-type')) {
+	            case 'application/json':
+	                return enums_1.ContentType.JSON;
+	            case 'application/x-www-form-urlencoded':
+	                return enums_1.ContentType.FORM;
+	            case 'multipart/form-data':
+	                return enums_1.ContentType.FORM_DATA;
+	            case 'text/plain':
+	            case 'text/html':
+	                return enums_1.ContentType.TEXT;
+	            case 'application/octet-stream':
+	                return enums_1.ContentType.BLOB;
+	            default:
+	                return this.detectContentTypeFromBody();
+	        }
+	    };
+	    /**
+	     * Returns the content type of request's body based on its type.
+	     */
+	    Request.prototype.detectContentTypeFromBody = function () {
+	        if (this._body == null) {
+	            return enums_1.ContentType.NONE;
+	        }
+	        else if (this._body instanceof url_search_params_1.URLSearchParams) {
+	            return enums_1.ContentType.FORM;
+	        }
+	        else if (this._body instanceof FormData) {
+	            return enums_1.ContentType.FORM_DATA;
+	        }
+	        else if (this._body instanceof Blob) {
+	            return enums_1.ContentType.BLOB;
+	        }
+	        else if (this._body instanceof ArrayBuffer) {
+	            return enums_1.ContentType.ARRAY_BUFFER;
+	        }
+	        else if (this._body && typeof this._body == 'object') {
+	            return enums_1.ContentType.JSON;
+	        }
+	        else {
+	            return enums_1.ContentType.TEXT;
+	        }
+	    };
+	    /**
+	     * Returns the request's body according to its type. If body is undefined, return
+	     * null.
+	     */
+	    Request.prototype.getBody = function () {
+	        switch (this.contentType) {
+	            case enums_1.ContentType.JSON:
+	                return this.text();
+	            case enums_1.ContentType.FORM:
+	                return this.text();
+	            case enums_1.ContentType.FORM_DATA:
+	                return this._body;
+	            case enums_1.ContentType.TEXT:
+	                return this.text();
+	            case enums_1.ContentType.BLOB:
+	                return this.blob();
+	            case enums_1.ContentType.ARRAY_BUFFER:
+	                return this.arrayBuffer();
+	            default:
+	                return null;
+	        }
+	    };
+	    return Request;
+	}(body_1.Body));
+	exports.Request = Request;
+	var noop = function () { };
+	var w = typeof window == 'object' ? window : noop;
+	var FormData = w['FormData'] || noop;
+	var Blob = w['Blob'] || noop;
+	var ArrayBuffer = w['ArrayBuffer'] || noop;
+	//# sourceMappingURL=static_request.js.map
+
+/***/ },
+/* 364 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var Observable_1 = __webpack_require__(70);
+	var map_1 = __webpack_require__(365);
+	Observable_1.Observable.prototype.map = map_1.map;
+	//# sourceMappingURL=map.js.map
+
+/***/ },
+/* 365 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var Subscriber_1 = __webpack_require__(75);
+	/**
+	 * Applies a given `project` function to each value emitted by the source
+	 * Observable, and emits the resulting values as an Observable.
+	 *
+	 * <span class="informal">Like [Array.prototype.map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map),
+	 * it passes each source value through a transformation function to get
+	 * corresponding output values.</span>
+	 *
+	 * <img src="./img/map.png" width="100%">
+	 *
+	 * Similar to the well known `Array.prototype.map` function, this operator
+	 * applies a projection to each value and emits that projection in the output
+	 * Observable.
+	 *
+	 * @example <caption>Map every every click to the clientX position of that click</caption>
+	 * var clicks = Rx.Observable.fromEvent(document, 'click');
+	 * var positions = clicks.map(ev => ev.clientX);
+	 * positions.subscribe(x => console.log(x));
+	 *
+	 * @see {@link mapTo}
+	 * @see {@link pluck}
+	 *
+	 * @param {function(value: T, index: number): R} project The function to apply
+	 * to each `value` emitted by the source Observable. The `index` parameter is
+	 * the number `i` for the i-th emission that has happened since the
+	 * subscription, starting from the number `0`.
+	 * @param {any} [thisArg] An optional argument to define what `this` is in the
+	 * `project` function.
+	 * @return {Observable<R>} An Observable that emits the values from the source
+	 * Observable transformed by the given `project` function.
+	 * @method map
+	 * @owner Observable
+	 */
+	function map(project, thisArg) {
+	    if (typeof project !== 'function') {
+	        throw new TypeError('argument is not a function. Are you looking for `mapTo()`?');
+	    }
+	    return this.lift(new MapOperator(project, thisArg));
+	}
+	exports.map = map;
+	var MapOperator = (function () {
+	    function MapOperator(project, thisArg) {
+	        this.project = project;
+	        this.thisArg = thisArg;
+	    }
+	    MapOperator.prototype.call = function (subscriber, source) {
+	        return source._subscribe(new MapSubscriber(subscriber, this.project, this.thisArg));
+	    };
+	    return MapOperator;
+	}());
+	/**
+	 * We need this JSDoc comment for affecting ESDoc.
+	 * @ignore
+	 * @extends {Ignored}
+	 */
+	var MapSubscriber = (function (_super) {
+	    __extends(MapSubscriber, _super);
+	    function MapSubscriber(destination, project, thisArg) {
+	        _super.call(this, destination);
+	        this.project = project;
+	        this.count = 0;
+	        this.thisArg = thisArg || this;
+	    }
+	    // NOTE: This looks unoptimized, but it's actually purposefully NOT
+	    // using try/catch optimizations.
+	    MapSubscriber.prototype._next = function (value) {
+	        var result;
+	        try {
+	            result = this.project.call(this.thisArg, value, this.count++);
+	        }
+	        catch (err) {
+	            this.destination.error(err);
+	            return;
+	        }
+	        this.destination.next(result);
+	    };
+	    return MapSubscriber;
+	}(Subscriber_1.Subscriber));
+	//# sourceMappingURL=map.js.map
+
+/***/ },
+/* 366 */
+/***/ function(module, exports) {
+
+	/**
+	 * ANGULAR 2 LOCALIZATION
+	 * An Angular 2 library to translate messages, dates and numbers.
+	 * Written by Roberto Simonetti.
+	 * MIT license.
+	 * https://github.com/robisim74/angular2localization
+	 */
+	"use strict";
+	/**
+	 * IntlSupport class.
+	 * Provides the methods to check if Intl is supported.
+	 *
+	 * @author Roberto Simonetti
+	 */
+	var IntlSupport = (function () {
+	    function IntlSupport() {
+	    }
+	    /**
+	     * Support for dates.
+	     *
+	     * @param defaultLocale The default locale
+	     * @return True if the browser supports locales for dates, otherwise false.
+	     */
+	    IntlSupport.DateTimeFormat = function (defaultLocale) {
+	        // Checking for support.
+	        try {
+	            new Intl.DateTimeFormat(defaultLocale).format(new Date());
+	        }
+	        catch (e) {
+	            return false;
+	        }
+	        return true;
+	    };
+	    /**
+	     * Support for numbers.
+	     *
+	     * @param defaultLocale The default locale
+	     * @return True if the browser supports locales for numbers, otherwise false.
+	     */
+	    IntlSupport.NumberFormat = function (defaultLocale) {
+	        // Checking for support.
+	        try {
+	            var n = 0;
+	            new Intl.NumberFormat(defaultLocale).format(n);
+	        }
+	        catch (e) {
+	            return false;
+	        }
+	        return true;
+	    };
+	    /**
+	     * Support for Collator.
+	     *
+	     * @param lang The current language code
+	     * @return True if the browser supports Collator, otherwise false.
+	     */
+	    IntlSupport.Collator = function (lang) {
+	        // Checking for support.
+	        try {
+	            var value1 = "a";
+	            var value2 = "b";
+	            new Intl.Collator(lang).compare(value1, value2);
+	        }
+	        catch (e) {
+	            return false;
+	        }
+	        return true;
+	    };
+	    return IntlSupport;
+	}());
+	exports.IntlSupport = IntlSupport;
+	
+	//# sourceMappingURL=Intl-support.js.map
+
+
+/***/ },
+/* 367 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * ANGULAR 2 LOCALIZATION
+	 * An Angular 2 library to translate messages, dates and numbers.
+	 * Written by Roberto Simonetti.
+	 * MIT license.
+	 * https://github.com/robisim74/angular2localization
+	 */
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(11);
+	var intl_1 = __webpack_require__(227);
+	// Services.
+	var localization_service_1 = __webpack_require__(341);
+	var locale_service_1 = __webpack_require__(340);
+	var locale_number_1 = __webpack_require__(368);
+	var Intl_support_1 = __webpack_require__(366);
+	/**
+	 * 'translate' pipe function.
+	 */
+	var TranslatePipe = (function () {
+	    function TranslatePipe(localization, locale) {
+	        this.localization = localization;
+	        this.locale = locale;
+	    }
+	    /**
+	     * TranslatePipe transform method.
+	     *
+	     * @param key The key to be translated
+	     * @param lang The current language code for the LocalizationService
+	     * @return The value of translation
+	     */
+	    TranslatePipe.prototype.transform = function (key, lang) {
+	        // Checks the service state.
+	        if (this.localization.serviceState == localization_service_1.ServiceState.isReady) {
+	            var REGEXP = /^\d+\b/;
+	            var keyStr = key;
+	            // i18n plural.
+	            if (REGEXP.exec(key) != null) {
+	                // Tries to extract the number.
+	                var keyNum = parseFloat(key);
+	                // Tries to extract the string. 
+	                keyStr = key.replace(REGEXP, "");
+	                keyStr = keyStr.trim();
+	                // Checks the number & support for Intl.
+	                if (!isNaN(keyNum) && Intl_support_1.IntlSupport.NumberFormat(this.locale.getDefaultLocale()) == true) {
+	                    // Localizes the number.
+	                    key = key.replace(/^\d+/, locale_number_1.LocaleNumber.format(TranslatePipe, this.locale.getDefaultLocale(), keyNum, intl_1.NumberFormatStyle.Decimal, '1.0-3'));
+	                }
+	            }
+	            // Gets the value of translation for the key string.
+	            var value = this.localization.translate(keyStr);
+	            return key.replace(keyStr, value);
+	        }
+	        return key;
+	    };
+	    TranslatePipe = __decorate([
+	        core_1.Pipe({
+	            name: 'translate',
+	            pure: true
+	        }), 
+	        __metadata('design:paramtypes', [localization_service_1.LocalizationService, locale_service_1.LocaleService])
+	    ], TranslatePipe);
+	    return TranslatePipe;
+	}());
+	exports.TranslatePipe = TranslatePipe;
+	
+	//# sourceMappingURL=translate.pipe.js.map
+
+
+/***/ },
+/* 368 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * ANGULAR 2 LOCALIZATION
+	 * An Angular 2 library to translate messages, dates and numbers.
+	 * Written by Roberto Simonetti.
+	 * MIT license.
+	 * https://github.com/robisim74/angular2localization
+	 */
+	"use strict";
+	var intl_1 = __webpack_require__(227);
+	var lang_1 = __webpack_require__(211);
+	var invalid_pipe_argument_exception_1 = __webpack_require__(224);
+	/**
+	 * LocaleNumber class.
+	 * Class to format numbers.
+	 */
+	var LocaleNumber = (function () {
+	    function LocaleNumber() {
+	    }
+	    LocaleNumber.format = function (pipe, defaultLocale, value, style, digits, currency, currencyAsSymbol) {
+	        if (currency === void 0) { currency = null; }
+	        if (currencyAsSymbol === void 0) { currencyAsSymbol = false; }
+	        if (lang_1.isBlank(value)) {
+	            return null;
+	        }
+	        // Converts strings to numbers.
+	        value = lang_1.isString(value) && lang_1.NumberWrapper.isNumeric(value) ? +value : value;
+	        if (!lang_1.isNumber(value)) {
+	            throw new invalid_pipe_argument_exception_1.InvalidPipeArgumentException(pipe, value);
+	        }
+	        var minInt;
+	        var minFraction;
+	        var maxFraction;
+	        if (style !== intl_1.NumberFormatStyle.Currency) {
+	            // Relies on Intl default for currency.
+	            minInt = 1;
+	            minFraction = 0;
+	            maxFraction = 3;
+	        }
+	        var NUMBER_FORMAT_REGEXP = /^(\d+)?\.((\d+)(\-(\d+))?)?$/;
+	        if (lang_1.isPresent(digits)) {
+	            var parts = digits.match(NUMBER_FORMAT_REGEXP);
+	            if (parts === null) {
+	                throw new Error(digits + " is not a valid digit info for number pipes");
+	            }
+	            if (lang_1.isPresent(parts[1])) {
+	                minInt = lang_1.NumberWrapper.parseIntAutoRadix(parts[1]);
+	            }
+	            if (lang_1.isPresent(parts[3])) {
+	                minFraction = lang_1.NumberWrapper.parseIntAutoRadix(parts[3]);
+	            }
+	            if (lang_1.isPresent(parts[5])) {
+	                maxFraction = lang_1.NumberWrapper.parseIntAutoRadix(parts[5]);
+	            }
+	        }
+	        return intl_1.NumberFormatter.format(value, defaultLocale, style, {
+	            minimumIntegerDigits: minInt,
+	            minimumFractionDigits: minFraction,
+	            maximumFractionDigits: maxFraction,
+	            currency: currency,
+	            currencyAsSymbol: currencyAsSymbol
+	        });
+	    };
+	    return LocaleNumber;
+	}());
+	exports.LocaleNumber = LocaleNumber;
+	
+	//# sourceMappingURL=locale-number.js.map
+
+
+/***/ },
+/* 369 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * ANGULAR 2 LOCALIZATION
+	 * An Angular 2 library to translate messages, dates and numbers.
+	 * Written by Roberto Simonetti.
+	 * MIT license.
+	 * https://github.com/robisim74/angular2localization
+	 */
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(11);
+	var collection_1 = __webpack_require__(210);
+	var intl_1 = __webpack_require__(227);
+	var lang_1 = __webpack_require__(211);
+	var invalid_pipe_argument_exception_1 = __webpack_require__(224);
+	// Services.
+	var Intl_support_1 = __webpack_require__(366);
+	/**
+	 * 'localedate' pipe function.
+	 */
+	var LocaleDatePipe = (function () {
+	    function LocaleDatePipe() {
+	    }
+	    /**
+	     * LocaleDatePipe transform method.
+	     *
+	     * @param value The date to be localized
+	     * @param defaultLocale The default locale
+	     * @param pattern The format of the date
+	     * @return The locale date
+	     */
+	    LocaleDatePipe.prototype.transform = function (value, defaultLocale, pattern) {
+	        if (pattern === void 0) { pattern = 'mediumDate'; }
+	        if (lang_1.isBlank(value)) {
+	            return null;
+	        }
+	        if (!this.supports(value)) {
+	            throw new invalid_pipe_argument_exception_1.InvalidPipeArgumentException(LocaleDatePipe, value);
+	        }
+	        if (lang_1.NumberWrapper.isNumeric(value)) {
+	            value = lang_1.DateWrapper.fromMillis(lang_1.NumberWrapper.parseInt(value, 10));
+	        }
+	        else if (lang_1.isString(value)) {
+	            value = lang_1.DateWrapper.fromISOString(value);
+	        }
+	        // Checks for support for Intl.
+	        if (Intl_support_1.IntlSupport.DateTimeFormat(defaultLocale) == true) {
+	            if (collection_1.StringMapWrapper.contains(LocaleDatePipe.ALIASES, pattern)) {
+	                pattern = collection_1.StringMapWrapper.get(LocaleDatePipe.ALIASES, pattern);
+	            }
+	            return intl_1.DateFormatter.format(value, defaultLocale, pattern);
+	        }
+	        // Returns the date without localization.
+	        return value;
+	    };
+	    LocaleDatePipe.prototype.supports = function (obj) {
+	        if (lang_1.isDate(obj) || lang_1.NumberWrapper.isNumeric(obj)) {
+	            return true;
+	        }
+	        if (lang_1.isString(obj) && lang_1.isDate(lang_1.DateWrapper.fromISOString(obj))) {
+	            return true;
+	        }
+	        return false;
+	    };
+	    LocaleDatePipe.ALIASES = {
+	        'medium': 'yMMMdjms',
+	        'short': 'yMdjm',
+	        'fullDate': 'yMMMMEEEEd',
+	        'longDate': 'yMMMMd',
+	        'mediumDate': 'yMMMd',
+	        'shortDate': 'yMd',
+	        'mediumTime': 'jms',
+	        'shortTime': 'jm'
+	    };
+	    LocaleDatePipe = __decorate([
+	        core_1.Pipe({
+	            name: 'localeDate',
+	            pure: true
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], LocaleDatePipe);
+	    return LocaleDatePipe;
+	}());
+	exports.LocaleDatePipe = LocaleDatePipe;
+	
+	//# sourceMappingURL=locale-date.pipe.js.map
+
+
+/***/ },
+/* 370 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * ANGULAR 2 LOCALIZATION
+	 * An Angular 2 library to translate messages, dates and numbers.
+	 * Written by Roberto Simonetti.
+	 * MIT license.
+	 * https://github.com/robisim74/angular2localization
+	 */
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(11);
+	var intl_1 = __webpack_require__(227);
+	// Services.
+	var locale_number_1 = __webpack_require__(368);
+	var Intl_support_1 = __webpack_require__(366);
+	/**
+	 * 'localeDecimal' pipe function.
+	 */
+	var LocaleDecimalPipe = (function () {
+	    function LocaleDecimalPipe() {
+	    }
+	    /**
+	     * LocaleDecimalPipe transform method.
+	     *
+	     * @param value The number to be localized
+	     * @param defaultLocale The default locale
+	     * @param digits The format of the number
+	     * @return The locale decimal
+	     */
+	    LocaleDecimalPipe.prototype.transform = function (value, defaultLocale, digits) {
+	        if (digits === void 0) { digits = null; }
+	        // Checks for support for Intl.
+	        if (Intl_support_1.IntlSupport.NumberFormat(defaultLocale) == true) {
+	            return locale_number_1.LocaleNumber.format(LocaleDecimalPipe, defaultLocale, value, intl_1.NumberFormatStyle.Decimal, digits);
+	        }
+	        // Returns the number without localization.
+	        return value;
+	    };
+	    LocaleDecimalPipe = __decorate([
+	        core_1.Pipe({
+	            name: 'localeDecimal',
+	            pure: true
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], LocaleDecimalPipe);
+	    return LocaleDecimalPipe;
+	}());
+	exports.LocaleDecimalPipe = LocaleDecimalPipe;
+	/**
+	 * 'localePercent' pipe function.
+	 */
+	var LocalePercentPipe = (function () {
+	    function LocalePercentPipe() {
+	    }
+	    /**
+	     * LocalePercentPipe transform method.
+	     *
+	     * @param value The number to be localized
+	     * @param defaultLocale The default locale
+	     * @param digits The format of the number
+	     * @return The locale percent
+	     */
+	    LocalePercentPipe.prototype.transform = function (value, defaultLocale, digits) {
+	        if (digits === void 0) { digits = null; }
+	        // Checks for support for Intl.
+	        if (Intl_support_1.IntlSupport.NumberFormat(defaultLocale) == true) {
+	            return locale_number_1.LocaleNumber.format(LocalePercentPipe, defaultLocale, value, intl_1.NumberFormatStyle.Percent, digits);
+	        }
+	        // Returns the number without localization.
+	        return value;
+	    };
+	    LocalePercentPipe = __decorate([
+	        core_1.Pipe({
+	            name: 'localePercent',
+	            pure: true
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], LocalePercentPipe);
+	    return LocalePercentPipe;
+	}());
+	exports.LocalePercentPipe = LocalePercentPipe;
+	/**
+	 * 'localeCurrency' pipe function.
+	 */
+	var LocaleCurrencyPipe = (function () {
+	    function LocaleCurrencyPipe() {
+	    }
+	    /**
+	     * LocaleCurrencyPipe transform method.
+	     *
+	     * @param value The number to be localized
+	     * @param defaultLocale The default locale
+	     * @param currency The current currency
+	     * @param symbolDisplay Indicates whether to use the currency symbol
+	     * @param digits The format of the number
+	     * @return The locale currency
+	     */
+	    LocaleCurrencyPipe.prototype.transform = function (value, defaultLocale, currency, symbolDisplay, digits) {
+	        if (symbolDisplay === void 0) { symbolDisplay = false; }
+	        if (digits === void 0) { digits = null; }
+	        // Checks for support for Intl.
+	        if (Intl_support_1.IntlSupport.NumberFormat(defaultLocale) == true) {
+	            return locale_number_1.LocaleNumber.format(LocaleCurrencyPipe, defaultLocale, value, intl_1.NumberFormatStyle.Currency, digits, currency, symbolDisplay);
+	        }
+	        // Returns the number without localization & currency.
+	        return value + " " + currency;
+	    };
+	    LocaleCurrencyPipe = __decorate([
+	        core_1.Pipe({
+	            name: 'localeCurrency',
+	            pure: true
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], LocaleCurrencyPipe);
+	    return LocaleCurrencyPipe;
+	}());
+	exports.LocaleCurrencyPipe = LocaleCurrencyPipe;
+	
+	//# sourceMappingURL=locale-number.pipe.js.map
+
+
+/***/ },
+/* 371 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * ANGULAR 2 LOCALIZATION
+	 * An Angular 2 library to translate messages, dates and numbers.
+	 * Written by Roberto Simonetti.
+	 * MIT license.
+	 * https://github.com/robisim74/angular2localization
+	 */
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(11);
+	var forms_1 = __webpack_require__(372);
+	// Services.
+	var locale_service_1 = __webpack_require__(340);
+	var locale_parser_1 = __webpack_require__(410);
+	/**
+	 * Function that takes a Control and returns either null when it’s valid, or and error object if it’s not.
+	 *
+	 * @param locale The reference to LocaleService
+	 * @param digits The format of the number
+	 * @param MIN_VALUE The minimum value for the number
+	 * @param MAX_VALUE The maximum value for the number
+	 * @return An error object: 'format', 'minValue' or 'maxValue'; null in case the value is valid
+	 */
+	function validateLocaleNumber(locale, digits, MIN_VALUE, MAX_VALUE) {
+	    if (MIN_VALUE === void 0) { MIN_VALUE = Number.MIN_VALUE; }
+	    if (MAX_VALUE === void 0) { MAX_VALUE = Number.MAX_VALUE; }
+	    var defaultLocale;
+	    var NUMBER_REGEXP;
+	    return function (c) {
+	        // Checks if the default locale has changed. 
+	        if (defaultLocale != locale.getDefaultLocale()) {
+	            NUMBER_REGEXP = locale_parser_1.LocaleParser.NumberRegExpFactory(locale.getDefaultLocale(), digits);
+	            defaultLocale = locale.getDefaultLocale();
+	        }
+	        // Checks the format.
+	        if (NUMBER_REGEXP.test(c.value)) {
+	            var parsedValue;
+	            parsedValue = locale_parser_1.LocaleParser.Number(c.value, locale.getDefaultLocale());
+	            if (parsedValue < MIN_VALUE) {
+	                return { minValue: false };
+	            }
+	            else if (parsedValue > MAX_VALUE) {
+	                return { maxValue: false };
+	            }
+	            return null; // The number is valid.
+	        }
+	        else {
+	            return { format: false };
+	        }
+	    };
+	}
+	exports.validateLocaleNumber = validateLocaleNumber;
+	var LocaleNumberValidator = (function () {
+	    function LocaleNumberValidator(locale) {
+	        this.locale = locale;
+	        this.MIN_VALUE = Number.MIN_VALUE;
+	        this.MAX_VALUE = Number.MAX_VALUE;
+	    }
+	    Object.defineProperty(LocaleNumberValidator.prototype, "minValue", {
+	        set: function (value) {
+	            this.MIN_VALUE = value || this.MIN_VALUE;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(LocaleNumberValidator.prototype, "maxValue", {
+	        set: function (value) {
+	            this.MAX_VALUE = value || this.MAX_VALUE;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    LocaleNumberValidator.prototype.ngOnInit = function () {
+	        this.validator = validateLocaleNumber(this.locale, this.digits, this.MIN_VALUE, this.MAX_VALUE);
+	    };
+	    LocaleNumberValidator.prototype.validate = function (c) {
+	        return this.validator(c);
+	    };
+	    __decorate([
+	        core_1.Input('validateLocaleNumber'), 
+	        __metadata('design:type', String)
+	    ], LocaleNumberValidator.prototype, "digits", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Number), 
+	        __metadata('design:paramtypes', [Number])
+	    ], LocaleNumberValidator.prototype, "minValue", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Number), 
+	        __metadata('design:paramtypes', [Number])
+	    ], LocaleNumberValidator.prototype, "maxValue", null);
+	    LocaleNumberValidator = __decorate([
+	        core_1.Directive({
+	            selector: '[validateLocaleNumber][ngModel],[validateLocaleNumber][formControl]',
+	            providers: [
+	                core_1.provide(forms_1.NG_VALIDATORS, {
+	                    useExisting: core_1.forwardRef(function () { return LocaleNumberValidator; }),
+	                    multi: true
+	                })
+	            ]
+	        }), 
+	        __metadata('design:paramtypes', [locale_service_1.LocaleService])
+	    ], LocaleNumberValidator);
+	    return LocaleNumberValidator;
+	}());
+	exports.LocaleNumberValidator = LocaleNumberValidator;
+	
+	//# sourceMappingURL=locale-number-validator.directive.js.map
+
+
+/***/ },
+/* 372 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(373));
+	//# sourceMappingURL=index.js.map
+
+/***/ },
+/* 373 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	/**
+	 * @module
+	 * @description
+	 * This module is used for handling user input, by defining and building a {@link FormGroup} that
+	 * consists of
+	 * {@link FormControl} objects, and mapping them onto the DOM. {@link FormControl} objects can then
+	 * be used
+	 * to read information
+	 * from the form DOM elements.
+	 *
+	 * Forms providers are not included in default providers; you must import these providers
+	 * explicitly.
+	 */
+	var directives_1 = __webpack_require__(374);
+	exports.FORM_DIRECTIVES = directives_1.FORM_DIRECTIVES;
+	exports.REACTIVE_FORM_DIRECTIVES = directives_1.REACTIVE_FORM_DIRECTIVES;
+	var abstract_control_directive_1 = __webpack_require__(385);
+	exports.AbstractControlDirective = abstract_control_directive_1.AbstractControlDirective;
+	var abstract_form_group_directive_1 = __webpack_require__(398);
+	exports.AbstractFormGroupDirective = abstract_form_group_directive_1.AbstractFormGroupDirective;
+	var checkbox_value_accessor_1 = __webpack_require__(375);
+	exports.CheckboxControlValueAccessor = checkbox_value_accessor_1.CheckboxControlValueAccessor;
+	var control_container_1 = __webpack_require__(396);
+	exports.ControlContainer = control_container_1.ControlContainer;
+	var control_value_accessor_1 = __webpack_require__(376);
+	exports.NG_VALUE_ACCESSOR = control_value_accessor_1.NG_VALUE_ACCESSOR;
+	var default_value_accessor_1 = __webpack_require__(377);
+	exports.DefaultValueAccessor = default_value_accessor_1.DefaultValueAccessor;
+	var ng_control_1 = __webpack_require__(380);
+	exports.NgControl = ng_control_1.NgControl;
+	var ng_control_status_1 = __webpack_require__(379);
+	exports.NgControlStatus = ng_control_status_1.NgControlStatus;
+	var ng_form_1 = __webpack_require__(386);
+	exports.NgForm = ng_form_1.NgForm;
+	var ng_model_1 = __webpack_require__(397);
+	exports.NgModel = ng_model_1.NgModel;
+	var ng_model_group_1 = __webpack_require__(399);
+	exports.NgModelGroup = ng_model_group_1.NgModelGroup;
+	var form_control_directive_1 = __webpack_require__(402);
+	exports.FormControlDirective = form_control_directive_1.FormControlDirective;
+	var form_control_name_1 = __webpack_require__(403);
+	exports.FormControlName = form_control_name_1.FormControlName;
+	var form_group_directive_1 = __webpack_require__(405);
+	exports.FormGroupDirective = form_group_directive_1.FormGroupDirective;
+	var form_group_name_1 = __webpack_require__(406);
+	exports.FormArrayName = form_group_name_1.FormArrayName;
+	var form_group_name_2 = __webpack_require__(406);
+	exports.FormGroupName = form_group_name_2.FormGroupName;
+	var select_control_value_accessor_1 = __webpack_require__(394);
+	exports.NgSelectOption = select_control_value_accessor_1.NgSelectOption;
+	exports.SelectControlValueAccessor = select_control_value_accessor_1.SelectControlValueAccessor;
+	var select_multiple_control_value_accessor_1 = __webpack_require__(395);
+	exports.SelectMultipleControlValueAccessor = select_multiple_control_value_accessor_1.SelectMultipleControlValueAccessor;
+	var validators_1 = __webpack_require__(407);
+	exports.MaxLengthValidator = validators_1.MaxLengthValidator;
+	exports.MinLengthValidator = validators_1.MinLengthValidator;
+	exports.PatternValidator = validators_1.PatternValidator;
+	exports.RequiredValidator = validators_1.RequiredValidator;
+	var form_builder_1 = __webpack_require__(408);
+	exports.FormBuilder = form_builder_1.FormBuilder;
+	var model_1 = __webpack_require__(388);
+	exports.AbstractControl = model_1.AbstractControl;
+	exports.FormArray = model_1.FormArray;
+	exports.FormControl = model_1.FormControl;
+	exports.FormGroup = model_1.FormGroup;
+	var validators_2 = __webpack_require__(390);
+	exports.NG_ASYNC_VALIDATORS = validators_2.NG_ASYNC_VALIDATORS;
+	exports.NG_VALIDATORS = validators_2.NG_VALIDATORS;
+	exports.Validators = validators_2.Validators;
+	__export(__webpack_require__(409));
+	//# sourceMappingURL=forms.js.map
+
+/***/ },
+/* 374 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var core_1 = __webpack_require__(11);
+	var checkbox_value_accessor_1 = __webpack_require__(375);
+	var default_value_accessor_1 = __webpack_require__(377);
+	var ng_control_status_1 = __webpack_require__(379);
+	var ng_form_1 = __webpack_require__(386);
+	var ng_model_1 = __webpack_require__(397);
+	var ng_model_group_1 = __webpack_require__(399);
+	var number_value_accessor_1 = __webpack_require__(392);
+	var radio_control_value_accessor_1 = __webpack_require__(393);
+	var form_control_directive_1 = __webpack_require__(402);
+	var form_control_name_1 = __webpack_require__(403);
+	var form_group_directive_1 = __webpack_require__(405);
+	var form_group_name_1 = __webpack_require__(406);
+	var select_control_value_accessor_1 = __webpack_require__(394);
+	var select_multiple_control_value_accessor_1 = __webpack_require__(395);
+	var validators_1 = __webpack_require__(407);
+	var checkbox_value_accessor_2 = __webpack_require__(375);
+	exports.CheckboxControlValueAccessor = checkbox_value_accessor_2.CheckboxControlValueAccessor;
+	var default_value_accessor_2 = __webpack_require__(377);
+	exports.DefaultValueAccessor = default_value_accessor_2.DefaultValueAccessor;
+	var ng_control_1 = __webpack_require__(380);
+	exports.NgControl = ng_control_1.NgControl;
+	var ng_control_status_2 = __webpack_require__(379);
+	exports.NgControlStatus = ng_control_status_2.NgControlStatus;
+	var ng_form_2 = __webpack_require__(386);
+	exports.NgForm = ng_form_2.NgForm;
+	var ng_model_2 = __webpack_require__(397);
+	exports.NgModel = ng_model_2.NgModel;
+	var ng_model_group_2 = __webpack_require__(399);
+	exports.NgModelGroup = ng_model_group_2.NgModelGroup;
+	var number_value_accessor_2 = __webpack_require__(392);
+	exports.NumberValueAccessor = number_value_accessor_2.NumberValueAccessor;
+	var radio_control_value_accessor_2 = __webpack_require__(393);
+	exports.RadioControlValueAccessor = radio_control_value_accessor_2.RadioControlValueAccessor;
+	var form_control_directive_2 = __webpack_require__(402);
+	exports.FormControlDirective = form_control_directive_2.FormControlDirective;
+	var form_control_name_2 = __webpack_require__(403);
+	exports.FormControlName = form_control_name_2.FormControlName;
+	var form_group_directive_2 = __webpack_require__(405);
+	exports.FormGroupDirective = form_group_directive_2.FormGroupDirective;
+	var form_group_name_2 = __webpack_require__(406);
+	exports.FormArrayName = form_group_name_2.FormArrayName;
+	exports.FormGroupName = form_group_name_2.FormGroupName;
+	var select_control_value_accessor_2 = __webpack_require__(394);
+	exports.NgSelectOption = select_control_value_accessor_2.NgSelectOption;
+	exports.SelectControlValueAccessor = select_control_value_accessor_2.SelectControlValueAccessor;
+	var select_multiple_control_value_accessor_2 = __webpack_require__(395);
+	exports.NgSelectMultipleOption = select_multiple_control_value_accessor_2.NgSelectMultipleOption;
+	exports.SelectMultipleControlValueAccessor = select_multiple_control_value_accessor_2.SelectMultipleControlValueAccessor;
+	var validators_2 = __webpack_require__(407);
+	exports.MaxLengthValidator = validators_2.MaxLengthValidator;
+	exports.MinLengthValidator = validators_2.MinLengthValidator;
+	exports.PatternValidator = validators_2.PatternValidator;
+	exports.RequiredValidator = validators_2.RequiredValidator;
+	exports.SHARED_FORM_DIRECTIVES = [
+	    select_control_value_accessor_1.NgSelectOption, select_multiple_control_value_accessor_1.NgSelectMultipleOption, default_value_accessor_1.DefaultValueAccessor, number_value_accessor_1.NumberValueAccessor,
+	    checkbox_value_accessor_1.CheckboxControlValueAccessor, select_control_value_accessor_1.SelectControlValueAccessor, select_multiple_control_value_accessor_1.SelectMultipleControlValueAccessor,
+	    radio_control_value_accessor_1.RadioControlValueAccessor, ng_control_status_1.NgControlStatus, validators_1.RequiredValidator, validators_1.MinLengthValidator,
+	    validators_1.MaxLengthValidator, validators_1.PatternValidator
+	];
+	exports.TEMPLATE_DRIVEN_DIRECTIVES = [ng_model_1.NgModel, ng_model_group_1.NgModelGroup, ng_form_1.NgForm];
+	exports.REACTIVE_DRIVEN_DIRECTIVES = [form_control_directive_1.FormControlDirective, form_group_directive_1.FormGroupDirective, form_control_name_1.FormControlName, form_group_name_1.FormGroupName, form_group_name_1.FormArrayName];
+	/**
+	 *
+	 * A list of all the form directives used as part of a `@Component` annotation.
+	 *
+	 *  This is a shorthand for importing them each individually.
+	 *
+	 * ### Example
+	 *
+	 * ```typescript
+	 * @Component({
+	 *   selector: 'my-app',
+	 *   directives: [FORM_DIRECTIVES]
+	 * })
+	 * class MyApp {}
+	 * ```
+	 * @experimental
+	 */
+	exports.FORM_DIRECTIVES = [exports.TEMPLATE_DRIVEN_DIRECTIVES, exports.SHARED_FORM_DIRECTIVES];
+	/**
+	 * @experimental
+	 */
+	exports.REACTIVE_FORM_DIRECTIVES = [exports.REACTIVE_DRIVEN_DIRECTIVES, exports.SHARED_FORM_DIRECTIVES];
+	var InternalFormsSharedModule = (function () {
+	    function InternalFormsSharedModule() {
+	    }
+	    /** @nocollapse */
+	    InternalFormsSharedModule.decorators = [
+	        { type: core_1.NgModule, args: [{ declarations: exports.SHARED_FORM_DIRECTIVES, exports: exports.SHARED_FORM_DIRECTIVES },] },
+	    ];
+	    return InternalFormsSharedModule;
+	}());
+	exports.InternalFormsSharedModule = InternalFormsSharedModule;
+	//# sourceMappingURL=directives.js.map
+
+/***/ },
+/* 375 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var core_1 = __webpack_require__(11);
+	var control_value_accessor_1 = __webpack_require__(376);
+	exports.CHECKBOX_VALUE_ACCESSOR = {
+	    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
+	    useExisting: core_1.forwardRef(function () { return CheckboxControlValueAccessor; }),
+	    multi: true
+	};
+	var CheckboxControlValueAccessor = (function () {
+	    function CheckboxControlValueAccessor(_renderer, _elementRef) {
+	        this._renderer = _renderer;
+	        this._elementRef = _elementRef;
+	        this.onChange = function (_) { };
+	        this.onTouched = function () { };
+	    }
+	    CheckboxControlValueAccessor.prototype.writeValue = function (value) {
+	        this._renderer.setElementProperty(this._elementRef.nativeElement, 'checked', value);
+	    };
+	    CheckboxControlValueAccessor.prototype.registerOnChange = function (fn) { this.onChange = fn; };
+	    CheckboxControlValueAccessor.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
+	    /** @nocollapse */
+	    CheckboxControlValueAccessor.decorators = [
+	        { type: core_1.Directive, args: [{
+	                    selector: 'input[type=checkbox][formControlName],input[type=checkbox][formControl],input[type=checkbox][ngModel]',
+	                    host: { '(change)': 'onChange($event.target.checked)', '(blur)': 'onTouched()' },
+	                    providers: [exports.CHECKBOX_VALUE_ACCESSOR]
+	                },] },
+	    ];
+	    /** @nocollapse */
+	    CheckboxControlValueAccessor.ctorParameters = [
+	        { type: core_1.Renderer, },
+	        { type: core_1.ElementRef, },
+	    ];
+	    return CheckboxControlValueAccessor;
+	}());
+	exports.CheckboxControlValueAccessor = CheckboxControlValueAccessor;
+	//# sourceMappingURL=checkbox_value_accessor.js.map
+
+/***/ },
+/* 376 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var core_1 = __webpack_require__(11);
+	/**
+	 * Used to provide a {@link ControlValueAccessor} for form controls.
+	 *
+	 * See {@link DefaultValueAccessor} for how to implement one.
+	 * @experimental
+	 */
+	exports.NG_VALUE_ACCESSOR = new core_1.OpaqueToken('NgValueAccessor');
+	//# sourceMappingURL=control_value_accessor.js.map
+
+/***/ },
+/* 377 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var core_1 = __webpack_require__(11);
+	var lang_1 = __webpack_require__(378);
+	var control_value_accessor_1 = __webpack_require__(376);
+	exports.DEFAULT_VALUE_ACCESSOR = {
+	    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
+	    useExisting: core_1.forwardRef(function () { return DefaultValueAccessor; }),
+	    multi: true
+	};
+	var DefaultValueAccessor = (function () {
+	    function DefaultValueAccessor(_renderer, _elementRef) {
+	        this._renderer = _renderer;
+	        this._elementRef = _elementRef;
+	        this.onChange = function (_) { };
+	        this.onTouched = function () { };
+	    }
+	    DefaultValueAccessor.prototype.writeValue = function (value) {
+	        var normalizedValue = lang_1.isBlank(value) ? '' : value;
+	        this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', normalizedValue);
+	    };
+	    DefaultValueAccessor.prototype.registerOnChange = function (fn) { this.onChange = fn; };
+	    DefaultValueAccessor.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
+	    /** @nocollapse */
+	    DefaultValueAccessor.decorators = [
+	        { type: core_1.Directive, args: [{
+	                    selector: 'input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]',
+	                    // TODO: vsavkin replace the above selector with the one below it once
+	                    // https://github.com/angular/angular/issues/3011 is implemented
+	                    // selector: '[ngControl],[ngModel],[ngFormControl]',
+	                    host: { '(input)': 'onChange($event.target.value)', '(blur)': 'onTouched()' },
+	                    providers: [exports.DEFAULT_VALUE_ACCESSOR]
+	                },] },
+	    ];
+	    /** @nocollapse */
+	    DefaultValueAccessor.ctorParameters = [
+	        { type: core_1.Renderer, },
+	        { type: core_1.ElementRef, },
+	    ];
+	    return DefaultValueAccessor;
+	}());
+	exports.DefaultValueAccessor = DefaultValueAccessor;
+	//# sourceMappingURL=default_value_accessor.js.map
+
+/***/ },
+/* 378 */
+/***/ function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var globalScope;
+	if (typeof window === 'undefined') {
+	    if (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope) {
+	        // TODO: Replace any with WorkerGlobalScope from lib.webworker.d.ts #3492
+	        globalScope = self;
+	    }
+	    else {
+	        globalScope = global;
+	    }
+	}
+	else {
+	    globalScope = window;
+	}
+	function scheduleMicroTask(fn) {
+	    Zone.current.scheduleMicroTask('scheduleMicrotask', fn);
+	}
+	exports.scheduleMicroTask = scheduleMicroTask;
+	// Need to declare a new variable for global here since TypeScript
+	// exports the original value of the symbol.
+	var _global = globalScope;
+	exports.global = _global;
+	/**
+	 * Runtime representation a type that a Component or other object is instances of.
+	 *
+	 * An example of a `Type` is `MyCustomComponent` class, which in JavaScript is be represented by
+	 * the `MyCustomComponent` constructor function.
+	 *
+	 * @stable
+	 */
+	exports.Type = Function;
+	function getTypeNameForDebugging(type) {
+	    if (type['name']) {
+	        return type['name'];
+	    }
+	    return typeof type;
+	}
+	exports.getTypeNameForDebugging = getTypeNameForDebugging;
+	exports.Math = _global.Math;
+	exports.Date = _global.Date;
+	// TODO: remove calls to assert in production environment
+	// Note: Can't just export this and import in in other files
+	// as `assert` is a reserved keyword in Dart
+	_global.assert = function assert(condition) {
+	    // TODO: to be fixed properly via #2830, noop for now
+	};
+	function isPresent(obj) {
+	    return obj !== undefined && obj !== null;
+	}
+	exports.isPresent = isPresent;
+	function isBlank(obj) {
+	    return obj === undefined || obj === null;
+	}
+	exports.isBlank = isBlank;
+	function isBoolean(obj) {
+	    return typeof obj === 'boolean';
+	}
+	exports.isBoolean = isBoolean;
+	function isNumber(obj) {
+	    return typeof obj === 'number';
+	}
+	exports.isNumber = isNumber;
+	function isString(obj) {
+	    return typeof obj === 'string';
+	}
+	exports.isString = isString;
+	function isFunction(obj) {
+	    return typeof obj === 'function';
+	}
+	exports.isFunction = isFunction;
+	function isType(obj) {
+	    return isFunction(obj);
+	}
+	exports.isType = isType;
+	function isStringMap(obj) {
+	    return typeof obj === 'object' && obj !== null;
+	}
+	exports.isStringMap = isStringMap;
+	var STRING_MAP_PROTO = Object.getPrototypeOf({});
+	function isStrictStringMap(obj) {
+	    return isStringMap(obj) && Object.getPrototypeOf(obj) === STRING_MAP_PROTO;
+	}
+	exports.isStrictStringMap = isStrictStringMap;
+	function isPromise(obj) {
+	    // allow any Promise/A+ compliant thenable.
+	    // It's up to the caller to ensure that obj.then conforms to the spec
+	    return isPresent(obj) && isFunction(obj.then);
+	}
+	exports.isPromise = isPromise;
+	function isArray(obj) {
+	    return Array.isArray(obj);
+	}
+	exports.isArray = isArray;
+	function isDate(obj) {
+	    return obj instanceof exports.Date && !isNaN(obj.valueOf());
+	}
+	exports.isDate = isDate;
+	function noop() { }
+	exports.noop = noop;
+	function stringify(token) {
+	    if (typeof token === 'string') {
+	        return token;
+	    }
+	    if (token === undefined || token === null) {
+	        return '' + token;
+	    }
+	    if (token.overriddenName) {
+	        return token.overriddenName;
+	    }
+	    if (token.name) {
+	        return token.name;
+	    }
+	    var res = token.toString();
+	    var newLineIndex = res.indexOf('\n');
+	    return (newLineIndex === -1) ? res : res.substring(0, newLineIndex);
+	}
+	exports.stringify = stringify;
+	// serialize / deserialize enum exist only for consistency with dart API
+	// enums in typescript don't need to be serialized
+	function serializeEnum(val) {
+	    return val;
+	}
+	exports.serializeEnum = serializeEnum;
+	function deserializeEnum(val, values) {
+	    return val;
+	}
+	exports.deserializeEnum = deserializeEnum;
+	function resolveEnumToken(enumValue, val) {
+	    return enumValue[val];
+	}
+	exports.resolveEnumToken = resolveEnumToken;
+	var StringWrapper = (function () {
+	    function StringWrapper() {
+	    }
+	    StringWrapper.fromCharCode = function (code) { return String.fromCharCode(code); };
+	    StringWrapper.charCodeAt = function (s, index) { return s.charCodeAt(index); };
+	    StringWrapper.split = function (s, regExp) { return s.split(regExp); };
+	    StringWrapper.equals = function (s, s2) { return s === s2; };
+	    StringWrapper.stripLeft = function (s, charVal) {
+	        if (s && s.length) {
+	            var pos = 0;
+	            for (var i = 0; i < s.length; i++) {
+	                if (s[i] != charVal)
+	                    break;
+	                pos++;
+	            }
+	            s = s.substring(pos);
+	        }
+	        return s;
+	    };
+	    StringWrapper.stripRight = function (s, charVal) {
+	        if (s && s.length) {
+	            var pos = s.length;
+	            for (var i = s.length - 1; i >= 0; i--) {
+	                if (s[i] != charVal)
+	                    break;
+	                pos--;
+	            }
+	            s = s.substring(0, pos);
+	        }
+	        return s;
+	    };
+	    StringWrapper.replace = function (s, from, replace) {
+	        return s.replace(from, replace);
+	    };
+	    StringWrapper.replaceAll = function (s, from, replace) {
+	        return s.replace(from, replace);
+	    };
+	    StringWrapper.slice = function (s, from, to) {
+	        if (from === void 0) { from = 0; }
+	        if (to === void 0) { to = null; }
+	        return s.slice(from, to === null ? undefined : to);
+	    };
+	    StringWrapper.replaceAllMapped = function (s, from, cb) {
+	        return s.replace(from, function () {
+	            var matches = [];
+	            for (var _i = 0; _i < arguments.length; _i++) {
+	                matches[_i - 0] = arguments[_i];
+	            }
+	            // Remove offset & string from the result array
+	            matches.splice(-2, 2);
+	            // The callback receives match, p1, ..., pn
+	            return cb(matches);
+	        });
+	    };
+	    StringWrapper.contains = function (s, substr) { return s.indexOf(substr) != -1; };
+	    StringWrapper.compare = function (a, b) {
+	        if (a < b) {
+	            return -1;
+	        }
+	        else if (a > b) {
+	            return 1;
+	        }
+	        else {
+	            return 0;
+	        }
+	    };
+	    return StringWrapper;
+	}());
+	exports.StringWrapper = StringWrapper;
+	var StringJoiner = (function () {
+	    function StringJoiner(parts) {
+	        if (parts === void 0) { parts = []; }
+	        this.parts = parts;
+	    }
+	    StringJoiner.prototype.add = function (part) { this.parts.push(part); };
+	    StringJoiner.prototype.toString = function () { return this.parts.join(''); };
+	    return StringJoiner;
+	}());
+	exports.StringJoiner = StringJoiner;
+	var NumberParseError = (function (_super) {
+	    __extends(NumberParseError, _super);
+	    function NumberParseError(message) {
+	        _super.call(this);
+	        this.message = message;
+	    }
+	    NumberParseError.prototype.toString = function () { return this.message; };
+	    return NumberParseError;
+	}(Error));
+	exports.NumberParseError = NumberParseError;
+	var NumberWrapper = (function () {
+	    function NumberWrapper() {
+	    }
+	    NumberWrapper.toFixed = function (n, fractionDigits) { return n.toFixed(fractionDigits); };
+	    NumberWrapper.equal = function (a, b) { return a === b; };
+	    NumberWrapper.parseIntAutoRadix = function (text) {
+	        var result = parseInt(text);
+	        if (isNaN(result)) {
+	            throw new NumberParseError('Invalid integer literal when parsing ' + text);
+	        }
+	        return result;
+	    };
+	    NumberWrapper.parseInt = function (text, radix) {
+	        if (radix == 10) {
+	            if (/^(\-|\+)?[0-9]+$/.test(text)) {
+	                return parseInt(text, radix);
+	            }
+	        }
+	        else if (radix == 16) {
+	            if (/^(\-|\+)?[0-9ABCDEFabcdef]+$/.test(text)) {
+	                return parseInt(text, radix);
+	            }
+	        }
+	        else {
+	            var result = parseInt(text, radix);
+	            if (!isNaN(result)) {
+	                return result;
+	            }
+	        }
+	        throw new NumberParseError('Invalid integer literal when parsing ' + text + ' in base ' + radix);
+	    };
+	    // TODO: NaN is a valid literal but is returned by parseFloat to indicate an error.
+	    NumberWrapper.parseFloat = function (text) { return parseFloat(text); };
+	    Object.defineProperty(NumberWrapper, "NaN", {
+	        get: function () { return NaN; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    NumberWrapper.isNumeric = function (value) { return !isNaN(value - parseFloat(value)); };
+	    NumberWrapper.isNaN = function (value) { return isNaN(value); };
+	    NumberWrapper.isInteger = function (value) { return Number.isInteger(value); };
+	    return NumberWrapper;
+	}());
+	exports.NumberWrapper = NumberWrapper;
+	exports.RegExp = _global.RegExp;
+	var FunctionWrapper = (function () {
+	    function FunctionWrapper() {
+	    }
+	    FunctionWrapper.apply = function (fn, posArgs) { return fn.apply(null, posArgs); };
+	    FunctionWrapper.bind = function (fn, scope) { return fn.bind(scope); };
+	    return FunctionWrapper;
+	}());
+	exports.FunctionWrapper = FunctionWrapper;
+	// JS has NaN !== NaN
+	function looseIdentical(a, b) {
+	    return a === b || typeof a === 'number' && typeof b === 'number' && isNaN(a) && isNaN(b);
+	}
+	exports.looseIdentical = looseIdentical;
+	// JS considers NaN is the same as NaN for map Key (while NaN !== NaN otherwise)
+	// see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+	function getMapKey(value) {
+	    return value;
+	}
+	exports.getMapKey = getMapKey;
+	function normalizeBlank(obj) {
+	    return isBlank(obj) ? null : obj;
+	}
+	exports.normalizeBlank = normalizeBlank;
+	function normalizeBool(obj) {
+	    return isBlank(obj) ? false : obj;
+	}
+	exports.normalizeBool = normalizeBool;
+	function isJsObject(o) {
+	    return o !== null && (typeof o === 'function' || typeof o === 'object');
+	}
+	exports.isJsObject = isJsObject;
+	function print(obj) {
+	    console.log(obj);
+	}
+	exports.print = print;
+	function warn(obj) {
+	    console.warn(obj);
+	}
+	exports.warn = warn;
+	// Can't be all uppercase as our transpiler would think it is a special directive...
+	var Json = (function () {
+	    function Json() {
+	    }
+	    Json.parse = function (s) { return _global.JSON.parse(s); };
+	    Json.stringify = function (data) {
+	        // Dart doesn't take 3 arguments
+	        return _global.JSON.stringify(data, null, 2);
+	    };
+	    return Json;
+	}());
+	exports.Json = Json;
+	var DateWrapper = (function () {
+	    function DateWrapper() {
+	    }
+	    DateWrapper.create = function (year, month, day, hour, minutes, seconds, milliseconds) {
+	        if (month === void 0) { month = 1; }
+	        if (day === void 0) { day = 1; }
+	        if (hour === void 0) { hour = 0; }
+	        if (minutes === void 0) { minutes = 0; }
+	        if (seconds === void 0) { seconds = 0; }
+	        if (milliseconds === void 0) { milliseconds = 0; }
+	        return new exports.Date(year, month - 1, day, hour, minutes, seconds, milliseconds);
+	    };
+	    DateWrapper.fromISOString = function (str) { return new exports.Date(str); };
+	    DateWrapper.fromMillis = function (ms) { return new exports.Date(ms); };
+	    DateWrapper.toMillis = function (date) { return date.getTime(); };
+	    DateWrapper.now = function () { return new exports.Date(); };
+	    DateWrapper.toJson = function (date) { return date.toJSON(); };
+	    return DateWrapper;
+	}());
+	exports.DateWrapper = DateWrapper;
+	function setValueOnPath(global, path, value) {
+	    var parts = path.split('.');
+	    var obj = global;
+	    while (parts.length > 1) {
+	        var name = parts.shift();
+	        if (obj.hasOwnProperty(name) && isPresent(obj[name])) {
+	            obj = obj[name];
+	        }
+	        else {
+	            obj = obj[name] = {};
+	        }
+	    }
+	    if (obj === undefined || obj === null) {
+	        obj = {};
+	    }
+	    obj[parts.shift()] = value;
+	}
+	exports.setValueOnPath = setValueOnPath;
+	var _symbolIterator = null;
+	function getSymbolIterator() {
+	    if (isBlank(_symbolIterator)) {
+	        if (isPresent(globalScope.Symbol) && isPresent(Symbol.iterator)) {
+	            _symbolIterator = Symbol.iterator;
+	        }
+	        else {
+	            // es6-shim specific logic
+	            var keys = Object.getOwnPropertyNames(Map.prototype);
+	            for (var i = 0; i < keys.length; ++i) {
+	                var key = keys[i];
+	                if (key !== 'entries' && key !== 'size' &&
+	                    Map.prototype[key] === Map.prototype['entries']) {
+	                    _symbolIterator = key;
+	                }
+	            }
+	        }
+	    }
+	    return _symbolIterator;
+	}
+	exports.getSymbolIterator = getSymbolIterator;
+	function evalExpression(sourceUrl, expr, declarations, vars) {
+	    var fnBody = declarations + "\nreturn " + expr + "\n//# sourceURL=" + sourceUrl;
+	    var fnArgNames = [];
+	    var fnArgValues = [];
+	    for (var argName in vars) {
+	        fnArgNames.push(argName);
+	        fnArgValues.push(vars[argName]);
+	    }
+	    return new (Function.bind.apply(Function, [void 0].concat(fnArgNames.concat(fnBody))))().apply(void 0, fnArgValues);
+	}
+	exports.evalExpression = evalExpression;
+	function isPrimitive(obj) {
+	    return !isJsObject(obj);
+	}
+	exports.isPrimitive = isPrimitive;
+	function hasConstructor(value, type) {
+	    return value.constructor === type;
+	}
+	exports.hasConstructor = hasConstructor;
+	function escape(s) {
+	    return _global.encodeURI(s);
+	}
+	exports.escape = escape;
+	function escapeRegExp(s) {
+	    return s.replace(/([.*+?^=!:${}()|[\]\/\\])/g, '\\$1');
+	}
+	exports.escapeRegExp = escapeRegExp;
+	//# sourceMappingURL=lang.js.map
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 379 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var core_1 = __webpack_require__(11);
+	var lang_1 = __webpack_require__(378);
+	var ng_control_1 = __webpack_require__(380);
+	var NgControlStatus = (function () {
+	    function NgControlStatus(cd) {
+	        this._cd = cd;
+	    }
+	    Object.defineProperty(NgControlStatus.prototype, "ngClassUntouched", {
+	        get: function () {
+	            return lang_1.isPresent(this._cd.control) ? this._cd.control.untouched : false;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(NgControlStatus.prototype, "ngClassTouched", {
+	        get: function () {
+	            return lang_1.isPresent(this._cd.control) ? this._cd.control.touched : false;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(NgControlStatus.prototype, "ngClassPristine", {
+	        get: function () {
+	            return lang_1.isPresent(this._cd.control) ? this._cd.control.pristine : false;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(NgControlStatus.prototype, "ngClassDirty", {
+	        get: function () {
+	            return lang_1.isPresent(this._cd.control) ? this._cd.control.dirty : false;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(NgControlStatus.prototype, "ngClassValid", {
+	        get: function () {
+	            return lang_1.isPresent(this._cd.control) ? this._cd.control.valid : false;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(NgControlStatus.prototype, "ngClassInvalid", {
+	        get: function () {
+	            return lang_1.isPresent(this._cd.control) ? !this._cd.control.valid : false;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /** @nocollapse */
+	    NgControlStatus.decorators = [
+	        { type: core_1.Directive, args: [{
+	                    selector: '[formControlName],[ngModel],[formControl]',
+	                    host: {
+	                        '[class.ng-untouched]': 'ngClassUntouched',
+	                        '[class.ng-touched]': 'ngClassTouched',
+	                        '[class.ng-pristine]': 'ngClassPristine',
+	                        '[class.ng-dirty]': 'ngClassDirty',
+	                        '[class.ng-valid]': 'ngClassValid',
+	                        '[class.ng-invalid]': 'ngClassInvalid'
+	                    }
+	                },] },
+	    ];
+	    /** @nocollapse */
+	    NgControlStatus.ctorParameters = [
+	        { type: ng_control_1.NgControl, decorators: [{ type: core_1.Self },] },
+	    ];
+	    return NgControlStatus;
+	}());
+	exports.NgControlStatus = NgControlStatus;
+	//# sourceMappingURL=ng_control_status.js.map
+
+/***/ },
+/* 380 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var exceptions_1 = __webpack_require__(381);
+	var abstract_control_directive_1 = __webpack_require__(385);
+	/**
+	 * A base class that all control directive extend.
+	 * It binds a {@link Control} object to a DOM element.
+	 *
+	 * Used internally by Angular forms.
+	 *
+	 * @experimental
+	 */
+	var NgControl = (function (_super) {
+	    __extends(NgControl, _super);
+	    function NgControl() {
+	        _super.apply(this, arguments);
+	        this.name = null;
+	        this.valueAccessor = null;
+	    }
+	    Object.defineProperty(NgControl.prototype, "validator", {
+	        get: function () { return exceptions_1.unimplemented(); },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(NgControl.prototype, "asyncValidator", {
+	        get: function () { return exceptions_1.unimplemented(); },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    return NgControl;
+	}(abstract_control_directive_1.AbstractControlDirective));
+	exports.NgControl = NgControl;
+	//# sourceMappingURL=ng_control.js.map
+
+/***/ },
+/* 381 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var base_wrapped_exception_1 = __webpack_require__(382);
+	var exception_handler_1 = __webpack_require__(383);
+	var exception_handler_2 = __webpack_require__(383);
+	exports.ExceptionHandler = exception_handler_2.ExceptionHandler;
+	/**
+	 * @stable
+	 */
+	var BaseException = (function (_super) {
+	    __extends(BaseException, _super);
+	    function BaseException(message) {
+	        if (message === void 0) { message = '--'; }
+	        _super.call(this, message);
+	        this.message = message;
+	        this.stack = (new Error(message)).stack;
+	    }
+	    BaseException.prototype.toString = function () { return this.message; };
+	    return BaseException;
+	}(Error));
+	exports.BaseException = BaseException;
+	/**
+	 * Wraps an exception and provides additional context or information.
+	 * @stable
+	 */
+	var WrappedException = (function (_super) {
+	    __extends(WrappedException, _super);
+	    function WrappedException(_wrapperMessage, _originalException /** TODO #9100 */, _originalStack /** TODO #9100 */, _context /** TODO #9100 */) {
+	        _super.call(this, _wrapperMessage);
+	        this._wrapperMessage = _wrapperMessage;
+	        this._originalException = _originalException;
+	        this._originalStack = _originalStack;
+	        this._context = _context;
+	        this._wrapperStack = (new Error(_wrapperMessage)).stack;
+	    }
+	    Object.defineProperty(WrappedException.prototype, "wrapperMessage", {
+	        get: function () { return this._wrapperMessage; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(WrappedException.prototype, "wrapperStack", {
+	        get: function () { return this._wrapperStack; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(WrappedException.prototype, "originalException", {
+	        get: function () { return this._originalException; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(WrappedException.prototype, "originalStack", {
+	        get: function () { return this._originalStack; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(WrappedException.prototype, "context", {
+	        get: function () { return this._context; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(WrappedException.prototype, "message", {
+	        get: function () { return exception_handler_1.ExceptionHandler.exceptionToString(this); },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    WrappedException.prototype.toString = function () { return this.message; };
+	    return WrappedException;
+	}(base_wrapped_exception_1.BaseWrappedException));
+	exports.WrappedException = WrappedException;
+	function makeTypeError(message) {
+	    return new TypeError(message);
+	}
+	exports.makeTypeError = makeTypeError;
+	function unimplemented() {
+	    throw new BaseException('unimplemented');
+	}
+	exports.unimplemented = unimplemented;
+	//# sourceMappingURL=exceptions.js.map
+
+/***/ },
+/* 382 */
+/***/ function(module, exports) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	/**
+	 * A base class for the WrappedException that can be used to identify
+	 * a WrappedException from ExceptionHandler without adding circular
+	 * dependency.
+	 */
+	var BaseWrappedException = (function (_super) {
+	    __extends(BaseWrappedException, _super);
+	    function BaseWrappedException(message) {
+	        _super.call(this, message);
+	    }
+	    Object.defineProperty(BaseWrappedException.prototype, "wrapperMessage", {
+	        get: function () { return ''; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(BaseWrappedException.prototype, "wrapperStack", {
+	        get: function () { return null; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(BaseWrappedException.prototype, "originalException", {
+	        get: function () { return null; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(BaseWrappedException.prototype, "originalStack", {
+	        get: function () { return null; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(BaseWrappedException.prototype, "context", {
+	        get: function () { return null; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(BaseWrappedException.prototype, "message", {
+	        get: function () { return ''; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    return BaseWrappedException;
+	}(Error));
+	exports.BaseWrappedException = BaseWrappedException;
+	//# sourceMappingURL=base_wrapped_exception.js.map
+
+/***/ },
+/* 383 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var base_wrapped_exception_1 = __webpack_require__(382);
+	var collection_1 = __webpack_require__(384);
+	var lang_1 = __webpack_require__(378);
+	var _ArrayLogger = (function () {
+	    function _ArrayLogger() {
+	        this.res = [];
+	    }
+	    _ArrayLogger.prototype.log = function (s) { this.res.push(s); };
+	    _ArrayLogger.prototype.logError = function (s) { this.res.push(s); };
+	    _ArrayLogger.prototype.logGroup = function (s) { this.res.push(s); };
+	    _ArrayLogger.prototype.logGroupEnd = function () { };
+	    ;
+	    return _ArrayLogger;
+	}());
+	/**
+	 * Provides a hook for centralized exception handling.
+	 *
+	 * The default implementation of `ExceptionHandler` prints error messages to the `Console`. To
+	 * intercept error handling,
+	 * write a custom exception handler that replaces this default as appropriate for your app.
+	 *
+	 * ### Example
+	 *
+	 * ```javascript
+	 *
+	 * class MyExceptionHandler implements ExceptionHandler {
+	 *   call(error, stackTrace = null, reason = null) {
+	 *     // do something with the exception
+	 *   }
+	 * }
+	 *
+	 * bootstrap(MyApp, [{provide: ExceptionHandler, useClass: MyExceptionHandler}])
+	 *
+	 * ```
+	 * @stable
+	 */
+	var ExceptionHandler = (function () {
+	    function ExceptionHandler(_logger, _rethrowException) {
+	        if (_rethrowException === void 0) { _rethrowException = true; }
+	        this._logger = _logger;
+	        this._rethrowException = _rethrowException;
+	    }
+	    ExceptionHandler.exceptionToString = function (exception, stackTrace, reason) {
+	        if (stackTrace === void 0) { stackTrace = null; }
+	        if (reason === void 0) { reason = null; }
+	        var l = new _ArrayLogger();
+	        var e = new ExceptionHandler(l, false);
+	        e.call(exception, stackTrace, reason);
+	        return l.res.join('\n');
+	    };
+	    ExceptionHandler.prototype.call = function (exception, stackTrace, reason) {
+	        if (stackTrace === void 0) { stackTrace = null; }
+	        if (reason === void 0) { reason = null; }
+	        var originalException = this._findOriginalException(exception);
+	        var originalStack = this._findOriginalStack(exception);
+	        var context = this._findContext(exception);
+	        this._logger.logGroup("EXCEPTION: " + this._extractMessage(exception));
+	        if (lang_1.isPresent(stackTrace) && lang_1.isBlank(originalStack)) {
+	            this._logger.logError('STACKTRACE:');
+	            this._logger.logError(this._longStackTrace(stackTrace));
+	        }
+	        if (lang_1.isPresent(reason)) {
+	            this._logger.logError("REASON: " + reason);
+	        }
+	        if (lang_1.isPresent(originalException)) {
+	            this._logger.logError("ORIGINAL EXCEPTION: " + this._extractMessage(originalException));
+	        }
+	        if (lang_1.isPresent(originalStack)) {
+	            this._logger.logError('ORIGINAL STACKTRACE:');
+	            this._logger.logError(this._longStackTrace(originalStack));
+	        }
+	        if (lang_1.isPresent(context)) {
+	            this._logger.logError('ERROR CONTEXT:');
+	            this._logger.logError(context);
+	        }
+	        this._logger.logGroupEnd();
+	        // We rethrow exceptions, so operations like 'bootstrap' will result in an error
+	        // when an exception happens. If we do not rethrow, bootstrap will always succeed.
+	        if (this._rethrowException)
+	            throw exception;
+	    };
+	    /** @internal */
+	    ExceptionHandler.prototype._extractMessage = function (exception) {
+	        return exception instanceof base_wrapped_exception_1.BaseWrappedException ? exception.wrapperMessage :
+	            exception.toString();
+	    };
+	    /** @internal */
+	    ExceptionHandler.prototype._longStackTrace = function (stackTrace) {
+	        return collection_1.isListLikeIterable(stackTrace) ? stackTrace.join('\n\n-----async gap-----\n') :
+	            stackTrace.toString();
+	    };
+	    /** @internal */
+	    ExceptionHandler.prototype._findContext = function (exception) {
+	        try {
+	            if (!(exception instanceof base_wrapped_exception_1.BaseWrappedException))
+	                return null;
+	            return lang_1.isPresent(exception.context) ? exception.context :
+	                this._findContext(exception.originalException);
+	        }
+	        catch (e) {
+	            // exception.context can throw an exception. if it happens, we ignore the context.
+	            return null;
+	        }
+	    };
+	    /** @internal */
+	    ExceptionHandler.prototype._findOriginalException = function (exception) {
+	        if (!(exception instanceof base_wrapped_exception_1.BaseWrappedException))
+	            return null;
+	        var e = exception.originalException;
+	        while (e instanceof base_wrapped_exception_1.BaseWrappedException && lang_1.isPresent(e.originalException)) {
+	            e = e.originalException;
+	        }
+	        return e;
+	    };
+	    /** @internal */
+	    ExceptionHandler.prototype._findOriginalStack = function (exception) {
+	        if (!(exception instanceof base_wrapped_exception_1.BaseWrappedException))
+	            return null;
+	        var e = exception;
+	        var stack = exception.originalStack;
+	        while (e instanceof base_wrapped_exception_1.BaseWrappedException && lang_1.isPresent(e.originalException)) {
+	            e = e.originalException;
+	            if (e instanceof base_wrapped_exception_1.BaseWrappedException && lang_1.isPresent(e.originalException)) {
+	                stack = e.originalStack;
+	            }
+	        }
+	        return stack;
+	    };
+	    return ExceptionHandler;
+	}());
+	exports.ExceptionHandler = ExceptionHandler;
+	//# sourceMappingURL=exception_handler.js.map
+
+/***/ },
+/* 384 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var lang_1 = __webpack_require__(378);
+	exports.Map = lang_1.global.Map;
+	exports.Set = lang_1.global.Set;
+	// Safari and Internet Explorer do not support the iterable parameter to the
+	// Map constructor.  We work around that by manually adding the items.
+	var createMapFromPairs = (function () {
+	    try {
+	        if (new exports.Map([[1, 2]]).size === 1) {
+	            return function createMapFromPairs(pairs) { return new exports.Map(pairs); };
+	        }
+	    }
+	    catch (e) {
+	    }
+	    return function createMapAndPopulateFromPairs(pairs) {
+	        var map = new exports.Map();
+	        for (var i = 0; i < pairs.length; i++) {
+	            var pair = pairs[i];
+	            map.set(pair[0], pair[1]);
+	        }
+	        return map;
+	    };
+	})();
+	var createMapFromMap = (function () {
+	    try {
+	        if (new exports.Map(new exports.Map())) {
+	            return function createMapFromMap(m) { return new exports.Map(m); };
+	        }
+	    }
+	    catch (e) {
+	    }
+	    return function createMapAndPopulateFromMap(m) {
+	        var map = new exports.Map();
+	        m.forEach(function (v, k) { map.set(k, v); });
+	        return map;
+	    };
+	})();
+	var _clearValues = (function () {
+	    if ((new exports.Map()).keys().next) {
+	        return function _clearValues(m) {
+	            var keyIterator = m.keys();
+	            var k;
+	            while (!((k = keyIterator.next()).done)) {
+	                m.set(k.value, null);
+	            }
+	        };
+	    }
+	    else {
+	        return function _clearValuesWithForeEach(m) {
+	            m.forEach(function (v, k) { m.set(k, null); });
+	        };
+	    }
+	})();
+	// Safari doesn't implement MapIterator.next(), which is used is Traceur's polyfill of Array.from
+	// TODO(mlaval): remove the work around once we have a working polyfill of Array.from
+	var _arrayFromMap = (function () {
+	    try {
+	        if ((new exports.Map()).values().next) {
+	            return function createArrayFromMap(m, getValues) {
+	                return getValues ? Array.from(m.values()) : Array.from(m.keys());
+	            };
+	        }
+	    }
+	    catch (e) {
+	    }
+	    return function createArrayFromMapWithForeach(m, getValues) {
+	        var res = ListWrapper.createFixedSize(m.size), i = 0;
+	        m.forEach(function (v, k) {
+	            res[i] = getValues ? v : k;
+	            i++;
+	        });
+	        return res;
+	    };
+	})();
+	var MapWrapper = (function () {
+	    function MapWrapper() {
+	    }
+	    MapWrapper.clone = function (m) { return createMapFromMap(m); };
+	    MapWrapper.createFromStringMap = function (stringMap) {
+	        var result = new exports.Map();
+	        for (var prop in stringMap) {
+	            result.set(prop, stringMap[prop]);
+	        }
+	        return result;
+	    };
+	    MapWrapper.toStringMap = function (m) {
+	        var r = {};
+	        m.forEach(function (v, k) { return r[k] = v; });
+	        return r;
+	    };
+	    MapWrapper.createFromPairs = function (pairs) { return createMapFromPairs(pairs); };
+	    MapWrapper.clearValues = function (m) { _clearValues(m); };
+	    MapWrapper.iterable = function (m) { return m; };
+	    MapWrapper.keys = function (m) { return _arrayFromMap(m, false); };
+	    MapWrapper.values = function (m) { return _arrayFromMap(m, true); };
+	    return MapWrapper;
+	}());
+	exports.MapWrapper = MapWrapper;
+	/**
+	 * Wraps Javascript Objects
+	 */
+	var StringMapWrapper = (function () {
+	    function StringMapWrapper() {
+	    }
+	    StringMapWrapper.create = function () {
+	        // Note: We are not using Object.create(null) here due to
+	        // performance!
+	        // http://jsperf.com/ng2-object-create-null
+	        return {};
+	    };
+	    StringMapWrapper.contains = function (map, key) {
+	        return map.hasOwnProperty(key);
+	    };
+	    StringMapWrapper.get = function (map, key) {
+	        return map.hasOwnProperty(key) ? map[key] : undefined;
+	    };
+	    StringMapWrapper.set = function (map, key, value) { map[key] = value; };
+	    StringMapWrapper.keys = function (map) { return Object.keys(map); };
+	    StringMapWrapper.values = function (map) {
+	        return Object.keys(map).map(function (k) { return map[k]; });
+	    };
+	    StringMapWrapper.isEmpty = function (map) {
+	        for (var prop in map) {
+	            return false;
+	        }
+	        return true;
+	    };
+	    StringMapWrapper.delete = function (map, key) { delete map[key]; };
+	    StringMapWrapper.forEach = function (map, callback) {
+	        for (var _i = 0, _a = Object.keys(map); _i < _a.length; _i++) {
+	            var k = _a[_i];
+	            callback(map[k], k);
+	        }
+	    };
+	    StringMapWrapper.merge = function (m1, m2) {
+	        var m = {};
+	        for (var _i = 0, _a = Object.keys(m1); _i < _a.length; _i++) {
+	            var k = _a[_i];
+	            m[k] = m1[k];
+	        }
+	        for (var _b = 0, _c = Object.keys(m2); _b < _c.length; _b++) {
+	            var k = _c[_b];
+	            m[k] = m2[k];
+	        }
+	        return m;
+	    };
+	    StringMapWrapper.equals = function (m1, m2) {
+	        var k1 = Object.keys(m1);
+	        var k2 = Object.keys(m2);
+	        if (k1.length != k2.length) {
+	            return false;
+	        }
+	        var key;
+	        for (var i = 0; i < k1.length; i++) {
+	            key = k1[i];
+	            if (m1[key] !== m2[key]) {
+	                return false;
+	            }
+	        }
+	        return true;
+	    };
+	    return StringMapWrapper;
+	}());
+	exports.StringMapWrapper = StringMapWrapper;
+	var ListWrapper = (function () {
+	    function ListWrapper() {
+	    }
+	    // JS has no way to express a statically fixed size list, but dart does so we
+	    // keep both methods.
+	    ListWrapper.createFixedSize = function (size) { return new Array(size); };
+	    ListWrapper.createGrowableSize = function (size) { return new Array(size); };
+	    ListWrapper.clone = function (array) { return array.slice(0); };
+	    ListWrapper.forEachWithIndex = function (array, fn) {
+	        for (var i = 0; i < array.length; i++) {
+	            fn(array[i], i);
+	        }
+	    };
+	    ListWrapper.first = function (array) {
+	        if (!array)
+	            return null;
+	        return array[0];
+	    };
+	    ListWrapper.last = function (array) {
+	        if (!array || array.length == 0)
+	            return null;
+	        return array[array.length - 1];
+	    };
+	    ListWrapper.indexOf = function (array, value, startIndex) {
+	        if (startIndex === void 0) { startIndex = 0; }
+	        return array.indexOf(value, startIndex);
+	    };
+	    ListWrapper.contains = function (list, el) { return list.indexOf(el) !== -1; };
+	    ListWrapper.reversed = function (array) {
+	        var a = ListWrapper.clone(array);
+	        return a.reverse();
+	    };
+	    ListWrapper.concat = function (a, b) { return a.concat(b); };
+	    ListWrapper.insert = function (list, index, value) { list.splice(index, 0, value); };
+	    ListWrapper.removeAt = function (list, index) {
+	        var res = list[index];
+	        list.splice(index, 1);
+	        return res;
+	    };
+	    ListWrapper.removeAll = function (list, items) {
+	        for (var i = 0; i < items.length; ++i) {
+	            var index = list.indexOf(items[i]);
+	            list.splice(index, 1);
+	        }
+	    };
+	    ListWrapper.remove = function (list, el) {
+	        var index = list.indexOf(el);
+	        if (index > -1) {
+	            list.splice(index, 1);
+	            return true;
+	        }
+	        return false;
+	    };
+	    ListWrapper.clear = function (list) { list.length = 0; };
+	    ListWrapper.isEmpty = function (list) { return list.length == 0; };
+	    ListWrapper.fill = function (list, value, start, end) {
+	        if (start === void 0) { start = 0; }
+	        if (end === void 0) { end = null; }
+	        list.fill(value, start, end === null ? list.length : end);
+	    };
+	    ListWrapper.equals = function (a, b) {
+	        if (a.length != b.length)
+	            return false;
+	        for (var i = 0; i < a.length; ++i) {
+	            if (a[i] !== b[i])
+	                return false;
+	        }
+	        return true;
+	    };
+	    ListWrapper.slice = function (l, from, to) {
+	        if (from === void 0) { from = 0; }
+	        if (to === void 0) { to = null; }
+	        return l.slice(from, to === null ? undefined : to);
+	    };
+	    ListWrapper.splice = function (l, from, length) { return l.splice(from, length); };
+	    ListWrapper.sort = function (l, compareFn) {
+	        if (lang_1.isPresent(compareFn)) {
+	            l.sort(compareFn);
+	        }
+	        else {
+	            l.sort();
+	        }
+	    };
+	    ListWrapper.toString = function (l) { return l.toString(); };
+	    ListWrapper.toJSON = function (l) { return JSON.stringify(l); };
+	    ListWrapper.maximum = function (list, predicate) {
+	        if (list.length == 0) {
+	            return null;
+	        }
+	        var solution = null;
+	        var maxValue = -Infinity;
+	        for (var index = 0; index < list.length; index++) {
+	            var candidate = list[index];
+	            if (lang_1.isBlank(candidate)) {
+	                continue;
+	            }
+	            var candidateValue = predicate(candidate);
+	            if (candidateValue > maxValue) {
+	                solution = candidate;
+	                maxValue = candidateValue;
+	            }
+	        }
+	        return solution;
+	    };
+	    ListWrapper.flatten = function (list) {
+	        var target = [];
+	        _flattenArray(list, target);
+	        return target;
+	    };
+	    ListWrapper.addAll = function (list, source) {
+	        for (var i = 0; i < source.length; i++) {
+	            list.push(source[i]);
+	        }
+	    };
+	    return ListWrapper;
+	}());
+	exports.ListWrapper = ListWrapper;
+	function _flattenArray(source, target) {
+	    if (lang_1.isPresent(source)) {
+	        for (var i = 0; i < source.length; i++) {
+	            var item = source[i];
+	            if (lang_1.isArray(item)) {
+	                _flattenArray(item, target);
+	            }
+	            else {
+	                target.push(item);
+	            }
+	        }
+	    }
+	    return target;
+	}
+	function isListLikeIterable(obj) {
+	    if (!lang_1.isJsObject(obj))
+	        return false;
+	    return lang_1.isArray(obj) ||
+	        (!(obj instanceof exports.Map) &&
+	            lang_1.getSymbolIterator() in obj); // JS Iterable have a Symbol.iterator prop
+	}
+	exports.isListLikeIterable = isListLikeIterable;
+	function areIterablesEqual(a, b, comparator) {
+	    var iterator1 = a[lang_1.getSymbolIterator()]();
+	    var iterator2 = b[lang_1.getSymbolIterator()]();
+	    while (true) {
+	        var item1 = iterator1.next();
+	        var item2 = iterator2.next();
+	        if (item1.done && item2.done)
+	            return true;
+	        if (item1.done || item2.done)
+	            return false;
+	        if (!comparator(item1.value, item2.value))
+	            return false;
+	    }
+	}
+	exports.areIterablesEqual = areIterablesEqual;
+	function iterateListLike(obj, fn) {
+	    if (lang_1.isArray(obj)) {
+	        for (var i = 0; i < obj.length; i++) {
+	            fn(obj[i]);
+	        }
+	    }
+	    else {
+	        var iterator = obj[lang_1.getSymbolIterator()]();
+	        var item;
+	        while (!((item = iterator.next()).done)) {
+	            fn(item.value);
+	        }
+	    }
+	}
+	exports.iterateListLike = iterateListLike;
+	// Safari and Internet Explorer do not support the iterable parameter to the
+	// Set constructor.  We work around that by manually adding the items.
+	var createSetFromList = (function () {
+	    var test = new exports.Set([1, 2, 3]);
+	    if (test.size === 3) {
+	        return function createSetFromList(lst) { return new exports.Set(lst); };
+	    }
+	    else {
+	        return function createSetAndPopulateFromList(lst) {
+	            var res = new exports.Set(lst);
+	            if (res.size !== lst.length) {
+	                for (var i = 0; i < lst.length; i++) {
+	                    res.add(lst[i]);
+	                }
+	            }
+	            return res;
+	        };
+	    }
+	})();
+	var SetWrapper = (function () {
+	    function SetWrapper() {
+	    }
+	    SetWrapper.createFromList = function (lst) { return createSetFromList(lst); };
+	    SetWrapper.has = function (s, key) { return s.has(key); };
+	    SetWrapper.delete = function (m, k) { m.delete(k); };
+	    return SetWrapper;
+	}());
+	exports.SetWrapper = SetWrapper;
+	//# sourceMappingURL=collection.js.map
+
+/***/ },
+/* 385 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license
+	 * Copyright Google Inc. All Rights Reserved.
+	 *
+	 * Use of this source code is governed by an MIT-style license that can be
+	 * found in the LICENSE file at https://angular.io/license
+	 */
+	"use strict";
+	var exceptions_1 = __webpack_require__(381);
+	var lang_1 = __webpack_require__(378);
 	/**
 	 * Base class for control directives.
 	 *
@@ -51690,7 +56771,7 @@
 	//# sourceMappingURL=abstract_control_directive.js.map
 
 /***/ },
-/* 352 */
+/* 386 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -51707,13 +56788,13 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(353);
-	var collection_1 = __webpack_require__(350);
-	var lang_1 = __webpack_require__(344);
-	var model_1 = __webpack_require__(354);
-	var validators_1 = __webpack_require__(356);
-	var control_container_1 = __webpack_require__(362);
-	var shared_1 = __webpack_require__(355);
+	var async_1 = __webpack_require__(387);
+	var collection_1 = __webpack_require__(384);
+	var lang_1 = __webpack_require__(378);
+	var model_1 = __webpack_require__(388);
+	var validators_1 = __webpack_require__(390);
+	var control_container_1 = __webpack_require__(396);
+	var shared_1 = __webpack_require__(389);
 	exports.formDirectiveProvider = {
 	    provide: control_container_1.ControlContainer,
 	    useExisting: core_1.forwardRef(function () { return NgForm; })
@@ -51831,7 +56912,7 @@
 	//# sourceMappingURL=ng_form.js.map
 
 /***/ },
-/* 353 */
+/* 387 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -51953,7 +57034,7 @@
 	//# sourceMappingURL=async.js.map
 
 /***/ },
-/* 354 */
+/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -51970,11 +57051,11 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var PromiseObservable_1 = __webpack_require__(258);
-	var shared_1 = __webpack_require__(355);
-	var async_1 = __webpack_require__(353);
-	var collection_1 = __webpack_require__(350);
-	var exceptions_1 = __webpack_require__(347);
-	var lang_1 = __webpack_require__(344);
+	var shared_1 = __webpack_require__(389);
+	var async_1 = __webpack_require__(387);
+	var collection_1 = __webpack_require__(384);
+	var exceptions_1 = __webpack_require__(381);
+	var lang_1 = __webpack_require__(378);
 	/**
 	 * Indicates that a FormControl is valid, i.e. that no errors exist in the input value.
 	 */
@@ -52696,7 +57777,7 @@
 	//# sourceMappingURL=model.js.map
 
 /***/ },
-/* 355 */
+/* 389 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -52707,17 +57788,17 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var collection_1 = __webpack_require__(350);
-	var exceptions_1 = __webpack_require__(347);
-	var lang_1 = __webpack_require__(344);
-	var validators_1 = __webpack_require__(356);
-	var checkbox_value_accessor_1 = __webpack_require__(341);
-	var default_value_accessor_1 = __webpack_require__(343);
-	var normalize_validator_1 = __webpack_require__(357);
-	var number_value_accessor_1 = __webpack_require__(358);
-	var radio_control_value_accessor_1 = __webpack_require__(359);
-	var select_control_value_accessor_1 = __webpack_require__(360);
-	var select_multiple_control_value_accessor_1 = __webpack_require__(361);
+	var collection_1 = __webpack_require__(384);
+	var exceptions_1 = __webpack_require__(381);
+	var lang_1 = __webpack_require__(378);
+	var validators_1 = __webpack_require__(390);
+	var checkbox_value_accessor_1 = __webpack_require__(375);
+	var default_value_accessor_1 = __webpack_require__(377);
+	var normalize_validator_1 = __webpack_require__(391);
+	var number_value_accessor_1 = __webpack_require__(392);
+	var radio_control_value_accessor_1 = __webpack_require__(393);
+	var select_control_value_accessor_1 = __webpack_require__(394);
+	var select_multiple_control_value_accessor_1 = __webpack_require__(395);
 	function controlPath(name, parent) {
 	    var p = collection_1.ListWrapper.clone(parent.path);
 	    p.push(name);
@@ -52825,7 +57906,7 @@
 	//# sourceMappingURL=shared.js.map
 
 /***/ },
-/* 356 */
+/* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -52838,8 +57919,8 @@
 	"use strict";
 	var core_1 = __webpack_require__(11);
 	var toPromise_1 = __webpack_require__(243);
-	var collection_1 = __webpack_require__(350);
-	var lang_1 = __webpack_require__(344);
+	var collection_1 = __webpack_require__(384);
+	var lang_1 = __webpack_require__(378);
 	/**
 	 * Providers for validators to be used for {@link FormControl}s in a form.
 	 *
@@ -52976,7 +58057,7 @@
 	//# sourceMappingURL=validators.js.map
 
 /***/ },
-/* 357 */
+/* 391 */
 /***/ function(module, exports) {
 
 	/**
@@ -53008,7 +58089,7 @@
 	//# sourceMappingURL=normalize_validator.js.map
 
 /***/ },
-/* 358 */
+/* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -53020,8 +58101,8 @@
 	 */
 	"use strict";
 	var core_1 = __webpack_require__(11);
-	var lang_1 = __webpack_require__(344);
-	var control_value_accessor_1 = __webpack_require__(342);
+	var lang_1 = __webpack_require__(378);
+	var control_value_accessor_1 = __webpack_require__(376);
 	exports.NUMBER_VALUE_ACCESSOR = {
 	    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
 	    useExisting: core_1.forwardRef(function () { return NumberValueAccessor; }),
@@ -53066,7 +58147,7 @@
 	//# sourceMappingURL=number_value_accessor.js.map
 
 /***/ },
-/* 359 */
+/* 393 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -53078,11 +58159,11 @@
 	 */
 	"use strict";
 	var core_1 = __webpack_require__(11);
-	var collection_1 = __webpack_require__(350);
-	var exceptions_1 = __webpack_require__(347);
-	var lang_1 = __webpack_require__(344);
-	var control_value_accessor_1 = __webpack_require__(342);
-	var ng_control_1 = __webpack_require__(346);
+	var collection_1 = __webpack_require__(384);
+	var exceptions_1 = __webpack_require__(381);
+	var lang_1 = __webpack_require__(378);
+	var control_value_accessor_1 = __webpack_require__(376);
+	var ng_control_1 = __webpack_require__(380);
 	exports.RADIO_VALUE_ACCESSOR = {
 	    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
 	    useExisting: core_1.forwardRef(function () { return RadioControlValueAccessor; }),
@@ -53193,7 +58274,7 @@
 	//# sourceMappingURL=radio_control_value_accessor.js.map
 
 /***/ },
-/* 360 */
+/* 394 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -53205,9 +58286,9 @@
 	 */
 	"use strict";
 	var core_1 = __webpack_require__(11);
-	var collection_1 = __webpack_require__(350);
-	var lang_1 = __webpack_require__(344);
-	var control_value_accessor_1 = __webpack_require__(342);
+	var collection_1 = __webpack_require__(384);
+	var lang_1 = __webpack_require__(378);
+	var control_value_accessor_1 = __webpack_require__(376);
 	exports.SELECT_VALUE_ACCESSOR = {
 	    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
 	    useExisting: core_1.forwardRef(function () { return SelectControlValueAccessor; }),
@@ -53338,7 +58419,7 @@
 	//# sourceMappingURL=select_control_value_accessor.js.map
 
 /***/ },
-/* 361 */
+/* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -53350,9 +58431,9 @@
 	 */
 	"use strict";
 	var core_1 = __webpack_require__(11);
-	var collection_1 = __webpack_require__(350);
-	var lang_1 = __webpack_require__(344);
-	var control_value_accessor_1 = __webpack_require__(342);
+	var collection_1 = __webpack_require__(384);
+	var lang_1 = __webpack_require__(378);
+	var control_value_accessor_1 = __webpack_require__(376);
 	exports.SELECT_MULTIPLE_VALUE_ACCESSOR = {
 	    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
 	    useExisting: core_1.forwardRef(function () { return SelectMultipleControlValueAccessor; }),
@@ -53524,7 +58605,7 @@
 	//# sourceMappingURL=select_multiple_control_value_accessor.js.map
 
 /***/ },
-/* 362 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -53540,7 +58621,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var abstract_control_directive_1 = __webpack_require__(351);
+	var abstract_control_directive_1 = __webpack_require__(385);
 	/**
 	 * A directive that contains multiple {@link NgControl}s.
 	 *
@@ -53575,7 +58656,7 @@
 	//# sourceMappingURL=control_container.js.map
 
 /***/ },
-/* 363 */
+/* 397 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -53592,17 +58673,17 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(353);
-	var model_1 = __webpack_require__(354);
-	var validators_1 = __webpack_require__(356);
-	var abstract_form_group_directive_1 = __webpack_require__(364);
-	var control_container_1 = __webpack_require__(362);
-	var control_value_accessor_1 = __webpack_require__(342);
-	var ng_control_1 = __webpack_require__(346);
-	var ng_form_1 = __webpack_require__(352);
-	var ng_model_group_1 = __webpack_require__(365);
-	var shared_1 = __webpack_require__(355);
-	var template_driven_errors_1 = __webpack_require__(366);
+	var async_1 = __webpack_require__(387);
+	var model_1 = __webpack_require__(388);
+	var validators_1 = __webpack_require__(390);
+	var abstract_form_group_directive_1 = __webpack_require__(398);
+	var control_container_1 = __webpack_require__(396);
+	var control_value_accessor_1 = __webpack_require__(376);
+	var ng_control_1 = __webpack_require__(380);
+	var ng_form_1 = __webpack_require__(386);
+	var ng_model_group_1 = __webpack_require__(399);
+	var shared_1 = __webpack_require__(389);
+	var template_driven_errors_1 = __webpack_require__(400);
 	exports.formControlBinding = {
 	    provide: ng_control_1.NgControl,
 	    useExisting: core_1.forwardRef(function () { return NgModel; })
@@ -53731,7 +58812,7 @@
 	//# sourceMappingURL=ng_model.js.map
 
 /***/ },
-/* 364 */
+/* 398 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -53747,8 +58828,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var control_container_1 = __webpack_require__(362);
-	var shared_1 = __webpack_require__(355);
+	var control_container_1 = __webpack_require__(396);
+	var shared_1 = __webpack_require__(389);
 	/**
 	 * This is a base class for code shared between {@link NgModelGroup} and {@link FormGroupName}.
 	 *
@@ -53806,7 +58887,7 @@
 	//# sourceMappingURL=abstract_form_group_directive.js.map
 
 /***/ },
-/* 365 */
+/* 399 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -53823,11 +58904,11 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(11);
-	var validators_1 = __webpack_require__(356);
-	var abstract_form_group_directive_1 = __webpack_require__(364);
-	var control_container_1 = __webpack_require__(362);
-	var ng_form_1 = __webpack_require__(352);
-	var template_driven_errors_1 = __webpack_require__(366);
+	var validators_1 = __webpack_require__(390);
+	var abstract_form_group_directive_1 = __webpack_require__(398);
+	var control_container_1 = __webpack_require__(396);
+	var ng_form_1 = __webpack_require__(386);
+	var template_driven_errors_1 = __webpack_require__(400);
 	exports.modelGroupProvider = {
 	    provide: control_container_1.ControlContainer,
 	    useExisting: core_1.forwardRef(function () { return NgModelGroup; })
@@ -53866,7 +58947,7 @@
 	//# sourceMappingURL=ng_model_group.js.map
 
 /***/ },
-/* 366 */
+/* 400 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -53877,8 +58958,8 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var exceptions_1 = __webpack_require__(347);
-	var error_examples_1 = __webpack_require__(367);
+	var exceptions_1 = __webpack_require__(381);
+	var error_examples_1 = __webpack_require__(401);
 	var TemplateDrivenErrors = (function () {
 	    function TemplateDrivenErrors() {
 	    }
@@ -53900,7 +58981,7 @@
 	//# sourceMappingURL=template_driven_errors.js.map
 
 /***/ },
-/* 367 */
+/* 401 */
 /***/ function(module, exports) {
 
 	/**
@@ -53921,7 +59002,7 @@
 	//# sourceMappingURL=error_examples.js.map
 
 /***/ },
-/* 368 */
+/* 402 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -53938,12 +59019,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(353);
-	var collection_1 = __webpack_require__(350);
-	var validators_1 = __webpack_require__(356);
-	var control_value_accessor_1 = __webpack_require__(342);
-	var ng_control_1 = __webpack_require__(346);
-	var shared_1 = __webpack_require__(355);
+	var async_1 = __webpack_require__(387);
+	var collection_1 = __webpack_require__(384);
+	var validators_1 = __webpack_require__(390);
+	var control_value_accessor_1 = __webpack_require__(376);
+	var ng_control_1 = __webpack_require__(380);
+	var shared_1 = __webpack_require__(389);
 	exports.formControlBinding = {
 	    provide: ng_control_1.NgControl,
 	    useExisting: core_1.forwardRef(function () { return FormControlDirective; })
@@ -54018,7 +59099,7 @@
 	//# sourceMappingURL=form_control_directive.js.map
 
 /***/ },
-/* 369 */
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -54035,16 +59116,16 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(353);
-	var validators_1 = __webpack_require__(356);
-	var abstract_form_group_directive_1 = __webpack_require__(364);
-	var control_container_1 = __webpack_require__(362);
-	var control_value_accessor_1 = __webpack_require__(342);
-	var ng_control_1 = __webpack_require__(346);
-	var reactive_errors_1 = __webpack_require__(370);
-	var shared_1 = __webpack_require__(355);
-	var form_group_directive_1 = __webpack_require__(371);
-	var form_group_name_1 = __webpack_require__(372);
+	var async_1 = __webpack_require__(387);
+	var validators_1 = __webpack_require__(390);
+	var abstract_form_group_directive_1 = __webpack_require__(398);
+	var control_container_1 = __webpack_require__(396);
+	var control_value_accessor_1 = __webpack_require__(376);
+	var ng_control_1 = __webpack_require__(380);
+	var reactive_errors_1 = __webpack_require__(404);
+	var shared_1 = __webpack_require__(389);
+	var form_group_directive_1 = __webpack_require__(405);
+	var form_group_name_1 = __webpack_require__(406);
 	exports.controlNameBinding = {
 	    provide: ng_control_1.NgControl,
 	    useExisting: core_1.forwardRef(function () { return FormControlName; })
@@ -54137,7 +59218,7 @@
 	//# sourceMappingURL=form_control_name.js.map
 
 /***/ },
-/* 370 */
+/* 404 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -54148,8 +59229,8 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var exceptions_1 = __webpack_require__(347);
-	var error_examples_1 = __webpack_require__(367);
+	var exceptions_1 = __webpack_require__(381);
+	var error_examples_1 = __webpack_require__(401);
 	var ReactiveErrors = (function () {
 	    function ReactiveErrors() {
 	    }
@@ -54174,7 +59255,7 @@
 	//# sourceMappingURL=reactive_errors.js.map
 
 /***/ },
-/* 371 */
+/* 405 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -54191,13 +59272,13 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(353);
-	var collection_1 = __webpack_require__(350);
-	var lang_1 = __webpack_require__(344);
-	var validators_1 = __webpack_require__(356);
-	var control_container_1 = __webpack_require__(362);
-	var reactive_errors_1 = __webpack_require__(370);
-	var shared_1 = __webpack_require__(355);
+	var async_1 = __webpack_require__(387);
+	var collection_1 = __webpack_require__(384);
+	var lang_1 = __webpack_require__(378);
+	var validators_1 = __webpack_require__(390);
+	var control_container_1 = __webpack_require__(396);
+	var reactive_errors_1 = __webpack_require__(404);
+	var shared_1 = __webpack_require__(389);
 	exports.formDirectiveProvider = {
 	    provide: control_container_1.ControlContainer,
 	    useExisting: core_1.forwardRef(function () { return FormGroupDirective; })
@@ -54314,7 +59395,7 @@
 	//# sourceMappingURL=form_group_directive.js.map
 
 /***/ },
-/* 372 */
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -54331,12 +59412,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(11);
-	var validators_1 = __webpack_require__(356);
-	var abstract_form_group_directive_1 = __webpack_require__(364);
-	var control_container_1 = __webpack_require__(362);
-	var reactive_errors_1 = __webpack_require__(370);
-	var shared_1 = __webpack_require__(355);
-	var form_group_directive_1 = __webpack_require__(371);
+	var validators_1 = __webpack_require__(390);
+	var abstract_form_group_directive_1 = __webpack_require__(398);
+	var control_container_1 = __webpack_require__(396);
+	var reactive_errors_1 = __webpack_require__(404);
+	var shared_1 = __webpack_require__(389);
+	var form_group_directive_1 = __webpack_require__(405);
 	exports.formGroupNameProvider = {
 	    provide: control_container_1.ControlContainer,
 	    useExisting: core_1.forwardRef(function () { return FormGroupName; })
@@ -54443,7 +59524,7 @@
 	//# sourceMappingURL=form_group_name.js.map
 
 /***/ },
-/* 373 */
+/* 407 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -54455,8 +59536,8 @@
 	 */
 	"use strict";
 	var core_1 = __webpack_require__(11);
-	var lang_1 = __webpack_require__(344);
-	var validators_1 = __webpack_require__(356);
+	var lang_1 = __webpack_require__(378);
+	var validators_1 = __webpack_require__(390);
 	exports.REQUIRED = validators_1.Validators.required;
 	exports.REQUIRED_VALIDATOR = {
 	    provide: validators_1.NG_VALIDATORS,
@@ -54565,7 +59646,7 @@
 	//# sourceMappingURL=validators.js.map
 
 /***/ },
-/* 374 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -54577,9 +59658,9 @@
 	 */
 	"use strict";
 	var core_1 = __webpack_require__(11);
-	var collection_1 = __webpack_require__(350);
-	var lang_1 = __webpack_require__(344);
-	var model_1 = __webpack_require__(354);
+	var collection_1 = __webpack_require__(384);
+	var lang_1 = __webpack_require__(378);
+	var model_1 = __webpack_require__(388);
 	var FormBuilder = (function () {
 	    function FormBuilder() {
 	    }
@@ -54651,7 +59732,7 @@
 	//# sourceMappingURL=form_builder.js.map
 
 /***/ },
-/* 375 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -54663,9 +59744,9 @@
 	 */
 	"use strict";
 	var core_1 = __webpack_require__(11);
-	var directives_1 = __webpack_require__(340);
-	var radio_control_value_accessor_1 = __webpack_require__(359);
-	var form_builder_1 = __webpack_require__(374);
+	var directives_1 = __webpack_require__(374);
+	var radio_control_value_accessor_1 = __webpack_require__(393);
+	var form_builder_1 = __webpack_require__(408);
 	/**
 	 * Shorthand set of providers used for building Angular forms.
 	 * @experimental
@@ -54723,4651 +59804,7 @@
 	//# sourceMappingURL=form_providers.js.map
 
 /***/ },
-/* 376 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(377));
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 377 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	/**
-	 * @module
-	 * @description
-	 * The http module provides services to perform http requests. To get started, see the {@link Http}
-	 * class.
-	 */
-	var core_1 = __webpack_require__(11);
-	var browser_jsonp_1 = __webpack_require__(378);
-	var browser_xhr_1 = __webpack_require__(380);
-	var jsonp_backend_1 = __webpack_require__(381);
-	var xhr_backend_1 = __webpack_require__(394);
-	var base_request_options_1 = __webpack_require__(395);
-	var base_response_options_1 = __webpack_require__(382);
-	var http_1 = __webpack_require__(396);
-	var interfaces_1 = __webpack_require__(389);
-	var browser_xhr_2 = __webpack_require__(380);
-	exports.BrowserXhr = browser_xhr_2.BrowserXhr;
-	var jsonp_backend_2 = __webpack_require__(381);
-	exports.JSONPBackend = jsonp_backend_2.JSONPBackend;
-	exports.JSONPConnection = jsonp_backend_2.JSONPConnection;
-	var xhr_backend_2 = __webpack_require__(394);
-	exports.CookieXSRFStrategy = xhr_backend_2.CookieXSRFStrategy;
-	exports.XHRBackend = xhr_backend_2.XHRBackend;
-	exports.XHRConnection = xhr_backend_2.XHRConnection;
-	var base_request_options_2 = __webpack_require__(395);
-	exports.BaseRequestOptions = base_request_options_2.BaseRequestOptions;
-	exports.RequestOptions = base_request_options_2.RequestOptions;
-	var base_response_options_2 = __webpack_require__(382);
-	exports.BaseResponseOptions = base_response_options_2.BaseResponseOptions;
-	exports.ResponseOptions = base_response_options_2.ResponseOptions;
-	var enums_1 = __webpack_require__(383);
-	exports.ReadyState = enums_1.ReadyState;
-	exports.RequestMethod = enums_1.RequestMethod;
-	exports.ResponseContentType = enums_1.ResponseContentType;
-	exports.ResponseType = enums_1.ResponseType;
-	var headers_1 = __webpack_require__(384);
-	exports.Headers = headers_1.Headers;
-	var http_2 = __webpack_require__(396);
-	exports.Http = http_2.Http;
-	exports.Jsonp = http_2.Jsonp;
-	var interfaces_2 = __webpack_require__(389);
-	exports.Connection = interfaces_2.Connection;
-	exports.ConnectionBackend = interfaces_2.ConnectionBackend;
-	exports.XSRFStrategy = interfaces_2.XSRFStrategy;
-	var static_request_1 = __webpack_require__(397);
-	exports.Request = static_request_1.Request;
-	var static_response_1 = __webpack_require__(390);
-	exports.Response = static_response_1.Response;
-	var url_search_params_1 = __webpack_require__(393);
-	exports.QueryEncoder = url_search_params_1.QueryEncoder;
-	exports.URLSearchParams = url_search_params_1.URLSearchParams;
-	/**
-	 * Provides a basic set of injectables to use the {@link Http} service in any application.
-	 *
-	 * The `HTTP_PROVIDERS` should be included either in a component's injector,
-	 * or in the root injector when bootstrapping an application.
-	 *
-	 * ### Example ([live demo](http://plnkr.co/edit/snj7Nv?p=preview))
-	 *
-	 * ```
-	 * import {Component} from '@angular/core';
-	 * import {bootstrap} from '@angular/platform-browser/browser';
-	 * import {NgFor} from '@angular/common';
-	 * import {HTTP_PROVIDERS, Http} from '@angular/http';
-	 *
-	 * @Component({
-	 *   selector: 'app',
-	 *   providers: [HTTP_PROVIDERS],
-	 *   template: `
-	 *     <div>
-	 *       <h1>People</h1>
-	 *       <ul>
-	 *         <li *ngFor="let person of people">
-	 *           {{person.name}}
-	 *         </li>
-	 *       </ul>
-	 *     </div>
-	 *   `,
-	 *   directives: [NgFor]
-	 * })
-	 * export class App {
-	 *   people: Object[];
-	 *   constructor(http:Http) {
-	 *     http.get('people.json').subscribe(res => {
-	 *       this.people = res.json();
-	 *     });
-	 *   }
-	 *   active:boolean = false;
-	 *   toggleActiveState() {
-	 *     this.active = !this.active;
-	 *   }
-	 * }
-	 *
-	 * bootstrap(App)
-	 *   .catch(err => console.error(err));
-	 * ```
-	 *
-	 * The primary public API included in `HTTP_PROVIDERS` is the {@link Http} class.
-	 * However, other providers required by `Http` are included,
-	 * which may be beneficial to override in certain cases.
-	 *
-	 * The providers included in `HTTP_PROVIDERS` include:
-	 *  * {@link Http}
-	 *  * {@link XHRBackend}
-	 *  * {@link XSRFStrategy} - Bound to {@link CookieXSRFStrategy} class (see below)
-	 *  * `BrowserXHR` - Private factory to create `XMLHttpRequest` instances
-	 *  * {@link RequestOptions} - Bound to {@link BaseRequestOptions} class
-	 *  * {@link ResponseOptions} - Bound to {@link BaseResponseOptions} class
-	 *
-	 * There may be cases where it makes sense to extend the base request options,
-	 * such as to add a search string to be appended to all URLs.
-	 * To accomplish this, a new provider for {@link RequestOptions} should
-	 * be added in the same injector as `HTTP_PROVIDERS`.
-	 *
-	 * ### Example ([live demo](http://plnkr.co/edit/aCMEXi?p=preview))
-	 *
-	 * ```
-	 * import {provide} from '@angular/core';
-	 * import {bootstrap} from '@angular/platform-browser/browser';
-	 * import {HTTP_PROVIDERS, BaseRequestOptions, RequestOptions} from '@angular/http';
-	 *
-	 * class MyOptions extends BaseRequestOptions {
-	 *   search: string = 'coreTeam=true';
-	 * }
-	 *
-	 * bootstrap(App, [HTTP_PROVIDERS, {provide: RequestOptions, useClass: MyOptions}])
-	 *   .catch(err => console.error(err));
-	 * ```
-	 *
-	 * Likewise, to use a mock backend for unit tests, the {@link XHRBackend}
-	 * provider should be bound to {@link MockBackend}.
-	 *
-	 * ### Example ([live demo](http://plnkr.co/edit/7LWALD?p=preview))
-	 *
-	 * ```
-	 * import {provide} from '@angular/core';
-	 * import {bootstrap} from '@angular/platform-browser/browser';
-	 * import {HTTP_PROVIDERS, Http, Response, XHRBackend} from '@angular/http';
-	 * import {MockBackend} from '@angular/http/testing';
-	 *
-	 * var people = [{name: 'Jeff'}, {name: 'Tobias'}];
-	 *
-	 * var injector = Injector.resolveAndCreate([
-	 *   HTTP_PROVIDERS,
-	 *   MockBackend,
-	 *   {provide: XHRBackend, useExisting: MockBackend}
-	 * ]);
-	 * var http = injector.get(Http);
-	 * var backend = injector.get(MockBackend);
-	 *
-	 * // Listen for any new requests
-	 * backend.connections.observer({
-	 *   next: connection => {
-	 *     var response = new Response({body: people});
-	 *     setTimeout(() => {
-	 *       // Send a response to the request
-	 *       connection.mockRespond(response);
-	 *     });
-	 *   }
-	 * });
-	 *
-	 * http.get('people.json').observer({
-	 *   next: res => {
-	 *     // Response came from mock backend
-	 *     console.log('first person', res.json()[0].name);
-	 *   }
-	 * });
-	 * ```
-	 *
-	 * `XSRFStrategy` allows customizing how the application protects itself against Cross Site Request
-	 * Forgery (XSRF) attacks. By default, Angular will look for a cookie called `'XSRF-TOKEN'`, and set
-	 * an HTTP request header called `'X-XSRF-TOKEN'` with the value of the cookie on each request,
-	 * allowing the server side to validate that the request comes from its own front end.
-	 *
-	 * Applications can override the names used by configuring a different `XSRFStrategy` instance. Most
-	 * commonly, applications will configure a `CookieXSRFStrategy` with different cookie or header
-	 * names, but if needed, they can supply a completely custom implementation.
-	 *
-	 * See the security documentation for more information.
-	 *
-	 * ### Example
-	 *
-	 * ```
-	 * import {provide} from '@angular/core';
-	 * import {bootstrap} from '@angular/platform-browser/browser';
-	 * import {HTTP_PROVIDERS, XSRFStrategy, CookieXSRFStrategy} from '@angular/http';
-	 *
-	 * bootstrap(
-	 *     App,
-	 *     [HTTP_PROVIDERS, {provide: XSRFStrategy,
-	 *         useValue: new CookieXSRFStrategy('MY-XSRF-COOKIE-NAME', 'X-MY-XSRF-HEADER-NAME')}])
-	 *   .catch(err => console.error(err));
-	 * ```
-	 *
-	 * @deprecated
-	 */
-	exports.HTTP_PROVIDERS = [
-	    // TODO(pascal): use factory type annotations once supported in DI
-	    // issue: https://github.com/angular/angular/issues/3183
-	    { provide: http_1.Http, useFactory: httpFactory, deps: [xhr_backend_1.XHRBackend, base_request_options_1.RequestOptions] },
-	    browser_xhr_1.BrowserXhr,
-	    { provide: base_request_options_1.RequestOptions, useClass: base_request_options_1.BaseRequestOptions },
-	    { provide: base_response_options_1.ResponseOptions, useClass: base_response_options_1.BaseResponseOptions },
-	    xhr_backend_1.XHRBackend,
-	    { provide: interfaces_1.XSRFStrategy, useFactory: _createDefaultCookieXSRFStrategy },
-	];
-	/**
-	 * @experimental
-	 */
-	function _createDefaultCookieXSRFStrategy() {
-	    return new xhr_backend_1.CookieXSRFStrategy();
-	}
-	exports._createDefaultCookieXSRFStrategy = _createDefaultCookieXSRFStrategy;
-	/**
-	 * @experimental
-	 */
-	function httpFactory(xhrBackend, requestOptions) {
-	    return new http_1.Http(xhrBackend, requestOptions);
-	}
-	exports.httpFactory = httpFactory;
-	/**
-	 * See {@link HTTP_PROVIDERS} instead.
-	 *
-	 * @deprecated
-	 */
-	exports.HTTP_BINDINGS = exports.HTTP_PROVIDERS;
-	/**
-	 * Provides a basic set of providers to use the {@link Jsonp} service in any application.
-	 *
-	 * The `JSONP_PROVIDERS` should be included either in a component's injector,
-	 * or in the root injector when bootstrapping an application.
-	 *
-	 * ### Example ([live demo](http://plnkr.co/edit/vmeN4F?p=preview))
-	 *
-	 * ```
-	 * import {Component} from '@angular/core';
-	 * import {NgFor} from '@angular/common';
-	 * import {JSONP_PROVIDERS, Jsonp} from '@angular/http';
-	 *
-	 * @Component({
-	 *   selector: 'app',
-	 *   providers: [JSONP_PROVIDERS],
-	 *   template: `
-	 *     <div>
-	 *       <h1>People</h1>
-	 *       <ul>
-	 *         <li *ngFor="let person of people">
-	 *           {{person.name}}
-	 *         </li>
-	 *       </ul>
-	 *     </div>
-	 *   `,
-	 *   directives: [NgFor]
-	 * })
-	 * export class App {
-	 *   people: Array<Object>;
-	 *   constructor(jsonp:Jsonp) {
-	 *     jsonp.request('people.json').subscribe(res => {
-	 *       this.people = res.json();
-	 *     })
-	 *   }
-	 * }
-	 * ```
-	 *
-	 * The primary public API included in `JSONP_PROVIDERS` is the {@link Jsonp} class.
-	 * However, other providers required by `Jsonp` are included,
-	 * which may be beneficial to override in certain cases.
-	 *
-	 * The providers included in `JSONP_PROVIDERS` include:
-	 *  * {@link Jsonp}
-	 *  * {@link JSONPBackend}
-	 *  * `BrowserJsonp` - Private factory
-	 *  * {@link RequestOptions} - Bound to {@link BaseRequestOptions} class
-	 *  * {@link ResponseOptions} - Bound to {@link BaseResponseOptions} class
-	 *
-	 * There may be cases where it makes sense to extend the base request options,
-	 * such as to add a search string to be appended to all URLs.
-	 * To accomplish this, a new provider for {@link RequestOptions} should
-	 * be added in the same injector as `JSONP_PROVIDERS`.
-	 *
-	 * ### Example ([live demo](http://plnkr.co/edit/TFug7x?p=preview))
-	 *
-	 * ```
-	 * import {provide} from '@angular/core';
-	 * import {bootstrap} from '@angular/platform-browser/browser';
-	 * import {JSONP_PROVIDERS, BaseRequestOptions, RequestOptions} from '@angular/http';
-	 *
-	 * class MyOptions extends BaseRequestOptions {
-	 *   search: string = 'coreTeam=true';
-	 * }
-	 *
-	 * bootstrap(App, [JSONP_PROVIDERS, {provide: RequestOptions, useClass: MyOptions}])
-	 *   .catch(err => console.error(err));
-	 * ```
-	 *
-	 * Likewise, to use a mock backend for unit tests, the {@link JSONPBackend}
-	 * provider should be bound to {@link MockBackend}.
-	 *
-	 * ### Example ([live demo](http://plnkr.co/edit/HDqZWL?p=preview))
-	 *
-	 * ```
-	 * import {provide, Injector} from '@angular/core';
-	 * import {JSONP_PROVIDERS, Jsonp, Response, JSONPBackend} from '@angular/http';
-	 * import {MockBackend} from '@angular/http/testing';
-	 *
-	 * var people = [{name: 'Jeff'}, {name: 'Tobias'}];
-	 * var injector = Injector.resolveAndCreate([
-	 *   JSONP_PROVIDERS,
-	 *   MockBackend,
-	 *   {provide: JSONPBackend, useExisting: MockBackend}
-	 * ]);
-	 * var jsonp = injector.get(Jsonp);
-	 * var backend = injector.get(MockBackend);
-	 *
-	 * // Listen for any new requests
-	 * backend.connections.observer({
-	 *   next: connection => {
-	 *     var response = new Response({body: people});
-	 *     setTimeout(() => {
-	 *       // Send a response to the request
-	 *       connection.mockRespond(response);
-	 *     });
-	 *   }
-	 * });
-	
-	 * jsonp.get('people.json').observer({
-	 *   next: res => {
-	 *     // Response came from mock backend
-	 *     console.log('first person', res.json()[0].name);
-	 *   }
-	 * });
-	 * ```
-	 *
-	 * @experimental
-	 */
-	exports.JSONP_PROVIDERS = [
-	    // TODO(pascal): use factory type annotations once supported in DI
-	    // issue: https://github.com/angular/angular/issues/3183
-	    { provide: http_1.Jsonp, useFactory: jsonpFactory, deps: [jsonp_backend_1.JSONPBackend, base_request_options_1.RequestOptions] },
-	    browser_jsonp_1.BrowserJsonp,
-	    { provide: base_request_options_1.RequestOptions, useClass: base_request_options_1.BaseRequestOptions },
-	    { provide: base_response_options_1.ResponseOptions, useClass: base_response_options_1.BaseResponseOptions },
-	    { provide: jsonp_backend_1.JSONPBackend, useClass: jsonp_backend_1.JSONPBackend_ },
-	];
-	function jsonpFactory(jsonpBackend, requestOptions) {
-	    return new http_1.Jsonp(jsonpBackend, requestOptions);
-	}
-	/**
-	 * See {@link JSONP_PROVIDERS} instead.
-	 *
-	 * @deprecated
-	 */
-	exports.JSON_BINDINGS = exports.JSONP_PROVIDERS;
-	var HttpModule = (function () {
-	    function HttpModule() {
-	    }
-	    /** @nocollapse */
-	    HttpModule.decorators = [
-	        { type: core_1.NgModule, args: [{ providers: exports.HTTP_PROVIDERS },] },
-	    ];
-	    return HttpModule;
-	}());
-	exports.HttpModule = HttpModule;
-	var JsonpModule = (function () {
-	    function JsonpModule() {
-	    }
-	    /** @nocollapse */
-	    JsonpModule.decorators = [
-	        { type: core_1.NgModule, args: [{ providers: exports.JSONP_PROVIDERS },] },
-	    ];
-	    return JsonpModule;
-	}());
-	exports.JsonpModule = JsonpModule;
-	//# sourceMappingURL=http.js.map
-
-/***/ },
-/* 378 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	var core_1 = __webpack_require__(11);
-	var lang_1 = __webpack_require__(379);
-	var _nextRequestId = 0;
-	exports.JSONP_HOME = '__ng_jsonp__';
-	var _jsonpConnections = null;
-	function _getJsonpConnections() {
-	    if (_jsonpConnections === null) {
-	        _jsonpConnections = lang_1.global[exports.JSONP_HOME] = {};
-	    }
-	    return _jsonpConnections;
-	}
-	var BrowserJsonp = (function () {
-	    function BrowserJsonp() {
-	    }
-	    // Construct a <script> element with the specified URL
-	    BrowserJsonp.prototype.build = function (url) {
-	        var node = document.createElement('script');
-	        node.src = url;
-	        return node;
-	    };
-	    BrowserJsonp.prototype.nextRequestID = function () { return "__req" + _nextRequestId++; };
-	    BrowserJsonp.prototype.requestCallback = function (id) { return exports.JSONP_HOME + "." + id + ".finished"; };
-	    BrowserJsonp.prototype.exposeConnection = function (id, connection) {
-	        var connections = _getJsonpConnections();
-	        connections[id] = connection;
-	    };
-	    BrowserJsonp.prototype.removeConnection = function (id) {
-	        var connections = _getJsonpConnections();
-	        connections[id] = null;
-	    };
-	    // Attach the <script> element to the DOM
-	    BrowserJsonp.prototype.send = function (node) { document.body.appendChild((node)); };
-	    // Remove <script> element from the DOM
-	    BrowserJsonp.prototype.cleanup = function (node) {
-	        if (node.parentNode) {
-	            node.parentNode.removeChild((node));
-	        }
-	    };
-	    /** @nocollapse */
-	    BrowserJsonp.decorators = [
-	        { type: core_1.Injectable },
-	    ];
-	    return BrowserJsonp;
-	}());
-	exports.BrowserJsonp = BrowserJsonp;
-	//# sourceMappingURL=browser_jsonp.js.map
-
-/***/ },
-/* 379 */
-/***/ function(module, exports) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var globalScope;
-	if (typeof window === 'undefined') {
-	    if (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope) {
-	        // TODO: Replace any with WorkerGlobalScope from lib.webworker.d.ts #3492
-	        globalScope = self;
-	    }
-	    else {
-	        globalScope = global;
-	    }
-	}
-	else {
-	    globalScope = window;
-	}
-	function scheduleMicroTask(fn) {
-	    Zone.current.scheduleMicroTask('scheduleMicrotask', fn);
-	}
-	exports.scheduleMicroTask = scheduleMicroTask;
-	// Need to declare a new variable for global here since TypeScript
-	// exports the original value of the symbol.
-	var _global = globalScope;
-	exports.global = _global;
-	/**
-	 * Runtime representation a type that a Component or other object is instances of.
-	 *
-	 * An example of a `Type` is `MyCustomComponent` class, which in JavaScript is be represented by
-	 * the `MyCustomComponent` constructor function.
-	 *
-	 * @stable
-	 */
-	exports.Type = Function;
-	function getTypeNameForDebugging(type) {
-	    if (type['name']) {
-	        return type['name'];
-	    }
-	    return typeof type;
-	}
-	exports.getTypeNameForDebugging = getTypeNameForDebugging;
-	exports.Math = _global.Math;
-	exports.Date = _global.Date;
-	// TODO: remove calls to assert in production environment
-	// Note: Can't just export this and import in in other files
-	// as `assert` is a reserved keyword in Dart
-	_global.assert = function assert(condition) {
-	    // TODO: to be fixed properly via #2830, noop for now
-	};
-	function isPresent(obj) {
-	    return obj !== undefined && obj !== null;
-	}
-	exports.isPresent = isPresent;
-	function isBlank(obj) {
-	    return obj === undefined || obj === null;
-	}
-	exports.isBlank = isBlank;
-	function isBoolean(obj) {
-	    return typeof obj === 'boolean';
-	}
-	exports.isBoolean = isBoolean;
-	function isNumber(obj) {
-	    return typeof obj === 'number';
-	}
-	exports.isNumber = isNumber;
-	function isString(obj) {
-	    return typeof obj === 'string';
-	}
-	exports.isString = isString;
-	function isFunction(obj) {
-	    return typeof obj === 'function';
-	}
-	exports.isFunction = isFunction;
-	function isType(obj) {
-	    return isFunction(obj);
-	}
-	exports.isType = isType;
-	function isStringMap(obj) {
-	    return typeof obj === 'object' && obj !== null;
-	}
-	exports.isStringMap = isStringMap;
-	var STRING_MAP_PROTO = Object.getPrototypeOf({});
-	function isStrictStringMap(obj) {
-	    return isStringMap(obj) && Object.getPrototypeOf(obj) === STRING_MAP_PROTO;
-	}
-	exports.isStrictStringMap = isStrictStringMap;
-	function isPromise(obj) {
-	    // allow any Promise/A+ compliant thenable.
-	    // It's up to the caller to ensure that obj.then conforms to the spec
-	    return isPresent(obj) && isFunction(obj.then);
-	}
-	exports.isPromise = isPromise;
-	function isArray(obj) {
-	    return Array.isArray(obj);
-	}
-	exports.isArray = isArray;
-	function isDate(obj) {
-	    return obj instanceof exports.Date && !isNaN(obj.valueOf());
-	}
-	exports.isDate = isDate;
-	function noop() { }
-	exports.noop = noop;
-	function stringify(token) {
-	    if (typeof token === 'string') {
-	        return token;
-	    }
-	    if (token === undefined || token === null) {
-	        return '' + token;
-	    }
-	    if (token.overriddenName) {
-	        return token.overriddenName;
-	    }
-	    if (token.name) {
-	        return token.name;
-	    }
-	    var res = token.toString();
-	    var newLineIndex = res.indexOf('\n');
-	    return (newLineIndex === -1) ? res : res.substring(0, newLineIndex);
-	}
-	exports.stringify = stringify;
-	// serialize / deserialize enum exist only for consistency with dart API
-	// enums in typescript don't need to be serialized
-	function serializeEnum(val) {
-	    return val;
-	}
-	exports.serializeEnum = serializeEnum;
-	function deserializeEnum(val, values) {
-	    return val;
-	}
-	exports.deserializeEnum = deserializeEnum;
-	function resolveEnumToken(enumValue, val) {
-	    return enumValue[val];
-	}
-	exports.resolveEnumToken = resolveEnumToken;
-	var StringWrapper = (function () {
-	    function StringWrapper() {
-	    }
-	    StringWrapper.fromCharCode = function (code) { return String.fromCharCode(code); };
-	    StringWrapper.charCodeAt = function (s, index) { return s.charCodeAt(index); };
-	    StringWrapper.split = function (s, regExp) { return s.split(regExp); };
-	    StringWrapper.equals = function (s, s2) { return s === s2; };
-	    StringWrapper.stripLeft = function (s, charVal) {
-	        if (s && s.length) {
-	            var pos = 0;
-	            for (var i = 0; i < s.length; i++) {
-	                if (s[i] != charVal)
-	                    break;
-	                pos++;
-	            }
-	            s = s.substring(pos);
-	        }
-	        return s;
-	    };
-	    StringWrapper.stripRight = function (s, charVal) {
-	        if (s && s.length) {
-	            var pos = s.length;
-	            for (var i = s.length - 1; i >= 0; i--) {
-	                if (s[i] != charVal)
-	                    break;
-	                pos--;
-	            }
-	            s = s.substring(0, pos);
-	        }
-	        return s;
-	    };
-	    StringWrapper.replace = function (s, from, replace) {
-	        return s.replace(from, replace);
-	    };
-	    StringWrapper.replaceAll = function (s, from, replace) {
-	        return s.replace(from, replace);
-	    };
-	    StringWrapper.slice = function (s, from, to) {
-	        if (from === void 0) { from = 0; }
-	        if (to === void 0) { to = null; }
-	        return s.slice(from, to === null ? undefined : to);
-	    };
-	    StringWrapper.replaceAllMapped = function (s, from, cb) {
-	        return s.replace(from, function () {
-	            var matches = [];
-	            for (var _i = 0; _i < arguments.length; _i++) {
-	                matches[_i - 0] = arguments[_i];
-	            }
-	            // Remove offset & string from the result array
-	            matches.splice(-2, 2);
-	            // The callback receives match, p1, ..., pn
-	            return cb(matches);
-	        });
-	    };
-	    StringWrapper.contains = function (s, substr) { return s.indexOf(substr) != -1; };
-	    StringWrapper.compare = function (a, b) {
-	        if (a < b) {
-	            return -1;
-	        }
-	        else if (a > b) {
-	            return 1;
-	        }
-	        else {
-	            return 0;
-	        }
-	    };
-	    return StringWrapper;
-	}());
-	exports.StringWrapper = StringWrapper;
-	var StringJoiner = (function () {
-	    function StringJoiner(parts) {
-	        if (parts === void 0) { parts = []; }
-	        this.parts = parts;
-	    }
-	    StringJoiner.prototype.add = function (part) { this.parts.push(part); };
-	    StringJoiner.prototype.toString = function () { return this.parts.join(''); };
-	    return StringJoiner;
-	}());
-	exports.StringJoiner = StringJoiner;
-	var NumberParseError = (function (_super) {
-	    __extends(NumberParseError, _super);
-	    function NumberParseError(message) {
-	        _super.call(this);
-	        this.message = message;
-	    }
-	    NumberParseError.prototype.toString = function () { return this.message; };
-	    return NumberParseError;
-	}(Error));
-	exports.NumberParseError = NumberParseError;
-	var NumberWrapper = (function () {
-	    function NumberWrapper() {
-	    }
-	    NumberWrapper.toFixed = function (n, fractionDigits) { return n.toFixed(fractionDigits); };
-	    NumberWrapper.equal = function (a, b) { return a === b; };
-	    NumberWrapper.parseIntAutoRadix = function (text) {
-	        var result = parseInt(text);
-	        if (isNaN(result)) {
-	            throw new NumberParseError('Invalid integer literal when parsing ' + text);
-	        }
-	        return result;
-	    };
-	    NumberWrapper.parseInt = function (text, radix) {
-	        if (radix == 10) {
-	            if (/^(\-|\+)?[0-9]+$/.test(text)) {
-	                return parseInt(text, radix);
-	            }
-	        }
-	        else if (radix == 16) {
-	            if (/^(\-|\+)?[0-9ABCDEFabcdef]+$/.test(text)) {
-	                return parseInt(text, radix);
-	            }
-	        }
-	        else {
-	            var result = parseInt(text, radix);
-	            if (!isNaN(result)) {
-	                return result;
-	            }
-	        }
-	        throw new NumberParseError('Invalid integer literal when parsing ' + text + ' in base ' + radix);
-	    };
-	    // TODO: NaN is a valid literal but is returned by parseFloat to indicate an error.
-	    NumberWrapper.parseFloat = function (text) { return parseFloat(text); };
-	    Object.defineProperty(NumberWrapper, "NaN", {
-	        get: function () { return NaN; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    NumberWrapper.isNumeric = function (value) { return !isNaN(value - parseFloat(value)); };
-	    NumberWrapper.isNaN = function (value) { return isNaN(value); };
-	    NumberWrapper.isInteger = function (value) { return Number.isInteger(value); };
-	    return NumberWrapper;
-	}());
-	exports.NumberWrapper = NumberWrapper;
-	exports.RegExp = _global.RegExp;
-	var FunctionWrapper = (function () {
-	    function FunctionWrapper() {
-	    }
-	    FunctionWrapper.apply = function (fn, posArgs) { return fn.apply(null, posArgs); };
-	    FunctionWrapper.bind = function (fn, scope) { return fn.bind(scope); };
-	    return FunctionWrapper;
-	}());
-	exports.FunctionWrapper = FunctionWrapper;
-	// JS has NaN !== NaN
-	function looseIdentical(a, b) {
-	    return a === b || typeof a === 'number' && typeof b === 'number' && isNaN(a) && isNaN(b);
-	}
-	exports.looseIdentical = looseIdentical;
-	// JS considers NaN is the same as NaN for map Key (while NaN !== NaN otherwise)
-	// see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
-	function getMapKey(value) {
-	    return value;
-	}
-	exports.getMapKey = getMapKey;
-	function normalizeBlank(obj) {
-	    return isBlank(obj) ? null : obj;
-	}
-	exports.normalizeBlank = normalizeBlank;
-	function normalizeBool(obj) {
-	    return isBlank(obj) ? false : obj;
-	}
-	exports.normalizeBool = normalizeBool;
-	function isJsObject(o) {
-	    return o !== null && (typeof o === 'function' || typeof o === 'object');
-	}
-	exports.isJsObject = isJsObject;
-	function print(obj) {
-	    console.log(obj);
-	}
-	exports.print = print;
-	function warn(obj) {
-	    console.warn(obj);
-	}
-	exports.warn = warn;
-	// Can't be all uppercase as our transpiler would think it is a special directive...
-	var Json = (function () {
-	    function Json() {
-	    }
-	    Json.parse = function (s) { return _global.JSON.parse(s); };
-	    Json.stringify = function (data) {
-	        // Dart doesn't take 3 arguments
-	        return _global.JSON.stringify(data, null, 2);
-	    };
-	    return Json;
-	}());
-	exports.Json = Json;
-	var DateWrapper = (function () {
-	    function DateWrapper() {
-	    }
-	    DateWrapper.create = function (year, month, day, hour, minutes, seconds, milliseconds) {
-	        if (month === void 0) { month = 1; }
-	        if (day === void 0) { day = 1; }
-	        if (hour === void 0) { hour = 0; }
-	        if (minutes === void 0) { minutes = 0; }
-	        if (seconds === void 0) { seconds = 0; }
-	        if (milliseconds === void 0) { milliseconds = 0; }
-	        return new exports.Date(year, month - 1, day, hour, minutes, seconds, milliseconds);
-	    };
-	    DateWrapper.fromISOString = function (str) { return new exports.Date(str); };
-	    DateWrapper.fromMillis = function (ms) { return new exports.Date(ms); };
-	    DateWrapper.toMillis = function (date) { return date.getTime(); };
-	    DateWrapper.now = function () { return new exports.Date(); };
-	    DateWrapper.toJson = function (date) { return date.toJSON(); };
-	    return DateWrapper;
-	}());
-	exports.DateWrapper = DateWrapper;
-	function setValueOnPath(global, path, value) {
-	    var parts = path.split('.');
-	    var obj = global;
-	    while (parts.length > 1) {
-	        var name = parts.shift();
-	        if (obj.hasOwnProperty(name) && isPresent(obj[name])) {
-	            obj = obj[name];
-	        }
-	        else {
-	            obj = obj[name] = {};
-	        }
-	    }
-	    if (obj === undefined || obj === null) {
-	        obj = {};
-	    }
-	    obj[parts.shift()] = value;
-	}
-	exports.setValueOnPath = setValueOnPath;
-	var _symbolIterator = null;
-	function getSymbolIterator() {
-	    if (isBlank(_symbolIterator)) {
-	        if (isPresent(globalScope.Symbol) && isPresent(Symbol.iterator)) {
-	            _symbolIterator = Symbol.iterator;
-	        }
-	        else {
-	            // es6-shim specific logic
-	            var keys = Object.getOwnPropertyNames(Map.prototype);
-	            for (var i = 0; i < keys.length; ++i) {
-	                var key = keys[i];
-	                if (key !== 'entries' && key !== 'size' &&
-	                    Map.prototype[key] === Map.prototype['entries']) {
-	                    _symbolIterator = key;
-	                }
-	            }
-	        }
-	    }
-	    return _symbolIterator;
-	}
-	exports.getSymbolIterator = getSymbolIterator;
-	function evalExpression(sourceUrl, expr, declarations, vars) {
-	    var fnBody = declarations + "\nreturn " + expr + "\n//# sourceURL=" + sourceUrl;
-	    var fnArgNames = [];
-	    var fnArgValues = [];
-	    for (var argName in vars) {
-	        fnArgNames.push(argName);
-	        fnArgValues.push(vars[argName]);
-	    }
-	    return new (Function.bind.apply(Function, [void 0].concat(fnArgNames.concat(fnBody))))().apply(void 0, fnArgValues);
-	}
-	exports.evalExpression = evalExpression;
-	function isPrimitive(obj) {
-	    return !isJsObject(obj);
-	}
-	exports.isPrimitive = isPrimitive;
-	function hasConstructor(value, type) {
-	    return value.constructor === type;
-	}
-	exports.hasConstructor = hasConstructor;
-	function escape(s) {
-	    return _global.encodeURI(s);
-	}
-	exports.escape = escape;
-	function escapeRegExp(s) {
-	    return s.replace(/([.*+?^=!:${}()|[\]\/\\])/g, '\\$1');
-	}
-	exports.escapeRegExp = escapeRegExp;
-	//# sourceMappingURL=lang.js.map
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-/* 380 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	var core_1 = __webpack_require__(11);
-	var BrowserXhr = (function () {
-	    function BrowserXhr() {
-	    }
-	    BrowserXhr.prototype.build = function () { return (new XMLHttpRequest()); };
-	    /** @nocollapse */
-	    BrowserXhr.decorators = [
-	        { type: core_1.Injectable },
-	    ];
-	    /** @nocollapse */
-	    BrowserXhr.ctorParameters = [];
-	    return BrowserXhr;
-	}());
-	exports.BrowserXhr = BrowserXhr;
-	//# sourceMappingURL=browser_xhr.js.map
-
-/***/ },
-/* 381 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var core_1 = __webpack_require__(11);
-	var Observable_1 = __webpack_require__(70);
-	var base_response_options_1 = __webpack_require__(382);
-	var enums_1 = __webpack_require__(383);
-	var exceptions_1 = __webpack_require__(386);
-	var lang_1 = __webpack_require__(379);
-	var interfaces_1 = __webpack_require__(389);
-	var static_response_1 = __webpack_require__(390);
-	var browser_jsonp_1 = __webpack_require__(378);
-	var JSONP_ERR_NO_CALLBACK = 'JSONP injected script did not invoke callback.';
-	var JSONP_ERR_WRONG_METHOD = 'JSONP requests must use GET request method.';
-	/**
-	 * Abstract base class for an in-flight JSONP request.
-	 *
-	 * @experimental
-	 */
-	var JSONPConnection = (function () {
-	    function JSONPConnection() {
-	    }
-	    return JSONPConnection;
-	}());
-	exports.JSONPConnection = JSONPConnection;
-	var JSONPConnection_ = (function (_super) {
-	    __extends(JSONPConnection_, _super);
-	    function JSONPConnection_(req, _dom, baseResponseOptions) {
-	        var _this = this;
-	        _super.call(this);
-	        this._dom = _dom;
-	        this.baseResponseOptions = baseResponseOptions;
-	        this._finished = false;
-	        if (req.method !== enums_1.RequestMethod.Get) {
-	            throw exceptions_1.makeTypeError(JSONP_ERR_WRONG_METHOD);
-	        }
-	        this.request = req;
-	        this.response = new Observable_1.Observable(function (responseObserver) {
-	            _this.readyState = enums_1.ReadyState.Loading;
-	            var id = _this._id = _dom.nextRequestID();
-	            _dom.exposeConnection(id, _this);
-	            // Workaround Dart
-	            // url = url.replace(/=JSONP_CALLBACK(&|$)/, `generated method`);
-	            var callback = _dom.requestCallback(_this._id);
-	            var url = req.url;
-	            if (url.indexOf('=JSONP_CALLBACK&') > -1) {
-	                url = lang_1.StringWrapper.replace(url, '=JSONP_CALLBACK&', "=" + callback + "&");
-	            }
-	            else if (url.lastIndexOf('=JSONP_CALLBACK') === url.length - '=JSONP_CALLBACK'.length) {
-	                url = url.substring(0, url.length - '=JSONP_CALLBACK'.length) + ("=" + callback);
-	            }
-	            var script = _this._script = _dom.build(url);
-	            var onLoad = function (event) {
-	                if (_this.readyState === enums_1.ReadyState.Cancelled)
-	                    return;
-	                _this.readyState = enums_1.ReadyState.Done;
-	                _dom.cleanup(script);
-	                if (!_this._finished) {
-	                    var responseOptions_1 = new base_response_options_1.ResponseOptions({ body: JSONP_ERR_NO_CALLBACK, type: enums_1.ResponseType.Error, url: url });
-	                    if (lang_1.isPresent(baseResponseOptions)) {
-	                        responseOptions_1 = baseResponseOptions.merge(responseOptions_1);
-	                    }
-	                    responseObserver.error(new static_response_1.Response(responseOptions_1));
-	                    return;
-	                }
-	                var responseOptions = new base_response_options_1.ResponseOptions({ body: _this._responseData, url: url });
-	                if (lang_1.isPresent(_this.baseResponseOptions)) {
-	                    responseOptions = _this.baseResponseOptions.merge(responseOptions);
-	                }
-	                responseObserver.next(new static_response_1.Response(responseOptions));
-	                responseObserver.complete();
-	            };
-	            var onError = function (error) {
-	                if (_this.readyState === enums_1.ReadyState.Cancelled)
-	                    return;
-	                _this.readyState = enums_1.ReadyState.Done;
-	                _dom.cleanup(script);
-	                var responseOptions = new base_response_options_1.ResponseOptions({ body: error.message, type: enums_1.ResponseType.Error });
-	                if (lang_1.isPresent(baseResponseOptions)) {
-	                    responseOptions = baseResponseOptions.merge(responseOptions);
-	                }
-	                responseObserver.error(new static_response_1.Response(responseOptions));
-	            };
-	            script.addEventListener('load', onLoad);
-	            script.addEventListener('error', onError);
-	            _dom.send(script);
-	            return function () {
-	                _this.readyState = enums_1.ReadyState.Cancelled;
-	                script.removeEventListener('load', onLoad);
-	                script.removeEventListener('error', onError);
-	                if (lang_1.isPresent(script)) {
-	                    _this._dom.cleanup(script);
-	                }
-	            };
-	        });
-	    }
-	    JSONPConnection_.prototype.finished = function (data) {
-	        // Don't leak connections
-	        this._finished = true;
-	        this._dom.removeConnection(this._id);
-	        if (this.readyState === enums_1.ReadyState.Cancelled)
-	            return;
-	        this._responseData = data;
-	    };
-	    return JSONPConnection_;
-	}(JSONPConnection));
-	exports.JSONPConnection_ = JSONPConnection_;
-	/**
-	 * A {@link ConnectionBackend} that uses the JSONP strategy of making requests.
-	 *
-	 * @experimental
-	 */
-	var JSONPBackend = (function (_super) {
-	    __extends(JSONPBackend, _super);
-	    function JSONPBackend() {
-	        _super.apply(this, arguments);
-	    }
-	    return JSONPBackend;
-	}(interfaces_1.ConnectionBackend));
-	exports.JSONPBackend = JSONPBackend;
-	var JSONPBackend_ = (function (_super) {
-	    __extends(JSONPBackend_, _super);
-	    function JSONPBackend_(_browserJSONP, _baseResponseOptions) {
-	        _super.call(this);
-	        this._browserJSONP = _browserJSONP;
-	        this._baseResponseOptions = _baseResponseOptions;
-	    }
-	    JSONPBackend_.prototype.createConnection = function (request) {
-	        return new JSONPConnection_(request, this._browserJSONP, this._baseResponseOptions);
-	    };
-	    /** @nocollapse */
-	    JSONPBackend_.decorators = [
-	        { type: core_1.Injectable },
-	    ];
-	    /** @nocollapse */
-	    JSONPBackend_.ctorParameters = [
-	        { type: browser_jsonp_1.BrowserJsonp, },
-	        { type: base_response_options_1.ResponseOptions, },
-	    ];
-	    return JSONPBackend_;
-	}(JSONPBackend));
-	exports.JSONPBackend_ = JSONPBackend_;
-	//# sourceMappingURL=jsonp_backend.js.map
-
-/***/ },
-/* 382 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var core_1 = __webpack_require__(11);
-	var lang_1 = __webpack_require__(379);
-	var enums_1 = __webpack_require__(383);
-	var headers_1 = __webpack_require__(384);
-	/**
-	 * Creates a response options object to be optionally provided when instantiating a
-	 * {@link Response}.
-	 *
-	 * This class is based on the `ResponseInit` description in the [Fetch
-	 * Spec](https://fetch.spec.whatwg.org/#responseinit).
-	 *
-	 * All values are null by default. Typical defaults can be found in the
-	 * {@link BaseResponseOptions} class, which sub-classes `ResponseOptions`.
-	 *
-	 * This class may be used in tests to build {@link Response Responses} for
-	 * mock responses (see {@link MockBackend}).
-	 *
-	 * ### Example ([live demo](http://plnkr.co/edit/P9Jkk8e8cz6NVzbcxEsD?p=preview))
-	 *
-	 * ```typescript
-	 * import {ResponseOptions, Response} from '@angular/http';
-	 *
-	 * var options = new ResponseOptions({
-	 *   body: '{"name":"Jeff"}'
-	 * });
-	 * var res = new Response(options);
-	 *
-	 * console.log('res.json():', res.json()); // Object {name: "Jeff"}
-	 * ```
-	 *
-	 * @experimental
-	 */
-	var ResponseOptions = (function () {
-	    function ResponseOptions(_a) {
-	        var _b = _a === void 0 ? {} : _a, body = _b.body, status = _b.status, headers = _b.headers, statusText = _b.statusText, type = _b.type, url = _b.url;
-	        this.body = lang_1.isPresent(body) ? body : null;
-	        this.status = lang_1.isPresent(status) ? status : null;
-	        this.headers = lang_1.isPresent(headers) ? headers : null;
-	        this.statusText = lang_1.isPresent(statusText) ? statusText : null;
-	        this.type = lang_1.isPresent(type) ? type : null;
-	        this.url = lang_1.isPresent(url) ? url : null;
-	    }
-	    /**
-	     * Creates a copy of the `ResponseOptions` instance, using the optional input as values to
-	     * override
-	     * existing values. This method will not change the values of the instance on which it is being
-	     * called.
-	     *
-	     * This may be useful when sharing a base `ResponseOptions` object inside tests,
-	     * where certain properties may change from test to test.
-	     *
-	     * ### Example ([live demo](http://plnkr.co/edit/1lXquqFfgduTFBWjNoRE?p=preview))
-	     *
-	     * ```typescript
-	     * import {ResponseOptions, Response} from '@angular/http';
-	     *
-	     * var options = new ResponseOptions({
-	     *   body: {name: 'Jeff'}
-	     * });
-	     * var res = new Response(options.merge({
-	     *   url: 'https://google.com'
-	     * }));
-	     * console.log('options.url:', options.url); // null
-	     * console.log('res.json():', res.json()); // Object {name: "Jeff"}
-	     * console.log('res.url:', res.url); // https://google.com
-	     * ```
-	     */
-	    ResponseOptions.prototype.merge = function (options) {
-	        return new ResponseOptions({
-	            body: lang_1.isPresent(options) && lang_1.isPresent(options.body) ? options.body : this.body,
-	            status: lang_1.isPresent(options) && lang_1.isPresent(options.status) ? options.status : this.status,
-	            headers: lang_1.isPresent(options) && lang_1.isPresent(options.headers) ? options.headers : this.headers,
-	            statusText: lang_1.isPresent(options) && lang_1.isPresent(options.statusText) ? options.statusText :
-	                this.statusText,
-	            type: lang_1.isPresent(options) && lang_1.isPresent(options.type) ? options.type : this.type,
-	            url: lang_1.isPresent(options) && lang_1.isPresent(options.url) ? options.url : this.url,
-	        });
-	    };
-	    return ResponseOptions;
-	}());
-	exports.ResponseOptions = ResponseOptions;
-	var BaseResponseOptions = (function (_super) {
-	    __extends(BaseResponseOptions, _super);
-	    function BaseResponseOptions() {
-	        _super.call(this, { status: 200, statusText: 'Ok', type: enums_1.ResponseType.Default, headers: new headers_1.Headers() });
-	    }
-	    /** @nocollapse */
-	    BaseResponseOptions.decorators = [
-	        { type: core_1.Injectable },
-	    ];
-	    /** @nocollapse */
-	    BaseResponseOptions.ctorParameters = [];
-	    return BaseResponseOptions;
-	}(ResponseOptions));
-	exports.BaseResponseOptions = BaseResponseOptions;
-	//# sourceMappingURL=base_response_options.js.map
-
-/***/ },
-/* 383 */
-/***/ function(module, exports) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	/**
-	 * Supported http methods.
-	 * @experimental
-	 */
-	(function (RequestMethod) {
-	    RequestMethod[RequestMethod["Get"] = 0] = "Get";
-	    RequestMethod[RequestMethod["Post"] = 1] = "Post";
-	    RequestMethod[RequestMethod["Put"] = 2] = "Put";
-	    RequestMethod[RequestMethod["Delete"] = 3] = "Delete";
-	    RequestMethod[RequestMethod["Options"] = 4] = "Options";
-	    RequestMethod[RequestMethod["Head"] = 5] = "Head";
-	    RequestMethod[RequestMethod["Patch"] = 6] = "Patch";
-	})(exports.RequestMethod || (exports.RequestMethod = {}));
-	var RequestMethod = exports.RequestMethod;
-	/**
-	 * All possible states in which a connection can be, based on
-	 * [States](http://www.w3.org/TR/XMLHttpRequest/#states) from the `XMLHttpRequest` spec, but with an
-	 * additional "CANCELLED" state.
-	 * @experimental
-	 */
-	(function (ReadyState) {
-	    ReadyState[ReadyState["Unsent"] = 0] = "Unsent";
-	    ReadyState[ReadyState["Open"] = 1] = "Open";
-	    ReadyState[ReadyState["HeadersReceived"] = 2] = "HeadersReceived";
-	    ReadyState[ReadyState["Loading"] = 3] = "Loading";
-	    ReadyState[ReadyState["Done"] = 4] = "Done";
-	    ReadyState[ReadyState["Cancelled"] = 5] = "Cancelled";
-	})(exports.ReadyState || (exports.ReadyState = {}));
-	var ReadyState = exports.ReadyState;
-	/**
-	 * Acceptable response types to be associated with a {@link Response}, based on
-	 * [ResponseType](https://fetch.spec.whatwg.org/#responsetype) from the Fetch spec.
-	 * @experimental
-	 */
-	(function (ResponseType) {
-	    ResponseType[ResponseType["Basic"] = 0] = "Basic";
-	    ResponseType[ResponseType["Cors"] = 1] = "Cors";
-	    ResponseType[ResponseType["Default"] = 2] = "Default";
-	    ResponseType[ResponseType["Error"] = 3] = "Error";
-	    ResponseType[ResponseType["Opaque"] = 4] = "Opaque";
-	})(exports.ResponseType || (exports.ResponseType = {}));
-	var ResponseType = exports.ResponseType;
-	/**
-	 * Supported content type to be automatically associated with a {@link Request}.
-	 * @experimental
-	 */
-	(function (ContentType) {
-	    ContentType[ContentType["NONE"] = 0] = "NONE";
-	    ContentType[ContentType["JSON"] = 1] = "JSON";
-	    ContentType[ContentType["FORM"] = 2] = "FORM";
-	    ContentType[ContentType["FORM_DATA"] = 3] = "FORM_DATA";
-	    ContentType[ContentType["TEXT"] = 4] = "TEXT";
-	    ContentType[ContentType["BLOB"] = 5] = "BLOB";
-	    ContentType[ContentType["ARRAY_BUFFER"] = 6] = "ARRAY_BUFFER";
-	})(exports.ContentType || (exports.ContentType = {}));
-	var ContentType = exports.ContentType;
-	/**
-	 * Define which buffer to use to store the response
-	 * @experimental
-	 */
-	(function (ResponseContentType) {
-	    ResponseContentType[ResponseContentType["Text"] = 0] = "Text";
-	    ResponseContentType[ResponseContentType["Json"] = 1] = "Json";
-	    ResponseContentType[ResponseContentType["ArrayBuffer"] = 2] = "ArrayBuffer";
-	    ResponseContentType[ResponseContentType["Blob"] = 3] = "Blob";
-	})(exports.ResponseContentType || (exports.ResponseContentType = {}));
-	var ResponseContentType = exports.ResponseContentType;
-	//# sourceMappingURL=enums.js.map
-
-/***/ },
-/* 384 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	var collection_1 = __webpack_require__(385);
-	var exceptions_1 = __webpack_require__(386);
-	var lang_1 = __webpack_require__(379);
-	/**
-	 * Polyfill for [Headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers/Headers), as
-	 * specified in the [Fetch Spec](https://fetch.spec.whatwg.org/#headers-class).
-	 *
-	 * The only known difference between this `Headers` implementation and the spec is the
-	 * lack of an `entries` method.
-	 *
-	 * ### Example ([live demo](http://plnkr.co/edit/MTdwT6?p=preview))
-	 *
-	 * ```
-	 * import {Headers} from '@angular/http';
-	 *
-	 * var firstHeaders = new Headers();
-	 * firstHeaders.append('Content-Type', 'image/jpeg');
-	 * console.log(firstHeaders.get('Content-Type')) //'image/jpeg'
-	 *
-	 * // Create headers from Plain Old JavaScript Object
-	 * var secondHeaders = new Headers({
-	 *   'X-My-Custom-Header': 'Angular'
-	 * });
-	 * console.log(secondHeaders.get('X-My-Custom-Header')); //'Angular'
-	 *
-	 * var thirdHeaders = new Headers(secondHeaders);
-	 * console.log(thirdHeaders.get('X-My-Custom-Header')); //'Angular'
-	 * ```
-	 *
-	 * @experimental
-	 */
-	var Headers = (function () {
-	    function Headers(headers) {
-	        var _this = this;
-	        if (headers instanceof Headers) {
-	            this._headersMap = headers._headersMap;
-	            return;
-	        }
-	        this._headersMap = new collection_1.Map();
-	        if (lang_1.isBlank(headers)) {
-	            return;
-	        }
-	        // headers instanceof StringMap
-	        collection_1.StringMapWrapper.forEach(headers, function (v, k) {
-	            _this._headersMap.set(normalize(k), collection_1.isListLikeIterable(v) ? v : [v]);
-	        });
-	    }
-	    /**
-	     * Returns a new Headers instance from the given DOMString of Response Headers
-	     */
-	    Headers.fromResponseHeaderString = function (headersString) {
-	        var headers = new Headers();
-	        headersString.split('\n').forEach(function (line) {
-	            var index = line.indexOf(':');
-	            if (index > 0) {
-	                var key = line.substring(0, index);
-	                var value = line.substring(index + 1).trim();
-	                headers.set(key, value);
-	            }
-	        });
-	        return headers;
-	    };
-	    /**
-	     * Appends a header to existing list of header values for a given header name.
-	     */
-	    Headers.prototype.append = function (name, value) {
-	        name = normalize(name);
-	        var mapName = this._headersMap.get(name);
-	        var list = collection_1.isListLikeIterable(mapName) ? mapName : [];
-	        list.push(value);
-	        this._headersMap.set(name, list);
-	    };
-	    /**
-	     * Deletes all header values for the given name.
-	     */
-	    Headers.prototype.delete = function (name) { this._headersMap.delete(normalize(name)); };
-	    Headers.prototype.forEach = function (fn) {
-	        this._headersMap.forEach(fn);
-	    };
-	    /**
-	     * Returns first header that matches given name.
-	     */
-	    Headers.prototype.get = function (header) { return collection_1.ListWrapper.first(this._headersMap.get(normalize(header))); };
-	    /**
-	     * Check for existence of header by given name.
-	     */
-	    Headers.prototype.has = function (header) { return this._headersMap.has(normalize(header)); };
-	    /**
-	     * Provides names of set headers
-	     */
-	    Headers.prototype.keys = function () { return collection_1.MapWrapper.keys(this._headersMap); };
-	    /**
-	     * Sets or overrides header value for given name.
-	     */
-	    Headers.prototype.set = function (header, value) {
-	        var list = [];
-	        if (collection_1.isListLikeIterable(value)) {
-	            var pushValue = value.join(',');
-	            list.push(pushValue);
-	        }
-	        else {
-	            list.push(value);
-	        }
-	        this._headersMap.set(normalize(header), list);
-	    };
-	    /**
-	     * Returns values of all headers.
-	     */
-	    Headers.prototype.values = function () { return collection_1.MapWrapper.values(this._headersMap); };
-	    /**
-	     * Returns string of all headers.
-	     */
-	    Headers.prototype.toJSON = function () {
-	        var serializableHeaders = {};
-	        this._headersMap.forEach(function (values, name) {
-	            var list = [];
-	            collection_1.iterateListLike(values, function (val /** TODO #9100 */) { return list = collection_1.ListWrapper.concat(list, val.split(',')); });
-	            serializableHeaders[normalize(name)] = list;
-	        });
-	        return serializableHeaders;
-	    };
-	    /**
-	     * Returns list of header values for a given name.
-	     */
-	    Headers.prototype.getAll = function (header) {
-	        var headers = this._headersMap.get(normalize(header));
-	        return collection_1.isListLikeIterable(headers) ? headers : [];
-	    };
-	    /**
-	     * This method is not implemented.
-	     */
-	    Headers.prototype.entries = function () { throw new exceptions_1.BaseException('"entries" method is not implemented on Headers class'); };
-	    return Headers;
-	}());
-	exports.Headers = Headers;
-	// "HTTP character sets are identified by case-insensitive tokens"
-	// Spec at https://tools.ietf.org/html/rfc2616
-	// This implementation is same as NodeJS.
-	// see https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_message_headers
-	function normalize(name) {
-	    return name.toLowerCase();
-	}
-	//# sourceMappingURL=headers.js.map
-
-/***/ },
-/* 385 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	var lang_1 = __webpack_require__(379);
-	exports.Map = lang_1.global.Map;
-	exports.Set = lang_1.global.Set;
-	// Safari and Internet Explorer do not support the iterable parameter to the
-	// Map constructor.  We work around that by manually adding the items.
-	var createMapFromPairs = (function () {
-	    try {
-	        if (new exports.Map([[1, 2]]).size === 1) {
-	            return function createMapFromPairs(pairs) { return new exports.Map(pairs); };
-	        }
-	    }
-	    catch (e) {
-	    }
-	    return function createMapAndPopulateFromPairs(pairs) {
-	        var map = new exports.Map();
-	        for (var i = 0; i < pairs.length; i++) {
-	            var pair = pairs[i];
-	            map.set(pair[0], pair[1]);
-	        }
-	        return map;
-	    };
-	})();
-	var createMapFromMap = (function () {
-	    try {
-	        if (new exports.Map(new exports.Map())) {
-	            return function createMapFromMap(m) { return new exports.Map(m); };
-	        }
-	    }
-	    catch (e) {
-	    }
-	    return function createMapAndPopulateFromMap(m) {
-	        var map = new exports.Map();
-	        m.forEach(function (v, k) { map.set(k, v); });
-	        return map;
-	    };
-	})();
-	var _clearValues = (function () {
-	    if ((new exports.Map()).keys().next) {
-	        return function _clearValues(m) {
-	            var keyIterator = m.keys();
-	            var k;
-	            while (!((k = keyIterator.next()).done)) {
-	                m.set(k.value, null);
-	            }
-	        };
-	    }
-	    else {
-	        return function _clearValuesWithForeEach(m) {
-	            m.forEach(function (v, k) { m.set(k, null); });
-	        };
-	    }
-	})();
-	// Safari doesn't implement MapIterator.next(), which is used is Traceur's polyfill of Array.from
-	// TODO(mlaval): remove the work around once we have a working polyfill of Array.from
-	var _arrayFromMap = (function () {
-	    try {
-	        if ((new exports.Map()).values().next) {
-	            return function createArrayFromMap(m, getValues) {
-	                return getValues ? Array.from(m.values()) : Array.from(m.keys());
-	            };
-	        }
-	    }
-	    catch (e) {
-	    }
-	    return function createArrayFromMapWithForeach(m, getValues) {
-	        var res = ListWrapper.createFixedSize(m.size), i = 0;
-	        m.forEach(function (v, k) {
-	            res[i] = getValues ? v : k;
-	            i++;
-	        });
-	        return res;
-	    };
-	})();
-	var MapWrapper = (function () {
-	    function MapWrapper() {
-	    }
-	    MapWrapper.clone = function (m) { return createMapFromMap(m); };
-	    MapWrapper.createFromStringMap = function (stringMap) {
-	        var result = new exports.Map();
-	        for (var prop in stringMap) {
-	            result.set(prop, stringMap[prop]);
-	        }
-	        return result;
-	    };
-	    MapWrapper.toStringMap = function (m) {
-	        var r = {};
-	        m.forEach(function (v, k) { return r[k] = v; });
-	        return r;
-	    };
-	    MapWrapper.createFromPairs = function (pairs) { return createMapFromPairs(pairs); };
-	    MapWrapper.clearValues = function (m) { _clearValues(m); };
-	    MapWrapper.iterable = function (m) { return m; };
-	    MapWrapper.keys = function (m) { return _arrayFromMap(m, false); };
-	    MapWrapper.values = function (m) { return _arrayFromMap(m, true); };
-	    return MapWrapper;
-	}());
-	exports.MapWrapper = MapWrapper;
-	/**
-	 * Wraps Javascript Objects
-	 */
-	var StringMapWrapper = (function () {
-	    function StringMapWrapper() {
-	    }
-	    StringMapWrapper.create = function () {
-	        // Note: We are not using Object.create(null) here due to
-	        // performance!
-	        // http://jsperf.com/ng2-object-create-null
-	        return {};
-	    };
-	    StringMapWrapper.contains = function (map, key) {
-	        return map.hasOwnProperty(key);
-	    };
-	    StringMapWrapper.get = function (map, key) {
-	        return map.hasOwnProperty(key) ? map[key] : undefined;
-	    };
-	    StringMapWrapper.set = function (map, key, value) { map[key] = value; };
-	    StringMapWrapper.keys = function (map) { return Object.keys(map); };
-	    StringMapWrapper.values = function (map) {
-	        return Object.keys(map).map(function (k) { return map[k]; });
-	    };
-	    StringMapWrapper.isEmpty = function (map) {
-	        for (var prop in map) {
-	            return false;
-	        }
-	        return true;
-	    };
-	    StringMapWrapper.delete = function (map, key) { delete map[key]; };
-	    StringMapWrapper.forEach = function (map, callback) {
-	        for (var _i = 0, _a = Object.keys(map); _i < _a.length; _i++) {
-	            var k = _a[_i];
-	            callback(map[k], k);
-	        }
-	    };
-	    StringMapWrapper.merge = function (m1, m2) {
-	        var m = {};
-	        for (var _i = 0, _a = Object.keys(m1); _i < _a.length; _i++) {
-	            var k = _a[_i];
-	            m[k] = m1[k];
-	        }
-	        for (var _b = 0, _c = Object.keys(m2); _b < _c.length; _b++) {
-	            var k = _c[_b];
-	            m[k] = m2[k];
-	        }
-	        return m;
-	    };
-	    StringMapWrapper.equals = function (m1, m2) {
-	        var k1 = Object.keys(m1);
-	        var k2 = Object.keys(m2);
-	        if (k1.length != k2.length) {
-	            return false;
-	        }
-	        var key;
-	        for (var i = 0; i < k1.length; i++) {
-	            key = k1[i];
-	            if (m1[key] !== m2[key]) {
-	                return false;
-	            }
-	        }
-	        return true;
-	    };
-	    return StringMapWrapper;
-	}());
-	exports.StringMapWrapper = StringMapWrapper;
-	var ListWrapper = (function () {
-	    function ListWrapper() {
-	    }
-	    // JS has no way to express a statically fixed size list, but dart does so we
-	    // keep both methods.
-	    ListWrapper.createFixedSize = function (size) { return new Array(size); };
-	    ListWrapper.createGrowableSize = function (size) { return new Array(size); };
-	    ListWrapper.clone = function (array) { return array.slice(0); };
-	    ListWrapper.forEachWithIndex = function (array, fn) {
-	        for (var i = 0; i < array.length; i++) {
-	            fn(array[i], i);
-	        }
-	    };
-	    ListWrapper.first = function (array) {
-	        if (!array)
-	            return null;
-	        return array[0];
-	    };
-	    ListWrapper.last = function (array) {
-	        if (!array || array.length == 0)
-	            return null;
-	        return array[array.length - 1];
-	    };
-	    ListWrapper.indexOf = function (array, value, startIndex) {
-	        if (startIndex === void 0) { startIndex = 0; }
-	        return array.indexOf(value, startIndex);
-	    };
-	    ListWrapper.contains = function (list, el) { return list.indexOf(el) !== -1; };
-	    ListWrapper.reversed = function (array) {
-	        var a = ListWrapper.clone(array);
-	        return a.reverse();
-	    };
-	    ListWrapper.concat = function (a, b) { return a.concat(b); };
-	    ListWrapper.insert = function (list, index, value) { list.splice(index, 0, value); };
-	    ListWrapper.removeAt = function (list, index) {
-	        var res = list[index];
-	        list.splice(index, 1);
-	        return res;
-	    };
-	    ListWrapper.removeAll = function (list, items) {
-	        for (var i = 0; i < items.length; ++i) {
-	            var index = list.indexOf(items[i]);
-	            list.splice(index, 1);
-	        }
-	    };
-	    ListWrapper.remove = function (list, el) {
-	        var index = list.indexOf(el);
-	        if (index > -1) {
-	            list.splice(index, 1);
-	            return true;
-	        }
-	        return false;
-	    };
-	    ListWrapper.clear = function (list) { list.length = 0; };
-	    ListWrapper.isEmpty = function (list) { return list.length == 0; };
-	    ListWrapper.fill = function (list, value, start, end) {
-	        if (start === void 0) { start = 0; }
-	        if (end === void 0) { end = null; }
-	        list.fill(value, start, end === null ? list.length : end);
-	    };
-	    ListWrapper.equals = function (a, b) {
-	        if (a.length != b.length)
-	            return false;
-	        for (var i = 0; i < a.length; ++i) {
-	            if (a[i] !== b[i])
-	                return false;
-	        }
-	        return true;
-	    };
-	    ListWrapper.slice = function (l, from, to) {
-	        if (from === void 0) { from = 0; }
-	        if (to === void 0) { to = null; }
-	        return l.slice(from, to === null ? undefined : to);
-	    };
-	    ListWrapper.splice = function (l, from, length) { return l.splice(from, length); };
-	    ListWrapper.sort = function (l, compareFn) {
-	        if (lang_1.isPresent(compareFn)) {
-	            l.sort(compareFn);
-	        }
-	        else {
-	            l.sort();
-	        }
-	    };
-	    ListWrapper.toString = function (l) { return l.toString(); };
-	    ListWrapper.toJSON = function (l) { return JSON.stringify(l); };
-	    ListWrapper.maximum = function (list, predicate) {
-	        if (list.length == 0) {
-	            return null;
-	        }
-	        var solution = null;
-	        var maxValue = -Infinity;
-	        for (var index = 0; index < list.length; index++) {
-	            var candidate = list[index];
-	            if (lang_1.isBlank(candidate)) {
-	                continue;
-	            }
-	            var candidateValue = predicate(candidate);
-	            if (candidateValue > maxValue) {
-	                solution = candidate;
-	                maxValue = candidateValue;
-	            }
-	        }
-	        return solution;
-	    };
-	    ListWrapper.flatten = function (list) {
-	        var target = [];
-	        _flattenArray(list, target);
-	        return target;
-	    };
-	    ListWrapper.addAll = function (list, source) {
-	        for (var i = 0; i < source.length; i++) {
-	            list.push(source[i]);
-	        }
-	    };
-	    return ListWrapper;
-	}());
-	exports.ListWrapper = ListWrapper;
-	function _flattenArray(source, target) {
-	    if (lang_1.isPresent(source)) {
-	        for (var i = 0; i < source.length; i++) {
-	            var item = source[i];
-	            if (lang_1.isArray(item)) {
-	                _flattenArray(item, target);
-	            }
-	            else {
-	                target.push(item);
-	            }
-	        }
-	    }
-	    return target;
-	}
-	function isListLikeIterable(obj) {
-	    if (!lang_1.isJsObject(obj))
-	        return false;
-	    return lang_1.isArray(obj) ||
-	        (!(obj instanceof exports.Map) &&
-	            lang_1.getSymbolIterator() in obj); // JS Iterable have a Symbol.iterator prop
-	}
-	exports.isListLikeIterable = isListLikeIterable;
-	function areIterablesEqual(a, b, comparator) {
-	    var iterator1 = a[lang_1.getSymbolIterator()]();
-	    var iterator2 = b[lang_1.getSymbolIterator()]();
-	    while (true) {
-	        var item1 = iterator1.next();
-	        var item2 = iterator2.next();
-	        if (item1.done && item2.done)
-	            return true;
-	        if (item1.done || item2.done)
-	            return false;
-	        if (!comparator(item1.value, item2.value))
-	            return false;
-	    }
-	}
-	exports.areIterablesEqual = areIterablesEqual;
-	function iterateListLike(obj, fn) {
-	    if (lang_1.isArray(obj)) {
-	        for (var i = 0; i < obj.length; i++) {
-	            fn(obj[i]);
-	        }
-	    }
-	    else {
-	        var iterator = obj[lang_1.getSymbolIterator()]();
-	        var item;
-	        while (!((item = iterator.next()).done)) {
-	            fn(item.value);
-	        }
-	    }
-	}
-	exports.iterateListLike = iterateListLike;
-	// Safari and Internet Explorer do not support the iterable parameter to the
-	// Set constructor.  We work around that by manually adding the items.
-	var createSetFromList = (function () {
-	    var test = new exports.Set([1, 2, 3]);
-	    if (test.size === 3) {
-	        return function createSetFromList(lst) { return new exports.Set(lst); };
-	    }
-	    else {
-	        return function createSetAndPopulateFromList(lst) {
-	            var res = new exports.Set(lst);
-	            if (res.size !== lst.length) {
-	                for (var i = 0; i < lst.length; i++) {
-	                    res.add(lst[i]);
-	                }
-	            }
-	            return res;
-	        };
-	    }
-	})();
-	var SetWrapper = (function () {
-	    function SetWrapper() {
-	    }
-	    SetWrapper.createFromList = function (lst) { return createSetFromList(lst); };
-	    SetWrapper.has = function (s, key) { return s.has(key); };
-	    SetWrapper.delete = function (m, k) { m.delete(k); };
-	    return SetWrapper;
-	}());
-	exports.SetWrapper = SetWrapper;
-	//# sourceMappingURL=collection.js.map
-
-/***/ },
-/* 386 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var base_wrapped_exception_1 = __webpack_require__(387);
-	var exception_handler_1 = __webpack_require__(388);
-	var exception_handler_2 = __webpack_require__(388);
-	exports.ExceptionHandler = exception_handler_2.ExceptionHandler;
-	/**
-	 * @stable
-	 */
-	var BaseException = (function (_super) {
-	    __extends(BaseException, _super);
-	    function BaseException(message) {
-	        if (message === void 0) { message = '--'; }
-	        _super.call(this, message);
-	        this.message = message;
-	        this.stack = (new Error(message)).stack;
-	    }
-	    BaseException.prototype.toString = function () { return this.message; };
-	    return BaseException;
-	}(Error));
-	exports.BaseException = BaseException;
-	/**
-	 * Wraps an exception and provides additional context or information.
-	 * @stable
-	 */
-	var WrappedException = (function (_super) {
-	    __extends(WrappedException, _super);
-	    function WrappedException(_wrapperMessage, _originalException /** TODO #9100 */, _originalStack /** TODO #9100 */, _context /** TODO #9100 */) {
-	        _super.call(this, _wrapperMessage);
-	        this._wrapperMessage = _wrapperMessage;
-	        this._originalException = _originalException;
-	        this._originalStack = _originalStack;
-	        this._context = _context;
-	        this._wrapperStack = (new Error(_wrapperMessage)).stack;
-	    }
-	    Object.defineProperty(WrappedException.prototype, "wrapperMessage", {
-	        get: function () { return this._wrapperMessage; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(WrappedException.prototype, "wrapperStack", {
-	        get: function () { return this._wrapperStack; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(WrappedException.prototype, "originalException", {
-	        get: function () { return this._originalException; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(WrappedException.prototype, "originalStack", {
-	        get: function () { return this._originalStack; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(WrappedException.prototype, "context", {
-	        get: function () { return this._context; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(WrappedException.prototype, "message", {
-	        get: function () { return exception_handler_1.ExceptionHandler.exceptionToString(this); },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    WrappedException.prototype.toString = function () { return this.message; };
-	    return WrappedException;
-	}(base_wrapped_exception_1.BaseWrappedException));
-	exports.WrappedException = WrappedException;
-	function makeTypeError(message) {
-	    return new TypeError(message);
-	}
-	exports.makeTypeError = makeTypeError;
-	function unimplemented() {
-	    throw new BaseException('unimplemented');
-	}
-	exports.unimplemented = unimplemented;
-	//# sourceMappingURL=exceptions.js.map
-
-/***/ },
-/* 387 */
-/***/ function(module, exports) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	/**
-	 * A base class for the WrappedException that can be used to identify
-	 * a WrappedException from ExceptionHandler without adding circular
-	 * dependency.
-	 */
-	var BaseWrappedException = (function (_super) {
-	    __extends(BaseWrappedException, _super);
-	    function BaseWrappedException(message) {
-	        _super.call(this, message);
-	    }
-	    Object.defineProperty(BaseWrappedException.prototype, "wrapperMessage", {
-	        get: function () { return ''; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(BaseWrappedException.prototype, "wrapperStack", {
-	        get: function () { return null; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(BaseWrappedException.prototype, "originalException", {
-	        get: function () { return null; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(BaseWrappedException.prototype, "originalStack", {
-	        get: function () { return null; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(BaseWrappedException.prototype, "context", {
-	        get: function () { return null; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(BaseWrappedException.prototype, "message", {
-	        get: function () { return ''; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    return BaseWrappedException;
-	}(Error));
-	exports.BaseWrappedException = BaseWrappedException;
-	//# sourceMappingURL=base_wrapped_exception.js.map
-
-/***/ },
-/* 388 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	var base_wrapped_exception_1 = __webpack_require__(387);
-	var collection_1 = __webpack_require__(385);
-	var lang_1 = __webpack_require__(379);
-	var _ArrayLogger = (function () {
-	    function _ArrayLogger() {
-	        this.res = [];
-	    }
-	    _ArrayLogger.prototype.log = function (s) { this.res.push(s); };
-	    _ArrayLogger.prototype.logError = function (s) { this.res.push(s); };
-	    _ArrayLogger.prototype.logGroup = function (s) { this.res.push(s); };
-	    _ArrayLogger.prototype.logGroupEnd = function () { };
-	    ;
-	    return _ArrayLogger;
-	}());
-	/**
-	 * Provides a hook for centralized exception handling.
-	 *
-	 * The default implementation of `ExceptionHandler` prints error messages to the `Console`. To
-	 * intercept error handling,
-	 * write a custom exception handler that replaces this default as appropriate for your app.
-	 *
-	 * ### Example
-	 *
-	 * ```javascript
-	 *
-	 * class MyExceptionHandler implements ExceptionHandler {
-	 *   call(error, stackTrace = null, reason = null) {
-	 *     // do something with the exception
-	 *   }
-	 * }
-	 *
-	 * bootstrap(MyApp, [{provide: ExceptionHandler, useClass: MyExceptionHandler}])
-	 *
-	 * ```
-	 * @stable
-	 */
-	var ExceptionHandler = (function () {
-	    function ExceptionHandler(_logger, _rethrowException) {
-	        if (_rethrowException === void 0) { _rethrowException = true; }
-	        this._logger = _logger;
-	        this._rethrowException = _rethrowException;
-	    }
-	    ExceptionHandler.exceptionToString = function (exception, stackTrace, reason) {
-	        if (stackTrace === void 0) { stackTrace = null; }
-	        if (reason === void 0) { reason = null; }
-	        var l = new _ArrayLogger();
-	        var e = new ExceptionHandler(l, false);
-	        e.call(exception, stackTrace, reason);
-	        return l.res.join('\n');
-	    };
-	    ExceptionHandler.prototype.call = function (exception, stackTrace, reason) {
-	        if (stackTrace === void 0) { stackTrace = null; }
-	        if (reason === void 0) { reason = null; }
-	        var originalException = this._findOriginalException(exception);
-	        var originalStack = this._findOriginalStack(exception);
-	        var context = this._findContext(exception);
-	        this._logger.logGroup("EXCEPTION: " + this._extractMessage(exception));
-	        if (lang_1.isPresent(stackTrace) && lang_1.isBlank(originalStack)) {
-	            this._logger.logError('STACKTRACE:');
-	            this._logger.logError(this._longStackTrace(stackTrace));
-	        }
-	        if (lang_1.isPresent(reason)) {
-	            this._logger.logError("REASON: " + reason);
-	        }
-	        if (lang_1.isPresent(originalException)) {
-	            this._logger.logError("ORIGINAL EXCEPTION: " + this._extractMessage(originalException));
-	        }
-	        if (lang_1.isPresent(originalStack)) {
-	            this._logger.logError('ORIGINAL STACKTRACE:');
-	            this._logger.logError(this._longStackTrace(originalStack));
-	        }
-	        if (lang_1.isPresent(context)) {
-	            this._logger.logError('ERROR CONTEXT:');
-	            this._logger.logError(context);
-	        }
-	        this._logger.logGroupEnd();
-	        // We rethrow exceptions, so operations like 'bootstrap' will result in an error
-	        // when an exception happens. If we do not rethrow, bootstrap will always succeed.
-	        if (this._rethrowException)
-	            throw exception;
-	    };
-	    /** @internal */
-	    ExceptionHandler.prototype._extractMessage = function (exception) {
-	        return exception instanceof base_wrapped_exception_1.BaseWrappedException ? exception.wrapperMessage :
-	            exception.toString();
-	    };
-	    /** @internal */
-	    ExceptionHandler.prototype._longStackTrace = function (stackTrace) {
-	        return collection_1.isListLikeIterable(stackTrace) ? stackTrace.join('\n\n-----async gap-----\n') :
-	            stackTrace.toString();
-	    };
-	    /** @internal */
-	    ExceptionHandler.prototype._findContext = function (exception) {
-	        try {
-	            if (!(exception instanceof base_wrapped_exception_1.BaseWrappedException))
-	                return null;
-	            return lang_1.isPresent(exception.context) ? exception.context :
-	                this._findContext(exception.originalException);
-	        }
-	        catch (e) {
-	            // exception.context can throw an exception. if it happens, we ignore the context.
-	            return null;
-	        }
-	    };
-	    /** @internal */
-	    ExceptionHandler.prototype._findOriginalException = function (exception) {
-	        if (!(exception instanceof base_wrapped_exception_1.BaseWrappedException))
-	            return null;
-	        var e = exception.originalException;
-	        while (e instanceof base_wrapped_exception_1.BaseWrappedException && lang_1.isPresent(e.originalException)) {
-	            e = e.originalException;
-	        }
-	        return e;
-	    };
-	    /** @internal */
-	    ExceptionHandler.prototype._findOriginalStack = function (exception) {
-	        if (!(exception instanceof base_wrapped_exception_1.BaseWrappedException))
-	            return null;
-	        var e = exception;
-	        var stack = exception.originalStack;
-	        while (e instanceof base_wrapped_exception_1.BaseWrappedException && lang_1.isPresent(e.originalException)) {
-	            e = e.originalException;
-	            if (e instanceof base_wrapped_exception_1.BaseWrappedException && lang_1.isPresent(e.originalException)) {
-	                stack = e.originalStack;
-	            }
-	        }
-	        return stack;
-	    };
-	    return ExceptionHandler;
-	}());
-	exports.ExceptionHandler = ExceptionHandler;
-	//# sourceMappingURL=exception_handler.js.map
-
-/***/ },
-/* 389 */
-/***/ function(module, exports) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	/**
-	 * Abstract class from which real backends are derived.
-	 *
-	 * The primary purpose of a `ConnectionBackend` is to create new connections to fulfill a given
-	 * {@link Request}.
-	 *
-	 * @experimental
-	 */
-	var ConnectionBackend = (function () {
-	    function ConnectionBackend() {
-	    }
-	    return ConnectionBackend;
-	}());
-	exports.ConnectionBackend = ConnectionBackend;
-	/**
-	 * Abstract class from which real connections are derived.
-	 *
-	 * @experimental
-	 */
-	var Connection = (function () {
-	    function Connection() {
-	    }
-	    return Connection;
-	}());
-	exports.Connection = Connection;
-	/**
-	 * An XSRFStrategy configures XSRF protection (e.g. via headers) on an HTTP request.
-	 *
-	 * @experimental
-	 */
-	var XSRFStrategy = (function () {
-	    function XSRFStrategy() {
-	    }
-	    return XSRFStrategy;
-	}());
-	exports.XSRFStrategy = XSRFStrategy;
-	//# sourceMappingURL=interfaces.js.map
-
-/***/ },
-/* 390 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var body_1 = __webpack_require__(391);
-	/**
-	 * Creates `Response` instances from provided values.
-	 *
-	 * Though this object isn't
-	 * usually instantiated by end-users, it is the primary object interacted with when it comes time to
-	 * add data to a view.
-	 *
-	 * ### Example
-	 *
-	 * ```
-	 * http.request('my-friends.txt').subscribe(response => this.friends = response.text());
-	 * ```
-	 *
-	 * The Response's interface is inspired by the Response constructor defined in the [Fetch
-	 * Spec](https://fetch.spec.whatwg.org/#response-class), but is considered a static value whose body
-	 * can be accessed many times. There are other differences in the implementation, but this is the
-	 * most significant.
-	 *
-	 * @experimental
-	 */
-	var Response = (function (_super) {
-	    __extends(Response, _super);
-	    function Response(responseOptions) {
-	        _super.call(this);
-	        this._body = responseOptions.body;
-	        this.status = responseOptions.status;
-	        this.ok = (this.status >= 200 && this.status <= 299);
-	        this.statusText = responseOptions.statusText;
-	        this.headers = responseOptions.headers;
-	        this.type = responseOptions.type;
-	        this.url = responseOptions.url;
-	    }
-	    Response.prototype.toString = function () {
-	        return "Response with status: " + this.status + " " + this.statusText + " for URL: " + this.url;
-	    };
-	    return Response;
-	}(body_1.Body));
-	exports.Response = Response;
-	//# sourceMappingURL=static_response.js.map
-
-/***/ },
-/* 391 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	var lang_1 = __webpack_require__(379);
-	var http_utils_1 = __webpack_require__(392);
-	var url_search_params_1 = __webpack_require__(393);
-	/**
-	 * HTTP request body used by both {@link Request} and {@link Response}
-	 * https://fetch.spec.whatwg.org/#body
-	 */
-	var Body = (function () {
-	    function Body() {
-	    }
-	    /**
-	     * Attempts to return body as parsed `JSON` object, or raises an exception.
-	     */
-	    Body.prototype.json = function () {
-	        if (lang_1.isString(this._body)) {
-	            return lang_1.Json.parse(this._body);
-	        }
-	        if (this._body instanceof ArrayBuffer) {
-	            return lang_1.Json.parse(this.text());
-	        }
-	        return this._body;
-	    };
-	    /**
-	     * Returns the body as a string, presuming `toString()` can be called on the response body.
-	     */
-	    Body.prototype.text = function () {
-	        if (this._body instanceof url_search_params_1.URLSearchParams) {
-	            return this._body.toString();
-	        }
-	        if (this._body instanceof ArrayBuffer) {
-	            return String.fromCharCode.apply(null, new Uint16Array(this._body));
-	        }
-	        if (http_utils_1.isJsObject(this._body)) {
-	            return lang_1.Json.stringify(this._body);
-	        }
-	        return this._body.toString();
-	    };
-	    /**
-	     * Return the body as an ArrayBuffer
-	     */
-	    Body.prototype.arrayBuffer = function () {
-	        if (this._body instanceof ArrayBuffer) {
-	            return this._body;
-	        }
-	        return http_utils_1.stringToArrayBuffer(this.text());
-	    };
-	    /**
-	      * Returns the request's body as a Blob, assuming that body exists.
-	      */
-	    Body.prototype.blob = function () {
-	        if (this._body instanceof Blob) {
-	            return this._body;
-	        }
-	        if (this._body instanceof ArrayBuffer) {
-	            return new Blob([this._body]);
-	        }
-	        throw new Error('The request body isn\'t either a blob or an array buffer');
-	    };
-	    return Body;
-	}());
-	exports.Body = Body;
-	//# sourceMappingURL=body.js.map
-
-/***/ },
-/* 392 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	var exceptions_1 = __webpack_require__(386);
-	var lang_1 = __webpack_require__(379);
-	var enums_1 = __webpack_require__(383);
-	function normalizeMethodName(method) {
-	    if (lang_1.isString(method)) {
-	        var originalMethod = method;
-	        method = method
-	            .replace(/(\w)(\w*)/g, function (g0, g1, g2) { return g1.toUpperCase() + g2.toLowerCase(); });
-	        method = enums_1.RequestMethod[method];
-	        if (typeof method !== 'number')
-	            throw exceptions_1.makeTypeError("Invalid request method. The method \"" + originalMethod + "\" is not supported.");
-	    }
-	    return method;
-	}
-	exports.normalizeMethodName = normalizeMethodName;
-	exports.isSuccess = function (status) { return (status >= 200 && status < 300); };
-	function getResponseURL(xhr) {
-	    if ('responseURL' in xhr) {
-	        return xhr.responseURL;
-	    }
-	    if (/^X-Request-URL:/m.test(xhr.getAllResponseHeaders())) {
-	        return xhr.getResponseHeader('X-Request-URL');
-	    }
-	    return;
-	}
-	exports.getResponseURL = getResponseURL;
-	function stringToArrayBuffer(input) {
-	    var view = new Uint16Array(input.length);
-	    for (var i = 0, strLen = input.length; i < strLen; i++) {
-	        view[i] = input.charCodeAt(i);
-	    }
-	    return view.buffer;
-	}
-	exports.stringToArrayBuffer = stringToArrayBuffer;
-	var lang_2 = __webpack_require__(379);
-	exports.isJsObject = lang_2.isJsObject;
-	//# sourceMappingURL=http_utils.js.map
-
-/***/ },
-/* 393 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	var collection_1 = __webpack_require__(385);
-	var lang_1 = __webpack_require__(379);
-	function paramParser(rawParams) {
-	    if (rawParams === void 0) { rawParams = ''; }
-	    var map = new collection_1.Map();
-	    if (rawParams.length > 0) {
-	        var params = rawParams.split('&');
-	        params.forEach(function (param) {
-	            var eqIdx = param.indexOf('=');
-	            var _a = eqIdx == -1 ? [param, ''] : [param.slice(0, eqIdx), param.slice(eqIdx + 1)], key = _a[0], val = _a[1];
-	            var list = map.get(key) || [];
-	            list.push(val);
-	            map.set(key, list);
-	        });
-	    }
-	    return map;
-	}
-	/**
-	 * @experimental
-	 **/
-	var QueryEncoder = (function () {
-	    function QueryEncoder() {
-	    }
-	    QueryEncoder.prototype.encodeKey = function (k) { return standardEncoding(k); };
-	    QueryEncoder.prototype.encodeValue = function (v) { return standardEncoding(v); };
-	    return QueryEncoder;
-	}());
-	exports.QueryEncoder = QueryEncoder;
-	function standardEncoding(v) {
-	    return encodeURIComponent(v)
-	        .replace(/%40/gi, '@')
-	        .replace(/%3A/gi, ':')
-	        .replace(/%24/gi, '$')
-	        .replace(/%2C/gi, ',')
-	        .replace(/%3B/gi, ';')
-	        .replace(/%2B/gi, '+')
-	        .replace(/%3D/gi, ';')
-	        .replace(/%3F/gi, '?')
-	        .replace(/%2F/gi, '/');
-	}
-	/**
-	 * Map-like representation of url search parameters, based on
-	 * [URLSearchParams](https://url.spec.whatwg.org/#urlsearchparams) in the url living standard,
-	 * with several extensions for merging URLSearchParams objects:
-	 *   - setAll()
-	 *   - appendAll()
-	 *   - replaceAll()
-	 *
-	 * This class accepts an optional second parameter of ${@link QueryEncoder},
-	 * which is used to serialize parameters before making a request. By default,
-	 * `QueryEncoder` encodes keys and values of parameters using `encodeURIComponent`,
-	 * and then un-encodes certain characters that are allowed to be part of the query
-	 * according to IETF RFC 3986: https://tools.ietf.org/html/rfc3986.
-	 *
-	 * These are the characters that are not encoded: `! $ \' ( ) * + , ; A 9 - . _ ~ ? /`
-	 *
-	 * If the set of allowed query characters is not acceptable for a particular backend,
-	 * `QueryEncoder` can be subclassed and provided as the 2nd argument to URLSearchParams.
-	 *
-	 * ```
-	 * import {URLSearchParams, QueryEncoder} from '@angular/http';
-	 * class MyQueryEncoder extends QueryEncoder {
-	 *   encodeKey(k: string): string {
-	 *     return myEncodingFunction(k);
-	 *   }
-	 *
-	 *   encodeValue(v: string): string {
-	 *     return myEncodingFunction(v);
-	 *   }
-	 * }
-	 *
-	 * let params = new URLSearchParams('', new MyQueryEncoder());
-	 * ```
-	 * @experimental
-	 */
-	var URLSearchParams = (function () {
-	    function URLSearchParams(rawParams, queryEncoder) {
-	        if (rawParams === void 0) { rawParams = ''; }
-	        if (queryEncoder === void 0) { queryEncoder = new QueryEncoder(); }
-	        this.rawParams = rawParams;
-	        this.queryEncoder = queryEncoder;
-	        this.paramsMap = paramParser(rawParams);
-	    }
-	    URLSearchParams.prototype.clone = function () {
-	        var clone = new URLSearchParams('', this.queryEncoder);
-	        clone.appendAll(this);
-	        return clone;
-	    };
-	    URLSearchParams.prototype.has = function (param) { return this.paramsMap.has(param); };
-	    URLSearchParams.prototype.get = function (param) {
-	        var storedParam = this.paramsMap.get(param);
-	        if (collection_1.isListLikeIterable(storedParam)) {
-	            return collection_1.ListWrapper.first(storedParam);
-	        }
-	        else {
-	            return null;
-	        }
-	    };
-	    URLSearchParams.prototype.getAll = function (param) {
-	        var mapParam = this.paramsMap.get(param);
-	        return lang_1.isPresent(mapParam) ? mapParam : [];
-	    };
-	    URLSearchParams.prototype.set = function (param, val) {
-	        var mapParam = this.paramsMap.get(param);
-	        var list = lang_1.isPresent(mapParam) ? mapParam : [];
-	        collection_1.ListWrapper.clear(list);
-	        list.push(val);
-	        this.paramsMap.set(param, list);
-	    };
-	    // A merge operation
-	    // For each name-values pair in `searchParams`, perform `set(name, values[0])`
-	    //
-	    // E.g: "a=[1,2,3], c=[8]" + "a=[4,5,6], b=[7]" = "a=[4], c=[8], b=[7]"
-	    //
-	    // TODO(@caitp): document this better
-	    URLSearchParams.prototype.setAll = function (searchParams) {
-	        var _this = this;
-	        searchParams.paramsMap.forEach(function (value, param) {
-	            var mapParam = _this.paramsMap.get(param);
-	            var list = lang_1.isPresent(mapParam) ? mapParam : [];
-	            collection_1.ListWrapper.clear(list);
-	            list.push(value[0]);
-	            _this.paramsMap.set(param, list);
-	        });
-	    };
-	    URLSearchParams.prototype.append = function (param, val) {
-	        var mapParam = this.paramsMap.get(param);
-	        var list = lang_1.isPresent(mapParam) ? mapParam : [];
-	        list.push(val);
-	        this.paramsMap.set(param, list);
-	    };
-	    // A merge operation
-	    // For each name-values pair in `searchParams`, perform `append(name, value)`
-	    // for each value in `values`.
-	    //
-	    // E.g: "a=[1,2], c=[8]" + "a=[3,4], b=[7]" = "a=[1,2,3,4], c=[8], b=[7]"
-	    //
-	    // TODO(@caitp): document this better
-	    URLSearchParams.prototype.appendAll = function (searchParams) {
-	        var _this = this;
-	        searchParams.paramsMap.forEach(function (value, param) {
-	            var mapParam = _this.paramsMap.get(param);
-	            var list = lang_1.isPresent(mapParam) ? mapParam : [];
-	            for (var i = 0; i < value.length; ++i) {
-	                list.push(value[i]);
-	            }
-	            _this.paramsMap.set(param, list);
-	        });
-	    };
-	    // A merge operation
-	    // For each name-values pair in `searchParams`, perform `delete(name)`,
-	    // followed by `set(name, values)`
-	    //
-	    // E.g: "a=[1,2,3], c=[8]" + "a=[4,5,6], b=[7]" = "a=[4,5,6], c=[8], b=[7]"
-	    //
-	    // TODO(@caitp): document this better
-	    URLSearchParams.prototype.replaceAll = function (searchParams) {
-	        var _this = this;
-	        searchParams.paramsMap.forEach(function (value, param) {
-	            var mapParam = _this.paramsMap.get(param);
-	            var list = lang_1.isPresent(mapParam) ? mapParam : [];
-	            collection_1.ListWrapper.clear(list);
-	            for (var i = 0; i < value.length; ++i) {
-	                list.push(value[i]);
-	            }
-	            _this.paramsMap.set(param, list);
-	        });
-	    };
-	    URLSearchParams.prototype.toString = function () {
-	        var _this = this;
-	        var paramsList = [];
-	        this.paramsMap.forEach(function (values, k) {
-	            values.forEach(function (v) { return paramsList.push(_this.queryEncoder.encodeKey(k) + '=' + _this.queryEncoder.encodeValue(v)); });
-	        });
-	        return paramsList.join('&');
-	    };
-	    URLSearchParams.prototype.delete = function (param) { this.paramsMap.delete(param); };
-	    return URLSearchParams;
-	}());
-	exports.URLSearchParams = URLSearchParams;
-	//# sourceMappingURL=url_search_params.js.map
-
-/***/ },
-/* 394 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	var core_1 = __webpack_require__(11);
-	var platform_browser_1 = __webpack_require__(203);
-	var Observable_1 = __webpack_require__(70);
-	var base_response_options_1 = __webpack_require__(382);
-	var enums_1 = __webpack_require__(383);
-	var lang_1 = __webpack_require__(379);
-	var headers_1 = __webpack_require__(384);
-	var http_utils_1 = __webpack_require__(392);
-	var interfaces_1 = __webpack_require__(389);
-	var static_response_1 = __webpack_require__(390);
-	var browser_xhr_1 = __webpack_require__(380);
-	var XSSI_PREFIX = /^\)\]\}',?\n/;
-	/**
-	 * Creates connections using `XMLHttpRequest`. Given a fully-qualified
-	 * request, an `XHRConnection` will immediately create an `XMLHttpRequest` object and send the
-	 * request.
-	 *
-	 * This class would typically not be created or interacted with directly inside applications, though
-	 * the {@link MockConnection} may be interacted with in tests.
-	 *
-	 * @experimental
-	 */
-	var XHRConnection = (function () {
-	    function XHRConnection(req, browserXHR, baseResponseOptions) {
-	        var _this = this;
-	        this.request = req;
-	        this.response = new Observable_1.Observable(function (responseObserver) {
-	            var _xhr = browserXHR.build();
-	            _xhr.open(enums_1.RequestMethod[req.method].toUpperCase(), req.url);
-	            if (lang_1.isPresent(req.withCredentials)) {
-	                _xhr.withCredentials = req.withCredentials;
-	            }
-	            // load event handler
-	            var onLoad = function () {
-	                // responseText is the old-school way of retrieving response (supported by IE8 & 9)
-	                // response/responseType properties were introduced in XHR Level2 spec (supported by
-	                // IE10)
-	                var body = lang_1.isPresent(_xhr.response) ? _xhr.response : _xhr.responseText;
-	                // Implicitly strip a potential XSSI prefix.
-	                if (lang_1.isString(body))
-	                    body = body.replace(XSSI_PREFIX, '');
-	                var headers = headers_1.Headers.fromResponseHeaderString(_xhr.getAllResponseHeaders());
-	                var url = http_utils_1.getResponseURL(_xhr);
-	                // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
-	                var status = _xhr.status === 1223 ? 204 : _xhr.status;
-	                // fix status code when it is 0 (0 status is undocumented).
-	                // Occurs when accessing file resources or on Android 4.1 stock browser
-	                // while retrieving files from application cache.
-	                if (status === 0) {
-	                    status = body ? 200 : 0;
-	                }
-	                var statusText = _xhr.statusText || 'OK';
-	                var responseOptions = new base_response_options_1.ResponseOptions({ body: body, status: status, headers: headers, statusText: statusText, url: url });
-	                if (lang_1.isPresent(baseResponseOptions)) {
-	                    responseOptions = baseResponseOptions.merge(responseOptions);
-	                }
-	                var response = new static_response_1.Response(responseOptions);
-	                response.ok = http_utils_1.isSuccess(status);
-	                if (response.ok) {
-	                    responseObserver.next(response);
-	                    // TODO(gdi2290): defer complete if array buffer until done
-	                    responseObserver.complete();
-	                    return;
-	                }
-	                responseObserver.error(response);
-	            };
-	            // error event handler
-	            var onError = function (err) {
-	                var responseOptions = new base_response_options_1.ResponseOptions({
-	                    body: err,
-	                    type: enums_1.ResponseType.Error,
-	                    status: _xhr.status,
-	                    statusText: _xhr.statusText,
-	                });
-	                if (lang_1.isPresent(baseResponseOptions)) {
-	                    responseOptions = baseResponseOptions.merge(responseOptions);
-	                }
-	                responseObserver.error(new static_response_1.Response(responseOptions));
-	            };
-	            _this.setDetectedContentType(req, _xhr);
-	            if (lang_1.isPresent(req.headers)) {
-	                req.headers.forEach(function (values, name) { return _xhr.setRequestHeader(name, values.join(',')); });
-	            }
-	            // Select the correct buffer type to store the response
-	            if (lang_1.isPresent(req.responseType) && lang_1.isPresent(_xhr.responseType)) {
-	                switch (req.responseType) {
-	                    case enums_1.ResponseContentType.ArrayBuffer:
-	                        _xhr.responseType = 'arraybuffer';
-	                        break;
-	                    case enums_1.ResponseContentType.Json:
-	                        _xhr.responseType = 'json';
-	                        break;
-	                    case enums_1.ResponseContentType.Text:
-	                        _xhr.responseType = 'text';
-	                        break;
-	                    case enums_1.ResponseContentType.Blob:
-	                        _xhr.responseType = 'blob';
-	                        break;
-	                    default:
-	                        throw new Error('The selected responseType is not supported');
-	                }
-	            }
-	            _xhr.addEventListener('load', onLoad);
-	            _xhr.addEventListener('error', onError);
-	            _xhr.send(_this.request.getBody());
-	            return function () {
-	                _xhr.removeEventListener('load', onLoad);
-	                _xhr.removeEventListener('error', onError);
-	                _xhr.abort();
-	            };
-	        });
-	    }
-	    XHRConnection.prototype.setDetectedContentType = function (req /** TODO #9100 */, _xhr /** TODO #9100 */) {
-	        // Skip if a custom Content-Type header is provided
-	        if (lang_1.isPresent(req.headers) && lang_1.isPresent(req.headers.get('Content-Type'))) {
-	            return;
-	        }
-	        // Set the detected content type
-	        switch (req.contentType) {
-	            case enums_1.ContentType.NONE:
-	                break;
-	            case enums_1.ContentType.JSON:
-	                _xhr.setRequestHeader('content-type', 'application/json');
-	                break;
-	            case enums_1.ContentType.FORM:
-	                _xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
-	                break;
-	            case enums_1.ContentType.TEXT:
-	                _xhr.setRequestHeader('content-type', 'text/plain');
-	                break;
-	            case enums_1.ContentType.BLOB:
-	                var blob = req.blob();
-	                if (blob.type) {
-	                    _xhr.setRequestHeader('content-type', blob.type);
-	                }
-	                break;
-	        }
-	    };
-	    return XHRConnection;
-	}());
-	exports.XHRConnection = XHRConnection;
-	/**
-	 * `XSRFConfiguration` sets up Cross Site Request Forgery (XSRF) protection for the application
-	 * using a cookie. See {@link https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)}
-	 * for more information on XSRF.
-	 *
-	 * Applications can configure custom cookie and header names by binding an instance of this class
-	 * with different `cookieName` and `headerName` values. See the main HTTP documentation for more
-	 * details.
-	 *
-	 * @experimental
-	 */
-	var CookieXSRFStrategy = (function () {
-	    function CookieXSRFStrategy(_cookieName, _headerName) {
-	        if (_cookieName === void 0) { _cookieName = 'XSRF-TOKEN'; }
-	        if (_headerName === void 0) { _headerName = 'X-XSRF-TOKEN'; }
-	        this._cookieName = _cookieName;
-	        this._headerName = _headerName;
-	    }
-	    CookieXSRFStrategy.prototype.configureRequest = function (req) {
-	        var xsrfToken = platform_browser_1.__platform_browser_private__.getDOM().getCookie(this._cookieName);
-	        if (xsrfToken && !req.headers.has(this._headerName)) {
-	            req.headers.set(this._headerName, xsrfToken);
-	        }
-	    };
-	    return CookieXSRFStrategy;
-	}());
-	exports.CookieXSRFStrategy = CookieXSRFStrategy;
-	var XHRBackend = (function () {
-	    function XHRBackend(_browserXHR, _baseResponseOptions, _xsrfStrategy) {
-	        this._browserXHR = _browserXHR;
-	        this._baseResponseOptions = _baseResponseOptions;
-	        this._xsrfStrategy = _xsrfStrategy;
-	    }
-	    XHRBackend.prototype.createConnection = function (request) {
-	        this._xsrfStrategy.configureRequest(request);
-	        return new XHRConnection(request, this._browserXHR, this._baseResponseOptions);
-	    };
-	    /** @nocollapse */
-	    XHRBackend.decorators = [
-	        { type: core_1.Injectable },
-	    ];
-	    /** @nocollapse */
-	    XHRBackend.ctorParameters = [
-	        { type: browser_xhr_1.BrowserXhr, },
-	        { type: base_response_options_1.ResponseOptions, },
-	        { type: interfaces_1.XSRFStrategy, },
-	    ];
-	    return XHRBackend;
-	}());
-	exports.XHRBackend = XHRBackend;
-	//# sourceMappingURL=xhr_backend.js.map
-
-/***/ },
-/* 395 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var core_1 = __webpack_require__(11);
-	var lang_1 = __webpack_require__(379);
-	var enums_1 = __webpack_require__(383);
-	var headers_1 = __webpack_require__(384);
-	var http_utils_1 = __webpack_require__(392);
-	var url_search_params_1 = __webpack_require__(393);
-	/**
-	 * Creates a request options object to be optionally provided when instantiating a
-	 * {@link Request}.
-	 *
-	 * This class is based on the `RequestInit` description in the [Fetch
-	 * Spec](https://fetch.spec.whatwg.org/#requestinit).
-	 *
-	 * All values are null by default. Typical defaults can be found in the {@link BaseRequestOptions}
-	 * class, which sub-classes `RequestOptions`.
-	 *
-	 * ### Example ([live demo](http://plnkr.co/edit/7Wvi3lfLq41aQPKlxB4O?p=preview))
-	 *
-	 * ```typescript
-	 * import {RequestOptions, Request, RequestMethod} from '@angular/http';
-	 *
-	 * var options = new RequestOptions({
-	 *   method: RequestMethod.Post,
-	 *   url: 'https://google.com'
-	 * });
-	 * var req = new Request(options);
-	 * console.log('req.method:', RequestMethod[req.method]); // Post
-	 * console.log('options.url:', options.url); // https://google.com
-	 * ```
-	 *
-	 * @experimental
-	 */
-	var RequestOptions = (function () {
-	    function RequestOptions(_a) {
-	        var _b = _a === void 0 ? {} : _a, method = _b.method, headers = _b.headers, body = _b.body, url = _b.url, search = _b.search, withCredentials = _b.withCredentials, responseType = _b.responseType;
-	        this.method = lang_1.isPresent(method) ? http_utils_1.normalizeMethodName(method) : null;
-	        this.headers = lang_1.isPresent(headers) ? headers : null;
-	        this.body = lang_1.isPresent(body) ? body : null;
-	        this.url = lang_1.isPresent(url) ? url : null;
-	        this.search = lang_1.isPresent(search) ?
-	            (lang_1.isString(search) ? new url_search_params_1.URLSearchParams((search)) : (search)) :
-	            null;
-	        this.withCredentials = lang_1.isPresent(withCredentials) ? withCredentials : null;
-	        this.responseType = lang_1.isPresent(responseType) ? responseType : null;
-	    }
-	    /**
-	     * Creates a copy of the `RequestOptions` instance, using the optional input as values to override
-	     * existing values. This method will not change the values of the instance on which it is being
-	     * called.
-	     *
-	     * Note that `headers` and `search` will override existing values completely if present in
-	     * the `options` object. If these values should be merged, it should be done prior to calling
-	     * `merge` on the `RequestOptions` instance.
-	     *
-	     * ### Example ([live demo](http://plnkr.co/edit/6w8XA8YTkDRcPYpdB9dk?p=preview))
-	     *
-	     * ```typescript
-	     * import {RequestOptions, Request, RequestMethod} from '@angular/http';
-	     *
-	     * var options = new RequestOptions({
-	     *   method: RequestMethod.Post
-	     * });
-	     * var req = new Request(options.merge({
-	     *   url: 'https://google.com'
-	     * }));
-	     * console.log('req.method:', RequestMethod[req.method]); // Post
-	     * console.log('options.url:', options.url); // null
-	     * console.log('req.url:', req.url); // https://google.com
-	     * ```
-	     */
-	    RequestOptions.prototype.merge = function (options) {
-	        return new RequestOptions({
-	            method: lang_1.isPresent(options) && lang_1.isPresent(options.method) ? options.method : this.method,
-	            headers: lang_1.isPresent(options) && lang_1.isPresent(options.headers) ? options.headers : this.headers,
-	            body: lang_1.isPresent(options) && lang_1.isPresent(options.body) ? options.body : this.body,
-	            url: lang_1.isPresent(options) && lang_1.isPresent(options.url) ? options.url : this.url,
-	            search: lang_1.isPresent(options) && lang_1.isPresent(options.search) ?
-	                (lang_1.isString(options.search) ? new url_search_params_1.URLSearchParams((options.search)) :
-	                    (options.search).clone()) :
-	                this.search,
-	            withCredentials: lang_1.isPresent(options) && lang_1.isPresent(options.withCredentials) ?
-	                options.withCredentials :
-	                this.withCredentials,
-	            responseType: lang_1.isPresent(options) && lang_1.isPresent(options.responseType) ? options.responseType :
-	                this.responseType
-	        });
-	    };
-	    return RequestOptions;
-	}());
-	exports.RequestOptions = RequestOptions;
-	var BaseRequestOptions = (function (_super) {
-	    __extends(BaseRequestOptions, _super);
-	    function BaseRequestOptions() {
-	        _super.call(this, { method: enums_1.RequestMethod.Get, headers: new headers_1.Headers() });
-	    }
-	    /** @nocollapse */
-	    BaseRequestOptions.decorators = [
-	        { type: core_1.Injectable },
-	    ];
-	    /** @nocollapse */
-	    BaseRequestOptions.ctorParameters = [];
-	    return BaseRequestOptions;
-	}(RequestOptions));
-	exports.BaseRequestOptions = BaseRequestOptions;
-	//# sourceMappingURL=base_request_options.js.map
-
-/***/ },
-/* 396 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var core_1 = __webpack_require__(11);
-	var exceptions_1 = __webpack_require__(386);
-	var lang_1 = __webpack_require__(379);
-	var base_request_options_1 = __webpack_require__(395);
-	var enums_1 = __webpack_require__(383);
-	var interfaces_1 = __webpack_require__(389);
-	var static_request_1 = __webpack_require__(397);
-	function httpRequest(backend, request) {
-	    return backend.createConnection(request).response;
-	}
-	function mergeOptions(defaultOpts, providedOpts, method, url) {
-	    var newOptions = defaultOpts;
-	    if (lang_1.isPresent(providedOpts)) {
-	        // Hack so Dart can used named parameters
-	        return newOptions.merge(new base_request_options_1.RequestOptions({
-	            method: providedOpts.method || method,
-	            url: providedOpts.url || url,
-	            search: providedOpts.search,
-	            headers: providedOpts.headers,
-	            body: providedOpts.body,
-	            withCredentials: providedOpts.withCredentials,
-	            responseType: providedOpts.responseType
-	        }));
-	    }
-	    if (lang_1.isPresent(method)) {
-	        return newOptions.merge(new base_request_options_1.RequestOptions({ method: method, url: url }));
-	    }
-	    else {
-	        return newOptions.merge(new base_request_options_1.RequestOptions({ url: url }));
-	    }
-	}
-	var Http = (function () {
-	    function Http(_backend, _defaultOptions) {
-	        this._backend = _backend;
-	        this._defaultOptions = _defaultOptions;
-	    }
-	    /**
-	     * Performs any type of http request. First argument is required, and can either be a url or
-	     * a {@link Request} instance. If the first argument is a url, an optional {@link RequestOptions}
-	     * object can be provided as the 2nd argument. The options object will be merged with the values
-	     * of {@link BaseRequestOptions} before performing the request.
-	     */
-	    Http.prototype.request = function (url, options) {
-	        var responseObservable;
-	        if (lang_1.isString(url)) {
-	            responseObservable = httpRequest(this._backend, new static_request_1.Request(mergeOptions(this._defaultOptions, options, enums_1.RequestMethod.Get, url)));
-	        }
-	        else if (url instanceof static_request_1.Request) {
-	            responseObservable = httpRequest(this._backend, url);
-	        }
-	        else {
-	            throw exceptions_1.makeTypeError('First argument must be a url string or Request instance.');
-	        }
-	        return responseObservable;
-	    };
-	    /**
-	     * Performs a request with `get` http method.
-	     */
-	    Http.prototype.get = function (url, options) {
-	        return httpRequest(this._backend, new static_request_1.Request(mergeOptions(this._defaultOptions, options, enums_1.RequestMethod.Get, url)));
-	    };
-	    /**
-	     * Performs a request with `post` http method.
-	     */
-	    Http.prototype.post = function (url, body, options) {
-	        return httpRequest(this._backend, new static_request_1.Request(mergeOptions(this._defaultOptions.merge(new base_request_options_1.RequestOptions({ body: body })), options, enums_1.RequestMethod.Post, url)));
-	    };
-	    /**
-	     * Performs a request with `put` http method.
-	     */
-	    Http.prototype.put = function (url, body, options) {
-	        return httpRequest(this._backend, new static_request_1.Request(mergeOptions(this._defaultOptions.merge(new base_request_options_1.RequestOptions({ body: body })), options, enums_1.RequestMethod.Put, url)));
-	    };
-	    /**
-	     * Performs a request with `delete` http method.
-	     */
-	    Http.prototype.delete = function (url, options) {
-	        return httpRequest(this._backend, new static_request_1.Request(mergeOptions(this._defaultOptions, options, enums_1.RequestMethod.Delete, url)));
-	    };
-	    /**
-	     * Performs a request with `patch` http method.
-	     */
-	    Http.prototype.patch = function (url, body, options) {
-	        return httpRequest(this._backend, new static_request_1.Request(mergeOptions(this._defaultOptions.merge(new base_request_options_1.RequestOptions({ body: body })), options, enums_1.RequestMethod.Patch, url)));
-	    };
-	    /**
-	     * Performs a request with `head` http method.
-	     */
-	    Http.prototype.head = function (url, options) {
-	        return httpRequest(this._backend, new static_request_1.Request(mergeOptions(this._defaultOptions, options, enums_1.RequestMethod.Head, url)));
-	    };
-	    /**
-	     * Performs a request with `options` http method.
-	     */
-	    Http.prototype.options = function (url, options) {
-	        return httpRequest(this._backend, new static_request_1.Request(mergeOptions(this._defaultOptions, options, enums_1.RequestMethod.Options, url)));
-	    };
-	    /** @nocollapse */
-	    Http.decorators = [
-	        { type: core_1.Injectable },
-	    ];
-	    /** @nocollapse */
-	    Http.ctorParameters = [
-	        { type: interfaces_1.ConnectionBackend, },
-	        { type: base_request_options_1.RequestOptions, },
-	    ];
-	    return Http;
-	}());
-	exports.Http = Http;
-	var Jsonp = (function (_super) {
-	    __extends(Jsonp, _super);
-	    function Jsonp(backend, defaultOptions) {
-	        _super.call(this, backend, defaultOptions);
-	    }
-	    /**
-	     * Performs any type of http request. First argument is required, and can either be a url or
-	     * a {@link Request} instance. If the first argument is a url, an optional {@link RequestOptions}
-	     * object can be provided as the 2nd argument. The options object will be merged with the values
-	     * of {@link BaseRequestOptions} before performing the request.
-	     *
-	     * @security Regular XHR is the safest alternative to JSONP for most applications, and is
-	     * supported by all current browsers. Because JSONP creates a `<script>` element with
-	     * contents retrieved from a remote source, attacker-controlled data introduced by an untrusted
-	     * source could expose your application to XSS risks. Data exposed by JSONP may also be
-	     * readable by malicious third-party websites. In addition, JSONP introduces potential risk for
-	     * future security issues (e.g. content sniffing).  For more detail, see the
-	     * [Security Guide](http://g.co/ng/security).
-	     */
-	    Jsonp.prototype.request = function (url, options) {
-	        var responseObservable;
-	        if (lang_1.isString(url)) {
-	            url =
-	                new static_request_1.Request(mergeOptions(this._defaultOptions, options, enums_1.RequestMethod.Get, url));
-	        }
-	        if (url instanceof static_request_1.Request) {
-	            if (url.method !== enums_1.RequestMethod.Get) {
-	                exceptions_1.makeTypeError('JSONP requests must use GET request method.');
-	            }
-	            responseObservable = httpRequest(this._backend, url);
-	        }
-	        else {
-	            throw exceptions_1.makeTypeError('First argument must be a url string or Request instance.');
-	        }
-	        return responseObservable;
-	    };
-	    /** @nocollapse */
-	    Jsonp.decorators = [
-	        { type: core_1.Injectable },
-	    ];
-	    /** @nocollapse */
-	    Jsonp.ctorParameters = [
-	        { type: interfaces_1.ConnectionBackend, },
-	        { type: base_request_options_1.RequestOptions, },
-	    ];
-	    return Jsonp;
-	}(Http));
-	exports.Jsonp = Jsonp;
-	//# sourceMappingURL=http.js.map
-
-/***/ },
-/* 397 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license
-	 * Copyright Google Inc. All Rights Reserved.
-	 *
-	 * Use of this source code is governed by an MIT-style license that can be
-	 * found in the LICENSE file at https://angular.io/license
-	 */
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var lang_1 = __webpack_require__(379);
-	var body_1 = __webpack_require__(391);
-	var enums_1 = __webpack_require__(383);
-	var headers_1 = __webpack_require__(384);
-	var http_utils_1 = __webpack_require__(392);
-	var url_search_params_1 = __webpack_require__(393);
-	// TODO(jeffbcross): properly implement body accessors
-	/**
-	 * Creates `Request` instances from provided values.
-	 *
-	 * The Request's interface is inspired by the Request constructor defined in the [Fetch
-	 * Spec](https://fetch.spec.whatwg.org/#request-class),
-	 * but is considered a static value whose body can be accessed many times. There are other
-	 * differences in the implementation, but this is the most significant.
-	 *
-	 * `Request` instances are typically created by higher-level classes, like {@link Http} and
-	 * {@link Jsonp}, but it may occasionally be useful to explicitly create `Request` instances.
-	 * One such example is when creating services that wrap higher-level services, like {@link Http},
-	 * where it may be useful to generate a `Request` with arbitrary headers and search params.
-	 *
-	 * ```typescript
-	 * import {Injectable, Injector} from '@angular/core';
-	 * import {HTTP_PROVIDERS, Http, Request, RequestMethod} from '@angular/http';
-	 *
-	 * @Injectable()
-	 * class AutoAuthenticator {
-	 *   constructor(public http:Http) {}
-	 *   request(url:string) {
-	 *     return this.http.request(new Request({
-	 *       method: RequestMethod.Get,
-	 *       url: url,
-	 *       search: 'password=123'
-	 *     }));
-	 *   }
-	 * }
-	 *
-	 * var injector = Injector.resolveAndCreate([HTTP_PROVIDERS, AutoAuthenticator]);
-	 * var authenticator = injector.get(AutoAuthenticator);
-	 * authenticator.request('people.json').subscribe(res => {
-	 *   //URL should have included '?password=123'
-	 *   console.log('people', res.json());
-	 * });
-	 * ```
-	 *
-	 * @experimental
-	 */
-	var Request = (function (_super) {
-	    __extends(Request, _super);
-	    function Request(requestOptions) {
-	        _super.call(this);
-	        // TODO: assert that url is present
-	        var url = requestOptions.url;
-	        this.url = requestOptions.url;
-	        if (lang_1.isPresent(requestOptions.search)) {
-	            var search = requestOptions.search.toString();
-	            if (search.length > 0) {
-	                var prefix = '?';
-	                if (lang_1.StringWrapper.contains(this.url, '?')) {
-	                    prefix = (this.url[this.url.length - 1] == '&') ? '' : '&';
-	                }
-	                // TODO: just delete search-query-looking string in url?
-	                this.url = url + prefix + search;
-	            }
-	        }
-	        this._body = requestOptions.body;
-	        this.method = http_utils_1.normalizeMethodName(requestOptions.method);
-	        // TODO(jeffbcross): implement behavior
-	        // Defaults to 'omit', consistent with browser
-	        // TODO(jeffbcross): implement behavior
-	        this.headers = new headers_1.Headers(requestOptions.headers);
-	        this.contentType = this.detectContentType();
-	        this.withCredentials = requestOptions.withCredentials;
-	        this.responseType = requestOptions.responseType;
-	    }
-	    /**
-	     * Returns the content type enum based on header options.
-	     */
-	    Request.prototype.detectContentType = function () {
-	        switch (this.headers.get('content-type')) {
-	            case 'application/json':
-	                return enums_1.ContentType.JSON;
-	            case 'application/x-www-form-urlencoded':
-	                return enums_1.ContentType.FORM;
-	            case 'multipart/form-data':
-	                return enums_1.ContentType.FORM_DATA;
-	            case 'text/plain':
-	            case 'text/html':
-	                return enums_1.ContentType.TEXT;
-	            case 'application/octet-stream':
-	                return enums_1.ContentType.BLOB;
-	            default:
-	                return this.detectContentTypeFromBody();
-	        }
-	    };
-	    /**
-	     * Returns the content type of request's body based on its type.
-	     */
-	    Request.prototype.detectContentTypeFromBody = function () {
-	        if (this._body == null) {
-	            return enums_1.ContentType.NONE;
-	        }
-	        else if (this._body instanceof url_search_params_1.URLSearchParams) {
-	            return enums_1.ContentType.FORM;
-	        }
-	        else if (this._body instanceof FormData) {
-	            return enums_1.ContentType.FORM_DATA;
-	        }
-	        else if (this._body instanceof Blob) {
-	            return enums_1.ContentType.BLOB;
-	        }
-	        else if (this._body instanceof ArrayBuffer) {
-	            return enums_1.ContentType.ARRAY_BUFFER;
-	        }
-	        else if (this._body && typeof this._body == 'object') {
-	            return enums_1.ContentType.JSON;
-	        }
-	        else {
-	            return enums_1.ContentType.TEXT;
-	        }
-	    };
-	    /**
-	     * Returns the request's body according to its type. If body is undefined, return
-	     * null.
-	     */
-	    Request.prototype.getBody = function () {
-	        switch (this.contentType) {
-	            case enums_1.ContentType.JSON:
-	                return this.text();
-	            case enums_1.ContentType.FORM:
-	                return this.text();
-	            case enums_1.ContentType.FORM_DATA:
-	                return this._body;
-	            case enums_1.ContentType.TEXT:
-	                return this.text();
-	            case enums_1.ContentType.BLOB:
-	                return this.blob();
-	            case enums_1.ContentType.ARRAY_BUFFER:
-	                return this.arrayBuffer();
-	            default:
-	                return null;
-	        }
-	    };
-	    return Request;
-	}(body_1.Body));
-	exports.Request = Request;
-	var noop = function () { };
-	var w = typeof window == 'object' ? window : noop;
-	var FormData = w['FormData'] || noop;
-	var Blob = w['Blob'] || noop;
-	var ArrayBuffer = w['ArrayBuffer'] || noop;
-	//# sourceMappingURL=static_request.js.map
-
-/***/ },
-/* 398 */,
-/* 399 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	// Exports services, pipes & directives.
-	__export(__webpack_require__(400));
-	__export(__webpack_require__(403));
-	__export(__webpack_require__(405));
-	__export(__webpack_require__(406));
-	__export(__webpack_require__(404));
-	__export(__webpack_require__(407));
-	__export(__webpack_require__(408));
-	__export(__webpack_require__(409));
-	__export(__webpack_require__(410));
-	__export(__webpack_require__(411));
-	
-	//# sourceMappingURL=angular2localization.js.map
-
-
-/***/ },
-/* 400 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * ANGULAR 2 LOCALIZATION
-	 * An Angular 2 library to translate messages, dates and numbers.
-	 * Written by Roberto Simonetti.
-	 * MIT license.
-	 * https://github.com/robisim74/angular2localization
-	 */
-	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(11);
-	var http_1 = __webpack_require__(376);
-	var Observable_1 = __webpack_require__(70);
-	__webpack_require__(401);
-	// Services.
-	var locale_service_1 = __webpack_require__(403);
-	var Intl_support_1 = __webpack_require__(404);
-	/**
-	 * LocalizationService class.
-	 * Gets the translation data and performs operations.
-	 *
-	 * Direct loading.
-	 *
-	 * To initialize LocalizationService for the direct loading, add the following code in the body of constructor of the route component:
-	 *
-	 * var translationEN = {
-	 *      TITLE: 'Angular 2 Localization',
-	 *      CHANGE_LANGUAGE: 'Change language',
-	 *      ...
-	 * }
-	 * // Add a new translation here.
-	 *
-	 * // Required: adds a new translation with the given language code.
-	 * this.localization.addTranslation('en', translationEN);
-	 * // Add a new translation with the given language code here.
-	 * this.localization.updateTranslation(); // Need to update the translation.
-	 *
-	 * Asynchronous loading.
-	 *
-	 * To initialize LocalizationService for the asynchronous loading, add the following code in the body of constructor of the route component:
-	 *
-	 * // Required: initializes the translation provider with the given path prefix.
-	 * this.localization.translationProvider('./resources/locale-');
-	 * this.localization.updateTranslation(); // Need to update the translation.
-	 *
-	 * and create the json files of the translations such as 'locale-en.json':
-	 *
-	 * {
-	 *     "TITLE": "Angular 2 Localization",
-	 *     "CHANGE_LANGUAGE": "Change language",
-	 *     ...
-	 * }
-	 *
-	 * @author Roberto Simonetti
-	 */
-	var LocalizationService = (function () {
-	    function LocalizationService(http, locale) {
-	        var _this = this;
-	        this.http = http;
-	        this.locale = locale;
-	        /**
-	         * The translation data: {languageCode: {key: value}}.
-	         */
-	        this.translationData = {};
-	        this.prefix = "";
-	        this.loadingMode = LoadingMode.Unknown;
-	        this.languageCode = "";
-	        // Initializes the loading mode.
-	        this.loadingMode = LoadingMode.Direct;
-	        // Initializes the service state.
-	        this.serviceState = ServiceState.isWaiting;
-	        // When the language changes, subscribes to the event & call updateTranslation method.
-	        this.locale.languageCodeChanged.subscribe(
-	        // Generator or next.
-	        function (language) { return _this.updateTranslation(language); });
-	    }
-	    /**
-	     * Direct loading: adds new translation data.
-	     *
-	     * @param language The two-letter code of the language for the translation data
-	     * @param translation The new translation data
-	     */
-	    LocalizationService.prototype.addTranslation = function (language, translation) {
-	        // Adds the new translation data.
-	        this.translationData[language] = translation;
-	    };
-	    /**
-	     * Asynchronous loading: defines the translation provider.
-	     *
-	     * @param prefix The path prefix of the json files
-	     * @param dataFormat Data format: default value is 'json'.
-	     * @param webAPI True if the asynchronous loading uses a Web API to get the data.
-	     */
-	    LocalizationService.prototype.translationProvider = function (prefix, dataFormat, webAPI) {
-	        if (dataFormat === void 0) { dataFormat = "json"; }
-	        if (webAPI === void 0) { webAPI = false; }
-	        this.prefix = prefix;
-	        this.dataFormat = dataFormat;
-	        this.webAPI = webAPI;
-	        // Updates the loading mode.
-	        this.loadingMode = LoadingMode.Async;
-	    };
-	    /**
-	     * Translates a key.
-	     *
-	     * @param key The key to be translated
-	     * @return The value of translation
-	     */
-	    LocalizationService.prototype.translate = function (key) {
-	        var value;
-	        if (this.translationData[this.languageCode] != null) {
-	            // Gets the translation by language code. 
-	            var translation = this.translationData[this.languageCode];
-	            // Gets the value of translation by key.   
-	            value = translation[key];
-	        }
-	        // If the value of translation is not present, the same key is returned (see issue #1).
-	        if (value == null || value == "") {
-	            value = key;
-	        }
-	        return value;
-	    };
-	    /**
-	     * Translates a key.
-	     *
-	     * @param key The key to be translated
-	     * @return An observable of the value of translation
-	     */
-	    LocalizationService.prototype.translateAsync = function (key) {
-	        var _this = this;
-	        return new Observable_1.Observable(function (observer) {
-	            // Gets the value of translation for the key.
-	            var value = _this.translate(key);
-	            observer.next(value);
-	            observer.complete();
-	        });
-	    };
-	    /**
-	     * Updates the language code and loads the translation data for the asynchronous loading.
-	     *
-	     * @param language The two-letter or three-letter code of the language
-	     */
-	    LocalizationService.prototype.updateTranslation = function (language) {
-	        if (language === void 0) { language = this.locale.getCurrentLanguage(); }
-	        if (language != "" && language != this.languageCode) {
-	            // Asynchronous loading.
-	            if (this.loadingMode == LoadingMode.Async) {
-	                // Updates the translation data.  
-	                this.getTranslation(language);
-	            }
-	            else {
-	                // Updates the language code of the service.
-	                this.languageCode = language;
-	                // Updates the service state.
-	                this.serviceState = ServiceState.isReady;
-	            }
-	        }
-	    };
-	    /* Intl.Collator */
-	    /**
-	     * Compares two keys by the value of translation & the current language code.
-	     *
-	     * @param key1, key2 The keys of the values to compare
-	     * @param extension
-	     * @param options
-	     * @return A negative value if the value of translation of key1 comes before the value of translation of key2; a positive value if key1 comes after key2; 0 if they are considered equal or Intl.Collator is not supported
-	     * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Collator
-	     */
-	    LocalizationService.prototype.compare = function (key1, key2, extension, options) {
-	        // Checks for support for Intl.
-	        if (Intl_support_1.IntlSupport.Collator(this.languageCode) == false) {
-	            return 0;
-	        }
-	        // Gets the value of translation for the keys.
-	        var value1 = this.translate(key1);
-	        var value2 = this.translate(key2);
-	        var locale = this.addExtension(this.languageCode, extension);
-	        return new Intl.Collator(locale).compare(value1, value2);
-	    };
-	    /**
-	     * Sorts an array of objects or an array of arrays by the current language code.
-	     *
-	     * @param list The array to be sorted
-	     * @param keyName The column that contains the keys of the values to be ordered
-	     * @param order 'asc' or 'desc'. The default value is 'asc'.
-	     * @param extension
-	     * @param options
-	     * @return The same sorted list or the same list if Intl.Collator is not supported
-	     * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Collator
-	     */
-	    LocalizationService.prototype.sort = function (list, keyName, order, extension, options) {
-	        if (list == null || keyName == null || Intl_support_1.IntlSupport.Collator(this.languageCode) == false) {
-	            return list;
-	        }
-	        // Gets the value of translation for the keys.
-	        for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
-	            var item = list_1[_i];
-	            // Gets the value of translation for the key.
-	            var value = this.translate(item[keyName]);
-	            // Adds a new column for translated values.
-	            var translated = keyName.concat("Translated");
-	            // Updates the value in the list.
-	            item[translated] = value;
-	        }
-	        var locale = this.addExtension(this.languageCode, extension);
-	        // Intl.Collator.
-	        var collator = new Intl.Collator(locale, options); // It can be passed directly to Array.prototype.sort.
-	        list.sort(function (a, b) {
-	            return collator.compare(a[translated], b[translated]);
-	        });
-	        // Removes the column of translated values.
-	        var index = list.indexOf(translated, 0);
-	        if (index > -1) {
-	            list.splice(index, 1);
-	        }
-	        // Descending order.
-	        if (order != null && order == "desc") {
-	            list.reverse();
-	        }
-	        return list;
-	    };
-	    /**
-	     * Sorts an array of objects or an array of arrays by the current language code.
-	     *
-	     * @param list The array to be sorted
-	     * @param keyName The column that contains the keys of the values to be ordered
-	     * @param order 'asc' or 'desc'. The default value is 'asc'.
-	     * @param extension
-	     * @param options
-	     * @return An observable of the sorted list or of the same list if Intl.Collator is not supported
-	     * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Collator
-	     */
-	    LocalizationService.prototype.sortAsync = function (list, keyName, order, extension, options) {
-	        var _this = this;
-	        return new Observable_1.Observable(function (observer) {
-	            // Gets the sorted list.
-	            observer.next(_this.sort(list, keyName, order, extension, options));
-	            observer.complete();
-	        });
-	    };
-	    /**
-	     * Matches a string into an array of objects or an array of arrays.
-	     *
-	     * @param s The string to search
-	     * @param list The array to look for
-	     * @param keyNames An array that contains the columns to look for
-	     * @param options
-	     * @return A filtered list or the same list if Intl.Collator is not supported
-	     * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Collator
-	     */
-	    LocalizationService.prototype.search = function (s, list, keyNames, options) {
-	        var _this = this;
-	        if (options === void 0) { options = { usage: 'search' }; }
-	        if (list == null || keyNames == null || s == "" || Intl_support_1.IntlSupport.Collator(this.languageCode) == false) {
-	            return list;
-	        }
-	        // Gets the value of translation for the each column.
-	        var translated = new Array();
-	        var i = 0;
-	        for (var i = 0; i < keyNames.length; i++) {
-	            // Adds a new column for translated values.
-	            translated.push(keyNames[i].concat("Translated"));
-	            for (var _i = 0, list_2 = list; _i < list_2.length; _i++) {
-	                var item = list_2[_i];
-	                // Gets the values of translation for the column.
-	                var value = this.translate(item[keyNames[i]]);
-	                // Updates the value in the list.
-	                item[translated[i]] = value;
-	            }
-	        }
-	        var locale = this.languageCode;
-	        // Intl.Collator.
-	        var collator = new Intl.Collator(locale, options);
-	        var matches = list.filter(function (v) {
-	            var found = false;
-	            for (var i = 0; i < translated.length; i++) {
-	                // Calls matching algorithm.
-	                if (_this.match(v[translated[i]], s, collator)) {
-	                    found = true;
-	                    break;
-	                }
-	            }
-	            return found;
-	        });
-	        // Removes the columns of translated values.
-	        for (var i = 0; i < translated.length; i++) {
-	            var index = matches.indexOf(translated[i], 0);
-	            if (index > -1) {
-	                matches.splice(index, 1);
-	            }
-	        }
-	        return matches;
-	    };
-	    /**
-	     * Matches a string into an array of objects or an array of arrays.
-	     *
-	     * @param s The string to search
-	     * @param list The array to look for
-	     * @param keyNames An array that contains the columns to look for
-	     * @param options
-	     * @return An observable for each element of the filtered list or the same list if Intl.Collator is not supported
-	     * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Collator
-	     */
-	    LocalizationService.prototype.searchAsync = function (s, list, keyNames, options) {
-	        var _this = this;
-	        if (options === void 0) { options = { usage: 'search' }; }
-	        if (list == null) {
-	            return null;
-	        }
-	        if (keyNames == null || s == "" || Intl_support_1.IntlSupport.Collator(this.languageCode) == false) {
-	            return new Observable_1.Observable(function (observer) {
-	                for (var _i = 0, list_3 = list; _i < list_3.length; _i++) {
-	                    var item = list_3[_i];
-	                    observer.next(item);
-	                }
-	                observer.complete();
-	            });
-	        }
-	        return new Observable_1.Observable(function (observer) {
-	            // Gets the value of translation for the each column.
-	            var translated = new Array();
-	            var i = 0;
-	            for (var i = 0; i < keyNames.length; i++) {
-	                // Adds a new column for translated values.
-	                translated.push(keyNames[i].concat("Translated"));
-	                for (var _i = 0, list_4 = list; _i < list_4.length; _i++) {
-	                    var item = list_4[_i];
-	                    // Gets the values of translation for the column.
-	                    var value = _this.translate(item[keyNames[i]]);
-	                    // Updates the value in the list.
-	                    item[translated[i]] = value;
-	                }
-	            }
-	            var locale = _this.languageCode;
-	            // Intl.Collator.
-	            var collator = new Intl.Collator(locale, options);
-	            for (var _a = 0, list_5 = list; _a < list_5.length; _a++) {
-	                var v = list_5[_a];
-	                for (var i = 0; i < translated.length; i++) {
-	                    // Calls matching algorithm.
-	                    if (_this.match(v[translated[i]], s, collator)) {
-	                        observer.next(v);
-	                        break;
-	                    }
-	                }
-	            }
-	            // Removes the columns of translated values.
-	            for (var i = 0; i < translated.length; i++) {
-	                var index = list.indexOf(translated[i], 0);
-	                if (index > -1) {
-	                    list.splice(index, 1);
-	                }
-	            }
-	            observer.complete();
-	        });
-	    };
-	    LocalizationService.prototype.addExtension = function (locale, extension) {
-	        // Adds extension.
-	        if (extension != null && extension != "") {
-	            locale = locale + "-" + extension;
-	        }
-	        return locale;
-	    };
-	    /**
-	     * Matching algorithm.
-	     *
-	     * @param v The value
-	     * @param s The string to search
-	     * return True if match, otherwise false
-	     */
-	    LocalizationService.prototype.match = function (v, s, collator) {
-	        var vLength = v.length;
-	        var sLength = s.length;
-	        if (sLength > vLength) {
-	            return false;
-	        } // The search string is longer than value.
-	        if (sLength == vLength) {
-	            return collator.compare(v, s) === 0;
-	        }
-	        // Tries to search the substring.
-	        var found = false;
-	        for (var i = 0; i < vLength - (sLength - 1); i++) {
-	            var str = v.substr(i, sLength);
-	            if (collator.compare(str, s) === 0) {
-	                found = true;
-	                break;
-	            }
-	        }
-	        return found;
-	    };
-	    /**
-	     * Asynchronous loading: gets translation data.
-	     *
-	     * @param language The two-letter or three-letter code of the language
-	     */
-	    LocalizationService.prototype.getTranslation = function (language) {
-	        var _this = this;
-	        // Initializes the translation data & the service state.
-	        this.translationData = {};
-	        this.serviceState = ServiceState.isLoading;
-	        // Builds the URL.
-	        var url = this.prefix;
-	        if (this.webAPI == true) {
-	            // Absolute URL for Web API.
-	            url += language;
-	        }
-	        else {
-	            // Relative server path for 'json' files.
-	            url += language + "." + this.dataFormat;
-	        }
-	        // Angular 2 Http module.
-	        this.http.get(url)
-	            .map(function (res) { return res.json(); })
-	            .subscribe(
-	        // Observer or next.
-	        function (res) {
-	            // Assigns the observer to the translation data.
-	            _this.translationData[language] = res;
-	        }, 
-	        // Error.
-	        function (error) {
-	            console.error("Localization service:", error);
-	        }, 
-	        // Complete.
-	        function () {
-	            // Updates the service state.
-	            _this.serviceState = ServiceState.isReady;
-	            // Updates the language code of the service.
-	            _this.languageCode = language;
-	        });
-	    };
-	    LocalizationService = __decorate([
-	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [http_1.Http, locale_service_1.LocaleService])
-	    ], LocalizationService);
-	    return LocalizationService;
-	}());
-	exports.LocalizationService = LocalizationService;
-	/**
-	 * Defines the service state.
-	 */
-	(function (ServiceState) {
-	    /**
-	     * The translation data has been loaded.
-	     */
-	    ServiceState[ServiceState["isReady"] = 0] = "isReady";
-	    /**
-	     * The service is loading the data.
-	     */
-	    ServiceState[ServiceState["isLoading"] = 1] = "isLoading";
-	    /**
-	     * The service is waiting for the data.
-	     */
-	    ServiceState[ServiceState["isWaiting"] = 2] = "isWaiting";
-	})(exports.ServiceState || (exports.ServiceState = {}));
-	var ServiceState = exports.ServiceState;
-	/**
-	 * Defines the loading mode.
-	 */
-	(function (LoadingMode) {
-	    /**
-	     * Initial state.
-	     */
-	    LoadingMode[LoadingMode["Unknown"] = 0] = "Unknown";
-	    /**
-	     * Direct loading.
-	     */
-	    LoadingMode[LoadingMode["Direct"] = 1] = "Direct";
-	    /**
-	     * Asynchronous loading.
-	     */
-	    LoadingMode[LoadingMode["Async"] = 2] = "Async";
-	})(exports.LoadingMode || (exports.LoadingMode = {}));
-	var LoadingMode = exports.LoadingMode;
-	
-	//# sourceMappingURL=localization.service.js.map
-
-
-/***/ },
-/* 401 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var Observable_1 = __webpack_require__(70);
-	var map_1 = __webpack_require__(402);
-	Observable_1.Observable.prototype.map = map_1.map;
-	//# sourceMappingURL=map.js.map
-
-/***/ },
-/* 402 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var Subscriber_1 = __webpack_require__(75);
-	/**
-	 * Applies a given `project` function to each value emitted by the source
-	 * Observable, and emits the resulting values as an Observable.
-	 *
-	 * <span class="informal">Like [Array.prototype.map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map),
-	 * it passes each source value through a transformation function to get
-	 * corresponding output values.</span>
-	 *
-	 * <img src="./img/map.png" width="100%">
-	 *
-	 * Similar to the well known `Array.prototype.map` function, this operator
-	 * applies a projection to each value and emits that projection in the output
-	 * Observable.
-	 *
-	 * @example <caption>Map every every click to the clientX position of that click</caption>
-	 * var clicks = Rx.Observable.fromEvent(document, 'click');
-	 * var positions = clicks.map(ev => ev.clientX);
-	 * positions.subscribe(x => console.log(x));
-	 *
-	 * @see {@link mapTo}
-	 * @see {@link pluck}
-	 *
-	 * @param {function(value: T, index: number): R} project The function to apply
-	 * to each `value` emitted by the source Observable. The `index` parameter is
-	 * the number `i` for the i-th emission that has happened since the
-	 * subscription, starting from the number `0`.
-	 * @param {any} [thisArg] An optional argument to define what `this` is in the
-	 * `project` function.
-	 * @return {Observable<R>} An Observable that emits the values from the source
-	 * Observable transformed by the given `project` function.
-	 * @method map
-	 * @owner Observable
-	 */
-	function map(project, thisArg) {
-	    if (typeof project !== 'function') {
-	        throw new TypeError('argument is not a function. Are you looking for `mapTo()`?');
-	    }
-	    return this.lift(new MapOperator(project, thisArg));
-	}
-	exports.map = map;
-	var MapOperator = (function () {
-	    function MapOperator(project, thisArg) {
-	        this.project = project;
-	        this.thisArg = thisArg;
-	    }
-	    MapOperator.prototype.call = function (subscriber, source) {
-	        return source._subscribe(new MapSubscriber(subscriber, this.project, this.thisArg));
-	    };
-	    return MapOperator;
-	}());
-	/**
-	 * We need this JSDoc comment for affecting ESDoc.
-	 * @ignore
-	 * @extends {Ignored}
-	 */
-	var MapSubscriber = (function (_super) {
-	    __extends(MapSubscriber, _super);
-	    function MapSubscriber(destination, project, thisArg) {
-	        _super.call(this, destination);
-	        this.project = project;
-	        this.count = 0;
-	        this.thisArg = thisArg || this;
-	    }
-	    // NOTE: This looks unoptimized, but it's actually purposefully NOT
-	    // using try/catch optimizations.
-	    MapSubscriber.prototype._next = function (value) {
-	        var result;
-	        try {
-	            result = this.project.call(this.thisArg, value, this.count++);
-	        }
-	        catch (err) {
-	            this.destination.error(err);
-	            return;
-	        }
-	        this.destination.next(result);
-	    };
-	    return MapSubscriber;
-	}(Subscriber_1.Subscriber));
-	//# sourceMappingURL=map.js.map
-
-/***/ },
-/* 403 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * ANGULAR 2 LOCALIZATION
-	 * An Angular 2 library to translate messages, dates and numbers.
-	 * Written by Roberto Simonetti.
-	 * MIT license.
-	 * https://github.com/robisim74/angular2localization
-	 */
-	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(11);
-	/**
-	 * LocaleService class.
-	 * Defines language, default locale & currency.
-	 *
-	 * Instantiate this class only once in the route component in order to access the data of location from anywhere in the application:
-	 *
-	 * FIRST SCENARIO - Dates & numbers.
-	 *
-	 * import {LocaleService} from 'angular2localization/angular2localization';
-	 *
-	 * @Component({
-	 *     selector: 'app-component',
-	 *     ...
-	 *     providers: [LocaleService] // Inherited by all descendants.
-	 * })
-	 *
-	 * export class AppComponent {
-	 *
-	 *     constructor(public locale: LocaleService) {
-	 *
-	 *         // Required: default language (ISO 639 two-letter or three-letter code) and country (ISO 3166 two-letter, uppercase code).
-	 *         this.locale.definePreferredLocale('en', 'US');
-	 *
-	 *         // Optional: default currency (ISO 4217 three-letter code).
-	 *         this.locale.definePreferredCurrency('USD');
-	 *
-	 *      }
-	 *
-	 * }
-	 *
-	 * SECOND SCENARIO - Messages.
-	 *
-	 * import {LocaleService, LocalizationService} from 'angular2localization/angular2localization';
-	 *
-	 * @Component({
-	 *     selector: 'app-component',
-	 *     ...
-	 *     providers: [LocaleService, LocalizationService] // Inherited by all descendants.
-	 * })
-	 *
-	 * export class AppComponent {
-	 *
-	 *     constructor(public locale: LocaleService, public localization: LocalizationService) {
-	 *
-	 *         // Adds a new language (ISO 639 two-letter or three-letter code).
-	 *         this.locale.addLanguage('en');
-	 *         // Add a new language here.
-	 *
-	 *         // Required: default language and expiry (No days). If the expiry is omitted, the cookie becomes a session cookie.
-	 *         this.locale.definePreferredLanguage('en', 30);
-	 *
-	 *     }
-	 *
-	 * }
-	 *
-	 * THIRD SCENARIO - Messages, dates & numbers.
-	 *
-	 * import {LocaleService, LocalizationService} from 'angular2localization/angular2localization';
-	 *
-	 * @Component({
-	 *     selector: 'app-component',
-	 *     ...
-	 *     providers: [LocaleService, LocalizationService] // Inherited by all descendants.
-	 * })
-	 *
-	 * export class AppComponent {
-	 *
-	 *     constructor(public locale: LocaleService, public localization: LocalizationService) {
-	 *
-	 *         // Adds a new language (ISO 639 two-letter or three-letter code).
-	 *         this.locale.addLanguage('en');
-	 *         // Add a new language here.
-	 *
-	 *         // Required: default language, country (ISO 3166 two-letter, uppercase code) and expiry (No days). If the expiry is omitted, the cookie becomes a session cookie.
-	 *         this.locale.definePreferredLocale('en', 'US', 30);
-	 *
-	 *         // Optional: default currency (ISO 4217 three-letter code).
-	 *         this.locale.definePreferredCurrency('USD');
-	 *
-	 *     }
-	 *
-	 * }
-	 *
-	 * Changing language.
-	 *
-	 * To change language at runtime, call the following method:
-	 *
-	 * this.locale.setCurrentLanguage(language);
-	 *
-	 * where 'language' is the two-letter or three-letter code of the new language (ISO 639).
-	 *
-	 *
-	 * Changing locale.
-	 *
-	 * To change locale at runtime, call the following method:
-	 *
-	 * this.locale.setCurrentLocale(language, country);
-	 *
-	 * where 'language' is the two-letter or three-letter code of the new language (ISO 639)
-	 * and 'country' is the two-letter, uppercase code of the new country (ISO 3166).
-	 *
-	 *
-	 * Changing currency.
-	 *
-	 * To change currency at runtime, call the following method:
-	 *
-	 * this.locale.setCurrentCurrency(currency);
-	 *
-	 * where 'currency' is the three-letter code of the new currency (ISO 4217).
-	 *
-	 * @author Roberto Simonetti
-	 */
-	var LocaleService = (function () {
-	    function LocaleService() {
-	        /**
-	         * Output for event current language code changed.
-	         */
-	        this.languageCodeChanged = new core_1.EventEmitter();
-	        /**
-	         * Output for event current country code changed.
-	         */
-	        this.countryCodeChanged = new core_1.EventEmitter();
-	        /**
-	         * Output for event current currency code changed.
-	         */
-	        this.currencyCodeChanged = new core_1.EventEmitter();
-	        /**
-	         * Output for event script code changed.
-	         */
-	        this.scriptCodeChanged = new core_1.EventEmitter();
-	        /**
-	         * Output for event numbering system changed.
-	         */
-	        this.numberingSystemChanged = new core_1.EventEmitter();
-	        /**
-	         * Output for event calendar changed.
-	         */
-	        this.calendarChanged = new core_1.EventEmitter();
-	        /**
-	         * Enable/disable cookie.
-	         */
-	        this.enableCookie = false;
-	        /**
-	         * Enable/disable Local Storage.
-	         */
-	        this.enableLocalStorage = false;
-	        /**
-	         * The available language codes.
-	         */
-	        this.languageCodes = [];
-	        this.languageCode = "";
-	        this.countryCode = "";
-	        this.currencyCode = "";
-	        this.defaultLocale = "";
-	        this.scriptCode = "";
-	        this.numberingSystem = "";
-	        this.calendar = "";
-	        // Counts the reference to the service.
-	        LocaleService.referenceCounter++;
-	        // Enables the cookies for the first instance of the service (see issue #11).
-	        if (LocaleService.referenceCounter == 1) {
-	            this.enableCookie = true;
-	        }
-	    }
-	    /**
-	     * Adds a new language.
-	     *
-	     * @param language The two-letter or three-letter code of the new language
-	     */
-	    LocaleService.prototype.addLanguage = function (language) {
-	        this.languageCodes.push(language);
-	    };
-	    /**
-	     * Sets Local Storage as default.
-	     */
-	    LocaleService.prototype.useLocalStorage = function () {
-	        this.enableLocalStorage = true;
-	    };
-	    /**
-	     * Defines the preferred language.
-	     * Selects the current language of the browser if it has been added, else the default language.
-	     *
-	     * @param defaultLanguage The two-letter or three-letter code of the default language
-	     * @param expiry Number of days on the expiry. If omitted, the cookie becomes a session cookie
-	     */
-	    LocaleService.prototype.definePreferredLanguage = function (defaultLanguage, expiry) {
-	        this.expiry = expiry;
-	        // Parses the storage "locale" to extract the codes.
-	        this.parseStorage("locale");
-	        if (this.languageCode == "") {
-	            this.languageCode = defaultLanguage;
-	            // Verifies browser language.
-	            var browserLanguage = "";
-	            if (typeof navigator.language != "undefined") {
-	                browserLanguage = navigator.language;
-	            }
-	            else if (typeof navigator.userLanguage != "undefined") {
-	                browserLanguage = navigator.userLanguage;
-	            }
-	            else if (typeof navigator.browserLanguage != "undefined") {
-	                browserLanguage = navigator.browserLanguage;
-	            }
-	            else if (typeof navigator.systemLanguage != "undefined") {
-	                browserLanguage = navigator.systemLanguage;
-	            }
-	            // Tries to gets the current language of browser.
-	            if (browserLanguage != "") {
-	                var index = browserLanguage.indexOf("-");
-	                if (index != -1) {
-	                    browserLanguage = browserLanguage.substring(0, index); // Gets the language code.
-	                }
-	                if (this.languageCodes.length > 0 && this.languageCodes.indexOf(browserLanguage) != -1) {
-	                    this.languageCode = browserLanguage;
-	                }
-	            }
-	        }
-	        // Sets the default locale.
-	        this.setDefaultLocale();
-	    };
-	    /**
-	     * Defines preferred languange and country, regardless of the browser language.
-	     *
-	     * @param defaultLanguage The two-letter or three-letter code of the default language
-	     * @param defaultCountry The two-letter, uppercase code of the default country
-	     * @param expiry Number of days on the expiry. If omitted, the cookie becomes a session cookie
-	     * @param script The optional four-letter script code
-	     * @param numberingSystem The optional numbering system to be used
-	     * @param calendar The optional calendar to be used
-	     */
-	    LocaleService.prototype.definePreferredLocale = function (defaultLanguage, defaultCountry, expiry, script, numberingSystem, calendar) {
-	        if (script === void 0) { script = ""; }
-	        if (numberingSystem === void 0) { numberingSystem = ""; }
-	        if (calendar === void 0) { calendar = ""; }
-	        this.expiry = expiry;
-	        // Parses the storage "locale" to extract the codes & the extension.
-	        this.parseStorage("locale");
-	        if (this.languageCode == "" || this.countryCode == "") {
-	            this.languageCode = defaultLanguage;
-	            this.countryCode = defaultCountry;
-	            this.scriptCode = script;
-	            this.numberingSystem = numberingSystem;
-	            this.calendar = calendar;
-	        }
-	        // Sets the default locale.
-	        this.setDefaultLocale();
-	    };
-	    /**
-	     * Defines the preferred currency.
-	     *
-	     * @param defaultCurrency The three-letter code of the default currency
-	     */
-	    LocaleService.prototype.definePreferredCurrency = function (defaultCurrency) {
-	        // Parses the storage "currency" to extract the code.
-	        this.parseStorage("currency");
-	        if (this.currencyCode == "") {
-	            this.currencyCode = defaultCurrency;
-	        }
-	        // Sets the storage "currency".
-	        this.setStorage("currency", this.currencyCode);
-	    };
-	    /**
-	     * Gets the current language.
-	     *
-	     * @return The two-letter or three-letter code of the current language
-	     */
-	    LocaleService.prototype.getCurrentLanguage = function () {
-	        return this.languageCode;
-	    };
-	    /**
-	     * Gets the current country.
-	     *
-	     * @return The two-letter, uppercase code of the current country
-	     */
-	    LocaleService.prototype.getCurrentCountry = function () {
-	        return this.countryCode;
-	    };
-	    /**
-	     * Gets the current currency.
-	     *
-	     * @return The three-letter code of the current currency
-	     */
-	    LocaleService.prototype.getCurrentCurrency = function () {
-	        return this.currencyCode;
-	    };
-	    /**
-	     * Gets the script.
-	     *
-	     * @return The four-letter code of the script
-	     */
-	    LocaleService.prototype.getScript = function () {
-	        return this.scriptCode;
-	    };
-	    /**
-	     * Gets the numbering system.
-	     *
-	     * @return The numbering system
-	     */
-	    LocaleService.prototype.getNumberingSystem = function () {
-	        return this.numberingSystem;
-	    };
-	    /**
-	     * Gets the calendar.
-	     *
-	     * @return The calendar
-	     */
-	    LocaleService.prototype.getCalendar = function () {
-	        return this.calendar;
-	    };
-	    /**
-	     * Sets the current language.
-	     *
-	     * @param language The two-letter or three-letter code of the new language
-	     */
-	    LocaleService.prototype.setCurrentLanguage = function (language) {
-	        // Checks if the language has changed.
-	        if (this.languageCode != language) {
-	            // Assigns the value & sends an event.
-	            this.languageCode = language;
-	            this.languageCodeChanged.emit(language);
-	            // Sets the default locale.
-	            this.setDefaultLocale();
-	        }
-	    };
-	    /**
-	     * Sets the current locale.
-	     *
-	     * @param language The two-letter or three-letter code of the new language
-	     * @param country The two-letter, uppercase code of the new country
-	     * @param script The optional four-letter script code
-	     * @param numberingSystem The optional numbering system to be used
-	     * @param calendar The optional calendar to be used
-	     */
-	    LocaleService.prototype.setCurrentLocale = function (language, country, script, numberingSystem, calendar) {
-	        if (script === void 0) { script = ""; }
-	        if (numberingSystem === void 0) { numberingSystem = ""; }
-	        if (calendar === void 0) { calendar = ""; }
-	        // Checks if language, country, script or extension have changed.
-	        if (this.languageCode != language || this.countryCode != country || this.scriptCode != script || this.numberingSystem != numberingSystem || this.calendar != calendar) {
-	            // Assigns the values & sends the events.
-	            if (this.languageCode != language) {
-	                this.languageCode = language;
-	                this.languageCodeChanged.emit(language);
-	            }
-	            if (this.countryCode != country) {
-	                this.countryCode = country;
-	                this.countryCodeChanged.emit(country);
-	            }
-	            if (this.scriptCode != script) {
-	                this.scriptCode = script;
-	                this.scriptCodeChanged.emit(script);
-	            }
-	            if (this.numberingSystem != numberingSystem) {
-	                this.numberingSystem = numberingSystem;
-	                this.numberingSystemChanged.emit(numberingSystem);
-	            }
-	            if (this.calendar != calendar) {
-	                this.calendar = calendar;
-	                this.calendarChanged.emit(calendar);
-	            }
-	            // Sets the default locale.
-	            this.setDefaultLocale();
-	        }
-	    };
-	    /**
-	     * Sets the current currency.
-	     *
-	     * @param currency The three-letter code of the new currency
-	     */
-	    LocaleService.prototype.setCurrentCurrency = function (currency) {
-	        // Checks if the currency has changed.
-	        if (this.currencyCode != currency) {
-	            // Assigns the value & sends an event.
-	            this.currencyCode = currency;
-	            this.currencyCodeChanged.emit(currency);
-	            // Sets the storage "currency".
-	            this.setStorage("currency", this.currencyCode);
-	        }
-	    };
-	    /**
-	     * Gets the default locale.
-	     *
-	     * @return The default locale
-	     */
-	    LocaleService.prototype.getDefaultLocale = function () {
-	        return this.defaultLocale;
-	    };
-	    /**
-	     * Builds the default locale.
-	     */
-	    LocaleService.prototype.setDefaultLocale = function () {
-	        this.defaultLocale = this.languageCode;
-	        this.defaultLocale += this.scriptCode != "" ? "-" + this.scriptCode : "";
-	        this.defaultLocale += this.countryCode != "" ? "-" + this.countryCode : "";
-	        // Adds the 'u' (Unicode) extension.
-	        this.defaultLocale += this.numberingSystem != "" || this.calendar != "" ? "-u" : "";
-	        // Adds numbering system.
-	        this.defaultLocale += this.numberingSystem != "" ? "-nu-" + this.numberingSystem : "";
-	        // Adds calendar.
-	        this.defaultLocale += this.calendar != "" ? "-ca-" + this.calendar : "";
-	        // Sets the storage "locale".
-	        this.setStorage("locale", this.defaultLocale);
-	    };
-	    /**
-	     * Parses the storage to extract the codes & the extension.
-	     *
-	     * @param name The name of the storage
-	     */
-	    LocaleService.prototype.parseStorage = function (name) {
-	        var storage = "";
-	        if (this.enableLocalStorage && this.verifyLocalStorage) {
-	            storage = this.getLocalStorage(name);
-	        }
-	        else if (this.enableCookie && this.languageCodes.length > 0 && this.verifyCookie) {
-	            storage = this.getCookie(name);
-	        }
-	        if (storage != "") {
-	            // Looks for the 'u' (Unicode) extension.
-	            var index = storage.search("-u");
-	            if (index != -1) {
-	                var extensions = storage.substring(index + 1).split("-");
-	                switch (extensions.length) {
-	                    case 3:
-	                        if (extensions[1] == "nu") {
-	                            this.numberingSystem = extensions[2];
-	                        }
-	                        else if (extensions[1] == "ca") {
-	                            this.calendar = extensions[2];
-	                        }
-	                        break;
-	                    case 5:
-	                        this.numberingSystem = extensions[2];
-	                        this.calendar = extensions[4];
-	                        break;
-	                }
-	                // Extracts the codes.
-	                storage = storage.substring(0, index);
-	            }
-	            // Splits the string to each hyphen.
-	            var codes = storage.split("-");
-	            switch (codes.length) {
-	                case 1:
-	                    if (name == "locale") {
-	                        this.languageCode = codes[0];
-	                    }
-	                    else if (name == "currency") {
-	                        this.currencyCode = codes[0];
-	                    }
-	                    break;
-	                case 2:
-	                    this.languageCode = codes[0];
-	                    this.countryCode = codes[1];
-	                    break;
-	                case 3:
-	                    this.languageCode = codes[0];
-	                    this.scriptCode = codes[1];
-	                    this.countryCode = codes[2];
-	                    break;
-	            }
-	        }
-	    };
-	    /**
-	     * Checks browser support for Local Storage.
-	     *
-	     * @return True if Web Storage is supported.
-	     */
-	    LocaleService.prototype.verifyLocalStorage = function () {
-	        return typeof Storage != "undefined";
-	    };
-	    /**
-	     * Checks browser support for cookies.
-	     *
-	     * @return True if cookies are supported.
-	     */
-	    LocaleService.prototype.verifyCookie = function () {
-	        return typeof navigator.cookieEnabled != "undefined" && navigator.cookieEnabled;
-	    };
-	    /**
-	     * Sets the storage.
-	     *
-	     * @param name The name of the storage
-	     * @param value The value of the storage
-	     */
-	    LocaleService.prototype.setStorage = function (name, value) {
-	        if (this.enableLocalStorage && this.verifyLocalStorage) {
-	            this.setLocalStorage(name, value);
-	        }
-	        else if (this.enableCookie == true && this.languageCodes.length > 0 && this.verifyCookie) {
-	            this.setCookie(name, value, this.expiry);
-	        }
-	    };
-	    /**
-	     * Saves Local Storage value.
-	     *
-	     * @param name The name of the storage
-	     * @param value The value of the storage
-	     */
-	    LocaleService.prototype.setLocalStorage = function (name, value) {
-	        localStorage.setItem(name, value);
-	    };
-	    /**
-	     * Saves Local Storage value.
-	     *
-	     * @param name The name of the storage
-	     * @return The value of the storage
-	     */
-	    LocaleService.prototype.getLocalStorage = function (name) {
-	        // If the storage is not found, returns an empty string.
-	        return localStorage.getItem(name) != null ? localStorage.getItem(name) : "";
-	    };
-	    /**
-	     * Sets the cookie.
-	     *
-	     * @param name The name of the cookie
-	     * @param value The value of the cookie
-	     * @param days Number of days on the expiry
-	     */
-	    LocaleService.prototype.setCookie = function (name, value, days) {
-	        if (days != null) {
-	            // Adds the expiry date (in UTC time).
-	            var expirationDate = new Date();
-	            expirationDate.setTime(expirationDate.getTime() + (days * 24 * 60 * 60 * 1000));
-	            var expires = "; expires=" + expirationDate.toUTCString();
-	        }
-	        else {
-	            // By default, the cookie is deleted when the browser is closed.
-	            var expires = "";
-	        }
-	        // Creates the cookie.
-	        document.cookie = name + "=" + value + expires + "; path=/";
-	    };
-	    /**
-	     * Gets the cookie.
-	     *
-	     * @param name The name of the cookie
-	     * @return The value of the cookie
-	     */
-	    LocaleService.prototype.getCookie = function (name) {
-	        // The text to search for.
-	        name += "=";
-	        // Splits document.cookie on semicolons into an array.
-	        var ca = document.cookie.split(";");
-	        // Loops through the ca array, and reads out each value.
-	        for (var i = 0; i < ca.length; i++) {
-	            var c = ca[i];
-	            while (c.charAt(0) == " ") {
-	                c = c.substring(1);
-	            }
-	            // If the cookie is found, returns the value of the cookie.
-	            if (c.indexOf(name) == 0) {
-	                return c.substring(name.length, c.length);
-	            }
-	        }
-	        // If the cookie is not found, returns an empty string.
-	        return "";
-	    };
-	    /**
-	     * Reference counter for the service.
-	     */
-	    LocaleService.referenceCounter = 0;
-	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
-	    ], LocaleService.prototype, "languageCodeChanged", void 0);
-	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
-	    ], LocaleService.prototype, "countryCodeChanged", void 0);
-	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
-	    ], LocaleService.prototype, "currencyCodeChanged", void 0);
-	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
-	    ], LocaleService.prototype, "scriptCodeChanged", void 0);
-	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
-	    ], LocaleService.prototype, "numberingSystemChanged", void 0);
-	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
-	    ], LocaleService.prototype, "calendarChanged", void 0);
-	    LocaleService = __decorate([
-	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [])
-	    ], LocaleService);
-	    return LocaleService;
-	}());
-	exports.LocaleService = LocaleService;
-	
-	//# sourceMappingURL=locale.service.js.map
-
-
-/***/ },
-/* 404 */
-/***/ function(module, exports) {
-
-	/**
-	 * ANGULAR 2 LOCALIZATION
-	 * An Angular 2 library to translate messages, dates and numbers.
-	 * Written by Roberto Simonetti.
-	 * MIT license.
-	 * https://github.com/robisim74/angular2localization
-	 */
-	"use strict";
-	/**
-	 * IntlSupport class.
-	 * Provides the methods to check if Intl is supported.
-	 *
-	 * @author Roberto Simonetti
-	 */
-	var IntlSupport = (function () {
-	    function IntlSupport() {
-	    }
-	    /**
-	     * Support for dates.
-	     *
-	     * @param defaultLocale The default locale
-	     * @return True if the browser supports locales for dates, otherwise false.
-	     */
-	    IntlSupport.DateTimeFormat = function (defaultLocale) {
-	        // Checking for support.
-	        try {
-	            new Intl.DateTimeFormat(defaultLocale).format(new Date());
-	        }
-	        catch (e) {
-	            return false;
-	        }
-	        return true;
-	    };
-	    /**
-	     * Support for numbers.
-	     *
-	     * @param defaultLocale The default locale
-	     * @return True if the browser supports locales for numbers, otherwise false.
-	     */
-	    IntlSupport.NumberFormat = function (defaultLocale) {
-	        // Checking for support.
-	        try {
-	            var n = 0;
-	            new Intl.NumberFormat(defaultLocale).format(n);
-	        }
-	        catch (e) {
-	            return false;
-	        }
-	        return true;
-	    };
-	    /**
-	     * Support for Collator.
-	     *
-	     * @param lang The current language code
-	     * @return True if the browser supports Collator, otherwise false.
-	     */
-	    IntlSupport.Collator = function (lang) {
-	        // Checking for support.
-	        try {
-	            var value1 = "a";
-	            var value2 = "b";
-	            new Intl.Collator(lang).compare(value1, value2);
-	        }
-	        catch (e) {
-	            return false;
-	        }
-	        return true;
-	    };
-	    return IntlSupport;
-	}());
-	exports.IntlSupport = IntlSupport;
-	
-	//# sourceMappingURL=Intl-support.js.map
-
-
-/***/ },
-/* 405 */
-/***/ function(module, exports) {
-
-	/**
-	 * ANGULAR 2 LOCALIZATION
-	 * An Angular 2 library to translate messages, dates and numbers.
-	 * Written by Roberto Simonetti.
-	 * MIT license.
-	 * https://github.com/robisim74/angular2localization
-	 */
-	"use strict";
-	/**
-	 * Locale superclass.
-	 * Provides the methods for localization.
-	 *
-	 * Extend this class in components to provide the necessary methods for localization:
-	 *
-	 * export class AppComponent extends Locale {
-	 *
-	 *     constructor(public locale: LocaleService, public localization: LocalizationService) {
-	 *         super(locale, localization);
-	 *
-	 *     }
-	 *
-	 * }
-	 *
-	 * @author Roberto Simonetti
-	 */
-	var Locale = (function () {
-	    function Locale(locale, localization) {
-	        this.locale = locale;
-	        this.localization = localization;
-	    }
-	    Object.defineProperty(Locale.prototype, "lang", {
-	        // Gets the language code for the LocalizationService.
-	        get: function () {
-	            return this.localization.languageCode;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Locale.prototype, "defaultLocale", {
-	        // Gets the default locale.
-	        get: function () {
-	            return this.locale.getDefaultLocale();
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Locale.prototype, "currency", {
-	        // Gets the current currency.
-	        get: function () {
-	            return this.locale.getCurrentCurrency();
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    return Locale;
-	}());
-	exports.Locale = Locale;
-	
-	//# sourceMappingURL=locale.js.map
-
-
-/***/ },
-/* 406 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * ANGULAR 2 LOCALIZATION
-	 * An Angular 2 library to translate messages, dates and numbers.
-	 * Written by Roberto Simonetti.
-	 * MIT license.
-	 * https://github.com/robisim74/angular2localization
-	 */
-	"use strict";
-	var intl_1 = __webpack_require__(227);
-	var lang_1 = __webpack_require__(211);
-	var invalid_pipe_argument_exception_1 = __webpack_require__(224);
-	/**
-	 * LocaleNumber class.
-	 * Class to format numbers.
-	 */
-	var LocaleNumber = (function () {
-	    function LocaleNumber() {
-	    }
-	    LocaleNumber.format = function (pipe, defaultLocale, value, style, digits, currency, currencyAsSymbol) {
-	        if (currency === void 0) { currency = null; }
-	        if (currencyAsSymbol === void 0) { currencyAsSymbol = false; }
-	        if (lang_1.isBlank(value)) {
-	            return null;
-	        }
-	        // Converts strings to numbers.
-	        value = lang_1.isString(value) && lang_1.NumberWrapper.isNumeric(value) ? +value : value;
-	        if (!lang_1.isNumber(value)) {
-	            throw new invalid_pipe_argument_exception_1.InvalidPipeArgumentException(pipe, value);
-	        }
-	        var minInt;
-	        var minFraction;
-	        var maxFraction;
-	        if (style !== intl_1.NumberFormatStyle.Currency) {
-	            // Relies on Intl default for currency.
-	            minInt = 1;
-	            minFraction = 0;
-	            maxFraction = 3;
-	        }
-	        var NUMBER_FORMAT_REGEXP = /^(\d+)?\.((\d+)(\-(\d+))?)?$/;
-	        if (lang_1.isPresent(digits)) {
-	            var parts = digits.match(NUMBER_FORMAT_REGEXP);
-	            if (parts === null) {
-	                throw new Error(digits + " is not a valid digit info for number pipes");
-	            }
-	            if (lang_1.isPresent(parts[1])) {
-	                minInt = lang_1.NumberWrapper.parseIntAutoRadix(parts[1]);
-	            }
-	            if (lang_1.isPresent(parts[3])) {
-	                minFraction = lang_1.NumberWrapper.parseIntAutoRadix(parts[3]);
-	            }
-	            if (lang_1.isPresent(parts[5])) {
-	                maxFraction = lang_1.NumberWrapper.parseIntAutoRadix(parts[5]);
-	            }
-	        }
-	        return intl_1.NumberFormatter.format(value, defaultLocale, style, {
-	            minimumIntegerDigits: minInt,
-	            minimumFractionDigits: minFraction,
-	            maximumFractionDigits: maxFraction,
-	            currency: currency,
-	            currencyAsSymbol: currencyAsSymbol
-	        });
-	    };
-	    return LocaleNumber;
-	}());
-	exports.LocaleNumber = LocaleNumber;
-	
-	//# sourceMappingURL=locale-number.js.map
-
-
-/***/ },
-/* 407 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -59386,7 +59823,7 @@
 	var intl_1 = __webpack_require__(227);
 	var lang_1 = __webpack_require__(211);
 	// Services.
-	var Intl_support_1 = __webpack_require__(404);
+	var Intl_support_1 = __webpack_require__(366);
 	/**
 	 * LocaleParser class.
 	 * Parses a string and returns a number by default locale.
@@ -59601,320 +60038,8 @@
 
 
 /***/ },
-/* 408 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * ANGULAR 2 LOCALIZATION
-	 * An Angular 2 library to translate messages, dates and numbers.
-	 * Written by Roberto Simonetti.
-	 * MIT license.
-	 * https://github.com/robisim74/angular2localization
-	 */
-	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(11);
-	var intl_1 = __webpack_require__(227);
-	// Services.
-	var localization_service_1 = __webpack_require__(400);
-	var locale_service_1 = __webpack_require__(403);
-	var locale_number_1 = __webpack_require__(406);
-	var Intl_support_1 = __webpack_require__(404);
-	/**
-	 * 'translate' pipe function.
-	 */
-	var TranslatePipe = (function () {
-	    function TranslatePipe(localization, locale) {
-	        this.localization = localization;
-	        this.locale = locale;
-	    }
-	    /**
-	     * TranslatePipe transform method.
-	     *
-	     * @param key The key to be translated
-	     * @param lang The current language code for the LocalizationService
-	     * @return The value of translation
-	     */
-	    TranslatePipe.prototype.transform = function (key, lang) {
-	        // Checks the service state.
-	        if (this.localization.serviceState == localization_service_1.ServiceState.isReady) {
-	            var REGEXP = /^\d+\b/;
-	            var keyStr = key;
-	            // i18n plural.
-	            if (REGEXP.exec(key) != null) {
-	                // Tries to extract the number.
-	                var keyNum = parseFloat(key);
-	                // Tries to extract the string. 
-	                keyStr = key.replace(REGEXP, "");
-	                keyStr = keyStr.trim();
-	                // Checks the number & support for Intl.
-	                if (!isNaN(keyNum) && Intl_support_1.IntlSupport.NumberFormat(this.locale.getDefaultLocale()) == true) {
-	                    // Localizes the number.
-	                    key = key.replace(/^\d+/, locale_number_1.LocaleNumber.format(TranslatePipe, this.locale.getDefaultLocale(), keyNum, intl_1.NumberFormatStyle.Decimal, '1.0-3'));
-	                }
-	            }
-	            // Gets the value of translation for the key string.
-	            var value = this.localization.translate(keyStr);
-	            return key.replace(keyStr, value);
-	        }
-	        return key;
-	    };
-	    TranslatePipe = __decorate([
-	        core_1.Pipe({
-	            name: 'translate',
-	            pure: true
-	        }), 
-	        __metadata('design:paramtypes', [localization_service_1.LocalizationService, locale_service_1.LocaleService])
-	    ], TranslatePipe);
-	    return TranslatePipe;
-	}());
-	exports.TranslatePipe = TranslatePipe;
-	
-	//# sourceMappingURL=translate.pipe.js.map
-
-
-/***/ },
-/* 409 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * ANGULAR 2 LOCALIZATION
-	 * An Angular 2 library to translate messages, dates and numbers.
-	 * Written by Roberto Simonetti.
-	 * MIT license.
-	 * https://github.com/robisim74/angular2localization
-	 */
-	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(11);
-	var collection_1 = __webpack_require__(210);
-	var intl_1 = __webpack_require__(227);
-	var lang_1 = __webpack_require__(211);
-	var invalid_pipe_argument_exception_1 = __webpack_require__(224);
-	// Services.
-	var Intl_support_1 = __webpack_require__(404);
-	/**
-	 * 'localedate' pipe function.
-	 */
-	var LocaleDatePipe = (function () {
-	    function LocaleDatePipe() {
-	    }
-	    /**
-	     * LocaleDatePipe transform method.
-	     *
-	     * @param value The date to be localized
-	     * @param defaultLocale The default locale
-	     * @param pattern The format of the date
-	     * @return The locale date
-	     */
-	    LocaleDatePipe.prototype.transform = function (value, defaultLocale, pattern) {
-	        if (pattern === void 0) { pattern = 'mediumDate'; }
-	        if (lang_1.isBlank(value)) {
-	            return null;
-	        }
-	        if (!this.supports(value)) {
-	            throw new invalid_pipe_argument_exception_1.InvalidPipeArgumentException(LocaleDatePipe, value);
-	        }
-	        if (lang_1.NumberWrapper.isNumeric(value)) {
-	            value = lang_1.DateWrapper.fromMillis(lang_1.NumberWrapper.parseInt(value, 10));
-	        }
-	        else if (lang_1.isString(value)) {
-	            value = lang_1.DateWrapper.fromISOString(value);
-	        }
-	        // Checks for support for Intl.
-	        if (Intl_support_1.IntlSupport.DateTimeFormat(defaultLocale) == true) {
-	            if (collection_1.StringMapWrapper.contains(LocaleDatePipe.ALIASES, pattern)) {
-	                pattern = collection_1.StringMapWrapper.get(LocaleDatePipe.ALIASES, pattern);
-	            }
-	            return intl_1.DateFormatter.format(value, defaultLocale, pattern);
-	        }
-	        // Returns the date without localization.
-	        return value;
-	    };
-	    LocaleDatePipe.prototype.supports = function (obj) {
-	        if (lang_1.isDate(obj) || lang_1.NumberWrapper.isNumeric(obj)) {
-	            return true;
-	        }
-	        if (lang_1.isString(obj) && lang_1.isDate(lang_1.DateWrapper.fromISOString(obj))) {
-	            return true;
-	        }
-	        return false;
-	    };
-	    LocaleDatePipe.ALIASES = {
-	        'medium': 'yMMMdjms',
-	        'short': 'yMdjm',
-	        'fullDate': 'yMMMMEEEEd',
-	        'longDate': 'yMMMMd',
-	        'mediumDate': 'yMMMd',
-	        'shortDate': 'yMd',
-	        'mediumTime': 'jms',
-	        'shortTime': 'jm'
-	    };
-	    LocaleDatePipe = __decorate([
-	        core_1.Pipe({
-	            name: 'localedate',
-	            pure: true
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], LocaleDatePipe);
-	    return LocaleDatePipe;
-	}());
-	exports.LocaleDatePipe = LocaleDatePipe;
-	
-	//# sourceMappingURL=locale-date.pipe.js.map
-
-
-/***/ },
-/* 410 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * ANGULAR 2 LOCALIZATION
-	 * An Angular 2 library to translate messages, dates and numbers.
-	 * Written by Roberto Simonetti.
-	 * MIT license.
-	 * https://github.com/robisim74/angular2localization
-	 */
-	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(11);
-	var intl_1 = __webpack_require__(227);
-	// Services.
-	var locale_number_1 = __webpack_require__(406);
-	var Intl_support_1 = __webpack_require__(404);
-	/**
-	 * 'localedecimal' pipe function.
-	 */
-	var LocaleDecimalPipe = (function () {
-	    function LocaleDecimalPipe() {
-	    }
-	    /**
-	     * LocaleDecimalPipe transform method.
-	     *
-	     * @param value The number to be localized
-	     * @param defaultLocale The default locale
-	     * @param digits The format of the number
-	     * @return The locale decimal
-	     */
-	    LocaleDecimalPipe.prototype.transform = function (value, defaultLocale, digits) {
-	        if (digits === void 0) { digits = null; }
-	        // Checks for support for Intl.
-	        if (Intl_support_1.IntlSupport.NumberFormat(defaultLocale) == true) {
-	            return locale_number_1.LocaleNumber.format(LocaleDecimalPipe, defaultLocale, value, intl_1.NumberFormatStyle.Decimal, digits);
-	        }
-	        // Returns the number without localization.
-	        return value;
-	    };
-	    LocaleDecimalPipe = __decorate([
-	        core_1.Pipe({
-	            name: 'localedecimal',
-	            pure: true
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], LocaleDecimalPipe);
-	    return LocaleDecimalPipe;
-	}());
-	exports.LocaleDecimalPipe = LocaleDecimalPipe;
-	/**
-	 * 'localepercent' pipe function.
-	 */
-	var LocalePercentPipe = (function () {
-	    function LocalePercentPipe() {
-	    }
-	    /**
-	     * LocalePercentPipe transform method.
-	     *
-	     * @param value The number to be localized
-	     * @param defaultLocale The default locale
-	     * @param digits The format of the number
-	     * @return The locale percent
-	     */
-	    LocalePercentPipe.prototype.transform = function (value, defaultLocale, digits) {
-	        if (digits === void 0) { digits = null; }
-	        // Checks for support for Intl.
-	        if (Intl_support_1.IntlSupport.NumberFormat(defaultLocale) == true) {
-	            return locale_number_1.LocaleNumber.format(LocalePercentPipe, defaultLocale, value, intl_1.NumberFormatStyle.Percent, digits);
-	        }
-	        // Returns the number without localization.
-	        return value;
-	    };
-	    LocalePercentPipe = __decorate([
-	        core_1.Pipe({
-	            name: 'localepercent',
-	            pure: true
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], LocalePercentPipe);
-	    return LocalePercentPipe;
-	}());
-	exports.LocalePercentPipe = LocalePercentPipe;
-	/**
-	 * 'localecurrency' pipe function.
-	 */
-	var LocaleCurrencyPipe = (function () {
-	    function LocaleCurrencyPipe() {
-	    }
-	    /**
-	     * LocaleCurrencyPipe transform method.
-	     *
-	     * @param value The number to be localized
-	     * @param defaultLocale The default locale
-	     * @param currency The current currency
-	     * @param symbolDisplay Indicates whether to use the currency symbol
-	     * @param digits The format of the number
-	     * @return The locale currency
-	     */
-	    LocaleCurrencyPipe.prototype.transform = function (value, defaultLocale, currency, symbolDisplay, digits) {
-	        if (symbolDisplay === void 0) { symbolDisplay = false; }
-	        if (digits === void 0) { digits = null; }
-	        // Checks for support for Intl.
-	        if (Intl_support_1.IntlSupport.NumberFormat(defaultLocale) == true) {
-	            return locale_number_1.LocaleNumber.format(LocaleCurrencyPipe, defaultLocale, value, intl_1.NumberFormatStyle.Currency, digits, currency, symbolDisplay);
-	        }
-	        // Returns the number without localization & currency.
-	        return value + " " + currency;
-	    };
-	    LocaleCurrencyPipe = __decorate([
-	        core_1.Pipe({
-	            name: 'localecurrency',
-	            pure: true
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], LocaleCurrencyPipe);
-	    return LocaleCurrencyPipe;
-	}());
-	exports.LocaleCurrencyPipe = LocaleCurrencyPipe;
-	
-	//# sourceMappingURL=locale-number.pipe.js.map
-
-
-/***/ },
 /* 411 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	/**
 	 * ANGULAR 2 LOCALIZATION
@@ -59924,115 +60049,57 @@
 	 * https://github.com/robisim74/angular2localization
 	 */
 	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(11);
-	var forms_1 = __webpack_require__(338);
-	// Services.
-	var locale_service_1 = __webpack_require__(403);
-	var locale_parser_1 = __webpack_require__(407);
 	/**
-	 * Function that takes a Control and returns either null when it’s valid, or and error object if it’s not.
+	 * Locale superclass.
+	 * Provides the methods for localization.
 	 *
-	 * @param locale The reference to LocaleService
-	 * @param digits The format of the number
-	 * @param MIN_VALUE The minimum value for the number
-	 * @param MAX_VALUE The maximum value for the number
-	 * @return An error object: 'format', 'minValue' or 'maxValue'; null in case the value is valid
+	 * Extend this class in components to provide the necessary methods for localization:
+	 *
+	 * export class AppComponent extends Locale {
+	 *
+	 *     constructor(public locale: LocaleService, public localization: LocalizationService) {
+	 *         super(locale, localization);
+	 *
+	 *     }
+	 *
+	 * }
+	 *
+	 * @author Roberto Simonetti
 	 */
-	function validateLocaleNumber(locale, digits, MIN_VALUE, MAX_VALUE) {
-	    if (MIN_VALUE === void 0) { MIN_VALUE = Number.MIN_VALUE; }
-	    if (MAX_VALUE === void 0) { MAX_VALUE = Number.MAX_VALUE; }
-	    var defaultLocale;
-	    var NUMBER_REGEXP;
-	    return function (c) {
-	        // Checks if the default locale has changed. 
-	        if (defaultLocale != locale.getDefaultLocale()) {
-	            NUMBER_REGEXP = locale_parser_1.LocaleParser.NumberRegExpFactory(locale.getDefaultLocale(), digits);
-	            defaultLocale = locale.getDefaultLocale();
-	        }
-	        // Checks the format.
-	        if (NUMBER_REGEXP.test(c.value)) {
-	            var parsedValue;
-	            parsedValue = locale_parser_1.LocaleParser.Number(c.value, locale.getDefaultLocale());
-	            if (parsedValue < MIN_VALUE) {
-	                return { minValue: false };
-	            }
-	            else if (parsedValue > MAX_VALUE) {
-	                return { maxValue: false };
-	            }
-	            return null; // The number is valid.
-	        }
-	        else {
-	            return { format: false };
-	        }
-	    };
-	}
-	exports.validateLocaleNumber = validateLocaleNumber;
-	var LocaleNumberValidator = (function () {
-	    function LocaleNumberValidator(locale) {
+	var Locale = (function () {
+	    function Locale(locale, localization) {
 	        this.locale = locale;
-	        this.MIN_VALUE = Number.MIN_VALUE;
-	        this.MAX_VALUE = Number.MAX_VALUE;
+	        this.localization = localization;
 	    }
-	    Object.defineProperty(LocaleNumberValidator.prototype, "minValue", {
-	        set: function (value) {
-	            this.MIN_VALUE = value || this.MIN_VALUE;
+	    Object.defineProperty(Locale.prototype, "lang", {
+	        // Gets the language code for the LocalizationService.
+	        get: function () {
+	            return this.localization.languageCode;
 	        },
 	        enumerable: true,
 	        configurable: true
 	    });
-	    Object.defineProperty(LocaleNumberValidator.prototype, "maxValue", {
-	        set: function (value) {
-	            this.MAX_VALUE = value || this.MAX_VALUE;
+	    Object.defineProperty(Locale.prototype, "defaultLocale", {
+	        // Gets the default locale.
+	        get: function () {
+	            return this.locale.getDefaultLocale();
 	        },
 	        enumerable: true,
 	        configurable: true
 	    });
-	    LocaleNumberValidator.prototype.ngOnInit = function () {
-	        this.validator = validateLocaleNumber(this.locale, this.digits, this.MIN_VALUE, this.MAX_VALUE);
-	    };
-	    LocaleNumberValidator.prototype.validate = function (c) {
-	        return this.validator(c);
-	    };
-	    __decorate([
-	        core_1.Input('validateLocaleNumber'), 
-	        __metadata('design:type', String)
-	    ], LocaleNumberValidator.prototype, "digits", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Number), 
-	        __metadata('design:paramtypes', [Number])
-	    ], LocaleNumberValidator.prototype, "minValue", null);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Number), 
-	        __metadata('design:paramtypes', [Number])
-	    ], LocaleNumberValidator.prototype, "maxValue", null);
-	    LocaleNumberValidator = __decorate([
-	        core_1.Directive({
-	            selector: '[validateLocaleNumber][ngModel],[validateLocaleNumber][formControl]',
-	            providers: [
-	                core_1.provide(forms_1.NG_VALIDATORS, {
-	                    useExisting: core_1.forwardRef(function () { return LocaleNumberValidator; }),
-	                    multi: true
-	                })
-	            ]
-	        }), 
-	        __metadata('design:paramtypes', [locale_service_1.LocaleService])
-	    ], LocaleNumberValidator);
-	    return LocaleNumberValidator;
+	    Object.defineProperty(Locale.prototype, "currency", {
+	        // Gets the current currency.
+	        get: function () {
+	            return this.locale.getCurrentCurrency();
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    return Locale;
 	}());
-	exports.LocaleNumberValidator = LocaleNumberValidator;
+	exports.Locale = Locale;
 	
-	//# sourceMappingURL=locale-number-validator.directive.js.map
+	//# sourceMappingURL=locale.js.map
 
 
 /***/ },
@@ -60240,7 +60307,7 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	__webpack_require__(401);
+	__webpack_require__(364);
 	__webpack_require__(416);
 	__webpack_require__(423);
 	__webpack_require__(425);
@@ -65222,7 +65289,7 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	__webpack_require__(401);
+	__webpack_require__(364);
 	__webpack_require__(463);
 	var forkJoin_1 = __webpack_require__(464);
 	var fromPromise_1 = __webpack_require__(449);
@@ -65902,7 +65969,12 @@
 /* 473 */,
 /* 474 */,
 /* 475 */,
-/* 476 */
+/* 476 */,
+/* 477 */,
+/* 478 */,
+/* 479 */,
+/* 480 */,
+/* 481 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65986,7 +66058,7 @@
 	//# sourceMappingURL=dir.js.map
 
 /***/ },
-/* 477 */
+/* 482 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66009,10 +66081,10 @@
 	};
 	var core_1 = __webpack_require__(11);
 	var common_1 = __webpack_require__(205);
-	var dir_1 = __webpack_require__(476);
-	var promise_completer_1 = __webpack_require__(478);
-	var error_1 = __webpack_require__(479);
-	var field_value_1 = __webpack_require__(480);
+	var dir_1 = __webpack_require__(481);
+	var promise_completer_1 = __webpack_require__(483);
+	var error_1 = __webpack_require__(484);
+	var field_value_1 = __webpack_require__(485);
 	/** Exception thrown when two MdSidenav are matching the same side. */
 	var MdDuplicatedSidenavError = (function (_super) {
 	    __extends(MdDuplicatedSidenavError, _super);
@@ -66468,7 +66540,7 @@
 	//# sourceMappingURL=sidenav.js.map
 
 /***/ },
-/* 478 */
+/* 483 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -66486,7 +66558,7 @@
 	//# sourceMappingURL=promise-completer.js.map
 
 /***/ },
-/* 479 */
+/* 484 */
 /***/ function(module, exports) {
 
 	// TODO(kara): Revisit why error messages are not being properly set.
@@ -66511,7 +66583,7 @@
 	//# sourceMappingURL=error.js.map
 
 /***/ },
-/* 480 */
+/* 485 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -66546,7 +66618,7 @@
 	//# sourceMappingURL=field-value.js.map
 
 /***/ },
-/* 481 */
+/* 486 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66560,7 +66632,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(11);
-	var line_1 = __webpack_require__(482);
+	var line_1 = __webpack_require__(487);
 	var MdList = (function () {
 	    function MdList() {
 	    }
@@ -66653,7 +66725,7 @@
 	//# sourceMappingURL=list.js.map
 
 /***/ },
-/* 482 */
+/* 487 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66726,7 +66798,7 @@
 	//# sourceMappingURL=line.js.map
 
 /***/ },
-/* 483 */
+/* 488 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66801,7 +66873,7 @@
 	//# sourceMappingURL=toolbar.js.map
 
 /***/ },
-/* 484 */
+/* 489 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66917,7 +66989,7 @@
 	//# sourceMappingURL=card.js.map
 
 /***/ },
-/* 485 */
+/* 490 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66934,10 +67006,10 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(11);
-	var forms_1 = __webpack_require__(338);
-	var unique_selection_dispatcher_1 = __webpack_require__(486);
+	var forms_1 = __webpack_require__(372);
+	var unique_selection_dispatcher_1 = __webpack_require__(491);
 	// Re-exports.
-	var unique_selection_dispatcher_2 = __webpack_require__(486);
+	var unique_selection_dispatcher_2 = __webpack_require__(491);
 	exports.MdUniqueSelectionDispatcher = unique_selection_dispatcher_2.MdUniqueSelectionDispatcher;
 	/**
 	 * Provider Expression that allows md-radio-group to register as a ControlValueAccessor. This
@@ -67369,7 +67441,7 @@
 	//# sourceMappingURL=radio.js.map
 
 /***/ },
-/* 486 */
+/* 491 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67417,7 +67489,7 @@
 	//# sourceMappingURL=unique-selection-dispatcher.js.map
 
 /***/ },
-/* 487 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67436,10 +67508,10 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(11);
-	var forms_1 = __webpack_require__(338);
+	var forms_1 = __webpack_require__(372);
 	var common_1 = __webpack_require__(205);
-	var field_value_1 = __webpack_require__(480);
-	var error_1 = __webpack_require__(479);
+	var field_value_1 = __webpack_require__(485);
+	var error_1 = __webpack_require__(484);
 	var Observable_1 = __webpack_require__(70);
 	var noop = function () { };
 	exports.MD_INPUT_CONTROL_VALUE_ACCESSOR = {
@@ -67896,7 +67968,7 @@
 	//# sourceMappingURL=input.js.map
 
 /***/ },
-/* 488 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67916,8 +67988,8 @@
 	};
 	var core_1 = __webpack_require__(11);
 	var common_1 = __webpack_require__(205);
-	var field_value_1 = __webpack_require__(480);
-	var ripple_1 = __webpack_require__(489);
+	var field_value_1 = __webpack_require__(485);
+	var ripple_1 = __webpack_require__(494);
 	// TODO(jelbourn): Make the `isMouseDown` stuff done with one global listener.
 	// TODO(kara): Convert attribute selectors to classes when attr maps become available
 	var MdButton = (function () {
@@ -68094,7 +68166,7 @@
 	//# sourceMappingURL=button.js.map
 
 /***/ },
-/* 489 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68108,7 +68180,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(11);
-	var ripple_renderer_1 = __webpack_require__(490);
+	var ripple_renderer_1 = __webpack_require__(495);
 	var MdRipple = (function () {
 	    function MdRipple(_elementRef) {
 	        var _this = this;
@@ -68213,7 +68285,7 @@
 	    };
 	    __decorate([
 	        core_1.Input('md-ripple-trigger'), 
-	        __metadata('design:type', HTMLElement)
+	        __metadata('design:type', Object)
 	    ], MdRipple.prototype, "trigger", void 0);
 	    __decorate([
 	        core_1.Input('md-ripple-centered'), 
@@ -68276,7 +68348,7 @@
 	//# sourceMappingURL=ripple.js.map
 
 /***/ },
-/* 490 */
+/* 495 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -68432,7 +68504,1190 @@
 	//# sourceMappingURL=ripple-renderer.js.map
 
 /***/ },
-/* 491 */
+/* 496 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(11);
+	var http_1 = __webpack_require__(342);
+	var error_1 = __webpack_require__(484);
+	var icon_registry_1 = __webpack_require__(497);
+	var icon_registry_2 = __webpack_require__(497);
+	exports.MdIconRegistry = icon_registry_2.MdIconRegistry;
+	/** Exception thrown when an invalid icon name is passed to an md-icon component. */
+	var MdIconInvalidNameError = (function (_super) {
+	    __extends(MdIconInvalidNameError, _super);
+	    function MdIconInvalidNameError(iconName) {
+	        _super.call(this, "Invalid icon name: \"" + iconName + "\"");
+	    }
+	    return MdIconInvalidNameError;
+	}(error_1.MdError));
+	exports.MdIconInvalidNameError = MdIconInvalidNameError;
+	/**
+	 * Component to display an icon. It can be used in the following ways:
+	 * - Specify the svgSrc input to load an SVG icon from a URL. The SVG content is directly inlined
+	 *   as a child of the <md-icon> component, so that CSS styles can easily be applied to it.
+	 *   The URL is loaded via an XMLHttpRequest, so it must be on the same domain as the page or its
+	 *   server must be configured to allow cross-domain requests.
+	 *   Example:
+	 *     <md-icon svgSrc="assets/arrow.svg"></md-icon>
+	 *
+	 * - Specify the svgIcon input to load an SVG icon from a URL previously registered with the
+	 *   addSvgIcon, addSvgIconInNamespace, addSvgIconSet, or addSvgIconSetInNamespace methods of
+	 *   MdIconRegistry. If the svgIcon value contains a colon it is assumed to be in the format
+	 *   "[namespace]:[name]", if not the value will be the name of an icon in the default namespace.
+	 *   Examples:
+	 *     <md-icon svgIcon="left-arrow"></md-icon>
+	 *     <md-icon svgIcon="animals:cat"></md-icon>
+	 *
+	 * - Use a font ligature as an icon by putting the ligature text in the content of the <md-icon>
+	 *   component. By default the Material icons font is used as described at
+	 *   http://google.github.io/material-design-icons/#icon-font-for-the-web. You can specify an
+	 *   alternate font by setting the fontSet input to either the CSS class to apply to use the
+	 *   desired font, or to an alias previously registered with MdIconRegistry.registerFontClassAlias.
+	 *   Examples:
+	 *     <md-icon>home</md-icon>
+	 *     <md-icon fontSet="myfont">sun</md-icon>
+	 *
+	 * - Specify a font glyph to be included via CSS rules by setting the fontSet input to specify the
+	 *   font, and the fontIcon input to specify the icon. Typically the fontIcon will specify a
+	 *   CSS class which causes the glyph to be displayed via a :before selector, as in
+	 *   https://fortawesome.github.io/Font-Awesome/examples/
+	 *   Example:
+	 *     <md-icon fontSet="fa" fontIcon="alarm"></md-icon>
+	 */
+	var MdIcon = (function () {
+	    function MdIcon(_element, _renderer, _mdIconRegistry) {
+	        this._element = _element;
+	        this._renderer = _renderer;
+	        this._mdIconRegistry = _mdIconRegistry;
+	        this.hostAriaLabel = '';
+	    }
+	    /**
+	     * Splits an svgIcon binding value into its icon set and icon name components.
+	     * Returns a 2-element array of [(icon set), (icon name)].
+	     * The separator for the two fields is ':'. If there is no separator, an empty
+	     * string is returned for the icon set and the entire value is returned for
+	     * the icon name. If the argument is falsy, returns an array of two empty strings.
+	     * Throws a MdIconInvalidNameError if the name contains two or more ':' separators.
+	     * Examples:
+	     *   'social:cake' -> ['social', 'cake']
+	     *   'penguin' -> ['', 'penguin']
+	     *   null -> ['', '']
+	     *   'a:b:c' -> (throws MdIconInvalidNameError)
+	     */
+	    MdIcon.prototype._splitIconName = function (iconName) {
+	        if (!iconName) {
+	            return ['', ''];
+	        }
+	        var parts = iconName.split(':');
+	        switch (parts.length) {
+	            case 1:
+	                // Use default namespace.
+	                return ['', parts[0]];
+	            case 2:
+	                return parts;
+	            default:
+	                throw new MdIconInvalidNameError(iconName);
+	        }
+	    };
+	    /** TODO: internal */
+	    MdIcon.prototype.ngOnChanges = function (changes) {
+	        var _this = this;
+	        var changedInputs = Object.keys(changes);
+	        // Only update the inline SVG icon if the inputs changed, to avoid unnecessary DOM operations.
+	        if (changedInputs.indexOf('svgIcon') != -1 || changedInputs.indexOf('svgSrc') != -1) {
+	            if (this.svgIcon) {
+	                var _a = this._splitIconName(this.svgIcon), namespace = _a[0], iconName = _a[1];
+	                this._mdIconRegistry.getNamedSvgIcon(iconName, namespace).subscribe(function (svg) { return _this._setSvgElement(svg); }, function (err) { return console.log("Error retrieving icon: " + err); });
+	            }
+	            else if (this.svgSrc) {
+	                this._mdIconRegistry.getSvgIconFromUrl(this.svgSrc).subscribe(function (svg) { return _this._setSvgElement(svg); }, function (err) { return console.log("Error retrieving icon: " + err); });
+	            }
+	        }
+	        if (this._usingFontIcon()) {
+	            this._updateFontIconClasses();
+	        }
+	        this._updateAriaLabel();
+	    };
+	    /** TODO: internal */
+	    MdIcon.prototype.ngOnInit = function () {
+	        // Update font classes because ngOnChanges won't be called if none of the inputs are present,
+	        // e.g. <md-icon>arrow</md-icon>. In this case we need to add a CSS class for the default font.
+	        if (this._usingFontIcon()) {
+	            this._updateFontIconClasses();
+	        }
+	    };
+	    /** TODO: internal */
+	    MdIcon.prototype.ngAfterViewChecked = function () {
+	        // Update aria label here because it may depend on the projected text content.
+	        // (e.g. <md-icon>home</md-icon> should use 'home').
+	        this._updateAriaLabel();
+	    };
+	    MdIcon.prototype._updateAriaLabel = function () {
+	        var ariaLabel = this._getAriaLabel();
+	        if (ariaLabel) {
+	            this._renderer.setElementAttribute(this._element.nativeElement, 'aria-label', ariaLabel);
+	        }
+	    };
+	    MdIcon.prototype._getAriaLabel = function () {
+	        // If the parent provided an aria-label attribute value, use it as-is. Otherwise look for a
+	        // reasonable value from the alt attribute, font icon name, SVG icon name, or (for ligatures)
+	        // the text content of the directive.
+	        var label = this.hostAriaLabel ||
+	            this.alt ||
+	            this.fontIcon ||
+	            this._splitIconName(this.svgIcon)[1];
+	        if (label) {
+	            return label;
+	        }
+	        // The "content" of an SVG icon is not a useful label.
+	        if (this._usingFontIcon()) {
+	            var text = this._element.nativeElement.textContent;
+	            if (text) {
+	                return text;
+	            }
+	        }
+	        // TODO: Warn here in dev mode.
+	        return null;
+	    };
+	    MdIcon.prototype._usingFontIcon = function () {
+	        return !(this.svgIcon || this.svgSrc);
+	    };
+	    MdIcon.prototype._setSvgElement = function (svg) {
+	        var layoutElement = this._element.nativeElement;
+	        // Remove existing child nodes and add the new SVG element.
+	        // We would use renderer.detachView(Array.from(layoutElement.childNodes)) here,
+	        // but it fails in IE11: https://github.com/angular/angular/issues/6327
+	        layoutElement.innerHTML = '';
+	        this._renderer.projectNodes(layoutElement, [svg]);
+	    };
+	    MdIcon.prototype._updateFontIconClasses = function () {
+	        if (!this._usingFontIcon()) {
+	            return;
+	        }
+	        var elem = this._element.nativeElement;
+	        var fontSetClass = this.fontSet ?
+	            this._mdIconRegistry.classNameForFontAlias(this.fontSet) :
+	            this._mdIconRegistry.getDefaultFontSetClass();
+	        if (fontSetClass != this._previousFontSetClass) {
+	            if (this._previousFontSetClass) {
+	                this._renderer.setElementClass(elem, this._previousFontSetClass, false);
+	            }
+	            if (fontSetClass) {
+	                this._renderer.setElementClass(elem, fontSetClass, true);
+	            }
+	            this._previousFontSetClass = fontSetClass;
+	        }
+	        if (this.fontIcon != this._previousFontIconClass) {
+	            if (this._previousFontIconClass) {
+	                this._renderer.setElementClass(elem, this._previousFontIconClass, false);
+	            }
+	            if (this.fontIcon) {
+	                this._renderer.setElementClass(elem, this.fontIcon, true);
+	            }
+	            this._previousFontIconClass = this.fontIcon;
+	        }
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], MdIcon.prototype, "svgSrc", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], MdIcon.prototype, "svgIcon", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], MdIcon.prototype, "fontSet", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], MdIcon.prototype, "fontIcon", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], MdIcon.prototype, "alt", void 0);
+	    __decorate([
+	        core_1.Input('aria-label'), 
+	        __metadata('design:type', String)
+	    ], MdIcon.prototype, "hostAriaLabel", void 0);
+	    MdIcon = __decorate([
+	        core_1.Component({            template: '<ng-content></ng-content>',
+	            selector: 'md-icon',
+	            styles: ["/** The width/height of the icon element. */ /** This works because we're using ViewEncapsulation.None. If we used the default encapsulation, the selector would need to be \":host\". */ md-icon { background-repeat: no-repeat; display: inline-block; fill: currentColor; height: 24px; width: 24px; } "],
+	            host: {
+	                'role': 'img',
+	            },
+	            encapsulation: core_1.ViewEncapsulation.None,
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	        }), 
+	        __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer, icon_registry_1.MdIconRegistry])
+	    ], MdIcon);
+	    return MdIcon;
+	}());
+	exports.MdIcon = MdIcon;
+	/** @deprecated */
+	exports.MD_ICON_DIRECTIVES = [MdIcon];
+	var MdIconModule = (function () {
+	    function MdIconModule() {
+	    }
+	    MdIconModule = __decorate([
+	        core_1.NgModule({
+	            imports: [http_1.HttpModule],
+	            exports: exports.MD_ICON_DIRECTIVES,
+	            declarations: exports.MD_ICON_DIRECTIVES,
+	            providers: [icon_registry_1.MdIconRegistry],
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], MdIconModule);
+	    return MdIconModule;
+	}());
+	exports.MdIconModule = MdIconModule;
+	//# sourceMappingURL=icon.js.map
+
+/***/ },
+/* 497 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(11);
+	var http_1 = __webpack_require__(342);
+	var error_1 = __webpack_require__(484);
+	var Observable_1 = __webpack_require__(70);
+	__webpack_require__(498);
+	__webpack_require__(499);
+	__webpack_require__(364);
+	__webpack_require__(500);
+	__webpack_require__(502);
+	__webpack_require__(504);
+	__webpack_require__(508);
+	__webpack_require__(444);
+	/** Exception thrown when attempting to load an icon with a name that cannot be found. */
+	var MdIconNameNotFoundError = (function (_super) {
+	    __extends(MdIconNameNotFoundError, _super);
+	    function MdIconNameNotFoundError(iconName) {
+	        _super.call(this, "Unable to find icon with the name \"" + iconName + "\"");
+	    }
+	    return MdIconNameNotFoundError;
+	}(error_1.MdError));
+	exports.MdIconNameNotFoundError = MdIconNameNotFoundError;
+	/**
+	 * Exception thrown when attempting to load SVG content that does not contain the expected
+	 * <svg> tag.
+	 */
+	var MdIconSvgTagNotFoundError = (function (_super) {
+	    __extends(MdIconSvgTagNotFoundError, _super);
+	    function MdIconSvgTagNotFoundError() {
+	        _super.call(this, '<svg> tag not found');
+	    }
+	    return MdIconSvgTagNotFoundError;
+	}(error_1.MdError));
+	exports.MdIconSvgTagNotFoundError = MdIconSvgTagNotFoundError;
+	/** Configuration for an icon, including the URL and possibly the cached SVG element. */
+	var SvgIconConfig = (function () {
+	    function SvgIconConfig(url) {
+	        this.url = url;
+	        this.svgElement = null;
+	    }
+	    return SvgIconConfig;
+	}());
+	/** Returns the cache key to use for an icon namespace and name. */
+	var iconKey = function (namespace, name) { return namespace + ':' + name; };
+	/**
+	 * Service to register and display icons used by the <md-icon> component.
+	 * - Registers icon URLs by namespace and name.
+	 * - Registers icon set URLs by namespace.
+	 * - Registers aliases for CSS classes, for use with icon fonts.
+	 * - Loads icons from URLs and extracts individual icons from icon sets.
+	 */
+	var MdIconRegistry = (function () {
+	    function MdIconRegistry(_http) {
+	        this._http = _http;
+	        /**
+	         * URLs and cached SVG elements for individual icons. Keys are of the format "[namespace]:[icon]".
+	         */
+	        this._svgIconConfigs = new Map();
+	        /**
+	         * SvgIconConfig objects and cached SVG elements for icon sets, keyed by namespace.
+	         * Multiple icon sets can be registered under the same namespace.
+	         */
+	        this._iconSetConfigs = new Map();
+	        /** Cache for icons loaded by direct URLs. */
+	        this._cachedIconsByUrl = new Map();
+	        /** In-progress icon fetches. Used to coalesce multiple requests to the same URL. */
+	        this._inProgressUrlFetches = new Map();
+	        /** Map from font identifiers to their CSS class names. Used for icon fonts. */
+	        this._fontCssClassesByAlias = new Map();
+	        /**
+	         * The CSS class to apply when an <md-icon> component has no icon name, url, or font specified.
+	         * The default 'material-icons' value assumes that the material icon font has been loaded as
+	         * described at http://google.github.io/material-design-icons/#icon-font-for-the-web
+	         */
+	        this._defaultFontSetClass = 'material-icons';
+	    }
+	    /** Registers an icon by URL in the default namespace. */
+	    MdIconRegistry.prototype.addSvgIcon = function (iconName, url) {
+	        return this.addSvgIconInNamespace('', iconName, url);
+	    };
+	    /** Registers an icon by URL in the specified namespace. */
+	    MdIconRegistry.prototype.addSvgIconInNamespace = function (namespace, iconName, url) {
+	        var key = iconKey(namespace, iconName);
+	        this._svgIconConfigs.set(key, new SvgIconConfig(url));
+	        return this;
+	    };
+	    /** Registers an icon set by URL in the default namespace. */
+	    MdIconRegistry.prototype.addSvgIconSet = function (url) {
+	        return this.addSvgIconSetInNamespace('', url);
+	    };
+	    /** Registers an icon set by URL in the specified namespace. */
+	    MdIconRegistry.prototype.addSvgIconSetInNamespace = function (namespace, url) {
+	        var config = new SvgIconConfig(url);
+	        if (this._iconSetConfigs.has(namespace)) {
+	            this._iconSetConfigs.get(namespace).push(config);
+	        }
+	        else {
+	            this._iconSetConfigs.set(namespace, [config]);
+	        }
+	        return this;
+	    };
+	    /**
+	     * Defines an alias for a CSS class name to be used for icon fonts. Creating an mdIcon
+	     * component with the alias as the fontSet input will cause the class name to be applied
+	     * to the <md-icon> element.
+	     */
+	    MdIconRegistry.prototype.registerFontClassAlias = function (alias, className) {
+	        if (className === void 0) { className = alias; }
+	        this._fontCssClassesByAlias.set(alias, className);
+	        return this;
+	    };
+	    /**
+	     * Returns the CSS class name associated with the alias by a previous call to
+	     * registerFontClassAlias. If no CSS class has been associated, returns the alias unmodified.
+	     */
+	    MdIconRegistry.prototype.classNameForFontAlias = function (alias) {
+	        return this._fontCssClassesByAlias.get(alias) || alias;
+	    };
+	    /**
+	     * Sets the CSS class name to be used for icon fonts when an <md-icon> component does not
+	     * have a fontSet input value, and is not loading an icon by name or URL.
+	     */
+	    MdIconRegistry.prototype.setDefaultFontSetClass = function (className) {
+	        this._defaultFontSetClass = className;
+	        return this;
+	    };
+	    /**
+	     * Returns the CSS class name to be used for icon fonts when an <md-icon> component does not
+	     * have a fontSet input value, and is not loading an icon by name or URL.
+	     */
+	    MdIconRegistry.prototype.getDefaultFontSetClass = function () {
+	        return this._defaultFontSetClass;
+	    };
+	    /**
+	     * Returns an Observable that produces the icon (as an <svg> DOM element) from the given URL.
+	     * The response from the URL may be cached so this will not always cause an HTTP request, but
+	     * the produced element will always be a new copy of the originally fetched icon. (That is,
+	     * it will not contain any modifications made to elements previously returned).
+	     */
+	    MdIconRegistry.prototype.getSvgIconFromUrl = function (url) {
+	        var _this = this;
+	        if (this._cachedIconsByUrl.has(url)) {
+	            return Observable_1.Observable.of(cloneSvg(this._cachedIconsByUrl.get(url)));
+	        }
+	        return this._loadSvgIconFromConfig(new SvgIconConfig(url))
+	            .do(function (svg) { return _this._cachedIconsByUrl.set(url, svg); })
+	            .map(function (svg) { return cloneSvg(svg); });
+	    };
+	    /**
+	     * Returns an Observable that produces the icon (as an <svg> DOM element) with the given name
+	     * and namespace. The icon must have been previously registered with addIcon or addIconSet;
+	     * if not, the Observable will throw an MdIconNameNotFoundError.
+	     */
+	    MdIconRegistry.prototype.getNamedSvgIcon = function (name, namespace) {
+	        if (namespace === void 0) { namespace = ''; }
+	        // Return (copy of) cached icon if possible.
+	        var key = iconKey(namespace, name);
+	        if (this._svgIconConfigs.has(key)) {
+	            return this._getSvgFromConfig(this._svgIconConfigs.get(key));
+	        }
+	        // See if we have any icon sets registered for the namespace.
+	        var iconSetConfigs = this._iconSetConfigs.get(namespace);
+	        if (iconSetConfigs) {
+	            return this._getSvgFromIconSetConfigs(name, iconSetConfigs);
+	        }
+	        return Observable_1.Observable.throw(new MdIconNameNotFoundError(key));
+	    };
+	    /**
+	     * Returns the cached icon for a SvgIconConfig if available, or fetches it from its URL if not.
+	     */
+	    MdIconRegistry.prototype._getSvgFromConfig = function (config) {
+	        if (config.svgElement) {
+	            // We already have the SVG element for this icon, return a copy.
+	            return Observable_1.Observable.of(cloneSvg(config.svgElement));
+	        }
+	        else {
+	            // Fetch the icon from the config's URL, cache it, and return a copy.
+	            return this._loadSvgIconFromConfig(config)
+	                .do(function (svg) { return config.svgElement = svg; })
+	                .map(function (svg) { return cloneSvg(svg); });
+	        }
+	    };
+	    /**
+	     * Attempts to find an icon with the specified name in any of the SVG icon sets.
+	     * First searches the available cached icons for a nested element with a matching name, and
+	     * if found copies the element to a new <svg> element. If not found, fetches all icon sets
+	     * that have not been cached, and searches again after all fetches are completed.
+	     * The returned Observable produces the SVG element if possible, and throws
+	     * MdIconNameNotFoundError if no icon with the specified name can be found.
+	     */
+	    MdIconRegistry.prototype._getSvgFromIconSetConfigs = function (name, iconSetConfigs) {
+	        var _this = this;
+	        // For all the icon set SVG elements we've fetched, see if any contain an icon with the
+	        // requested name.
+	        var namedIcon = this._extractIconWithNameFromAnySet(name, iconSetConfigs);
+	        if (namedIcon) {
+	            // We could cache namedIcon in _svgIconConfigs, but since we have to make a copy every
+	            // time anyway, there's probably not much advantage compared to just always extracting
+	            // it from the icon set.
+	            return Observable_1.Observable.of(namedIcon);
+	        }
+	        // Not found in any cached icon sets. If there are icon sets with URLs that we haven't
+	        // fetched, fetch them now and look for iconName in the results.
+	        var iconSetFetchRequests = iconSetConfigs
+	            .filter(function (iconSetConfig) { return !iconSetConfig.svgElement; })
+	            .map(function (iconSetConfig) {
+	            return _this._loadSvgIconSetFromConfig(iconSetConfig)
+	                .catch(function (err, caught) {
+	                // Swallow errors fetching individual URLs so the combined Observable won't
+	                // necessarily fail.
+	                console.log("Loading icon set URL: " + iconSetConfig.url + " failed: " + err);
+	                return Observable_1.Observable.of(null);
+	            })
+	                .do(function (svg) {
+	                // Cache SVG element.
+	                if (svg) {
+	                    iconSetConfig.svgElement = svg;
+	                }
+	            });
+	        });
+	        // Fetch all the icon set URLs. When the requests complete, every IconSet should have a
+	        // cached SVG element (unless the request failed), and we can check again for the icon.
+	        return Observable_1.Observable.forkJoin(iconSetFetchRequests)
+	            .map(function (ignoredResults) {
+	            var foundIcon = _this._extractIconWithNameFromAnySet(name, iconSetConfigs);
+	            if (!foundIcon) {
+	                throw new MdIconNameNotFoundError(name);
+	            }
+	            return foundIcon;
+	        });
+	    };
+	    /**
+	     * Searches the cached SVG elements for the given icon sets for a nested icon element whose "id"
+	     * tag matches the specified name. If found, copies the nested element to a new SVG element and
+	     * returns it. Returns null if no matching element is found.
+	     */
+	    MdIconRegistry.prototype._extractIconWithNameFromAnySet = function (iconName, iconSetConfigs) {
+	        // Iterate backwards, so icon sets added later have precedence.
+	        for (var i = iconSetConfigs.length - 1; i >= 0; i--) {
+	            var config = iconSetConfigs[i];
+	            if (config.svgElement) {
+	                var foundIcon = this._extractSvgIconFromSet(config.svgElement, iconName, config);
+	                if (foundIcon) {
+	                    return foundIcon;
+	                }
+	            }
+	        }
+	        return null;
+	    };
+	    /**
+	     * Loads the content of the icon URL specified in the SvgIconConfig and creates an SVG element
+	     * from it.
+	     */
+	    MdIconRegistry.prototype._loadSvgIconFromConfig = function (config) {
+	        var _this = this;
+	        return this._fetchUrl(config.url)
+	            .map(function (svgText) { return _this._createSvgElementForSingleIcon(svgText, config); });
+	    };
+	    /**
+	     * Loads the content of the icon set URL specified in the SvgIconConfig and creates an SVG element
+	     * from it.
+	     */
+	    MdIconRegistry.prototype._loadSvgIconSetFromConfig = function (config) {
+	        var _this = this;
+	        // TODO: Document that icons should only be loaded from trusted sources.
+	        return this._fetchUrl(config.url)
+	            .map(function (svgText) { return _this._svgElementFromString(svgText); });
+	    };
+	    /**
+	     * Creates a DOM element from the given SVG string, and adds default attributes.
+	     */
+	    MdIconRegistry.prototype._createSvgElementForSingleIcon = function (responseText, config) {
+	        var svg = this._svgElementFromString(responseText);
+	        this._setSvgAttributes(svg, config);
+	        return svg;
+	    };
+	    /**
+	     * Searches the cached element of the given SvgIconConfig for a nested icon element whose "id"
+	     * tag matches the specified name. If found, copies the nested element to a new SVG element and
+	     * returns it. Returns null if no matching element is found.
+	     */
+	    MdIconRegistry.prototype._extractSvgIconFromSet = function (iconSet, iconName, config) {
+	        var iconNode = iconSet.querySelector('#' + iconName);
+	        if (!iconNode) {
+	            return null;
+	        }
+	        // If the icon node is itself an <svg> node, clone and return it directly. If not, set it as
+	        // the content of a new <svg> node.
+	        if (iconNode.tagName.toLowerCase() == 'svg') {
+	            return this._setSvgAttributes(iconNode.cloneNode(true), config);
+	        }
+	        // createElement('SVG') doesn't work as expected; the DOM ends up with
+	        // the correct nodes, but the SVG content doesn't render. Instead we
+	        // have to create an empty SVG node using innerHTML and append its content.
+	        // Elements created using DOMParser.parseFromString have the same problem.
+	        // http://stackoverflow.com/questions/23003278/svg-innerhtml-in-firefox-can-not-display
+	        var svg = this._svgElementFromString('<svg></svg>');
+	        // Clone the node so we don't remove it from the parent icon set element.
+	        svg.appendChild(iconNode.cloneNode(true));
+	        return this._setSvgAttributes(svg, config);
+	    };
+	    /**
+	     * Creates a DOM element from the given SVG string.
+	     */
+	    MdIconRegistry.prototype._svgElementFromString = function (str) {
+	        // TODO: Is there a better way than innerHTML? Renderer doesn't appear to have a method for
+	        // creating an element from an HTML string.
+	        var div = document.createElement('DIV');
+	        div.innerHTML = str;
+	        var svg = div.querySelector('svg');
+	        if (!svg) {
+	            throw new MdIconSvgTagNotFoundError();
+	        }
+	        return svg;
+	    };
+	    /**
+	     * Sets the default attributes for an SVG element to be used as an icon.
+	     */
+	    MdIconRegistry.prototype._setSvgAttributes = function (svg, config) {
+	        if (!svg.getAttribute('xmlns')) {
+	            svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+	        }
+	        svg.setAttribute('fit', '');
+	        svg.setAttribute('height', '100%');
+	        svg.setAttribute('width', '100%');
+	        svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+	        svg.setAttribute('focusable', 'false'); // Disable IE11 default behavior to make SVGs focusable.
+	        return svg;
+	    };
+	    /**
+	     * Returns an Observable which produces the string contents of the given URL. Results may be
+	     * cached, so future calls with the same URL may not cause another HTTP request.
+	     */
+	    MdIconRegistry.prototype._fetchUrl = function (url) {
+	        var _this = this;
+	        // Store in-progress fetches to avoid sending a duplicate request for a URL when there is
+	        // already a request in progress for that URL. It's necessary to call share() on the
+	        // Observable returned by http.get() so that multiple subscribers don't cause multiple XHRs.
+	        if (this._inProgressUrlFetches.has(url)) {
+	            return this._inProgressUrlFetches.get(url);
+	        }
+	        // TODO(jelbourn): for some reason, the `finally` operator "loses" the generic type on the
+	        // Observable. Figure out why and fix it.
+	        var req = this._http.get(url)
+	            .map(function (response) { return response.text(); })
+	            .finally(function () {
+	            _this._inProgressUrlFetches.delete(url);
+	        })
+	            .share();
+	        this._inProgressUrlFetches.set(url, req);
+	        return req;
+	    };
+	    MdIconRegistry = __decorate([
+	        core_1.Injectable(), 
+	        __metadata('design:paramtypes', [http_1.Http])
+	    ], MdIconRegistry);
+	    return MdIconRegistry;
+	}());
+	exports.MdIconRegistry = MdIconRegistry;
+	/** Clones an SVGElement while preserving type information. */
+	function cloneSvg(svg) {
+	    return svg.cloneNode(true);
+	}
+	//# sourceMappingURL=icon-registry.js.map
+
+/***/ },
+/* 498 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var Observable_1 = __webpack_require__(70);
+	var forkJoin_1 = __webpack_require__(464);
+	Observable_1.Observable.forkJoin = forkJoin_1.forkJoin;
+	//# sourceMappingURL=forkJoin.js.map
+
+/***/ },
+/* 499 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var Observable_1 = __webpack_require__(70);
+	var of_1 = __webpack_require__(439);
+	Observable_1.Observable.of = of_1.of;
+	//# sourceMappingURL=of.js.map
+
+/***/ },
+/* 500 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var Observable_1 = __webpack_require__(70);
+	var filter_1 = __webpack_require__(501);
+	Observable_1.Observable.prototype.filter = filter_1.filter;
+	//# sourceMappingURL=filter.js.map
+
+/***/ },
+/* 501 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var Subscriber_1 = __webpack_require__(75);
+	/**
+	 * Filter items emitted by the source Observable by only emitting those that
+	 * satisfy a specified predicate.
+	 *
+	 * <span class="informal">Like
+	 * [Array.prototype.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter),
+	 * it only emits a value from the source if it passes a criterion function.</span>
+	 *
+	 * <img src="./img/filter.png" width="100%">
+	 *
+	 * Similar to the well-known `Array.prototype.filter` method, this operator
+	 * takes values from the source Observable, passes them through a `predicate`
+	 * function and only emits those values that yielded `true`.
+	 *
+	 * @example <caption>Emit only click events whose target was a DIV element</caption>
+	 * var clicks = Rx.Observable.fromEvent(document, 'click');
+	 * var clicksOnDivs = clicks.filter(ev => ev.target.tagName === 'DIV');
+	 * clicksOnDivs.subscribe(x => console.log(x));
+	 *
+	 * @see {@link distinct}
+	 * @see {@link distinctKey}
+	 * @see {@link distinctUntilChanged}
+	 * @see {@link distinctUntilKeyChanged}
+	 * @see {@link ignoreElements}
+	 * @see {@link partition}
+	 * @see {@link skip}
+	 *
+	 * @param {function(value: T, index: number): boolean} predicate A function that
+	 * evaluates each value emitted by the source Observable. If it returns `true`,
+	 * the value is emitted, if `false` the value is not passed to the output
+	 * Observable. The `index` parameter is the number `i` for the i-th source
+	 * emission that has happened since the subscription, starting from the number
+	 * `0`.
+	 * @param {any} [thisArg] An optional argument to determine the value of `this`
+	 * in the `predicate` function.
+	 * @return {Observable} An Observable of values from the source that were
+	 * allowed by the `predicate` function.
+	 * @method filter
+	 * @owner Observable
+	 */
+	function filter(predicate, thisArg) {
+	    return this.lift(new FilterOperator(predicate, thisArg));
+	}
+	exports.filter = filter;
+	var FilterOperator = (function () {
+	    function FilterOperator(predicate, thisArg) {
+	        this.predicate = predicate;
+	        this.thisArg = thisArg;
+	    }
+	    FilterOperator.prototype.call = function (subscriber, source) {
+	        return source._subscribe(new FilterSubscriber(subscriber, this.predicate, this.thisArg));
+	    };
+	    return FilterOperator;
+	}());
+	/**
+	 * We need this JSDoc comment for affecting ESDoc.
+	 * @ignore
+	 * @extends {Ignored}
+	 */
+	var FilterSubscriber = (function (_super) {
+	    __extends(FilterSubscriber, _super);
+	    function FilterSubscriber(destination, predicate, thisArg) {
+	        _super.call(this, destination);
+	        this.predicate = predicate;
+	        this.thisArg = thisArg;
+	        this.count = 0;
+	        this.predicate = predicate;
+	    }
+	    // the try catch block below is left specifically for
+	    // optimization and perf reasons. a tryCatcher is not necessary here.
+	    FilterSubscriber.prototype._next = function (value) {
+	        var result;
+	        try {
+	            result = this.predicate.call(this.thisArg, value, this.count++);
+	        }
+	        catch (err) {
+	            this.destination.error(err);
+	            return;
+	        }
+	        if (result) {
+	            this.destination.next(value);
+	        }
+	    };
+	    return FilterSubscriber;
+	}(Subscriber_1.Subscriber));
+	//# sourceMappingURL=filter.js.map
+
+/***/ },
+/* 502 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var Observable_1 = __webpack_require__(70);
+	var do_1 = __webpack_require__(503);
+	Observable_1.Observable.prototype.do = do_1._do;
+	//# sourceMappingURL=do.js.map
+
+/***/ },
+/* 503 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var Subscriber_1 = __webpack_require__(75);
+	/**
+	 * Perform a side effect for every emission on the source Observable, but return
+	 * an Observable that is identical to the source.
+	 *
+	 * <span class="informal">Intercepts each emission on the source and runs a
+	 * function, but returns an output which is identical to the source.</span>
+	 *
+	 * <img src="./img/do.png" width="100%">
+	 *
+	 * Returns a mirrored Observable of the source Observable, but modified so that
+	 * the provided Observer is called to perform a side effect for every value,
+	 * error, and completion emitted by the source. Any errors that are thrown in
+	 * the aforementioned Observer or handlers are safely sent down the error path
+	 * of the output Observable.
+	 *
+	 * This operator is useful for debugging your Observables for the correct values
+	 * or performing other side effects.
+	 *
+	 * Note: this is different to a `subscribe` on the Observable. If the Observable
+	 * returned by `do` is not subscribed, the side effects specified by the
+	 * Observer will never happen. `do` therefore simply spies on existing
+	 * execution, it does not trigger an execution to happen like `subscribe` does.
+	 *
+	 * @example <caption>Map every every click to the clientX position of that click, while also logging the click event</caption>
+	 * var clicks = Rx.Observable.fromEvent(document, 'click');
+	 * var positions = clicks
+	 *   .do(ev => console.log(ev))
+	 *   .map(ev => ev.clientX);
+	 * positions.subscribe(x => console.log(x));
+	 *
+	 * @see {@link map}
+	 * @see {@link subscribe}
+	 *
+	 * @param {Observer|function} [nextOrObserver] A normal Observer object or a
+	 * callback for `next`.
+	 * @param {function} [error] Callback for errors in the source.
+	 * @param {function} [complete] Callback for the completion of the source.
+	 * @return {Observable} An Observable identical to the source, but runs the
+	 * specified Observer or callback(s) for each item.
+	 * @method do
+	 * @name do
+	 * @owner Observable
+	 */
+	function _do(nextOrObserver, error, complete) {
+	    return this.lift(new DoOperator(nextOrObserver, error, complete));
+	}
+	exports._do = _do;
+	var DoOperator = (function () {
+	    function DoOperator(nextOrObserver, error, complete) {
+	        this.nextOrObserver = nextOrObserver;
+	        this.error = error;
+	        this.complete = complete;
+	    }
+	    DoOperator.prototype.call = function (subscriber, source) {
+	        return source._subscribe(new DoSubscriber(subscriber, this.nextOrObserver, this.error, this.complete));
+	    };
+	    return DoOperator;
+	}());
+	/**
+	 * We need this JSDoc comment for affecting ESDoc.
+	 * @ignore
+	 * @extends {Ignored}
+	 */
+	var DoSubscriber = (function (_super) {
+	    __extends(DoSubscriber, _super);
+	    function DoSubscriber(destination, nextOrObserver, error, complete) {
+	        _super.call(this, destination);
+	        var safeSubscriber = new Subscriber_1.Subscriber(nextOrObserver, error, complete);
+	        safeSubscriber.syncErrorThrowable = true;
+	        this.add(safeSubscriber);
+	        this.safeSubscriber = safeSubscriber;
+	    }
+	    DoSubscriber.prototype._next = function (value) {
+	        var safeSubscriber = this.safeSubscriber;
+	        safeSubscriber.next(value);
+	        if (safeSubscriber.syncErrorThrown) {
+	            this.destination.error(safeSubscriber.syncErrorValue);
+	        }
+	        else {
+	            this.destination.next(value);
+	        }
+	    };
+	    DoSubscriber.prototype._error = function (err) {
+	        var safeSubscriber = this.safeSubscriber;
+	        safeSubscriber.error(err);
+	        if (safeSubscriber.syncErrorThrown) {
+	            this.destination.error(safeSubscriber.syncErrorValue);
+	        }
+	        else {
+	            this.destination.error(err);
+	        }
+	    };
+	    DoSubscriber.prototype._complete = function () {
+	        var safeSubscriber = this.safeSubscriber;
+	        safeSubscriber.complete();
+	        if (safeSubscriber.syncErrorThrown) {
+	            this.destination.error(safeSubscriber.syncErrorValue);
+	        }
+	        else {
+	            this.destination.complete();
+	        }
+	    };
+	    return DoSubscriber;
+	}(Subscriber_1.Subscriber));
+	//# sourceMappingURL=do.js.map
+
+/***/ },
+/* 504 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var Observable_1 = __webpack_require__(70);
+	var share_1 = __webpack_require__(505);
+	Observable_1.Observable.prototype.share = share_1.share;
+	//# sourceMappingURL=share.js.map
+
+/***/ },
+/* 505 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var multicast_1 = __webpack_require__(506);
+	var Subject_1 = __webpack_require__(69);
+	function shareSubjectFactory() {
+	    return new Subject_1.Subject();
+	}
+	/**
+	 * Returns a new Observable that multicasts (shares) the original Observable. As long as there is at least one
+	 * Subscriber this Observable will be subscribed and emitting data. When all subscribers have unsubscribed it will
+	 * unsubscribe from the source Observable. Because the Observable is multicasting it makes the stream `hot`.
+	 * This is an alias for .publish().refCount().
+	 *
+	 * <img src="./img/share.png" width="100%">
+	 *
+	 * @return {Observable<T>} an Observable that upon connection causes the source Observable to emit items to its Observers
+	 * @method share
+	 * @owner Observable
+	 */
+	function share() {
+	    return multicast_1.multicast.call(this, shareSubjectFactory).refCount();
+	}
+	exports.share = share;
+	;
+	//# sourceMappingURL=share.js.map
+
+/***/ },
+/* 506 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var ConnectableObservable_1 = __webpack_require__(507);
+	/**
+	 * Returns an Observable that emits the results of invoking a specified selector on items
+	 * emitted by a ConnectableObservable that shares a single subscription to the underlying stream.
+	 *
+	 * <img src="./img/multicast.png" width="100%">
+	 *
+	 * @param {Function} selector - a function that can use the multicasted source stream
+	 * as many times as needed, without causing multiple subscriptions to the source stream.
+	 * Subscribers to the given source will receive all notifications of the source from the
+	 * time of the subscription forward.
+	 * @return {Observable} an Observable that emits the results of invoking the selector
+	 * on the items emitted by a `ConnectableObservable` that shares a single subscription to
+	 * the underlying stream.
+	 * @method multicast
+	 * @owner Observable
+	 */
+	function multicast(subjectOrSubjectFactory) {
+	    var subjectFactory;
+	    if (typeof subjectOrSubjectFactory === 'function') {
+	        subjectFactory = subjectOrSubjectFactory;
+	    }
+	    else {
+	        subjectFactory = function subjectFactory() {
+	            return subjectOrSubjectFactory;
+	        };
+	    }
+	    return new ConnectableObservable_1.ConnectableObservable(this, subjectFactory);
+	}
+	exports.multicast = multicast;
+	//# sourceMappingURL=multicast.js.map
+
+/***/ },
+/* 507 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var Observable_1 = __webpack_require__(70);
+	var Subscriber_1 = __webpack_require__(75);
+	var Subscription_1 = __webpack_require__(77);
+	/**
+	 * @class ConnectableObservable<T>
+	 */
+	var ConnectableObservable = (function (_super) {
+	    __extends(ConnectableObservable, _super);
+	    function ConnectableObservable(source, subjectFactory) {
+	        _super.call(this);
+	        this.source = source;
+	        this.subjectFactory = subjectFactory;
+	    }
+	    ConnectableObservable.prototype._subscribe = function (subscriber) {
+	        return this.getSubject().subscribe(subscriber);
+	    };
+	    ConnectableObservable.prototype.getSubject = function () {
+	        var subject = this.subject;
+	        if (subject && !subject.isUnsubscribed) {
+	            return subject;
+	        }
+	        return (this.subject = this.subjectFactory());
+	    };
+	    ConnectableObservable.prototype.connect = function () {
+	        var source = this.source;
+	        var subscription = this.subscription;
+	        if (subscription && !subscription.isUnsubscribed) {
+	            return subscription;
+	        }
+	        subscription = source.subscribe(this.getSubject());
+	        subscription.add(new ConnectableSubscription(this));
+	        return (this.subscription = subscription);
+	    };
+	    ConnectableObservable.prototype.refCount = function () {
+	        return new RefCountObservable(this);
+	    };
+	    /**
+	     * This method is opened for `ConnectableSubscription`.
+	     * Not to call from others.
+	     */
+	    ConnectableObservable.prototype._closeSubscription = function () {
+	        this.subject = null;
+	        this.subscription = null;
+	    };
+	    return ConnectableObservable;
+	}(Observable_1.Observable));
+	exports.ConnectableObservable = ConnectableObservable;
+	/**
+	 * We need this JSDoc comment for affecting ESDoc.
+	 * @ignore
+	 * @extends {Ignored}
+	 */
+	var ConnectableSubscription = (function (_super) {
+	    __extends(ConnectableSubscription, _super);
+	    function ConnectableSubscription(connectable) {
+	        _super.call(this);
+	        this.connectable = connectable;
+	    }
+	    ConnectableSubscription.prototype._unsubscribe = function () {
+	        var connectable = this.connectable;
+	        connectable._closeSubscription();
+	        this.connectable = null;
+	    };
+	    return ConnectableSubscription;
+	}(Subscription_1.Subscription));
+	/**
+	 * We need this JSDoc comment for affecting ESDoc.
+	 * @ignore
+	 * @extends {Ignored}
+	 */
+	var RefCountObservable = (function (_super) {
+	    __extends(RefCountObservable, _super);
+	    function RefCountObservable(connectable, refCount) {
+	        if (refCount === void 0) { refCount = 0; }
+	        _super.call(this);
+	        this.connectable = connectable;
+	        this.refCount = refCount;
+	    }
+	    RefCountObservable.prototype._subscribe = function (subscriber) {
+	        var connectable = this.connectable;
+	        var refCountSubscriber = new RefCountSubscriber(subscriber, this);
+	        var subscription = connectable.subscribe(refCountSubscriber);
+	        if (!subscription.isUnsubscribed && ++this.refCount === 1) {
+	            refCountSubscriber.connection = this.connection = connectable.connect();
+	        }
+	        return subscription;
+	    };
+	    return RefCountObservable;
+	}(Observable_1.Observable));
+	/**
+	 * We need this JSDoc comment for affecting ESDoc.
+	 * @ignore
+	 * @extends {Ignored}
+	 */
+	var RefCountSubscriber = (function (_super) {
+	    __extends(RefCountSubscriber, _super);
+	    function RefCountSubscriber(destination, refCountObservable) {
+	        _super.call(this, null);
+	        this.destination = destination;
+	        this.refCountObservable = refCountObservable;
+	        this.connection = refCountObservable.connection;
+	        destination.add(this);
+	    }
+	    RefCountSubscriber.prototype._next = function (value) {
+	        this.destination.next(value);
+	    };
+	    RefCountSubscriber.prototype._error = function (err) {
+	        this._resetConnectable();
+	        this.destination.error(err);
+	    };
+	    RefCountSubscriber.prototype._complete = function () {
+	        this._resetConnectable();
+	        this.destination.complete();
+	    };
+	    RefCountSubscriber.prototype._resetConnectable = function () {
+	        var observable = this.refCountObservable;
+	        var obsConnection = observable.connection;
+	        var subConnection = this.connection;
+	        if (subConnection && subConnection === obsConnection) {
+	            observable.refCount = 0;
+	            obsConnection.unsubscribe();
+	            observable.connection = null;
+	            this.unsubscribe();
+	        }
+	    };
+	    RefCountSubscriber.prototype._unsubscribe = function () {
+	        var observable = this.refCountObservable;
+	        if (observable.refCount === 0) {
+	            return;
+	        }
+	        if (--observable.refCount === 0) {
+	            var obsConnection = observable.connection;
+	            var subConnection = this.connection;
+	            if (subConnection && subConnection === obsConnection) {
+	                obsConnection.unsubscribe();
+	                observable.connection = null;
+	            }
+	        }
+	    };
+	    return RefCountSubscriber;
+	}(Subscriber_1.Subscriber));
+	//# sourceMappingURL=ConnectableObservable.js.map
+
+/***/ },
+/* 508 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var Observable_1 = __webpack_require__(70);
+	var finally_1 = __webpack_require__(509);
+	Observable_1.Observable.prototype.finally = finally_1._finally;
+	//# sourceMappingURL=finally.js.map
+
+/***/ },
+/* 509 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var Subscriber_1 = __webpack_require__(75);
+	var Subscription_1 = __webpack_require__(77);
+	/**
+	 * Returns an Observable that mirrors the source Observable, but will call a specified function when
+	 * the source terminates on complete or error.
+	 * @param {function} finallySelector function to be called when source terminates.
+	 * @return {Observable} an Observable that mirrors the source, but will call the specified function on termination.
+	 * @method finally
+	 * @owner Observable
+	 */
+	function _finally(finallySelector) {
+	    return this.lift(new FinallyOperator(finallySelector));
+	}
+	exports._finally = _finally;
+	var FinallyOperator = (function () {
+	    function FinallyOperator(finallySelector) {
+	        this.finallySelector = finallySelector;
+	    }
+	    FinallyOperator.prototype.call = function (subscriber, source) {
+	        return source._subscribe(new FinallySubscriber(subscriber, this.finallySelector));
+	    };
+	    return FinallyOperator;
+	}());
+	/**
+	 * We need this JSDoc comment for affecting ESDoc.
+	 * @ignore
+	 * @extends {Ignored}
+	 */
+	var FinallySubscriber = (function (_super) {
+	    __extends(FinallySubscriber, _super);
+	    function FinallySubscriber(destination, finallySelector) {
+	        _super.call(this, destination);
+	        this.add(new Subscription_1.Subscription(finallySelector));
+	    }
+	    return FinallySubscriber;
+	}(Subscriber_1.Subscriber));
+	//# sourceMappingURL=finally.js.map
+
+/***/ },
+/* 510 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -76050,7 +77305,7 @@
 	}(1, 1);
 
 /***/ },
-/* 492 */
+/* 511 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*! *****************************************************************************
@@ -77005,7 +78260,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 493 */
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -77020,139 +78275,139 @@
 	exports.Observable = Observable_1.Observable;
 	// statics
 	/* tslint:disable:no-use-before-declare */
-	__webpack_require__(494);
-	__webpack_require__(498);
-	__webpack_require__(501);
-	__webpack_require__(503);
-	__webpack_require__(506);
-	__webpack_require__(509);
-	__webpack_require__(511);
-	__webpack_require__(512);
 	__webpack_require__(513);
-	__webpack_require__(516);
-	__webpack_require__(519);
+	__webpack_require__(517);
 	__webpack_require__(520);
-	__webpack_require__(529);
-	__webpack_require__(532);
+	__webpack_require__(522);
+	__webpack_require__(525);
+	__webpack_require__(528);
+	__webpack_require__(498);
+	__webpack_require__(530);
+	__webpack_require__(531);
 	__webpack_require__(534);
+	__webpack_require__(537);
 	__webpack_require__(538);
-	__webpack_require__(539);
-	__webpack_require__(542);
-	__webpack_require__(545);
-	__webpack_require__(549);
-	//operators
+	__webpack_require__(547);
+	__webpack_require__(550);
 	__webpack_require__(552);
-	__webpack_require__(554);
+	__webpack_require__(499);
 	__webpack_require__(556);
-	__webpack_require__(558);
-	__webpack_require__(560);
+	__webpack_require__(559);
 	__webpack_require__(562);
-	__webpack_require__(444);
+	__webpack_require__(566);
+	//operators
 	__webpack_require__(569);
 	__webpack_require__(571);
-	__webpack_require__(572);
-	__webpack_require__(446);
 	__webpack_require__(573);
 	__webpack_require__(575);
-	__webpack_require__(578);
-	__webpack_require__(580);
-	__webpack_require__(582);
+	__webpack_require__(577);
+	__webpack_require__(579);
+	__webpack_require__(444);
 	__webpack_require__(584);
 	__webpack_require__(586);
+	__webpack_require__(587);
+	__webpack_require__(446);
 	__webpack_require__(588);
 	__webpack_require__(590);
-	__webpack_require__(592);
-	__webpack_require__(594);
-	__webpack_require__(596);
-	__webpack_require__(598);
-	__webpack_require__(600);
-	__webpack_require__(441);
-	__webpack_require__(602);
+	__webpack_require__(593);
+	__webpack_require__(595);
+	__webpack_require__(597);
+	__webpack_require__(599);
+	__webpack_require__(601);
+	__webpack_require__(603);
+	__webpack_require__(605);
 	__webpack_require__(607);
+	__webpack_require__(502);
 	__webpack_require__(609);
+	__webpack_require__(500);
+	__webpack_require__(508);
+	__webpack_require__(441);
 	__webpack_require__(611);
-	__webpack_require__(451);
-	__webpack_require__(613);
-	__webpack_require__(427);
-	__webpack_require__(401);
-	__webpack_require__(615);
-	__webpack_require__(617);
-	__webpack_require__(619);
-	__webpack_require__(423);
-	__webpack_require__(416);
+	__webpack_require__(616);
+	__webpack_require__(618);
 	__webpack_require__(620);
-	__webpack_require__(621);
+	__webpack_require__(451);
 	__webpack_require__(622);
-	__webpack_require__(623);
+	__webpack_require__(427);
+	__webpack_require__(364);
+	__webpack_require__(624);
 	__webpack_require__(626);
 	__webpack_require__(628);
+	__webpack_require__(423);
+	__webpack_require__(416);
+	__webpack_require__(629);
 	__webpack_require__(630);
+	__webpack_require__(631);
 	__webpack_require__(632);
-	__webpack_require__(633);
 	__webpack_require__(635);
-	__webpack_require__(425);
-	__webpack_require__(636);
-	__webpack_require__(638);
-	__webpack_require__(640);
+	__webpack_require__(637);
+	__webpack_require__(639);
+	__webpack_require__(641);
 	__webpack_require__(642);
 	__webpack_require__(644);
-	__webpack_require__(646);
-	__webpack_require__(648);
-	__webpack_require__(650);
-	__webpack_require__(652);
-	__webpack_require__(654);
-	__webpack_require__(656);
-	__webpack_require__(658);
-	__webpack_require__(660);
-	__webpack_require__(669);
-	__webpack_require__(671);
-	__webpack_require__(673);
-	__webpack_require__(675);
+	__webpack_require__(425);
+	__webpack_require__(645);
+	__webpack_require__(647);
+	__webpack_require__(649);
+	__webpack_require__(651);
+	__webpack_require__(653);
+	__webpack_require__(655);
+	__webpack_require__(504);
+	__webpack_require__(657);
+	__webpack_require__(659);
+	__webpack_require__(661);
+	__webpack_require__(663);
+	__webpack_require__(665);
+	__webpack_require__(667);
+	__webpack_require__(676);
 	__webpack_require__(678);
 	__webpack_require__(680);
 	__webpack_require__(682);
-	__webpack_require__(684);
-	__webpack_require__(686);
-	__webpack_require__(688);
-	__webpack_require__(690);
-	__webpack_require__(692);
+	__webpack_require__(685);
+	__webpack_require__(687);
+	__webpack_require__(689);
+	__webpack_require__(691);
+	__webpack_require__(693);
+	__webpack_require__(695);
+	__webpack_require__(697);
+	__webpack_require__(699);
 	__webpack_require__(463);
-	__webpack_require__(694);
-	__webpack_require__(696);
-	__webpack_require__(698);
-	__webpack_require__(700);
-	__webpack_require__(702);
-	__webpack_require__(704);
-	__webpack_require__(706);
+	__webpack_require__(701);
+	__webpack_require__(703);
+	__webpack_require__(705);
 	__webpack_require__(707);
+	__webpack_require__(709);
+	__webpack_require__(711);
+	__webpack_require__(713);
+	__webpack_require__(714);
 	/* tslint:disable:no-unused-variable */
-	var Operator_1 = __webpack_require__(709);
+	var Operator_1 = __webpack_require__(716);
 	exports.Operator = Operator_1.Operator;
 	var Subscription_1 = __webpack_require__(77);
 	exports.Subscription = Subscription_1.Subscription;
 	var Subscriber_1 = __webpack_require__(75);
 	exports.Subscriber = Subscriber_1.Subscriber;
-	var AsyncSubject_1 = __webpack_require__(497);
+	var AsyncSubject_1 = __webpack_require__(516);
 	exports.AsyncSubject = AsyncSubject_1.AsyncSubject;
-	var ReplaySubject_1 = __webpack_require__(565);
+	var ReplaySubject_1 = __webpack_require__(582);
 	exports.ReplaySubject = ReplaySubject_1.ReplaySubject;
 	var BehaviorSubject_1 = __webpack_require__(457);
 	exports.BehaviorSubject = BehaviorSubject_1.BehaviorSubject;
-	var ConnectableObservable_1 = __webpack_require__(568);
+	var ConnectableObservable_1 = __webpack_require__(507);
 	exports.ConnectableObservable = ConnectableObservable_1.ConnectableObservable;
 	var Notification_1 = __webpack_require__(438);
 	exports.Notification = Notification_1.Notification;
 	var EmptyError_1 = __webpack_require__(443);
 	exports.EmptyError = EmptyError_1.EmptyError;
-	var ArgumentOutOfRangeError_1 = __webpack_require__(677);
+	var ArgumentOutOfRangeError_1 = __webpack_require__(684);
 	exports.ArgumentOutOfRangeError = ArgumentOutOfRangeError_1.ArgumentOutOfRangeError;
 	var ObjectUnsubscribedError_1 = __webpack_require__(87);
 	exports.ObjectUnsubscribedError = ObjectUnsubscribedError_1.ObjectUnsubscribedError;
 	var UnsubscriptionError_1 = __webpack_require__(82);
 	exports.UnsubscriptionError = UnsubscriptionError_1.UnsubscriptionError;
-	var asap_1 = __webpack_require__(663);
-	var async_1 = __webpack_require__(524);
-	var queue_1 = __webpack_require__(566);
+	var asap_1 = __webpack_require__(670);
+	var async_1 = __webpack_require__(542);
+	var queue_1 = __webpack_require__(583);
 	var rxSubscriber_1 = __webpack_require__(83);
 	var observable_1 = __webpack_require__(73);
 	var iterator_1 = __webpack_require__(420);
@@ -77196,26 +78451,26 @@
 	//# sourceMappingURL=Rx.js.map
 
 /***/ },
-/* 494 */
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var bindCallback_1 = __webpack_require__(495);
+	var bindCallback_1 = __webpack_require__(514);
 	Observable_1.Observable.bindCallback = bindCallback_1.bindCallback;
 	//# sourceMappingURL=bindCallback.js.map
 
 /***/ },
-/* 495 */
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var BoundCallbackObservable_1 = __webpack_require__(496);
+	var BoundCallbackObservable_1 = __webpack_require__(515);
 	exports.bindCallback = BoundCallbackObservable_1.BoundCallbackObservable.create;
 	//# sourceMappingURL=bindCallback.js.map
 
 /***/ },
-/* 496 */
+/* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -77227,7 +78482,7 @@
 	var Observable_1 = __webpack_require__(70);
 	var tryCatch_1 = __webpack_require__(80);
 	var errorObject_1 = __webpack_require__(81);
-	var AsyncSubject_1 = __webpack_require__(497);
+	var AsyncSubject_1 = __webpack_require__(516);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @extends {Ignored}
@@ -77362,7 +78617,7 @@
 	//# sourceMappingURL=BoundCallbackObservable.js.map
 
 /***/ },
-/* 497 */
+/* 516 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -77420,26 +78675,26 @@
 	//# sourceMappingURL=AsyncSubject.js.map
 
 /***/ },
-/* 498 */
+/* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var bindNodeCallback_1 = __webpack_require__(499);
+	var bindNodeCallback_1 = __webpack_require__(518);
 	Observable_1.Observable.bindNodeCallback = bindNodeCallback_1.bindNodeCallback;
 	//# sourceMappingURL=bindNodeCallback.js.map
 
 /***/ },
-/* 499 */
+/* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var BoundNodeCallbackObservable_1 = __webpack_require__(500);
+	var BoundNodeCallbackObservable_1 = __webpack_require__(519);
 	exports.bindNodeCallback = BoundNodeCallbackObservable_1.BoundNodeCallbackObservable.create;
 	//# sourceMappingURL=bindNodeCallback.js.map
 
 /***/ },
-/* 500 */
+/* 519 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -77451,7 +78706,7 @@
 	var Observable_1 = __webpack_require__(70);
 	var tryCatch_1 = __webpack_require__(80);
 	var errorObject_1 = __webpack_require__(81);
-	var AsyncSubject_1 = __webpack_require__(497);
+	var AsyncSubject_1 = __webpack_require__(516);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @extends {Ignored}
@@ -77590,17 +78845,17 @@
 	//# sourceMappingURL=BoundNodeCallbackObservable.js.map
 
 /***/ },
-/* 501 */
+/* 520 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var combineLatest_1 = __webpack_require__(502);
+	var combineLatest_1 = __webpack_require__(521);
 	Observable_1.Observable.combineLatest = combineLatest_1.combineLatestStatic;
 	//# sourceMappingURL=combineLatest.js.map
 
 /***/ },
-/* 502 */
+/* 521 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -77790,26 +79045,26 @@
 	//# sourceMappingURL=combineLatest.js.map
 
 /***/ },
-/* 503 */
+/* 522 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var concat_1 = __webpack_require__(504);
+	var concat_1 = __webpack_require__(523);
 	Observable_1.Observable.concat = concat_1.concat;
 	//# sourceMappingURL=concat.js.map
 
 /***/ },
-/* 504 */
+/* 523 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var concat_1 = __webpack_require__(505);
+	var concat_1 = __webpack_require__(524);
 	exports.concat = concat_1.concatStatic;
 	//# sourceMappingURL=concat.js.map
 
 /***/ },
-/* 505 */
+/* 524 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -77922,26 +79177,26 @@
 	//# sourceMappingURL=concat.js.map
 
 /***/ },
-/* 506 */
+/* 525 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var defer_1 = __webpack_require__(507);
+	var defer_1 = __webpack_require__(526);
 	Observable_1.Observable.defer = defer_1.defer;
 	//# sourceMappingURL=defer.js.map
 
 /***/ },
-/* 507 */
+/* 526 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var DeferObservable_1 = __webpack_require__(508);
+	var DeferObservable_1 = __webpack_require__(527);
 	exports.defer = DeferObservable_1.DeferObservable.create;
 	//# sourceMappingURL=defer.js.map
 
 /***/ },
-/* 508 */
+/* 527 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -78039,17 +79294,17 @@
 	//# sourceMappingURL=DeferObservable.js.map
 
 /***/ },
-/* 509 */
+/* 528 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var empty_1 = __webpack_require__(510);
+	var empty_1 = __webpack_require__(529);
 	Observable_1.Observable.empty = empty_1.empty;
 	//# sourceMappingURL=empty.js.map
 
 /***/ },
-/* 510 */
+/* 529 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -78058,17 +79313,7 @@
 	//# sourceMappingURL=empty.js.map
 
 /***/ },
-/* 511 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var Observable_1 = __webpack_require__(70);
-	var forkJoin_1 = __webpack_require__(464);
-	Observable_1.Observable.forkJoin = forkJoin_1.forkJoin;
-	//# sourceMappingURL=forkJoin.js.map
-
-/***/ },
-/* 512 */
+/* 530 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -78078,26 +79323,26 @@
 	//# sourceMappingURL=from.js.map
 
 /***/ },
-/* 513 */
+/* 531 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var fromEvent_1 = __webpack_require__(514);
+	var fromEvent_1 = __webpack_require__(532);
 	Observable_1.Observable.fromEvent = fromEvent_1.fromEvent;
 	//# sourceMappingURL=fromEvent.js.map
 
 /***/ },
-/* 514 */
+/* 532 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var FromEventObservable_1 = __webpack_require__(515);
+	var FromEventObservable_1 = __webpack_require__(533);
 	exports.fromEvent = FromEventObservable_1.FromEventObservable.create;
 	//# sourceMappingURL=fromEvent.js.map
 
 /***/ },
-/* 515 */
+/* 533 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -78196,26 +79441,26 @@
 	//# sourceMappingURL=FromEventObservable.js.map
 
 /***/ },
-/* 516 */
+/* 534 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var fromEventPattern_1 = __webpack_require__(517);
+	var fromEventPattern_1 = __webpack_require__(535);
 	Observable_1.Observable.fromEventPattern = fromEventPattern_1.fromEventPattern;
 	//# sourceMappingURL=fromEventPattern.js.map
 
 /***/ },
-/* 517 */
+/* 535 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var FromEventPatternObservable_1 = __webpack_require__(518);
+	var FromEventPatternObservable_1 = __webpack_require__(536);
 	exports.fromEventPattern = FromEventPatternObservable_1.FromEventPatternObservable.create;
 	//# sourceMappingURL=fromEventPattern.js.map
 
 /***/ },
-/* 518 */
+/* 536 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -78281,7 +79526,7 @@
 	//# sourceMappingURL=FromEventPatternObservable.js.map
 
 /***/ },
-/* 519 */
+/* 537 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -78291,26 +79536,26 @@
 	//# sourceMappingURL=fromPromise.js.map
 
 /***/ },
-/* 520 */
+/* 538 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var interval_1 = __webpack_require__(521);
+	var interval_1 = __webpack_require__(539);
 	Observable_1.Observable.interval = interval_1.interval;
 	//# sourceMappingURL=interval.js.map
 
 /***/ },
-/* 521 */
+/* 539 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var IntervalObservable_1 = __webpack_require__(522);
+	var IntervalObservable_1 = __webpack_require__(540);
 	exports.interval = IntervalObservable_1.IntervalObservable.create;
 	//# sourceMappingURL=interval.js.map
 
 /***/ },
-/* 522 */
+/* 540 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -78319,9 +79564,9 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var isNumeric_1 = __webpack_require__(523);
+	var isNumeric_1 = __webpack_require__(541);
 	var Observable_1 = __webpack_require__(70);
-	var async_1 = __webpack_require__(524);
+	var async_1 = __webpack_require__(542);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @extends {Ignored}
@@ -78403,7 +79648,7 @@
 	//# sourceMappingURL=IntervalObservable.js.map
 
 /***/ },
-/* 523 */
+/* 541 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -78420,16 +79665,16 @@
 	//# sourceMappingURL=isNumeric.js.map
 
 /***/ },
-/* 524 */
+/* 542 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var AsyncScheduler_1 = __webpack_require__(525);
+	var AsyncScheduler_1 = __webpack_require__(543);
 	exports.async = new AsyncScheduler_1.AsyncScheduler();
 	//# sourceMappingURL=async.js.map
 
 /***/ },
-/* 525 */
+/* 543 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -78438,8 +79683,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var FutureAction_1 = __webpack_require__(526);
-	var QueueScheduler_1 = __webpack_require__(527);
+	var FutureAction_1 = __webpack_require__(544);
+	var QueueScheduler_1 = __webpack_require__(545);
 	var AsyncScheduler = (function (_super) {
 	    __extends(AsyncScheduler, _super);
 	    function AsyncScheduler() {
@@ -78454,7 +79699,7 @@
 	//# sourceMappingURL=AsyncScheduler.js.map
 
 /***/ },
-/* 526 */
+/* 544 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -78594,12 +79839,12 @@
 	//# sourceMappingURL=FutureAction.js.map
 
 /***/ },
-/* 527 */
+/* 545 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var QueueAction_1 = __webpack_require__(528);
-	var FutureAction_1 = __webpack_require__(526);
+	var QueueAction_1 = __webpack_require__(546);
+	var FutureAction_1 = __webpack_require__(544);
 	var QueueScheduler = (function () {
 	    function QueueScheduler() {
 	        this.active = false;
@@ -78643,7 +79888,7 @@
 	//# sourceMappingURL=QueueScheduler.js.map
 
 /***/ },
-/* 528 */
+/* 546 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -78652,7 +79897,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var FutureAction_1 = __webpack_require__(526);
+	var FutureAction_1 = __webpack_require__(544);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @ignore
@@ -78681,26 +79926,26 @@
 	//# sourceMappingURL=QueueAction.js.map
 
 /***/ },
-/* 529 */
+/* 547 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var merge_1 = __webpack_require__(530);
+	var merge_1 = __webpack_require__(548);
 	Observable_1.Observable.merge = merge_1.merge;
 	//# sourceMappingURL=merge.js.map
 
 /***/ },
-/* 530 */
+/* 548 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var merge_1 = __webpack_require__(531);
+	var merge_1 = __webpack_require__(549);
 	exports.merge = merge_1.mergeStatic;
 	//# sourceMappingURL=merge.js.map
 
 /***/ },
-/* 531 */
+/* 549 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -78835,17 +80080,17 @@
 	//# sourceMappingURL=merge.js.map
 
 /***/ },
-/* 532 */
+/* 550 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var race_1 = __webpack_require__(533);
+	var race_1 = __webpack_require__(551);
 	Observable_1.Observable.race = race_1.raceStatic;
 	//# sourceMappingURL=race.js.map
 
 /***/ },
-/* 533 */
+/* 551 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -78959,26 +80204,26 @@
 	//# sourceMappingURL=race.js.map
 
 /***/ },
-/* 534 */
+/* 552 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var never_1 = __webpack_require__(535);
+	var never_1 = __webpack_require__(553);
 	Observable_1.Observable.never = never_1.never;
 	//# sourceMappingURL=never.js.map
 
 /***/ },
-/* 535 */
+/* 553 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var NeverObservable_1 = __webpack_require__(536);
+	var NeverObservable_1 = __webpack_require__(554);
 	exports.never = NeverObservable_1.NeverObservable.create;
 	//# sourceMappingURL=never.js.map
 
 /***/ },
-/* 536 */
+/* 554 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -78988,7 +80233,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Observable_1 = __webpack_require__(70);
-	var noop_1 = __webpack_require__(537);
+	var noop_1 = __webpack_require__(555);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @extends {Ignored}
@@ -79042,7 +80287,7 @@
 	//# sourceMappingURL=NeverObservable.js.map
 
 /***/ },
-/* 537 */
+/* 555 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -79052,36 +80297,26 @@
 	//# sourceMappingURL=noop.js.map
 
 /***/ },
-/* 538 */
+/* 556 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var of_1 = __webpack_require__(439);
-	Observable_1.Observable.of = of_1.of;
-	//# sourceMappingURL=of.js.map
-
-/***/ },
-/* 539 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var Observable_1 = __webpack_require__(70);
-	var range_1 = __webpack_require__(540);
+	var range_1 = __webpack_require__(557);
 	Observable_1.Observable.range = range_1.range;
 	//# sourceMappingURL=range.js.map
 
 /***/ },
-/* 540 */
+/* 557 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var RangeObservable_1 = __webpack_require__(541);
+	var RangeObservable_1 = __webpack_require__(558);
 	exports.range = RangeObservable_1.RangeObservable.create;
 	//# sourceMappingURL=range.js.map
 
 /***/ },
-/* 541 */
+/* 558 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -79182,26 +80417,26 @@
 	//# sourceMappingURL=RangeObservable.js.map
 
 /***/ },
-/* 542 */
+/* 559 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var throw_1 = __webpack_require__(543);
+	var throw_1 = __webpack_require__(560);
 	Observable_1.Observable.throw = throw_1._throw;
 	//# sourceMappingURL=throw.js.map
 
 /***/ },
-/* 543 */
+/* 560 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var ErrorObservable_1 = __webpack_require__(544);
+	var ErrorObservable_1 = __webpack_require__(561);
 	exports._throw = ErrorObservable_1.ErrorObservable.create;
 	//# sourceMappingURL=throw.js.map
 
 /***/ },
-/* 544 */
+/* 561 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -79288,26 +80523,26 @@
 	//# sourceMappingURL=ErrorObservable.js.map
 
 /***/ },
-/* 545 */
+/* 562 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var timer_1 = __webpack_require__(546);
+	var timer_1 = __webpack_require__(563);
 	Observable_1.Observable.timer = timer_1.timer;
 	//# sourceMappingURL=timer.js.map
 
 /***/ },
-/* 546 */
+/* 563 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var TimerObservable_1 = __webpack_require__(547);
+	var TimerObservable_1 = __webpack_require__(564);
 	exports.timer = TimerObservable_1.TimerObservable.create;
 	//# sourceMappingURL=timer.js.map
 
 /***/ },
-/* 547 */
+/* 564 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -79316,11 +80551,11 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var isNumeric_1 = __webpack_require__(523);
+	var isNumeric_1 = __webpack_require__(541);
 	var Observable_1 = __webpack_require__(70);
-	var async_1 = __webpack_require__(524);
+	var async_1 = __webpack_require__(542);
 	var isScheduler_1 = __webpack_require__(431);
-	var isDate_1 = __webpack_require__(548);
+	var isDate_1 = __webpack_require__(565);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @extends {Ignored}
@@ -79419,7 +80654,7 @@
 	//# sourceMappingURL=TimerObservable.js.map
 
 /***/ },
-/* 548 */
+/* 565 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -79430,26 +80665,26 @@
 	//# sourceMappingURL=isDate.js.map
 
 /***/ },
-/* 549 */
+/* 566 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var zip_1 = __webpack_require__(550);
+	var zip_1 = __webpack_require__(567);
 	Observable_1.Observable.zip = zip_1.zip;
 	//# sourceMappingURL=zip.js.map
 
 /***/ },
-/* 550 */
+/* 567 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var zip_1 = __webpack_require__(551);
+	var zip_1 = __webpack_require__(568);
 	exports.zip = zip_1.zipStatic;
 	//# sourceMappingURL=zip.js.map
 
 /***/ },
-/* 551 */
+/* 568 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -79708,17 +80943,17 @@
 	//# sourceMappingURL=zip.js.map
 
 /***/ },
-/* 552 */
+/* 569 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var buffer_1 = __webpack_require__(553);
+	var buffer_1 = __webpack_require__(570);
 	Observable_1.Observable.prototype.buffer = buffer_1.buffer;
 	//# sourceMappingURL=buffer.js.map
 
 /***/ },
-/* 553 */
+/* 570 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -79799,17 +81034,17 @@
 	//# sourceMappingURL=buffer.js.map
 
 /***/ },
-/* 554 */
+/* 571 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var bufferCount_1 = __webpack_require__(555);
+	var bufferCount_1 = __webpack_require__(572);
 	Observable_1.Observable.prototype.bufferCount = bufferCount_1.bufferCount;
 	//# sourceMappingURL=bufferCount.js.map
 
 /***/ },
-/* 555 */
+/* 572 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -79927,17 +81162,17 @@
 	//# sourceMappingURL=bufferCount.js.map
 
 /***/ },
-/* 556 */
+/* 573 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var bufferTime_1 = __webpack_require__(557);
+	var bufferTime_1 = __webpack_require__(574);
 	Observable_1.Observable.prototype.bufferTime = bufferTime_1.bufferTime;
 	//# sourceMappingURL=bufferTime.js.map
 
 /***/ },
-/* 557 */
+/* 574 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -79947,7 +81182,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Subscriber_1 = __webpack_require__(75);
-	var async_1 = __webpack_require__(524);
+	var async_1 = __webpack_require__(542);
 	/**
 	 * Buffers the source Observable values for a specific time period.
 	 *
@@ -80090,17 +81325,17 @@
 	//# sourceMappingURL=bufferTime.js.map
 
 /***/ },
-/* 558 */
+/* 575 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var bufferToggle_1 = __webpack_require__(559);
+	var bufferToggle_1 = __webpack_require__(576);
 	Observable_1.Observable.prototype.bufferToggle = bufferToggle_1.bufferToggle;
 	//# sourceMappingURL=bufferToggle.js.map
 
 /***/ },
-/* 559 */
+/* 576 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -80257,17 +81492,17 @@
 	//# sourceMappingURL=bufferToggle.js.map
 
 /***/ },
-/* 560 */
+/* 577 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var bufferWhen_1 = __webpack_require__(561);
+	var bufferWhen_1 = __webpack_require__(578);
 	Observable_1.Observable.prototype.bufferWhen = bufferWhen_1.bufferWhen;
 	//# sourceMappingURL=bufferWhen.js.map
 
 /***/ },
-/* 561 */
+/* 578 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -80394,21 +81629,21 @@
 	//# sourceMappingURL=bufferWhen.js.map
 
 /***/ },
-/* 562 */
+/* 579 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var cache_1 = __webpack_require__(563);
+	var cache_1 = __webpack_require__(580);
 	Observable_1.Observable.prototype.cache = cache_1.cache;
 	//# sourceMappingURL=cache.js.map
 
 /***/ },
-/* 563 */
+/* 580 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var publishReplay_1 = __webpack_require__(564);
+	var publishReplay_1 = __webpack_require__(581);
 	/**
 	 * @param bufferSize
 	 * @param windowTime
@@ -80426,12 +81661,12 @@
 	//# sourceMappingURL=cache.js.map
 
 /***/ },
-/* 564 */
+/* 581 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var ReplaySubject_1 = __webpack_require__(565);
-	var multicast_1 = __webpack_require__(567);
+	var ReplaySubject_1 = __webpack_require__(582);
+	var multicast_1 = __webpack_require__(506);
 	/**
 	 * @param bufferSize
 	 * @param windowTime
@@ -80449,7 +81684,7 @@
 	//# sourceMappingURL=publishReplay.js.map
 
 /***/ },
-/* 565 */
+/* 582 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -80459,7 +81694,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Subject_1 = __webpack_require__(69);
-	var queue_1 = __webpack_require__(566);
+	var queue_1 = __webpack_require__(583);
 	var observeOn_1 = __webpack_require__(437);
 	/**
 	 * @class ReplaySubject<T>
@@ -80533,220 +81768,30 @@
 	//# sourceMappingURL=ReplaySubject.js.map
 
 /***/ },
-/* 566 */
+/* 583 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var QueueScheduler_1 = __webpack_require__(527);
+	var QueueScheduler_1 = __webpack_require__(545);
 	exports.queue = new QueueScheduler_1.QueueScheduler();
 	//# sourceMappingURL=queue.js.map
 
 /***/ },
-/* 567 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var ConnectableObservable_1 = __webpack_require__(568);
-	/**
-	 * Returns an Observable that emits the results of invoking a specified selector on items
-	 * emitted by a ConnectableObservable that shares a single subscription to the underlying stream.
-	 *
-	 * <img src="./img/multicast.png" width="100%">
-	 *
-	 * @param {Function} selector - a function that can use the multicasted source stream
-	 * as many times as needed, without causing multiple subscriptions to the source stream.
-	 * Subscribers to the given source will receive all notifications of the source from the
-	 * time of the subscription forward.
-	 * @return {Observable} an Observable that emits the results of invoking the selector
-	 * on the items emitted by a `ConnectableObservable` that shares a single subscription to
-	 * the underlying stream.
-	 * @method multicast
-	 * @owner Observable
-	 */
-	function multicast(subjectOrSubjectFactory) {
-	    var subjectFactory;
-	    if (typeof subjectOrSubjectFactory === 'function') {
-	        subjectFactory = subjectOrSubjectFactory;
-	    }
-	    else {
-	        subjectFactory = function subjectFactory() {
-	            return subjectOrSubjectFactory;
-	        };
-	    }
-	    return new ConnectableObservable_1.ConnectableObservable(this, subjectFactory);
-	}
-	exports.multicast = multicast;
-	//# sourceMappingURL=multicast.js.map
-
-/***/ },
-/* 568 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var Observable_1 = __webpack_require__(70);
-	var Subscriber_1 = __webpack_require__(75);
-	var Subscription_1 = __webpack_require__(77);
-	/**
-	 * @class ConnectableObservable<T>
-	 */
-	var ConnectableObservable = (function (_super) {
-	    __extends(ConnectableObservable, _super);
-	    function ConnectableObservable(source, subjectFactory) {
-	        _super.call(this);
-	        this.source = source;
-	        this.subjectFactory = subjectFactory;
-	    }
-	    ConnectableObservable.prototype._subscribe = function (subscriber) {
-	        return this.getSubject().subscribe(subscriber);
-	    };
-	    ConnectableObservable.prototype.getSubject = function () {
-	        var subject = this.subject;
-	        if (subject && !subject.isUnsubscribed) {
-	            return subject;
-	        }
-	        return (this.subject = this.subjectFactory());
-	    };
-	    ConnectableObservable.prototype.connect = function () {
-	        var source = this.source;
-	        var subscription = this.subscription;
-	        if (subscription && !subscription.isUnsubscribed) {
-	            return subscription;
-	        }
-	        subscription = source.subscribe(this.getSubject());
-	        subscription.add(new ConnectableSubscription(this));
-	        return (this.subscription = subscription);
-	    };
-	    ConnectableObservable.prototype.refCount = function () {
-	        return new RefCountObservable(this);
-	    };
-	    /**
-	     * This method is opened for `ConnectableSubscription`.
-	     * Not to call from others.
-	     */
-	    ConnectableObservable.prototype._closeSubscription = function () {
-	        this.subject = null;
-	        this.subscription = null;
-	    };
-	    return ConnectableObservable;
-	}(Observable_1.Observable));
-	exports.ConnectableObservable = ConnectableObservable;
-	/**
-	 * We need this JSDoc comment for affecting ESDoc.
-	 * @ignore
-	 * @extends {Ignored}
-	 */
-	var ConnectableSubscription = (function (_super) {
-	    __extends(ConnectableSubscription, _super);
-	    function ConnectableSubscription(connectable) {
-	        _super.call(this);
-	        this.connectable = connectable;
-	    }
-	    ConnectableSubscription.prototype._unsubscribe = function () {
-	        var connectable = this.connectable;
-	        connectable._closeSubscription();
-	        this.connectable = null;
-	    };
-	    return ConnectableSubscription;
-	}(Subscription_1.Subscription));
-	/**
-	 * We need this JSDoc comment for affecting ESDoc.
-	 * @ignore
-	 * @extends {Ignored}
-	 */
-	var RefCountObservable = (function (_super) {
-	    __extends(RefCountObservable, _super);
-	    function RefCountObservable(connectable, refCount) {
-	        if (refCount === void 0) { refCount = 0; }
-	        _super.call(this);
-	        this.connectable = connectable;
-	        this.refCount = refCount;
-	    }
-	    RefCountObservable.prototype._subscribe = function (subscriber) {
-	        var connectable = this.connectable;
-	        var refCountSubscriber = new RefCountSubscriber(subscriber, this);
-	        var subscription = connectable.subscribe(refCountSubscriber);
-	        if (!subscription.isUnsubscribed && ++this.refCount === 1) {
-	            refCountSubscriber.connection = this.connection = connectable.connect();
-	        }
-	        return subscription;
-	    };
-	    return RefCountObservable;
-	}(Observable_1.Observable));
-	/**
-	 * We need this JSDoc comment for affecting ESDoc.
-	 * @ignore
-	 * @extends {Ignored}
-	 */
-	var RefCountSubscriber = (function (_super) {
-	    __extends(RefCountSubscriber, _super);
-	    function RefCountSubscriber(destination, refCountObservable) {
-	        _super.call(this, null);
-	        this.destination = destination;
-	        this.refCountObservable = refCountObservable;
-	        this.connection = refCountObservable.connection;
-	        destination.add(this);
-	    }
-	    RefCountSubscriber.prototype._next = function (value) {
-	        this.destination.next(value);
-	    };
-	    RefCountSubscriber.prototype._error = function (err) {
-	        this._resetConnectable();
-	        this.destination.error(err);
-	    };
-	    RefCountSubscriber.prototype._complete = function () {
-	        this._resetConnectable();
-	        this.destination.complete();
-	    };
-	    RefCountSubscriber.prototype._resetConnectable = function () {
-	        var observable = this.refCountObservable;
-	        var obsConnection = observable.connection;
-	        var subConnection = this.connection;
-	        if (subConnection && subConnection === obsConnection) {
-	            observable.refCount = 0;
-	            obsConnection.unsubscribe();
-	            observable.connection = null;
-	            this.unsubscribe();
-	        }
-	    };
-	    RefCountSubscriber.prototype._unsubscribe = function () {
-	        var observable = this.refCountObservable;
-	        if (observable.refCount === 0) {
-	            return;
-	        }
-	        if (--observable.refCount === 0) {
-	            var obsConnection = observable.connection;
-	            var subConnection = this.connection;
-	            if (subConnection && subConnection === obsConnection) {
-	                obsConnection.unsubscribe();
-	                observable.connection = null;
-	            }
-	        }
-	    };
-	    return RefCountSubscriber;
-	}(Subscriber_1.Subscriber));
-	//# sourceMappingURL=ConnectableObservable.js.map
-
-/***/ },
-/* 569 */
+/* 584 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var combineAll_1 = __webpack_require__(570);
+	var combineAll_1 = __webpack_require__(585);
 	Observable_1.Observable.prototype.combineAll = combineAll_1.combineAll;
 	//# sourceMappingURL=combineAll.js.map
 
 /***/ },
-/* 570 */
+/* 585 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var combineLatest_1 = __webpack_require__(502);
+	var combineLatest_1 = __webpack_require__(521);
 	/**
 	 * Converts a higher-order Observable into a first-order Observable by waiting
 	 * for the outer Observable to complete, then applying {@link combineLatest}.
@@ -80794,37 +81839,37 @@
 	//# sourceMappingURL=combineAll.js.map
 
 /***/ },
-/* 571 */
+/* 586 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var combineLatest_1 = __webpack_require__(502);
+	var combineLatest_1 = __webpack_require__(521);
 	Observable_1.Observable.prototype.combineLatest = combineLatest_1.combineLatest;
 	//# sourceMappingURL=combineLatest.js.map
 
 /***/ },
-/* 572 */
+/* 587 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var concat_1 = __webpack_require__(505);
+	var concat_1 = __webpack_require__(524);
 	Observable_1.Observable.prototype.concat = concat_1.concat;
 	//# sourceMappingURL=concat.js.map
 
 /***/ },
-/* 573 */
+/* 588 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var concatMap_1 = __webpack_require__(574);
+	var concatMap_1 = __webpack_require__(589);
 	Observable_1.Observable.prototype.concatMap = concatMap_1.concatMap;
 	//# sourceMappingURL=concatMap.js.map
 
 /***/ },
-/* 574 */
+/* 589 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -80892,21 +81937,21 @@
 	//# sourceMappingURL=concatMap.js.map
 
 /***/ },
-/* 575 */
+/* 590 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var concatMapTo_1 = __webpack_require__(576);
+	var concatMapTo_1 = __webpack_require__(591);
 	Observable_1.Observable.prototype.concatMapTo = concatMapTo_1.concatMapTo;
 	//# sourceMappingURL=concatMapTo.js.map
 
 /***/ },
-/* 576 */
+/* 591 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var mergeMapTo_1 = __webpack_require__(577);
+	var mergeMapTo_1 = __webpack_require__(592);
 	/**
 	 * Projects each source value to the same Observable which is merged multiple
 	 * times in a serialized fashion on the output Observable.
@@ -80964,7 +82009,7 @@
 	//# sourceMappingURL=concatMapTo.js.map
 
 /***/ },
-/* 577 */
+/* 592 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -81123,17 +82168,17 @@
 	//# sourceMappingURL=mergeMapTo.js.map
 
 /***/ },
-/* 578 */
+/* 593 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var count_1 = __webpack_require__(579);
+	var count_1 = __webpack_require__(594);
 	Observable_1.Observable.prototype.count = count_1.count;
 	//# sourceMappingURL=count.js.map
 
 /***/ },
-/* 579 */
+/* 594 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -81246,17 +82291,17 @@
 	//# sourceMappingURL=count.js.map
 
 /***/ },
-/* 580 */
+/* 595 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var dematerialize_1 = __webpack_require__(581);
+	var dematerialize_1 = __webpack_require__(596);
 	Observable_1.Observable.prototype.dematerialize = dematerialize_1.dematerialize;
 	//# sourceMappingURL=dematerialize.js.map
 
 /***/ },
-/* 581 */
+/* 596 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -81305,17 +82350,17 @@
 	//# sourceMappingURL=dematerialize.js.map
 
 /***/ },
-/* 582 */
+/* 597 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var debounce_1 = __webpack_require__(583);
+	var debounce_1 = __webpack_require__(598);
 	Observable_1.Observable.prototype.debounce = debounce_1.debounce;
 	//# sourceMappingURL=debounce.js.map
 
 /***/ },
-/* 583 */
+/* 598 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -81417,17 +82462,17 @@
 	//# sourceMappingURL=debounce.js.map
 
 /***/ },
-/* 584 */
+/* 599 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var debounceTime_1 = __webpack_require__(585);
+	var debounceTime_1 = __webpack_require__(600);
 	Observable_1.Observable.prototype.debounceTime = debounceTime_1.debounceTime;
 	//# sourceMappingURL=debounceTime.js.map
 
 /***/ },
-/* 585 */
+/* 600 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -81437,7 +82482,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Subscriber_1 = __webpack_require__(75);
-	var async_1 = __webpack_require__(524);
+	var async_1 = __webpack_require__(542);
 	/**
 	 * Returns the source Observable delayed by the computed debounce duration,
 	 * with the duration lengthened if a new source item arrives before the delay
@@ -81516,17 +82561,17 @@
 	//# sourceMappingURL=debounceTime.js.map
 
 /***/ },
-/* 586 */
+/* 601 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var defaultIfEmpty_1 = __webpack_require__(587);
+	var defaultIfEmpty_1 = __webpack_require__(602);
 	Observable_1.Observable.prototype.defaultIfEmpty = defaultIfEmpty_1.defaultIfEmpty;
 	//# sourceMappingURL=defaultIfEmpty.js.map
 
 /***/ },
-/* 587 */
+/* 602 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -81584,17 +82629,17 @@
 	//# sourceMappingURL=defaultIfEmpty.js.map
 
 /***/ },
-/* 588 */
+/* 603 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var delay_1 = __webpack_require__(589);
+	var delay_1 = __webpack_require__(604);
 	Observable_1.Observable.prototype.delay = delay_1.delay;
 	//# sourceMappingURL=delay.js.map
 
 /***/ },
-/* 589 */
+/* 604 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -81603,8 +82648,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var async_1 = __webpack_require__(524);
-	var isDate_1 = __webpack_require__(548);
+	var async_1 = __webpack_require__(542);
+	var isDate_1 = __webpack_require__(565);
 	var Subscriber_1 = __webpack_require__(75);
 	var Notification_1 = __webpack_require__(438);
 	/**
@@ -81734,17 +82779,17 @@
 	//# sourceMappingURL=delay.js.map
 
 /***/ },
-/* 590 */
+/* 605 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var delayWhen_1 = __webpack_require__(591);
+	var delayWhen_1 = __webpack_require__(606);
 	Observable_1.Observable.prototype.delayWhen = delayWhen_1.delayWhen;
 	//# sourceMappingURL=delayWhen.js.map
 
 /***/ },
-/* 591 */
+/* 606 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -81903,17 +82948,17 @@
 	//# sourceMappingURL=delayWhen.js.map
 
 /***/ },
-/* 592 */
+/* 607 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var distinctUntilChanged_1 = __webpack_require__(593);
+	var distinctUntilChanged_1 = __webpack_require__(608);
 	Observable_1.Observable.prototype.distinctUntilChanged = distinctUntilChanged_1.distinctUntilChanged;
 	//# sourceMappingURL=distinctUntilChanged.js.map
 
 /***/ },
-/* 593 */
+/* 608 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -81995,144 +83040,17 @@
 	//# sourceMappingURL=distinctUntilChanged.js.map
 
 /***/ },
-/* 594 */
+/* 609 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var do_1 = __webpack_require__(595);
-	Observable_1.Observable.prototype.do = do_1._do;
-	//# sourceMappingURL=do.js.map
-
-/***/ },
-/* 595 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var Subscriber_1 = __webpack_require__(75);
-	/**
-	 * Perform a side effect for every emission on the source Observable, but return
-	 * an Observable that is identical to the source.
-	 *
-	 * <span class="informal">Intercepts each emission on the source and runs a
-	 * function, but returns an output which is identical to the source.</span>
-	 *
-	 * <img src="./img/do.png" width="100%">
-	 *
-	 * Returns a mirrored Observable of the source Observable, but modified so that
-	 * the provided Observer is called to perform a side effect for every value,
-	 * error, and completion emitted by the source. Any errors that are thrown in
-	 * the aforementioned Observer or handlers are safely sent down the error path
-	 * of the output Observable.
-	 *
-	 * This operator is useful for debugging your Observables for the correct values
-	 * or performing other side effects.
-	 *
-	 * Note: this is different to a `subscribe` on the Observable. If the Observable
-	 * returned by `do` is not subscribed, the side effects specified by the
-	 * Observer will never happen. `do` therefore simply spies on existing
-	 * execution, it does not trigger an execution to happen like `subscribe` does.
-	 *
-	 * @example <caption>Map every every click to the clientX position of that click, while also logging the click event</caption>
-	 * var clicks = Rx.Observable.fromEvent(document, 'click');
-	 * var positions = clicks
-	 *   .do(ev => console.log(ev))
-	 *   .map(ev => ev.clientX);
-	 * positions.subscribe(x => console.log(x));
-	 *
-	 * @see {@link map}
-	 * @see {@link subscribe}
-	 *
-	 * @param {Observer|function} [nextOrObserver] A normal Observer object or a
-	 * callback for `next`.
-	 * @param {function} [error] Callback for errors in the source.
-	 * @param {function} [complete] Callback for the completion of the source.
-	 * @return {Observable} An Observable identical to the source, but runs the
-	 * specified Observer or callback(s) for each item.
-	 * @method do
-	 * @name do
-	 * @owner Observable
-	 */
-	function _do(nextOrObserver, error, complete) {
-	    return this.lift(new DoOperator(nextOrObserver, error, complete));
-	}
-	exports._do = _do;
-	var DoOperator = (function () {
-	    function DoOperator(nextOrObserver, error, complete) {
-	        this.nextOrObserver = nextOrObserver;
-	        this.error = error;
-	        this.complete = complete;
-	    }
-	    DoOperator.prototype.call = function (subscriber, source) {
-	        return source._subscribe(new DoSubscriber(subscriber, this.nextOrObserver, this.error, this.complete));
-	    };
-	    return DoOperator;
-	}());
-	/**
-	 * We need this JSDoc comment for affecting ESDoc.
-	 * @ignore
-	 * @extends {Ignored}
-	 */
-	var DoSubscriber = (function (_super) {
-	    __extends(DoSubscriber, _super);
-	    function DoSubscriber(destination, nextOrObserver, error, complete) {
-	        _super.call(this, destination);
-	        var safeSubscriber = new Subscriber_1.Subscriber(nextOrObserver, error, complete);
-	        safeSubscriber.syncErrorThrowable = true;
-	        this.add(safeSubscriber);
-	        this.safeSubscriber = safeSubscriber;
-	    }
-	    DoSubscriber.prototype._next = function (value) {
-	        var safeSubscriber = this.safeSubscriber;
-	        safeSubscriber.next(value);
-	        if (safeSubscriber.syncErrorThrown) {
-	            this.destination.error(safeSubscriber.syncErrorValue);
-	        }
-	        else {
-	            this.destination.next(value);
-	        }
-	    };
-	    DoSubscriber.prototype._error = function (err) {
-	        var safeSubscriber = this.safeSubscriber;
-	        safeSubscriber.error(err);
-	        if (safeSubscriber.syncErrorThrown) {
-	            this.destination.error(safeSubscriber.syncErrorValue);
-	        }
-	        else {
-	            this.destination.error(err);
-	        }
-	    };
-	    DoSubscriber.prototype._complete = function () {
-	        var safeSubscriber = this.safeSubscriber;
-	        safeSubscriber.complete();
-	        if (safeSubscriber.syncErrorThrown) {
-	            this.destination.error(safeSubscriber.syncErrorValue);
-	        }
-	        else {
-	            this.destination.complete();
-	        }
-	    };
-	    return DoSubscriber;
-	}(Subscriber_1.Subscriber));
-	//# sourceMappingURL=do.js.map
-
-/***/ },
-/* 596 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var Observable_1 = __webpack_require__(70);
-	var expand_1 = __webpack_require__(597);
+	var expand_1 = __webpack_require__(610);
 	Observable_1.Observable.prototype.expand = expand_1.expand;
 	//# sourceMappingURL=expand.js.map
 
 /***/ },
-/* 597 */
+/* 610 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82252,183 +83170,17 @@
 	//# sourceMappingURL=expand.js.map
 
 /***/ },
-/* 598 */
+/* 611 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var filter_1 = __webpack_require__(599);
-	Observable_1.Observable.prototype.filter = filter_1.filter;
-	//# sourceMappingURL=filter.js.map
-
-/***/ },
-/* 599 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var Subscriber_1 = __webpack_require__(75);
-	/**
-	 * Filter items emitted by the source Observable by only emitting those that
-	 * satisfy a specified predicate.
-	 *
-	 * <span class="informal">Like
-	 * [Array.prototype.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter),
-	 * it only emits a value from the source if it passes a criterion function.</span>
-	 *
-	 * <img src="./img/filter.png" width="100%">
-	 *
-	 * Similar to the well-known `Array.prototype.filter` method, this operator
-	 * takes values from the source Observable, passes them through a `predicate`
-	 * function and only emits those values that yielded `true`.
-	 *
-	 * @example <caption>Emit only click events whose target was a DIV element</caption>
-	 * var clicks = Rx.Observable.fromEvent(document, 'click');
-	 * var clicksOnDivs = clicks.filter(ev => ev.target.tagName === 'DIV');
-	 * clicksOnDivs.subscribe(x => console.log(x));
-	 *
-	 * @see {@link distinct}
-	 * @see {@link distinctKey}
-	 * @see {@link distinctUntilChanged}
-	 * @see {@link distinctUntilKeyChanged}
-	 * @see {@link ignoreElements}
-	 * @see {@link partition}
-	 * @see {@link skip}
-	 *
-	 * @param {function(value: T, index: number): boolean} predicate A function that
-	 * evaluates each value emitted by the source Observable. If it returns `true`,
-	 * the value is emitted, if `false` the value is not passed to the output
-	 * Observable. The `index` parameter is the number `i` for the i-th source
-	 * emission that has happened since the subscription, starting from the number
-	 * `0`.
-	 * @param {any} [thisArg] An optional argument to determine the value of `this`
-	 * in the `predicate` function.
-	 * @return {Observable} An Observable of values from the source that were
-	 * allowed by the `predicate` function.
-	 * @method filter
-	 * @owner Observable
-	 */
-	function filter(predicate, thisArg) {
-	    return this.lift(new FilterOperator(predicate, thisArg));
-	}
-	exports.filter = filter;
-	var FilterOperator = (function () {
-	    function FilterOperator(predicate, thisArg) {
-	        this.predicate = predicate;
-	        this.thisArg = thisArg;
-	    }
-	    FilterOperator.prototype.call = function (subscriber, source) {
-	        return source._subscribe(new FilterSubscriber(subscriber, this.predicate, this.thisArg));
-	    };
-	    return FilterOperator;
-	}());
-	/**
-	 * We need this JSDoc comment for affecting ESDoc.
-	 * @ignore
-	 * @extends {Ignored}
-	 */
-	var FilterSubscriber = (function (_super) {
-	    __extends(FilterSubscriber, _super);
-	    function FilterSubscriber(destination, predicate, thisArg) {
-	        _super.call(this, destination);
-	        this.predicate = predicate;
-	        this.thisArg = thisArg;
-	        this.count = 0;
-	        this.predicate = predicate;
-	    }
-	    // the try catch block below is left specifically for
-	    // optimization and perf reasons. a tryCatcher is not necessary here.
-	    FilterSubscriber.prototype._next = function (value) {
-	        var result;
-	        try {
-	            result = this.predicate.call(this.thisArg, value, this.count++);
-	        }
-	        catch (err) {
-	            this.destination.error(err);
-	            return;
-	        }
-	        if (result) {
-	            this.destination.next(value);
-	        }
-	    };
-	    return FilterSubscriber;
-	}(Subscriber_1.Subscriber));
-	//# sourceMappingURL=filter.js.map
-
-/***/ },
-/* 600 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var Observable_1 = __webpack_require__(70);
-	var finally_1 = __webpack_require__(601);
-	Observable_1.Observable.prototype.finally = finally_1._finally;
-	//# sourceMappingURL=finally.js.map
-
-/***/ },
-/* 601 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var Subscriber_1 = __webpack_require__(75);
-	var Subscription_1 = __webpack_require__(77);
-	/**
-	 * Returns an Observable that mirrors the source Observable, but will call a specified function when
-	 * the source terminates on complete or error.
-	 * @param {function} finallySelector function to be called when source terminates.
-	 * @return {Observable} an Observable that mirrors the source, but will call the specified function on termination.
-	 * @method finally
-	 * @owner Observable
-	 */
-	function _finally(finallySelector) {
-	    return this.lift(new FinallyOperator(finallySelector));
-	}
-	exports._finally = _finally;
-	var FinallyOperator = (function () {
-	    function FinallyOperator(finallySelector) {
-	        this.finallySelector = finallySelector;
-	    }
-	    FinallyOperator.prototype.call = function (subscriber, source) {
-	        return source._subscribe(new FinallySubscriber(subscriber, this.finallySelector));
-	    };
-	    return FinallyOperator;
-	}());
-	/**
-	 * We need this JSDoc comment for affecting ESDoc.
-	 * @ignore
-	 * @extends {Ignored}
-	 */
-	var FinallySubscriber = (function (_super) {
-	    __extends(FinallySubscriber, _super);
-	    function FinallySubscriber(destination, finallySelector) {
-	        _super.call(this, destination);
-	        this.add(new Subscription_1.Subscription(finallySelector));
-	    }
-	    return FinallySubscriber;
-	}(Subscriber_1.Subscriber));
-	//# sourceMappingURL=finally.js.map
-
-/***/ },
-/* 602 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var Observable_1 = __webpack_require__(70);
-	var groupBy_1 = __webpack_require__(603);
+	var groupBy_1 = __webpack_require__(612);
 	Observable_1.Observable.prototype.groupBy = groupBy_1.groupBy;
 	//# sourceMappingURL=groupBy.js.map
 
 /***/ },
-/* 603 */
+/* 612 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82441,8 +83193,8 @@
 	var Subscription_1 = __webpack_require__(77);
 	var Observable_1 = __webpack_require__(70);
 	var Subject_1 = __webpack_require__(69);
-	var Map_1 = __webpack_require__(604);
-	var FastMap_1 = __webpack_require__(606);
+	var Map_1 = __webpack_require__(613);
+	var FastMap_1 = __webpack_require__(615);
 	/**
 	 * Groups the items emitted by an Observable according to a specified criterion,
 	 * and emits these grouped items as `GroupedObservables`, one
@@ -82683,17 +83435,17 @@
 	//# sourceMappingURL=groupBy.js.map
 
 /***/ },
-/* 604 */
+/* 613 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var root_1 = __webpack_require__(71);
-	var MapPolyfill_1 = __webpack_require__(605);
+	var MapPolyfill_1 = __webpack_require__(614);
 	exports.Map = root_1.root.Map || (function () { return MapPolyfill_1.MapPolyfill; })();
 	//# sourceMappingURL=Map.js.map
 
 /***/ },
-/* 605 */
+/* 614 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -82745,7 +83497,7 @@
 	//# sourceMappingURL=MapPolyfill.js.map
 
 /***/ },
-/* 606 */
+/* 615 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -82781,17 +83533,17 @@
 	//# sourceMappingURL=FastMap.js.map
 
 /***/ },
-/* 607 */
+/* 616 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var ignoreElements_1 = __webpack_require__(608);
+	var ignoreElements_1 = __webpack_require__(617);
 	Observable_1.Observable.prototype.ignoreElements = ignoreElements_1.ignoreElements;
 	//# sourceMappingURL=ignoreElements.js.map
 
 /***/ },
-/* 608 */
+/* 617 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82801,7 +83553,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Subscriber_1 = __webpack_require__(75);
-	var noop_1 = __webpack_require__(537);
+	var noop_1 = __webpack_require__(555);
 	/**
 	 * Ignores all items emitted by the source Observable and only passes calls of `complete` or `error`.
 	 *
@@ -82843,17 +83595,17 @@
 	//# sourceMappingURL=ignoreElements.js.map
 
 /***/ },
-/* 609 */
+/* 618 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var audit_1 = __webpack_require__(610);
+	var audit_1 = __webpack_require__(619);
 	Observable_1.Observable.prototype.audit = audit_1.audit;
 	//# sourceMappingURL=audit.js.map
 
 /***/ },
-/* 610 */
+/* 619 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82934,17 +83686,17 @@
 	//# sourceMappingURL=audit.js.map
 
 /***/ },
-/* 611 */
+/* 620 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var auditTime_1 = __webpack_require__(612);
+	var auditTime_1 = __webpack_require__(621);
 	Observable_1.Observable.prototype.auditTime = auditTime_1.auditTime;
 	//# sourceMappingURL=auditTime.js.map
 
 /***/ },
-/* 612 */
+/* 621 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82953,7 +83705,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var async_1 = __webpack_require__(524);
+	var async_1 = __webpack_require__(542);
 	var Subscriber_1 = __webpack_require__(75);
 	/**
 	 * @param delay
@@ -83018,18 +83770,18 @@
 	//# sourceMappingURL=auditTime.js.map
 
 /***/ },
-/* 613 */
+/* 622 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var let_1 = __webpack_require__(614);
+	var let_1 = __webpack_require__(623);
 	Observable_1.Observable.prototype.let = let_1.letProto;
 	Observable_1.Observable.prototype.letBind = let_1.letProto;
 	//# sourceMappingURL=let.js.map
 
 /***/ },
-/* 614 */
+/* 623 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -83046,17 +83798,17 @@
 	//# sourceMappingURL=let.js.map
 
 /***/ },
-/* 615 */
+/* 624 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var mapTo_1 = __webpack_require__(616);
+	var mapTo_1 = __webpack_require__(625);
 	Observable_1.Observable.prototype.mapTo = mapTo_1.mapTo;
 	//# sourceMappingURL=mapTo.js.map
 
 /***/ },
-/* 616 */
+/* 625 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -83124,17 +83876,17 @@
 	//# sourceMappingURL=mapTo.js.map
 
 /***/ },
-/* 617 */
+/* 626 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var materialize_1 = __webpack_require__(618);
+	var materialize_1 = __webpack_require__(627);
 	Observable_1.Observable.prototype.materialize = materialize_1.materialize;
 	//# sourceMappingURL=materialize.js.map
 
 /***/ },
-/* 618 */
+/* 627 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -83200,38 +83952,38 @@
 	//# sourceMappingURL=materialize.js.map
 
 /***/ },
-/* 619 */
+/* 628 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var merge_1 = __webpack_require__(531);
+	var merge_1 = __webpack_require__(549);
 	Observable_1.Observable.prototype.merge = merge_1.merge;
 	//# sourceMappingURL=merge.js.map
 
 /***/ },
-/* 620 */
+/* 629 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var mergeMapTo_1 = __webpack_require__(577);
+	var mergeMapTo_1 = __webpack_require__(592);
 	Observable_1.Observable.prototype.flatMapTo = mergeMapTo_1.mergeMapTo;
 	Observable_1.Observable.prototype.mergeMapTo = mergeMapTo_1.mergeMapTo;
 	//# sourceMappingURL=mergeMapTo.js.map
 
 /***/ },
-/* 621 */
+/* 630 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var multicast_1 = __webpack_require__(567);
+	var multicast_1 = __webpack_require__(506);
 	Observable_1.Observable.prototype.multicast = multicast_1.multicast;
 	//# sourceMappingURL=multicast.js.map
 
 /***/ },
-/* 622 */
+/* 631 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -83241,22 +83993,22 @@
 	//# sourceMappingURL=observeOn.js.map
 
 /***/ },
-/* 623 */
+/* 632 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var partition_1 = __webpack_require__(624);
+	var partition_1 = __webpack_require__(633);
 	Observable_1.Observable.prototype.partition = partition_1.partition;
 	//# sourceMappingURL=partition.js.map
 
 /***/ },
-/* 624 */
+/* 633 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var not_1 = __webpack_require__(625);
-	var filter_1 = __webpack_require__(599);
+	var not_1 = __webpack_require__(634);
+	var filter_1 = __webpack_require__(501);
 	/**
 	 * @param predicate
 	 * @param thisArg
@@ -83274,7 +84026,7 @@
 	//# sourceMappingURL=partition.js.map
 
 /***/ },
-/* 625 */
+/* 634 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -83290,21 +84042,21 @@
 	//# sourceMappingURL=not.js.map
 
 /***/ },
-/* 626 */
+/* 635 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var pluck_1 = __webpack_require__(627);
+	var pluck_1 = __webpack_require__(636);
 	Observable_1.Observable.prototype.pluck = pluck_1.pluck;
 	//# sourceMappingURL=pluck.js.map
 
 /***/ },
-/* 627 */
+/* 636 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var map_1 = __webpack_require__(402);
+	var map_1 = __webpack_require__(365);
 	/**
 	 * Maps each source value (an object) to its specified nested property.
 	 *
@@ -83363,22 +84115,22 @@
 	//# sourceMappingURL=pluck.js.map
 
 /***/ },
-/* 628 */
+/* 637 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var publish_1 = __webpack_require__(629);
+	var publish_1 = __webpack_require__(638);
 	Observable_1.Observable.prototype.publish = publish_1.publish;
 	//# sourceMappingURL=publish.js.map
 
 /***/ },
-/* 629 */
+/* 638 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Subject_1 = __webpack_require__(69);
-	var multicast_1 = __webpack_require__(567);
+	var multicast_1 = __webpack_require__(506);
 	/**
 	 * Returns a ConnectableObservable, which is a variety of Observable that waits until its connect method is called
 	 * before it begins emitting items to those Observers that have subscribed to it.
@@ -83396,22 +84148,22 @@
 	//# sourceMappingURL=publish.js.map
 
 /***/ },
-/* 630 */
+/* 639 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var publishBehavior_1 = __webpack_require__(631);
+	var publishBehavior_1 = __webpack_require__(640);
 	Observable_1.Observable.prototype.publishBehavior = publishBehavior_1.publishBehavior;
 	//# sourceMappingURL=publishBehavior.js.map
 
 /***/ },
-/* 631 */
+/* 640 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var BehaviorSubject_1 = __webpack_require__(457);
-	var multicast_1 = __webpack_require__(567);
+	var multicast_1 = __webpack_require__(506);
 	/**
 	 * @param value
 	 * @return {ConnectableObservable<T>}
@@ -83425,32 +84177,32 @@
 	//# sourceMappingURL=publishBehavior.js.map
 
 /***/ },
-/* 632 */
+/* 641 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var publishReplay_1 = __webpack_require__(564);
+	var publishReplay_1 = __webpack_require__(581);
 	Observable_1.Observable.prototype.publishReplay = publishReplay_1.publishReplay;
 	//# sourceMappingURL=publishReplay.js.map
 
 /***/ },
-/* 633 */
+/* 642 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var publishLast_1 = __webpack_require__(634);
+	var publishLast_1 = __webpack_require__(643);
 	Observable_1.Observable.prototype.publishLast = publishLast_1.publishLast;
 	//# sourceMappingURL=publishLast.js.map
 
 /***/ },
-/* 634 */
+/* 643 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var AsyncSubject_1 = __webpack_require__(497);
-	var multicast_1 = __webpack_require__(567);
+	var AsyncSubject_1 = __webpack_require__(516);
+	var multicast_1 = __webpack_require__(506);
 	/**
 	 * @return {ConnectableObservable<T>}
 	 * @method publishLast
@@ -83463,27 +84215,27 @@
 	//# sourceMappingURL=publishLast.js.map
 
 /***/ },
-/* 635 */
+/* 644 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var race_1 = __webpack_require__(533);
+	var race_1 = __webpack_require__(551);
 	Observable_1.Observable.prototype.race = race_1.race;
 	//# sourceMappingURL=race.js.map
 
 /***/ },
-/* 636 */
+/* 645 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var repeat_1 = __webpack_require__(637);
+	var repeat_1 = __webpack_require__(646);
 	Observable_1.Observable.prototype.repeat = repeat_1.repeat;
 	//# sourceMappingURL=repeat.js.map
 
 /***/ },
-/* 637 */
+/* 646 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -83563,17 +84315,17 @@
 	//# sourceMappingURL=repeat.js.map
 
 /***/ },
-/* 638 */
+/* 647 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var retry_1 = __webpack_require__(639);
+	var retry_1 = __webpack_require__(648);
 	Observable_1.Observable.prototype.retry = retry_1.retry;
 	//# sourceMappingURL=retry.js.map
 
 /***/ },
-/* 639 */
+/* 648 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -83647,17 +84399,17 @@
 	//# sourceMappingURL=retry.js.map
 
 /***/ },
-/* 640 */
+/* 649 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var retryWhen_1 = __webpack_require__(641);
+	var retryWhen_1 = __webpack_require__(650);
 	Observable_1.Observable.prototype.retryWhen = retryWhen_1.retryWhen;
 	//# sourceMappingURL=retryWhen.js.map
 
 /***/ },
-/* 641 */
+/* 650 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -83768,17 +84520,17 @@
 	//# sourceMappingURL=retryWhen.js.map
 
 /***/ },
-/* 642 */
+/* 651 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var sample_1 = __webpack_require__(643);
+	var sample_1 = __webpack_require__(652);
 	Observable_1.Observable.prototype.sample = sample_1.sample;
 	//# sourceMappingURL=sample.js.map
 
 /***/ },
-/* 643 */
+/* 652 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -83848,17 +84600,17 @@
 	//# sourceMappingURL=sample.js.map
 
 /***/ },
-/* 644 */
+/* 653 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var sampleTime_1 = __webpack_require__(645);
+	var sampleTime_1 = __webpack_require__(654);
 	Observable_1.Observable.prototype.sampleTime = sampleTime_1.sampleTime;
 	//# sourceMappingURL=sampleTime.js.map
 
 /***/ },
-/* 645 */
+/* 654 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -83868,7 +84620,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Subscriber_1 = __webpack_require__(75);
-	var async_1 = __webpack_require__(524);
+	var async_1 = __webpack_require__(542);
 	/**
 	 * @param delay
 	 * @param scheduler
@@ -83925,17 +84677,17 @@
 	//# sourceMappingURL=sampleTime.js.map
 
 /***/ },
-/* 646 */
+/* 655 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var scan_1 = __webpack_require__(647);
+	var scan_1 = __webpack_require__(656);
 	Observable_1.Observable.prototype.scan = scan_1.scan;
 	//# sourceMappingURL=scan.js.map
 
 /***/ },
-/* 647 */
+/* 656 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -84047,56 +84799,17 @@
 	//# sourceMappingURL=scan.js.map
 
 /***/ },
-/* 648 */
+/* 657 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var share_1 = __webpack_require__(649);
-	Observable_1.Observable.prototype.share = share_1.share;
-	//# sourceMappingURL=share.js.map
-
-/***/ },
-/* 649 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var multicast_1 = __webpack_require__(567);
-	var Subject_1 = __webpack_require__(69);
-	function shareSubjectFactory() {
-	    return new Subject_1.Subject();
-	}
-	/**
-	 * Returns a new Observable that multicasts (shares) the original Observable. As long as there is at least one
-	 * Subscriber this Observable will be subscribed and emitting data. When all subscribers have unsubscribed it will
-	 * unsubscribe from the source Observable. Because the Observable is multicasting it makes the stream `hot`.
-	 * This is an alias for .publish().refCount().
-	 *
-	 * <img src="./img/share.png" width="100%">
-	 *
-	 * @return {Observable<T>} an Observable that upon connection causes the source Observable to emit items to its Observers
-	 * @method share
-	 * @owner Observable
-	 */
-	function share() {
-	    return multicast_1.multicast.call(this, shareSubjectFactory).refCount();
-	}
-	exports.share = share;
-	;
-	//# sourceMappingURL=share.js.map
-
-/***/ },
-/* 650 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var Observable_1 = __webpack_require__(70);
-	var single_1 = __webpack_require__(651);
+	var single_1 = __webpack_require__(658);
 	Observable_1.Observable.prototype.single = single_1.single;
 	//# sourceMappingURL=single.js.map
 
 /***/ },
-/* 651 */
+/* 658 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -84196,17 +84909,17 @@
 	//# sourceMappingURL=single.js.map
 
 /***/ },
-/* 652 */
+/* 659 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var skip_1 = __webpack_require__(653);
+	var skip_1 = __webpack_require__(660);
 	Observable_1.Observable.prototype.skip = skip_1.skip;
 	//# sourceMappingURL=skip.js.map
 
 /***/ },
-/* 653 */
+/* 660 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -84262,17 +84975,17 @@
 	//# sourceMappingURL=skip.js.map
 
 /***/ },
-/* 654 */
+/* 661 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var skipUntil_1 = __webpack_require__(655);
+	var skipUntil_1 = __webpack_require__(662);
 	Observable_1.Observable.prototype.skipUntil = skipUntil_1.skipUntil;
 	//# sourceMappingURL=skipUntil.js.map
 
 /***/ },
-/* 655 */
+/* 662 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -84348,17 +85061,17 @@
 	//# sourceMappingURL=skipUntil.js.map
 
 /***/ },
-/* 656 */
+/* 663 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var skipWhile_1 = __webpack_require__(657);
+	var skipWhile_1 = __webpack_require__(664);
 	Observable_1.Observable.prototype.skipWhile = skipWhile_1.skipWhile;
 	//# sourceMappingURL=skipWhile.js.map
 
 /***/ },
-/* 657 */
+/* 664 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -84429,24 +85142,24 @@
 	//# sourceMappingURL=skipWhile.js.map
 
 /***/ },
-/* 658 */
+/* 665 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var startWith_1 = __webpack_require__(659);
+	var startWith_1 = __webpack_require__(666);
 	Observable_1.Observable.prototype.startWith = startWith_1.startWith;
 	//# sourceMappingURL=startWith.js.map
 
 /***/ },
-/* 659 */
+/* 666 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var ArrayObservable_1 = __webpack_require__(433);
 	var ScalarObservable_1 = __webpack_require__(434);
 	var EmptyObservable_1 = __webpack_require__(435);
-	var concat_1 = __webpack_require__(505);
+	var concat_1 = __webpack_require__(524);
 	var isScheduler_1 = __webpack_require__(431);
 	/**
 	 * Returns an Observable that emits the items in a specified Iterable before it begins to emit items emitted by the
@@ -84487,21 +85200,21 @@
 	//# sourceMappingURL=startWith.js.map
 
 /***/ },
-/* 660 */
+/* 667 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var subscribeOn_1 = __webpack_require__(661);
+	var subscribeOn_1 = __webpack_require__(668);
 	Observable_1.Observable.prototype.subscribeOn = subscribeOn_1.subscribeOn;
 	//# sourceMappingURL=subscribeOn.js.map
 
 /***/ },
-/* 661 */
+/* 668 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var SubscribeOnObservable_1 = __webpack_require__(662);
+	var SubscribeOnObservable_1 = __webpack_require__(669);
 	/**
 	 * Asynchronously subscribes Observers to this Observable on the specified Scheduler.
 	 *
@@ -84521,7 +85234,7 @@
 	//# sourceMappingURL=subscribeOn.js.map
 
 /***/ },
-/* 662 */
+/* 669 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -84531,8 +85244,8 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Observable_1 = __webpack_require__(70);
-	var asap_1 = __webpack_require__(663);
-	var isNumeric_1 = __webpack_require__(523);
+	var asap_1 = __webpack_require__(670);
+	var isNumeric_1 = __webpack_require__(541);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @extends {Ignored}
@@ -84577,16 +85290,16 @@
 	//# sourceMappingURL=SubscribeOnObservable.js.map
 
 /***/ },
-/* 663 */
+/* 670 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var AsapScheduler_1 = __webpack_require__(664);
+	var AsapScheduler_1 = __webpack_require__(671);
 	exports.asap = new AsapScheduler_1.AsapScheduler();
 	//# sourceMappingURL=asap.js.map
 
 /***/ },
-/* 664 */
+/* 671 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -84595,8 +85308,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var AsapAction_1 = __webpack_require__(665);
-	var QueueScheduler_1 = __webpack_require__(527);
+	var AsapAction_1 = __webpack_require__(672);
+	var QueueScheduler_1 = __webpack_require__(545);
 	var AsapScheduler = (function (_super) {
 	    __extends(AsapScheduler, _super);
 	    function AsapScheduler() {
@@ -84611,7 +85324,7 @@
 	//# sourceMappingURL=AsapScheduler.js.map
 
 /***/ },
-/* 665 */
+/* 672 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -84620,8 +85333,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Immediate_1 = __webpack_require__(666);
-	var FutureAction_1 = __webpack_require__(526);
+	var Immediate_1 = __webpack_require__(673);
+	var FutureAction_1 = __webpack_require__(544);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @ignore
@@ -84667,7 +85380,7 @@
 	//# sourceMappingURL=AsapAction.js.map
 
 /***/ },
-/* 666 */
+/* 673 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(clearImmediate, setImmediate) {/**
@@ -84879,13 +85592,13 @@
 	exports.ImmediateDefinition = ImmediateDefinition;
 	exports.Immediate = new ImmediateDefinition(root_1.root);
 	//# sourceMappingURL=Immediate.js.map
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(667).clearImmediate, __webpack_require__(667).setImmediate))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(674).clearImmediate, __webpack_require__(674).setImmediate))
 
 /***/ },
-/* 667 */
+/* 674 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(setImmediate, clearImmediate) {var nextTick = __webpack_require__(668).nextTick;
+	/* WEBPACK VAR INJECTION */(function(setImmediate, clearImmediate) {var nextTick = __webpack_require__(675).nextTick;
 	var apply = Function.prototype.apply;
 	var slice = Array.prototype.slice;
 	var immediateIds = {};
@@ -84961,10 +85674,10 @@
 	exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate : function(id) {
 	  delete immediateIds[id];
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(667).setImmediate, __webpack_require__(667).clearImmediate))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(674).setImmediate, __webpack_require__(674).clearImmediate))
 
 /***/ },
-/* 668 */
+/* 675 */
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -85130,17 +85843,17 @@
 
 
 /***/ },
-/* 669 */
+/* 676 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var switch_1 = __webpack_require__(670);
+	var switch_1 = __webpack_require__(677);
 	Observable_1.Observable.prototype.switch = switch_1._switch;
 	//# sourceMappingURL=switch.js.map
 
 /***/ },
-/* 670 */
+/* 677 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -85253,17 +85966,17 @@
 	//# sourceMappingURL=switch.js.map
 
 /***/ },
-/* 671 */
+/* 678 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var switchMap_1 = __webpack_require__(672);
+	var switchMap_1 = __webpack_require__(679);
 	Observable_1.Observable.prototype.switchMap = switchMap_1.switchMap;
 	//# sourceMappingURL=switchMap.js.map
 
 /***/ },
-/* 672 */
+/* 679 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -85407,17 +86120,17 @@
 	//# sourceMappingURL=switchMap.js.map
 
 /***/ },
-/* 673 */
+/* 680 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var switchMapTo_1 = __webpack_require__(674);
+	var switchMapTo_1 = __webpack_require__(681);
 	Observable_1.Observable.prototype.switchMapTo = switchMapTo_1.switchMapTo;
 	//# sourceMappingURL=switchMapTo.js.map
 
 /***/ },
-/* 674 */
+/* 681 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -85548,17 +86261,17 @@
 	//# sourceMappingURL=switchMapTo.js.map
 
 /***/ },
-/* 675 */
+/* 682 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var take_1 = __webpack_require__(676);
+	var take_1 = __webpack_require__(683);
 	Observable_1.Observable.prototype.take = take_1.take;
 	//# sourceMappingURL=take.js.map
 
 /***/ },
-/* 676 */
+/* 683 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -85568,7 +86281,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Subscriber_1 = __webpack_require__(75);
-	var ArgumentOutOfRangeError_1 = __webpack_require__(677);
+	var ArgumentOutOfRangeError_1 = __webpack_require__(684);
 	var EmptyObservable_1 = __webpack_require__(435);
 	/**
 	 * @throws {ArgumentOutOfRangeError} When using `take(i)`, it delivers an
@@ -85626,7 +86339,7 @@
 	//# sourceMappingURL=take.js.map
 
 /***/ },
-/* 677 */
+/* 684 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -85657,17 +86370,17 @@
 	//# sourceMappingURL=ArgumentOutOfRangeError.js.map
 
 /***/ },
-/* 678 */
+/* 685 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var takeLast_1 = __webpack_require__(679);
+	var takeLast_1 = __webpack_require__(686);
 	Observable_1.Observable.prototype.takeLast = takeLast_1.takeLast;
 	//# sourceMappingURL=takeLast.js.map
 
 /***/ },
-/* 679 */
+/* 686 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -85677,7 +86390,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Subscriber_1 = __webpack_require__(75);
-	var ArgumentOutOfRangeError_1 = __webpack_require__(677);
+	var ArgumentOutOfRangeError_1 = __webpack_require__(684);
 	var EmptyObservable_1 = __webpack_require__(435);
 	/**
 	 * @throws {ArgumentOutOfRangeError} When using `takeLast(i)`, it delivers an
@@ -85751,17 +86464,17 @@
 	//# sourceMappingURL=takeLast.js.map
 
 /***/ },
-/* 680 */
+/* 687 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var takeUntil_1 = __webpack_require__(681);
+	var takeUntil_1 = __webpack_require__(688);
 	Observable_1.Observable.prototype.takeUntil = takeUntil_1.takeUntil;
 	//# sourceMappingURL=takeUntil.js.map
 
 /***/ },
-/* 681 */
+/* 688 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -85814,17 +86527,17 @@
 	//# sourceMappingURL=takeUntil.js.map
 
 /***/ },
-/* 682 */
+/* 689 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var takeWhile_1 = __webpack_require__(683);
+	var takeWhile_1 = __webpack_require__(690);
 	Observable_1.Observable.prototype.takeWhile = takeWhile_1.takeWhile;
 	//# sourceMappingURL=takeWhile.js.map
 
 /***/ },
-/* 683 */
+/* 690 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -85891,17 +86604,17 @@
 	//# sourceMappingURL=takeWhile.js.map
 
 /***/ },
-/* 684 */
+/* 691 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var throttle_1 = __webpack_require__(685);
+	var throttle_1 = __webpack_require__(692);
 	Observable_1.Observable.prototype.throttle = throttle_1.throttle;
 	//# sourceMappingURL=throttle.js.map
 
 /***/ },
-/* 685 */
+/* 692 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -85982,17 +86695,17 @@
 	//# sourceMappingURL=throttle.js.map
 
 /***/ },
-/* 686 */
+/* 693 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var throttleTime_1 = __webpack_require__(687);
+	var throttleTime_1 = __webpack_require__(694);
 	Observable_1.Observable.prototype.throttleTime = throttleTime_1.throttleTime;
 	//# sourceMappingURL=throttleTime.js.map
 
 /***/ },
-/* 687 */
+/* 694 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -86002,7 +86715,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Subscriber_1 = __webpack_require__(75);
-	var async_1 = __webpack_require__(524);
+	var async_1 = __webpack_require__(542);
 	/**
 	 * @param delay
 	 * @param scheduler
@@ -86060,17 +86773,17 @@
 	//# sourceMappingURL=throttleTime.js.map
 
 /***/ },
-/* 688 */
+/* 695 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var timeout_1 = __webpack_require__(689);
+	var timeout_1 = __webpack_require__(696);
 	Observable_1.Observable.prototype.timeout = timeout_1.timeout;
 	//# sourceMappingURL=timeout.js.map
 
 /***/ },
-/* 689 */
+/* 696 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -86079,8 +86792,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var async_1 = __webpack_require__(524);
-	var isDate_1 = __webpack_require__(548);
+	var async_1 = __webpack_require__(542);
+	var isDate_1 = __webpack_require__(565);
 	var Subscriber_1 = __webpack_require__(75);
 	/**
 	 * @param due
@@ -86177,17 +86890,17 @@
 	//# sourceMappingURL=timeout.js.map
 
 /***/ },
-/* 690 */
+/* 697 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var timeoutWith_1 = __webpack_require__(691);
+	var timeoutWith_1 = __webpack_require__(698);
 	Observable_1.Observable.prototype.timeoutWith = timeoutWith_1.timeoutWith;
 	//# sourceMappingURL=timeoutWith.js.map
 
 /***/ },
-/* 691 */
+/* 698 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -86196,8 +86909,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var async_1 = __webpack_require__(524);
-	var isDate_1 = __webpack_require__(548);
+	var async_1 = __webpack_require__(542);
+	var isDate_1 = __webpack_require__(565);
 	var OuterSubscriber_1 = __webpack_require__(422);
 	var subscribeToResult_1 = __webpack_require__(418);
 	/**
@@ -86302,17 +87015,17 @@
 	//# sourceMappingURL=timeoutWith.js.map
 
 /***/ },
-/* 692 */
+/* 699 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var toArray_1 = __webpack_require__(693);
+	var toArray_1 = __webpack_require__(700);
 	Observable_1.Observable.prototype.toArray = toArray_1.toArray;
 	//# sourceMappingURL=toArray.js.map
 
 /***/ },
-/* 693 */
+/* 700 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -86362,17 +87075,17 @@
 	//# sourceMappingURL=toArray.js.map
 
 /***/ },
-/* 694 */
+/* 701 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var window_1 = __webpack_require__(695);
+	var window_1 = __webpack_require__(702);
 	Observable_1.Observable.prototype.window = window_1.window;
 	//# sourceMappingURL=window.js.map
 
 /***/ },
-/* 695 */
+/* 702 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -86482,17 +87195,17 @@
 	//# sourceMappingURL=window.js.map
 
 /***/ },
-/* 696 */
+/* 703 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var windowCount_1 = __webpack_require__(697);
+	var windowCount_1 = __webpack_require__(704);
 	Observable_1.Observable.prototype.windowCount = windowCount_1.windowCount;
 	//# sourceMappingURL=windowCount.js.map
 
 /***/ },
-/* 697 */
+/* 704 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -86623,17 +87336,17 @@
 	//# sourceMappingURL=windowCount.js.map
 
 /***/ },
-/* 698 */
+/* 705 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var windowTime_1 = __webpack_require__(699);
+	var windowTime_1 = __webpack_require__(706);
 	Observable_1.Observable.prototype.windowTime = windowTime_1.windowTime;
 	//# sourceMappingURL=windowTime.js.map
 
 /***/ },
-/* 699 */
+/* 706 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -86644,7 +87357,7 @@
 	};
 	var Subscriber_1 = __webpack_require__(75);
 	var Subject_1 = __webpack_require__(69);
-	var async_1 = __webpack_require__(524);
+	var async_1 = __webpack_require__(542);
 	/**
 	 * Branch out the source Observable values as a nested Observable periodically
 	 * in time.
@@ -86808,17 +87521,17 @@
 	//# sourceMappingURL=windowTime.js.map
 
 /***/ },
-/* 700 */
+/* 707 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var windowToggle_1 = __webpack_require__(701);
+	var windowToggle_1 = __webpack_require__(708);
 	Observable_1.Observable.prototype.windowToggle = windowToggle_1.windowToggle;
 	//# sourceMappingURL=windowToggle.js.map
 
 /***/ },
-/* 701 */
+/* 708 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -87003,17 +87716,17 @@
 	//# sourceMappingURL=windowToggle.js.map
 
 /***/ },
-/* 702 */
+/* 709 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var windowWhen_1 = __webpack_require__(703);
+	var windowWhen_1 = __webpack_require__(710);
 	Observable_1.Observable.prototype.windowWhen = windowWhen_1.windowWhen;
 	//# sourceMappingURL=windowWhen.js.map
 
 /***/ },
-/* 703 */
+/* 710 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -87146,17 +87859,17 @@
 	//# sourceMappingURL=windowWhen.js.map
 
 /***/ },
-/* 704 */
+/* 711 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var withLatestFrom_1 = __webpack_require__(705);
+	var withLatestFrom_1 = __webpack_require__(712);
 	Observable_1.Observable.prototype.withLatestFrom = withLatestFrom_1.withLatestFrom;
 	//# sourceMappingURL=withLatestFrom.js.map
 
 /***/ },
-/* 705 */
+/* 712 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -87291,31 +88004,31 @@
 	//# sourceMappingURL=withLatestFrom.js.map
 
 /***/ },
-/* 706 */
+/* 713 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var zip_1 = __webpack_require__(551);
+	var zip_1 = __webpack_require__(568);
 	Observable_1.Observable.prototype.zip = zip_1.zipProto;
 	//# sourceMappingURL=zip.js.map
 
 /***/ },
-/* 707 */
+/* 714 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var Observable_1 = __webpack_require__(70);
-	var zipAll_1 = __webpack_require__(708);
+	var zipAll_1 = __webpack_require__(715);
 	Observable_1.Observable.prototype.zipAll = zipAll_1.zipAll;
 	//# sourceMappingURL=zipAll.js.map
 
 /***/ },
-/* 708 */
+/* 715 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var zip_1 = __webpack_require__(551);
+	var zip_1 = __webpack_require__(568);
 	/**
 	 * @param project
 	 * @return {Observable<R>|WebSocketSubject<T>|Observable<T>}
@@ -87329,7 +88042,7 @@
 	//# sourceMappingURL=zipAll.js.map
 
 /***/ },
-/* 709 */
+/* 716 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -87346,7 +88059,7 @@
 	//# sourceMappingURL=Operator.js.map
 
 /***/ },
-/* 710 */
+/* 717 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/******/ (function(modules) { // webpackBootstrap
@@ -87410,7 +88123,7 @@
 		timers_1.patchTimer(_global, set, clear, 'Timeout');
 		timers_1.patchTimer(_global, set, clear, 'Interval');
 		timers_1.patchTimer(_global, set, clear, 'Immediate');
-		timers_1.patchTimer(_global, 'request', 'cancelMacroTask', 'AnimationFrame');
+		timers_1.patchTimer(_global, 'request', 'cancel', 'AnimationFrame');
 		timers_1.patchTimer(_global, 'mozRequest', 'mozCancel', 'AnimationFrame');
 		timers_1.patchTimer(_global, 'webkitRequest', 'webkitCancel', 'AnimationFrame');
 		for (var i = 0; i < blockingMethods.length; i++) {
@@ -87439,7 +88152,7 @@
 		    function scheduleTask(task) {
 		        var data = task.data;
 		        data.target.addEventListener('readystatechange', function () {
-		            if (data.target.readyState === XMLHttpRequest.DONE) {
+		            if (data.target.readyState === data.target.DONE) {
 		                if (!data.aborted) {
 		                    task.invoke();
 		                }
@@ -87501,6 +88214,9 @@
 		/* WEBPACK VAR INJECTION */(function(global) {;
 		;
 		var Zone = (function (global) {
+		    if (global.Zone) {
+		        throw new Error('Zone already loaded.');
+		    }
 		    var Zone = (function () {
 		        function Zone(parent, zoneSpec) {
 		            this._properties = null;
@@ -87534,13 +88250,19 @@
 		        });
 		        ;
 		        Zone.prototype.get = function (key) {
+		            var zone = this.getZoneWith(key);
+		            if (zone)
+		                return zone._properties[key];
+		        };
+		        Zone.prototype.getZoneWith = function (key) {
 		            var current = this;
 		            while (current) {
 		                if (current._properties.hasOwnProperty(key)) {
-		                    return current._properties[key];
+		                    return current;
 		                }
 		                current = current._parent;
 		            }
+		            return null;
 		        };
 		        Zone.prototype.fork = function (zoneSpec) {
 		            if (!zoneSpec)
@@ -87770,14 +88492,26 @@
 		            this.callback = callback;
 		            var self = this;
 		            this.invoke = function () {
+		                _numberOfNestedTaskFrames++;
 		                try {
 		                    return zone.runTask(self, this, arguments);
 		                }
 		                finally {
-		                    drainMicroTaskQueue();
+		                    if (_numberOfNestedTaskFrames == 1) {
+		                        drainMicroTaskQueue();
+		                    }
+		                    _numberOfNestedTaskFrames--;
 		                }
 		            };
 		        }
+		        ZoneTask.prototype.toString = function () {
+		            if (this.data && typeof this.data.handleId !== 'undefined') {
+		                return this.data.handleId;
+		            }
+		            else {
+		                return this.toString();
+		            }
+		        };
 		        return ZoneTask;
 		    }());
 		    function __symbol__(name) { return '__zone_symbol__' + name; }
@@ -87790,9 +88524,11 @@
 		    var _microTaskQueue = [];
 		    var _isDrainingMicrotaskQueue = false;
 		    var _uncaughtPromiseErrors = [];
-		    var _drainScheduled = false;
+		    var _numberOfNestedTaskFrames = 0;
 		    function scheduleQueueDrain() {
-		        if (!_drainScheduled && !_currentTask && _microTaskQueue.length == 0) {
+		        // if we are not running in any task, and there has not been anything scheduled
+		        // we must bootstrap the initial task creation by manually scheduling the drain
+		        if (_numberOfNestedTaskFrames == 0 && _microTaskQueue.length == 0) {
 		            // We are not running in Task, so we need to kickstart the microtask queue.
 		            if (global[symbolPromise]) {
 		                global[symbolPromise].resolve(0)[symbolThen](drainMicroTaskQueue);
@@ -87809,7 +88545,7 @@
 		    function consoleError(e) {
 		        var rejection = e && e.rejection;
 		        if (rejection) {
-		            console.error('Unhandled Promise rejection:', rejection instanceof Error ? rejection.message : rejection, '; Zone:', e.zone.name, '; Task:', e.task && e.task.source, '; Value:', rejection);
+		            console.error('Unhandled Promise rejection:', rejection instanceof Error ? rejection.message : rejection, '; Zone:', e.zone.name, '; Task:', e.task && e.task.source, '; Value:', rejection, rejection instanceof Error ? rejection.stack : undefined);
 		        }
 		        console.error(e);
 		    }
@@ -87830,10 +88566,8 @@
 		                }
 		            }
 		            while (_uncaughtPromiseErrors.length) {
-		                var uncaughtPromiseErrors = _uncaughtPromiseErrors;
-		                _uncaughtPromiseErrors = [];
-		                var _loop_1 = function(i) {
-		                    var uncaughtPromiseError = uncaughtPromiseErrors[i];
+		                var _loop_1 = function() {
+		                    var uncaughtPromiseError = _uncaughtPromiseErrors.shift();
 		                    try {
 		                        uncaughtPromiseError.zone.runGuarded(function () { throw uncaughtPromiseError; });
 		                    }
@@ -87841,12 +88575,11 @@
 		                        consoleError(e);
 		                    }
 		                };
-		                for (var i = 0; i < uncaughtPromiseErrors.length; i++) {
-		                    _loop_1(i);
+		                while (_uncaughtPromiseErrors.length) {
+		                    _loop_1();
 		                }
 		            }
 		            _isDrainingMicrotaskQueue = false;
-		            _drainScheduled = false;
 		        }
 		    }
 		    function isThenable(value) {
@@ -87929,6 +88662,9 @@
 		    var ZoneAwarePromise = (function () {
 		        function ZoneAwarePromise(executor) {
 		            var promise = this;
+		            if (!(promise instanceof ZoneAwarePromise)) {
+		                throw new Error('Must be an instanceof Promise.');
+		            }
 		            promise[symbolState] = UNRESOLVED;
 		            promise[symbolValue] = []; // queue;
 		            try {
@@ -87986,7 +88722,7 @@
 		            return promise;
 		        };
 		        ZoneAwarePromise.prototype.then = function (onFulfilled, onRejected) {
-		            var chainPromise = new ZoneAwarePromise(null);
+		            var chainPromise = new this.constructor(null);
 		            var zone = Zone.current;
 		            if (this[symbolState] == UNRESOLVED) {
 		                this[symbolValue].push(zone, chainPromise, onFulfilled, onRejected);
@@ -88014,6 +88750,8 @@
 		            }).then(onResolve, onReject);
 		        };
 		    }
+		    // This is not part of public API, but it is usefull for tests, so we expose it.
+		    Promise[Zone.__symbol__('uncaughtPromiseErrors')] = _uncaughtPromiseErrors;
 		    return global.Zone = Zone;
 		})(typeof window === 'undefined' ? global : window);
 	
@@ -88026,7 +88764,7 @@
 		"use strict";
 		var utils_1 = __webpack_require__(3);
 		var WTF_ISSUE_555 = 'Anchor,Area,Audio,BR,Base,BaseFont,Body,Button,Canvas,Content,DList,Directory,Div,Embed,FieldSet,Font,Form,Frame,FrameSet,HR,Head,Heading,Html,IFrame,Image,Input,Keygen,LI,Label,Legend,Link,Map,Marquee,Media,Menu,Meta,Meter,Mod,OList,Object,OptGroup,Option,Output,Paragraph,Pre,Progress,Quote,Script,Select,Source,Span,Style,TableCaption,TableCell,TableCol,Table,TableRow,TableSection,TextArea,Title,Track,UList,Unknown,Video';
-		var NO_EVENT_TARGET = 'ApplicationCache,EventSource,FileReader,InputMethodContext,MediaController,MessagePort,Node,Performance,SVGElementInstance,SharedWorker,TextTrack,TextTrackCue,TextTrackList,WebKitNamedFlow,Worker,WorkerGlobalScope,XMLHttpRequest,XMLHttpRequestEventTarget,XMLHttpRequestUpload,IDBRequest,IDBOpenDBRequest,IDBDatabase,IDBTransaction,IDBCursor,DBIndex'.split(',');
+		var NO_EVENT_TARGET = 'ApplicationCache,EventSource,FileReader,InputMethodContext,MediaController,MessagePort,Node,Performance,SVGElementInstance,SharedWorker,TextTrack,TextTrackCue,TextTrackList,WebKitNamedFlow,Window,Worker,WorkerGlobalScope,XMLHttpRequest,XMLHttpRequestEventTarget,XMLHttpRequestUpload,IDBRequest,IDBOpenDBRequest,IDBDatabase,IDBTransaction,IDBCursor,DBIndex'.split(',');
 		var EVENT_TARGET = 'EventTarget';
 		function eventTargetPatch(_global) {
 		    var apis = [];
@@ -88128,8 +88866,9 @@
 		            this[_prop] = null;
 		        }
 		    };
+		    // The getter would return undefined for unassigned properties but the default value of an unassigned property is null
 		    desc.get = function () {
-		        return this[_prop];
+		        return this[_prop] || null;
 		    };
 		    Object.defineProperty(obj, prop, desc);
 		}
@@ -88297,6 +89036,9 @@
 		    var instance = new OriginalClass(function () { });
 		    var prop;
 		    for (prop in instance) {
+		        // https://bugs.webkit.org/show_bug.cgi?id=44721
+		        if (className === 'XMLHttpRequest' && prop === 'responseBlob')
+		            continue;
 		        (function (prop) {
 		            if (typeof instance[prop] === 'function') {
 		                _global[className].prototype[prop] = function () {
@@ -88380,10 +89122,11 @@
 		        if (isUnconfigurable(obj, prop)) {
 		            throw new TypeError('Cannot assign to read only property \'' + prop + '\' of ' + obj);
 		        }
+		        var originalConfigurableFlag = desc.configurable;
 		        if (prop !== 'prototype') {
 		            desc = rewriteDescriptor(obj, prop, desc);
 		        }
-		        return _defineProperty(obj, prop, desc);
+		        return _tryDefineProperty(obj, prop, desc, originalConfigurableFlag);
 		    };
 		    Object.defineProperties = function (obj, props) {
 		        Object.keys(props).forEach(function (prop) {
@@ -88392,7 +89135,7 @@
 		        return obj;
 		    };
 		    Object.create = function (obj, proto) {
-		        if (typeof proto === 'object') {
+		        if (typeof proto === 'object' && !Object.isFrozen(proto)) {
 		            Object.keys(proto).forEach(function (prop) {
 		                proto[prop] = rewriteDescriptor(obj, prop, proto[prop]);
 		            });
@@ -88410,8 +89153,9 @@
 		exports.propertyPatch = propertyPatch;
 		;
 		function _redefineProperty(obj, prop, desc) {
+		    var originalConfigurableFlag = desc.configurable;
 		    desc = rewriteDescriptor(obj, prop, desc);
-		    return _defineProperty(obj, prop, desc);
+		    return _tryDefineProperty(obj, prop, desc, originalConfigurableFlag);
 		}
 		exports._redefineProperty = _redefineProperty;
 		;
@@ -88427,6 +89171,26 @@
 		        obj[unconfigurablesKey][prop] = true;
 		    }
 		    return desc;
+		}
+		function _tryDefineProperty(obj, prop, desc, originalConfigurableFlag) {
+		    try {
+		        return _defineProperty(obj, prop, desc);
+		    }
+		    catch (e) {
+		        if (desc.configurable) {
+		            // In case of errors, when the configurable flag was likely set by rewriteDescriptor(), let's retry with the original flag value
+		            if (typeof originalConfigurableFlag == 'undefined') {
+		                delete desc.configurable;
+		            }
+		            else {
+		                desc.configurable = originalConfigurableFlag;
+		            }
+		            return _defineProperty(obj, prop, desc);
+		        }
+		        else {
+		            throw e;
+		        }
+		    }
 		}
 	
 	
@@ -88638,7 +89402,17 @@
 		                delay: (nameSuffix === 'Timeout' || nameSuffix === 'Interval') ? args[1] || 0 : null,
 		                args: args
 		            };
-		            return zone.scheduleMacroTask(setName, args[0], options, scheduleTask, clearTask);
+		            var task = zone.scheduleMacroTask(setName, args[0], options, scheduleTask, clearTask);
+		            if (!task) {
+		                return task;
+		            }
+		            // Node.js must additionally support the ref and unref functions.
+		            var handle = task.data.handleId;
+		            if (handle.ref && handle.unref) {
+		                task.ref = handle.ref.bind(handle);
+		                task.unref = handle.unref.bind(handle);
+		            }
+		            return task;
 		        }
 		        else {
 		            // cause an error by calling it directly.
@@ -88664,10 +89438,10 @@
 	
 	/***/ }
 	/******/ ]);
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(668)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(675)))
 
 /***/ },
-/* 711 */
+/* 718 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -88681,59 +89455,59 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(11);
-	var line_1 = __webpack_require__(482);
-	var dir_1 = __webpack_require__(476);
-	var ripple_1 = __webpack_require__(489);
-	var portal_directives_1 = __webpack_require__(712);
-	var overlay_directives_1 = __webpack_require__(715);
-	var live_announcer_1 = __webpack_require__(727);
+	var line_1 = __webpack_require__(487);
+	var dir_1 = __webpack_require__(481);
+	var ripple_1 = __webpack_require__(494);
+	var portal_directives_1 = __webpack_require__(719);
+	var overlay_directives_1 = __webpack_require__(722);
+	var live_announcer_1 = __webpack_require__(734);
 	// RTL
-	var dir_2 = __webpack_require__(476);
+	var dir_2 = __webpack_require__(481);
 	exports.Dir = dir_2.Dir;
 	exports.RtlModule = dir_2.RtlModule;
 	// Portals
-	var portal_1 = __webpack_require__(713);
+	var portal_1 = __webpack_require__(720);
 	exports.Portal = portal_1.Portal;
 	exports.BasePortalHost = portal_1.BasePortalHost;
 	exports.ComponentPortal = portal_1.ComponentPortal;
 	exports.TemplatePortal = portal_1.TemplatePortal;
-	var portal_directives_2 = __webpack_require__(712);
+	var portal_directives_2 = __webpack_require__(719);
 	exports.PortalHostDirective = portal_directives_2.PortalHostDirective;
 	exports.TemplatePortalDirective = portal_directives_2.TemplatePortalDirective;
 	exports.PORTAL_DIRECTIVES = portal_directives_2.PORTAL_DIRECTIVES;
 	exports.PortalModule = portal_directives_2.PortalModule;
-	var dom_portal_host_1 = __webpack_require__(718);
+	var dom_portal_host_1 = __webpack_require__(725);
 	exports.DomPortalHost = dom_portal_host_1.DomPortalHost;
 	// Overlay
-	var overlay_1 = __webpack_require__(716);
+	var overlay_1 = __webpack_require__(723);
 	exports.Overlay = overlay_1.Overlay;
 	exports.OVERLAY_PROVIDERS = overlay_1.OVERLAY_PROVIDERS;
-	var overlay_container_1 = __webpack_require__(726);
+	var overlay_container_1 = __webpack_require__(733);
 	exports.OverlayContainer = overlay_container_1.OverlayContainer;
-	var overlay_ref_1 = __webpack_require__(719);
+	var overlay_ref_1 = __webpack_require__(726);
 	exports.OverlayRef = overlay_ref_1.OverlayRef;
-	var overlay_state_1 = __webpack_require__(717);
+	var overlay_state_1 = __webpack_require__(724);
 	exports.OverlayState = overlay_state_1.OverlayState;
-	var overlay_directives_2 = __webpack_require__(715);
+	var overlay_directives_2 = __webpack_require__(722);
 	exports.ConnectedOverlayDirective = overlay_directives_2.ConnectedOverlayDirective;
 	exports.OverlayOrigin = overlay_directives_2.OverlayOrigin;
 	exports.OVERLAY_DIRECTIVES = overlay_directives_2.OVERLAY_DIRECTIVES;
 	exports.OverlayModule = overlay_directives_2.OverlayModule;
 	// Gestures
-	var MdGestureConfig_1 = __webpack_require__(728);
+	var MdGestureConfig_1 = __webpack_require__(735);
 	exports.MdGestureConfig = MdGestureConfig_1.MdGestureConfig;
 	// Ripple
-	var ripple_2 = __webpack_require__(489);
+	var ripple_2 = __webpack_require__(494);
 	exports.MD_RIPPLE_DIRECTIVES = ripple_2.MD_RIPPLE_DIRECTIVES;
 	exports.MdRipple = ripple_2.MdRipple;
 	exports.MdRippleModule = ripple_2.MdRippleModule;
 	// a11y
-	var live_announcer_2 = __webpack_require__(727);
+	var live_announcer_2 = __webpack_require__(734);
 	exports.MdLiveAnnouncer = live_announcer_2.MdLiveAnnouncer;
 	exports.LIVE_ANNOUNCER_ELEMENT_TOKEN = live_announcer_2.LIVE_ANNOUNCER_ELEMENT_TOKEN;
-	var unique_selection_dispatcher_1 = __webpack_require__(486);
+	var unique_selection_dispatcher_1 = __webpack_require__(491);
 	exports.MdUniqueSelectionDispatcher = unique_selection_dispatcher_1.MdUniqueSelectionDispatcher;
-	var line_2 = __webpack_require__(482);
+	var line_2 = __webpack_require__(487);
 	exports.MdLineModule = line_2.MdLineModule;
 	exports.MdLine = line_2.MdLine;
 	exports.MdLineSetter = line_2.MdLineSetter;
@@ -88761,7 +89535,7 @@
 	//# sourceMappingURL=core.js.map
 
 /***/ },
-/* 712 */
+/* 719 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -88780,7 +89554,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(11);
-	var portal_1 = __webpack_require__(713);
+	var portal_1 = __webpack_require__(720);
 	/**
 	 * Directive version of a `TemplatePortal`. Because the directive *is* a TemplatePortal,
 	 * the directive instance itself can be attached to a host, enabling declarative use of portals.
@@ -88891,7 +89665,7 @@
 	//# sourceMappingURL=portal-directives.js.map
 
 /***/ },
-/* 713 */
+/* 720 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -88900,7 +89674,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var portal_errors_1 = __webpack_require__(714);
+	var portal_errors_1 = __webpack_require__(721);
 	/**
 	 * A `Portal` is something that you want to render somewhere else.
 	 * It can be attach to / detached from a `PortalHost`.
@@ -89056,7 +89830,7 @@
 	//# sourceMappingURL=portal.js.map
 
 /***/ },
-/* 714 */
+/* 721 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -89065,7 +89839,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var error_1 = __webpack_require__(479);
+	var error_1 = __webpack_require__(484);
 	/** Exception thrown when a ComponentPortal is attached to a DomPortalHost without an origin. */
 	var MdComponentPortalAttachedToDomWithoutOriginError = (function (_super) {
 	    __extends(MdComponentPortalAttachedToDomWithoutOriginError, _super);
@@ -89134,7 +89908,7 @@
 	//# sourceMappingURL=portal-errors.js.map
 
 /***/ },
-/* 715 */
+/* 722 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -89148,11 +89922,11 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(11);
-	var overlay_1 = __webpack_require__(716);
-	var portal_1 = __webpack_require__(713);
-	var overlay_state_1 = __webpack_require__(717);
-	var connected_position_1 = __webpack_require__(724);
-	var portal_directives_1 = __webpack_require__(712);
+	var overlay_1 = __webpack_require__(723);
+	var portal_1 = __webpack_require__(720);
+	var overlay_state_1 = __webpack_require__(724);
+	var connected_position_1 = __webpack_require__(731);
+	var portal_directives_1 = __webpack_require__(719);
 	/** Default set of positions for the overlay. Follows the behavior of a dropdown. */
 	var defaultPositionList = [
 	    new connected_position_1.ConnectionPositionPair({ originX: 'start', originY: 'bottom' }, { overlayX: 'start', overlayY: 'top' }),
@@ -89261,7 +90035,7 @@
 	//# sourceMappingURL=overlay-directives.js.map
 
 /***/ },
-/* 716 */
+/* 723 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -89275,12 +90049,12 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(11);
-	var overlay_state_1 = __webpack_require__(717);
-	var dom_portal_host_1 = __webpack_require__(718);
-	var overlay_ref_1 = __webpack_require__(719);
-	var overlay_position_builder_1 = __webpack_require__(720);
-	var viewport_ruler_1 = __webpack_require__(721);
-	var overlay_container_1 = __webpack_require__(726);
+	var overlay_state_1 = __webpack_require__(724);
+	var dom_portal_host_1 = __webpack_require__(725);
+	var overlay_ref_1 = __webpack_require__(726);
+	var overlay_position_builder_1 = __webpack_require__(727);
+	var viewport_ruler_1 = __webpack_require__(728);
+	var overlay_container_1 = __webpack_require__(733);
 	/** Next overlay unique ID. */
 	var nextUniqueId = 0;
 	/** The default state for newly created overlays. */
@@ -89361,7 +90135,7 @@
 	//# sourceMappingURL=overlay.js.map
 
 /***/ },
-/* 717 */
+/* 724 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -89378,7 +90152,7 @@
 	//# sourceMappingURL=overlay-state.js.map
 
 /***/ },
-/* 718 */
+/* 725 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -89387,8 +90161,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var portal_1 = __webpack_require__(713);
-	var portal_errors_1 = __webpack_require__(714);
+	var portal_1 = __webpack_require__(720);
+	var portal_errors_1 = __webpack_require__(721);
 	/**
 	 * A PortalHost for attaching portals to an arbitrary DOM element outside of the Angular
 	 * application context.
@@ -89442,7 +90216,7 @@
 	//# sourceMappingURL=dom-portal-host.js.map
 
 /***/ },
-/* 719 */
+/* 726 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -89491,7 +90265,7 @@
 	//# sourceMappingURL=overlay-ref.js.map
 
 /***/ },
-/* 720 */
+/* 727 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -89504,10 +90278,10 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var viewport_ruler_1 = __webpack_require__(721);
-	var connected_position_strategy_1 = __webpack_require__(722);
+	var viewport_ruler_1 = __webpack_require__(728);
+	var connected_position_strategy_1 = __webpack_require__(729);
 	var core_1 = __webpack_require__(11);
-	var global_position_strategy_1 = __webpack_require__(725);
+	var global_position_strategy_1 = __webpack_require__(732);
 	/** Builder for overlay position strategy. */
 	var OverlayPositionBuilder = (function () {
 	    function OverlayPositionBuilder(_viewportRuler) {
@@ -89531,7 +90305,7 @@
 	//# sourceMappingURL=overlay-position-builder.js.map
 
 /***/ },
-/* 721 */
+/* 728 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -89608,12 +90382,12 @@
 	//# sourceMappingURL=viewport-ruler.js.map
 
 /***/ },
-/* 722 */
+/* 729 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var apply_transform_1 = __webpack_require__(723);
-	var connected_position_1 = __webpack_require__(724);
+	var apply_transform_1 = __webpack_require__(730);
+	var connected_position_1 = __webpack_require__(731);
 	/**
 	 * A strategy for positioning overlays. Using this strategy, an overlay is given an
 	 * implict position relative some origin element. The relative position is defined in terms of
@@ -89778,7 +90552,7 @@
 	//# sourceMappingURL=connected-position-strategy.js.map
 
 /***/ },
-/* 723 */
+/* 730 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -89798,7 +90572,7 @@
 	//# sourceMappingURL=apply-transform.js.map
 
 /***/ },
-/* 724 */
+/* 731 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -89816,11 +90590,11 @@
 	//# sourceMappingURL=connected-position.js.map
 
 /***/ },
-/* 725 */
+/* 732 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var apply_transform_1 = __webpack_require__(723);
+	var apply_transform_1 = __webpack_require__(730);
 	/**
 	 * A strategy for positioning overlays. Using this strategy, an overlay is given an
 	 * explicit position relative to the browser's viewport.
@@ -89924,7 +90698,7 @@
 	//# sourceMappingURL=global-position-strategy.js.map
 
 /***/ },
-/* 726 */
+/* 733 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -89963,7 +90737,7 @@
 	//# sourceMappingURL=overlay-container.js.map
 
 /***/ },
-/* 727 */
+/* 734 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -90025,7 +90799,7 @@
 	//# sourceMappingURL=live-announcer.js.map
 
 /***/ },
-/* 728 */
+/* 735 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -90115,7 +90889,7 @@
 	//# sourceMappingURL=MdGestureConfig.js.map
 
 /***/ },
-/* 729 */
+/* 736 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*! Hammer.JS - v2.0.7 - 2016-04-22

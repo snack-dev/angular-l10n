@@ -26,32 +26,24 @@ webpackJsonp([0],{
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
+	// Root module.
 	var core_1 = __webpack_require__(11);
 	var platform_browser_1 = __webpack_require__(203);
-	var forms_1 = __webpack_require__(338);
-	var http_1 = __webpack_require__(376);
-	var app_component_1 = __webpack_require__(398);
+	// Bootstrap component.
+	var app_component_1 = __webpack_require__(338);
 	var app_routes_1 = __webpack_require__(412);
-	// Angular 2 Material.
-	var dir_1 = __webpack_require__(476);
-	var sidenav_1 = __webpack_require__(477);
-	var list_1 = __webpack_require__(481);
-	var toolbar_1 = __webpack_require__(483);
-	var card_1 = __webpack_require__(484);
-	var radio_1 = __webpack_require__(485);
-	var input_1 = __webpack_require__(487);
-	var button_1 = __webpack_require__(488);
 	// Components.
 	var home_component_1 = __webpack_require__(472);
 	var i18n_component_1 = __webpack_require__(473);
-	var list_component_1 = __webpack_require__(474);
-	var validation_component_1 = __webpack_require__(475);
-	// Services.
-	var angular2localization_1 = __webpack_require__(399);
-	// Pipes.
-	var angular2localization_2 = __webpack_require__(399);
-	// Directives.
-	var angular2localization_3 = __webpack_require__(399);
+	var validation_component_1 = __webpack_require__(474);
+	// Feature modules.
+	var shared_module_1 = __webpack_require__(479);
+	var material_module_1 = __webpack_require__(480);
+	// Angular 2 Localization.
+	var angular2localization_1 = __webpack_require__(339);
+	// Loader for webpack.
+	var core_2 = __webpack_require__(11);
+	var async_ng_module_loader_1 = __webpack_require__(475);
 	var AppModule = (function () {
 	    function AppModule() {
 	    }
@@ -59,36 +51,19 @@ webpackJsonp([0],{
 	        core_1.NgModule({
 	            imports: [
 	                platform_browser_1.BrowserModule,
-	                forms_1.FormsModule,
-	                forms_1.ReactiveFormsModule,
 	                app_routes_1.routing,
-	                http_1.HttpModule,
-	                dir_1.RtlModule,
-	                sidenav_1.MdSidenavModule,
-	                list_1.MdListModule,
-	                toolbar_1.MdToolbarModule,
-	                card_1.MdCardModule,
-	                radio_1.MdRadioModule,
-	                input_1.MdInputModule,
-	                button_1.MdButtonModule
+	                shared_module_1.SharedModule,
+	                material_module_1.MaterialModule,
+	                angular2localization_1.LocaleModule.forRoot(),
+	                angular2localization_1.LocalizationModule.forRoot() // New instance of LocalizationService.
 	            ],
 	            declarations: [
 	                app_component_1.AppComponent,
 	                home_component_1.HomeComponent,
 	                i18n_component_1.I18nComponent,
-	                list_component_1.ListComponent,
-	                validation_component_1.ValidationComponent,
-	                angular2localization_2.TranslatePipe,
-	                angular2localization_2.LocaleDatePipe,
-	                angular2localization_2.LocaleDecimalPipe,
-	                angular2localization_2.LocalePercentPipe,
-	                angular2localization_2.LocaleCurrencyPipe,
-	                angular2localization_3.LocaleNumberValidator
+	                validation_component_1.ValidationComponent
 	            ],
-	            providers: [
-	                angular2localization_1.LocaleService,
-	                angular2localization_1.LocalizationService
-	            ],
+	            providers: [{ provide: core_2.NgModuleFactoryLoader, useClass: async_ng_module_loader_1.AsyncNgModuleLoader }],
 	            bootstrap: [app_component_1.AppComponent]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -100,7 +75,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 398:
+/***/ 338:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -120,7 +95,7 @@ webpackJsonp([0],{
 	};
 	var core_1 = __webpack_require__(11);
 	// Services.
-	var angular2localization_1 = __webpack_require__(399);
+	var angular2localization_1 = __webpack_require__(339);
 	var AppComponent = (function (_super) {
 	    __extends(AppComponent, _super);
 	    function AppComponent(locale, localization) {
@@ -132,12 +107,14 @@ webpackJsonp([0],{
 	        this.locale.addLanguage('it');
 	        this.locale.addLanguage('ar');
 	        // Add a new language here.
+	        /*this.locale.useLocalStorage();*/
 	        // Required: default language, country (ISO 3166 two-letter, uppercase code) and expiry (No days). If the expiry is omitted, the cookie becomes a session cookie.
 	        this.locale.definePreferredLocale('en', 'US', 30);
 	        // Optional: default currency (ISO 4217 three-letter code).
 	        this.locale.definePreferredCurrency('USD');
 	        // Initializes LocalizationService: asynchronous loading.
 	        this.localization.translationProvider('./resources/locale-'); // Required: initializes the translation provider with the given path prefix.
+	        /*this.localization.translationProvider('http://localhost:54703/api/values/', 'json', true); */
 	        this.localization.updateTranslation(); // Need to update the translation.
 	        // Initializes direction.
 	        if (this.locale.getCurrentLanguage() == "ar") {
@@ -182,13 +159,21 @@ webpackJsonp([0],{
 	// Components.
 	var home_component_1 = __webpack_require__(472);
 	var i18n_component_1 = __webpack_require__(473);
-	var list_component_1 = __webpack_require__(474);
-	var validation_component_1 = __webpack_require__(475);
+	var validation_component_1 = __webpack_require__(474);
+	// Loader for webpack.
+	var async_ng_module_loader_1 = __webpack_require__(475);
 	var appRoutes = [
 	    { path: '', redirectTo: 'home', pathMatch: 'full' },
 	    { path: 'home', component: home_component_1.HomeComponent },
 	    { path: 'i18n', component: i18n_component_1.I18nComponent },
-	    { path: 'list', component: list_component_1.ListComponent },
+	    {
+	        path: 'list',
+	        loadChildren: async_ng_module_loader_1.load(function () { return new Promise(function (resolve) {
+	            __webpack_require__.e/* nsure */(1, function (require) {
+	                resolve(__webpack_require__(476).default);
+	            });
+	        }); })
+	    },
 	    { path: 'validation', component: validation_component_1.ValidationComponent }
 	];
 	exports.routing = router_1.RouterModule.forRoot(appRoutes, { useHash: true });
@@ -216,7 +201,7 @@ webpackJsonp([0],{
 	};
 	var core_1 = __webpack_require__(11);
 	// Services.
-	var angular2localization_1 = __webpack_require__(399);
+	var angular2localization_1 = __webpack_require__(339);
 	var HomeComponent = (function (_super) {
 	    __extends(HomeComponent, _super);
 	    function HomeComponent(locale, localization) {
@@ -265,7 +250,7 @@ webpackJsonp([0],{
 	var core_1 = __webpack_require__(11);
 	var common_1 = __webpack_require__(205);
 	// Services.
-	var angular2localization_1 = __webpack_require__(399);
+	var angular2localization_1 = __webpack_require__(339);
 	var MessagesLocalization = (function (_super) {
 	    __extends(MessagesLocalization, _super);
 	    function MessagesLocalization() {
@@ -333,135 +318,42 @@ webpackJsonp([0],{
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(11);
-	// Async methods.
-	/*import { Observer } from 'rxjs/Observer';
-	import { Observable } from 'rxjs/Observable';*/
+	// FormBuilder with formControl.
+	var forms_1 = __webpack_require__(372);
 	// Services.
-	var angular2localization_1 = __webpack_require__(399);
-	var ListComponent = (function (_super) {
-	    __extends(ListComponent, _super);
-	    // Async methods.
-	    /*get ASYNC_DATA(): Observable<Array<Data>> {
-	
-	        return new Observable<any>((observer: Observer<Array<Data>>) => {
-	
-	            observer.next(this.DATA);
-	            observer.complete();
-	
-	        });
-	
-	    }*/
-	    function ListComponent(locale, localization) {
+	var angular2localization_1 = __webpack_require__(339);
+	// Directives for FormBuilder with formControl.
+	var angular2localization_2 = __webpack_require__(339);
+	var ValidationComponent = (function (_super) {
+	    __extends(ValidationComponent, _super);
+	    function ValidationComponent(locale, localization, fb) {
 	        _super.call(this, locale, localization);
 	        this.locale = locale;
 	        this.localization = localization;
-	        // Array that contains the columns to look for.
-	        this.keyNames = [];
-	        // Instantiates a new LocalizationService for this component and for its descendants.
-	        this.localization.translationProvider('./resources/locale-list-'); // Required: initializes the translation provider with the given path prefix.
-	        this.localization.updateTranslation(); // Need to update the translation.
-	        this.intlSupport = angular2localization_1.IntlSupport.Collator(this.locale.getCurrentLanguage());
-	        this.DATA = this.loadData();
-	        this.keyNames.push('position');
-	        this.keyName = "";
-	        this.order = "";
-	        this.s = "";
+	        this.fb = fb;
+	        // Options.
+	        this.digits = "1.2-2";
+	        this.minValue = -Math.round(Math.random() * 10000) / 100;
+	        this.maxValue = Math.round(Math.random() * 10000) / 100;
+	        this.parsedValue = null;
+	        this.numberForm = fb.group({
+	            'decimal': ['', angular2localization_2.validateLocaleNumber(this.locale, this.digits, this.minValue, this.maxValue)]
+	        });
+	        // 'decimal' control. 
+	        this.decimal = this.numberForm.controls['decimal'];
 	    }
-	    ListComponent.prototype.orderBy = function (keyName, order) {
-	        if (this.keyName != keyName || this.order != order) {
-	            this.DATA = this.localization.sort(this.DATA, keyName, order, "", { sensitivity: 'variant' });
-	            // Async methods.
-	            /*this.localization.sortAsync(this.DATA, keyName, order, "", { sensitivity: 'variant' }).forEach(
-	    
-	                // Next.
-	                (list: Array<Data>) => { this.DATA = list }
-	    
-	            );*/
-	            // Stores parameters.
-	            this.keyName = keyName;
-	            this.order = order;
-	        }
+	    ValidationComponent.prototype.onSubmit = function (value) {
+	        this.parsedValue = angular2localization_1.LocaleParser.Number(value.decimal, this.locale.getDefaultLocale());
 	    };
-	    ListComponent.prototype.search = function (s) {
-	        // Initializes the data if the search string is shorter than the previous.
-	        if (s.length < this.s.length) {
-	            this.DATA = this.localization.search(s, this.loadData(), this.keyNames, { usage: 'search', sensitivity: 'base' });
-	            // Keeps sorting.
-	            this.orderBy(this.keyName, this.order);
-	        }
-	        else {
-	            // Continues the search with the entered string.
-	            this.DATA = this.localization.search(s, this.DATA, this.keyNames, { usage: 'search', sensitivity: 'base' });
-	        }
-	        // Async methods.
-	        /*this.DATA = new Array<Data>();
-	
-	        this.localization.searchAsync(s, this.loadData(), this.keyNames, { usage: 'search', sensitivity: 'base' }).forEach(
-	
-	            // Next.
-	            (data: Data) => { this.DATA.push(data) }
-	
-	        );*/
-	        // Stores the parameter.
-	        this.s = s;
-	    };
-	    ListComponent.prototype.reset = function () {
-	        // Initializes the data.
-	        this.DATA = this.loadData();
-	        // Keeps sorting.
-	        this.orderBy(this.keyName, this.order);
-	    };
-	    ListComponent.prototype.loadData = function () {
-	        // Mock data.    
-	        var DATA = new Array();
-	        var data = new Data();
-	        data.name = "Tiger Nixon";
-	        data.position = "System Architect";
-	        data.salary = 320800;
-	        data.startDate = new Date("2011/04/25");
-	        DATA.push(data);
-	        data = new Data();
-	        data.name = "Garrett Winters";
-	        data.position = "Accountant";
-	        data.salary = 170750;
-	        data.startDate = new Date("2011/07/25");
-	        DATA.push(data);
-	        data = new Data();
-	        data.name = "Ashton Cox";
-	        data.position = "Junior Technical Author";
-	        data.salary = 86000;
-	        data.startDate = new Date("2009/01/12");
-	        DATA.push(data);
-	        data = new Data();
-	        data.name = "Cedric Kelly";
-	        data.position = "Senior Javascript Developer";
-	        data.salary = 433060;
-	        data.startDate = new Date("2012/03/29");
-	        DATA.push(data);
-	        data = new Data();
-	        data.name = "Airi Satou";
-	        data.position = "Accountant";
-	        data.salary = 162700;
-	        data.startDate = new Date("2008/11/28");
-	        DATA.push(data);
-	        return DATA;
-	    };
-	    ListComponent = __decorate([
+	    ValidationComponent = __decorate([
 	        core_1.Component({
-	            templateUrl: './app/list.component.html',
-	            providers: [angular2localization_1.LocalizationService] // Inherited by all descendants.
+	            templateUrl: './app/validation.component.html'
 	        }), 
-	        __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
-	    ], ListComponent);
-	    return ListComponent;
+	        __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService, forms_1.FormBuilder])
+	    ], ValidationComponent);
+	    return ValidationComponent;
 	}(angular2localization_1.Locale));
-	exports.ListComponent = ListComponent;
-	var Data = (function () {
-	    function Data() {
-	    }
-	    return Data;
-	}());
-	exports.Data = Data;
+	exports.ValidationComponent = ValidationComponent;
 
 
 /***/ },
@@ -469,12 +361,11 @@ webpackJsonp([0],{
 /***/ 475:
 /***/ function(module, exports, __webpack_require__) {
 
+	/*
+	 * Based on
+	 * https://gist.github.com/brandonroberts/02cc07face25886fe142c4dbd8da1340
+	 */
 	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -485,58 +376,139 @@ webpackJsonp([0],{
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(11);
-	// FormBuilder with formControl.
-	/*import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';*/
-	// Services.
-	var angular2localization_1 = __webpack_require__(399);
-	// Directives for FormBuilder with formControl.
-	/*import {validateLocaleNumber} from './directives/locale-number-validator.directive';*/
-	var ValidationComponent = (function (_super) {
-	    __extends(ValidationComponent, _super);
-	    // FormBuilder with formControl.
-	    /*numberForm: FormGroup;
-	    decimal: AbstractControl;
-	
-	    constructor(public locale: LocaleService, public localization: LocalizationService, private fb: FormBuilder) {
-	        super(locale, localization);
-	
-	        this.numberForm = fb.group({
-	            'decimal': ['', validateLocaleNumber(this.locale, this.digits, this.minValue, this.maxValue)]
-	        });
-	
-	        // 'decimal' control.
-	        this.decimal = this.numberForm.controls['decimal'];
-	
+	var LoaderCallback = (function () {
+	    function LoaderCallback(callback) {
+	        this.callback = callback;
 	    }
-	
-	    onSubmit(value: any): void {
-	
-	        this.parsedValue = LocaleParser.Number(value.decimal, this.locale.getDefaultLocale());
-	
-	    }*/
-	    // ngModel.
-	    function ValidationComponent(locale, localization) {
-	        _super.call(this, locale, localization);
-	        this.locale = locale;
-	        this.localization = localization;
-	        // Options.
-	        this.digits = "1.2-2";
-	        this.minValue = -Math.round(Math.random() * 10000) / 100;
-	        this.maxValue = Math.round(Math.random() * 10000) / 100;
-	        this.parsedValue = null;
+	    return LoaderCallback;
+	}());
+	exports.load = function (callback) {
+	    return new LoaderCallback(callback);
+	};
+	/**
+	 * NgModuleFactoryLoader that uses Promise to load NgModule type and then compiles them.
+	 * @experimental
+	 */
+	var AsyncNgModuleLoader = (function () {
+	    function AsyncNgModuleLoader(compiler) {
+	        this.compiler = compiler;
 	    }
-	    ValidationComponent.prototype.onSubmit = function (value) {
-	        this.parsedValue = angular2localization_1.LocaleParser.Number(value, this.locale.getDefaultLocale());
+	    AsyncNgModuleLoader.prototype.load = function (modulePath) {
+	        var _this = this;
+	        if (modulePath instanceof LoaderCallback) {
+	            var loader = modulePath.callback();
+	            return Promise
+	                .resolve(loader)
+	                .then(function (type) { return checkNotEmpty(type, '', ''); })
+	                .then(function (type) { return _this.compiler.compileModuleAsync(type); });
+	        }
+	        return Promise.resolve(null);
 	    };
-	    ValidationComponent = __decorate([
-	        core_1.Component({
-	            templateUrl: './app/validation.component.html'
+	    AsyncNgModuleLoader = __decorate([
+	        core_1.Injectable(), 
+	        __metadata('design:paramtypes', [core_1.Compiler])
+	    ], AsyncNgModuleLoader);
+	    return AsyncNgModuleLoader;
+	}());
+	exports.AsyncNgModuleLoader = AsyncNgModuleLoader;
+	function checkNotEmpty(value, modulePath, exportName) {
+	    if (!value) {
+	        throw new Error("Cannot find '" + exportName + "' in '" + modulePath + "'");
+	    }
+	    return value;
+	}
+
+
+/***/ },
+
+/***/ 479:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(11);
+	var http_1 = __webpack_require__(342);
+	var common_1 = __webpack_require__(205);
+	var forms_1 = __webpack_require__(372);
+	var SHARED_MODULES = [
+	    http_1.HttpModule,
+	    common_1.CommonModule,
+	    forms_1.FormsModule,
+	    forms_1.ReactiveFormsModule
+	];
+	var SharedModule = (function () {
+	    function SharedModule() {
+	    }
+	    SharedModule = __decorate([
+	        core_1.NgModule({
+	            imports: SHARED_MODULES,
+	            exports: SHARED_MODULES
 	        }), 
-	        __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
-	    ], ValidationComponent);
-	    return ValidationComponent;
-	}(angular2localization_1.Locale));
-	exports.ValidationComponent = ValidationComponent;
+	        __metadata('design:paramtypes', [])
+	    ], SharedModule);
+	    return SharedModule;
+	}());
+	exports.SharedModule = SharedModule;
+
+
+/***/ },
+
+/***/ 480:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(11);
+	// Angular 2 Material.
+	var dir_1 = __webpack_require__(481);
+	var sidenav_1 = __webpack_require__(482);
+	var list_1 = __webpack_require__(486);
+	var toolbar_1 = __webpack_require__(488);
+	var card_1 = __webpack_require__(489);
+	var radio_1 = __webpack_require__(490);
+	var input_1 = __webpack_require__(492);
+	var button_1 = __webpack_require__(493);
+	var icon_1 = __webpack_require__(496);
+	var MATERIAL_MODULES = [
+	    dir_1.RtlModule,
+	    sidenav_1.MdSidenavModule,
+	    list_1.MdListModule,
+	    toolbar_1.MdToolbarModule,
+	    card_1.MdCardModule,
+	    radio_1.MdRadioModule,
+	    input_1.MdInputModule,
+	    button_1.MdButtonModule,
+	    icon_1.MdIconModule
+	];
+	var MaterialModule = (function () {
+	    function MaterialModule() {
+	    }
+	    MaterialModule = __decorate([
+	        core_1.NgModule({
+	            imports: MATERIAL_MODULES,
+	            exports: MATERIAL_MODULES
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], MaterialModule);
+	    return MaterialModule;
+	}());
+	exports.MaterialModule = MaterialModule;
 
 
 /***/ }

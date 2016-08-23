@@ -6,8 +6,7 @@ import { Observable } from 'rxjs/Observable';*/
 import { Locale, LocaleService, LocalizationService, IntlSupport } from 'angular2localization/angular2localization';
 
 @Component({
-    templateUrl: './app/list.component.html',
-    providers: [LocalizationService] // Inherited by all descendants.
+    templateUrl: './app/list.component.html'
 })
 
 export class ListComponent extends Locale {
@@ -43,7 +42,7 @@ export class ListComponent extends Locale {
     constructor(public locale: LocaleService, public localization: LocalizationService) {
         super(locale, localization);
 
-        // Instantiates a new LocalizationService for this component and for its descendants.
+        // Initializes LocalizationService: asynchronous loading.
         this.localization.translationProvider('./resources/locale-list-'); // Required: initializes the translation provider with the given path prefix.
         this.localization.updateTranslation(); // Need to update the translation.
 

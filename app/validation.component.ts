@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 // FormBuilder with formControl.
-/*import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';*/
+import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 // Services.
 import { Locale, LocaleService, LocalizationService, LocaleParser } from 'angular2localization/angular2localization';
 // Directives for FormBuilder with formControl.
-/*import {validateLocaleNumber} from './directives/locale-number-validator.directive';*/
+import { validateLocaleNumber } from 'angular2localization/angular2localization';
 
 @Component({
     templateUrl: './app/validation.component.html'
@@ -20,7 +20,7 @@ export class ValidationComponent extends Locale {
     parsedValue: number = null;
 
     // FormBuilder with formControl.
-    /*numberForm: FormGroup;
+    numberForm: FormGroup;
     decimal: AbstractControl;
 
     constructor(public locale: LocaleService, public localization: LocalizationService, private fb: FormBuilder) {
@@ -39,10 +39,10 @@ export class ValidationComponent extends Locale {
 
         this.parsedValue = LocaleParser.Number(value.decimal, this.locale.getDefaultLocale());
 
-    }*/
+    }
 
     // ngModel.
-    constructor(public locale: LocaleService, public localization: LocalizationService) {
+    /*constructor(public locale: LocaleService, public localization: LocalizationService) {
         super(locale, localization);
     }
 
@@ -50,6 +50,6 @@ export class ValidationComponent extends Locale {
 
         this.parsedValue = LocaleParser.Number(value, this.locale.getDefaultLocale());
 
-    }
+    }*/
 
 }

@@ -22,6 +22,8 @@ export class AppComponent extends Locale {
         this.locale.addLanguage('ar');
         // Add a new language here.
 
+        /*this.locale.useLocalStorage();*/
+
         // Required: default language, country (ISO 3166 two-letter, uppercase code) and expiry (No days). If the expiry is omitted, the cookie becomes a session cookie.
         this.locale.definePreferredLocale('en', 'US', 30);
 
@@ -30,6 +32,7 @@ export class AppComponent extends Locale {
 
         // Initializes LocalizationService: asynchronous loading.
         this.localization.translationProvider('./resources/locale-'); // Required: initializes the translation provider with the given path prefix.
+        /*this.localization.translationProvider('http://localhost:54703/api/values/', 'json', true); */
         this.localization.updateTranslation(); // Need to update the translation.
 
         // Initializes direction.
