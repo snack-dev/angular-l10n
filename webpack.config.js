@@ -8,7 +8,7 @@ module.exports = {
     output: {
         path: __dirname,
         filename: "./dist/[name].bundle.js",
-        chunkFilename: './dist/[name].bundle.js'
+        chunkFilename: './dist/[name].chunk.js'
     },
     resolve: {
         extensions: ['', '.ts', '.js']
