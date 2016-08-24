@@ -1,6 +1,6 @@
 // Root module.
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 // Bootstrap component.
 import { AppComponent } from './app.component';
 import { routing } from './app.routes';
@@ -32,7 +32,7 @@ import { AsyncNgModuleLoader } from './utils/async-ng-module-loader';
         I18nComponent,
         ValidationComponent
     ],
-    providers: [{ provide: NgModuleFactoryLoader, useClass: AsyncNgModuleLoader }],
+    providers: [{ provide: NgModuleFactoryLoader, useClass: AsyncNgModuleLoader }, Title],
     bootstrap: [AppComponent]
 })
 

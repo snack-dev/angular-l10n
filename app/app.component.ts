@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title }     from '@angular/platform-browser';
 // Services.
 import { Locale, LocaleService, LocalizationService } from 'angular2localization/angular2localization';
 
@@ -13,8 +14,16 @@ export class AppComponent extends Locale {
 
     dir: LayoutDirection;
 
-    constructor(public locale: LocaleService, public localization: LocalizationService) {
+    constructor(public locale: LocaleService, public localization: LocalizationService, public title: Title) {
         super(null, localization);
+
+        // Set document title.
+        this.localization.translationChanged.subscribe(
+
+            // Refresh the document title with the new translation when the selected language changes.
+            () => { this.title.setTitle(this.localization.translate('TITLE')); }
+
+        );
 
         // Adds a new language (ISO 639 two-letter or three-letter code).
         this.locale.addLanguage('en');

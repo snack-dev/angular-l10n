@@ -63,7 +63,7 @@ webpackJsonp([0],{
 	                i18n_component_1.I18nComponent,
 	                validation_component_1.ValidationComponent
 	            ],
-	            providers: [{ provide: core_2.NgModuleFactoryLoader, useClass: async_ng_module_loader_1.AsyncNgModuleLoader }],
+	            providers: [{ provide: core_2.NgModuleFactoryLoader, useClass: async_ng_module_loader_1.AsyncNgModuleLoader }, platform_browser_1.Title],
 	            bootstrap: [app_component_1.AppComponent]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -94,14 +94,21 @@ webpackJsonp([0],{
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(11);
+	var platform_browser_1 = __webpack_require__(203);
 	// Services.
 	var angular2localization_1 = __webpack_require__(339);
 	var AppComponent = (function (_super) {
 	    __extends(AppComponent, _super);
-	    function AppComponent(locale, localization) {
+	    function AppComponent(locale, localization, title) {
+	        var _this = this;
 	        _super.call(this, null, localization);
 	        this.locale = locale;
 	        this.localization = localization;
+	        this.title = title;
+	        // Set document title.
+	        this.localization.translationChanged.subscribe(
+	        // Refresh the document title with the new translation when the selected language changes.
+	        function () { _this.title.setTitle(_this.localization.translate('TITLE')); });
 	        // Adds a new language (ISO 639 two-letter or three-letter code).
 	        this.locale.addLanguage('en');
 	        this.locale.addLanguage('it');
@@ -142,7 +149,7 @@ webpackJsonp([0],{
 	            selector: 'app-component',
 	            templateUrl: './app/app.component.html'
 	        }), 
-	        __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService])
+	        __metadata('design:paramtypes', [angular2localization_1.LocaleService, angular2localization_1.LocalizationService, platform_browser_1.Title])
 	    ], AppComponent);
 	    return AppComponent;
 	}(angular2localization_1.Locale));
