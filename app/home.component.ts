@@ -1,6 +1,6 @@
 ﻿import { Component } from '@angular/core';
 // Services.
-import { Locale, LocaleService, LocalizationService, IntlSupport } from 'angular2localization/angular2localization';
+import { Locale, LocaleService, LocalizationService, IntlSupport } from 'angular2localization';
 
 @Component({
     templateUrl: './app/home.component.html'

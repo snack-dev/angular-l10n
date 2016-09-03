@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 // FormBuilder with formControl.
 import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 // Services.
-import { Locale, LocaleService, LocalizationService, LocaleParser } from 'angular2localization/angular2localization';
+import { Locale, LocaleService, LocalizationService, LocaleParser } from 'angular2localization';
 // Directives for FormBuilder with formControl.
-import { validateLocaleNumber } from 'angular2localization/angular2localization';
+import { validateLocaleNumber } from 'angular2localization';
 
 @Component({
     templateUrl: './app/validation.component.html'

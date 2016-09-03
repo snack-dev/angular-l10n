@@ -31,4 +31,4 @@ import '@angular2-material/icon';
 import 'hammerjs';
 
 // angular2localization.
-import 'angular2localization/angular2localization';
+import 'angular2localization';

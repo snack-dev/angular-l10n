@@ -1,6 +1,6 @@
 webpackJsonp([1],{
 
-/***/ 476:
+/***/ 65:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -13,14 +13,14 @@ webpackJsonp([1],{
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(11);
-	var list_component_1 = __webpack_require__(477);
-	var list_routes_1 = __webpack_require__(478);
+	var core_1 = __webpack_require__(3);
+	var list_component_1 = __webpack_require__(66);
+	var list_routes_1 = __webpack_require__(67);
 	// Feature modules.
-	var shared_module_1 = __webpack_require__(479);
-	var material_module_1 = __webpack_require__(480);
+	var shared_module_1 = __webpack_require__(68);
+	var material_module_1 = __webpack_require__(69);
 	// Angular 2 Localization.
-	var angular2localization_1 = __webpack_require__(339);
+	var angular2localization_1 = __webpack_require__(26);
 	var ListModule = (function () {
 	    function ListModule() {
 	    }
@@ -31,7 +31,7 @@ webpackJsonp([1],{
 	                shared_module_1.SharedModule,
 	                material_module_1.MaterialModule,
 	                angular2localization_1.LocaleModule,
-	                angular2localization_1.LocalizationModule.forRoot() // New instance of LocalizationService.
+	                angular2localization_1.LocalizationModule.forChild() // New instance of LocalizationService.
 	            ],
 	            declarations: [list_component_1.ListComponent]
 	        }), 
@@ -45,7 +45,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 477:
+/***/ 66:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63,12 +63,12 @@ webpackJsonp([1],{
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(11);
+	var core_1 = __webpack_require__(3);
 	// Async methods.
 	/*import { Observer } from 'rxjs/Observer';
 	import { Observable } from 'rxjs/Observable';*/
 	// Services.
-	var angular2localization_1 = __webpack_require__(339);
+	var angular2localization_1 = __webpack_require__(26);
 	var ListComponent = (function (_super) {
 	    __extends(ListComponent, _super);
 	    // Async methods.
@@ -196,13 +196,13 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 478:
+/***/ 67:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var router_1 = __webpack_require__(413);
+	var router_1 = __webpack_require__(35);
 	// Components.
-	var list_component_1 = __webpack_require__(477);
+	var list_component_1 = __webpack_require__(66);
 	var routes = [
 	    { path: '', component: list_component_1.ListComponent }
 	];

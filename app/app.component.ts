@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Title }     from '@angular/platform-browser';
 // Services.
-import { Locale, LocaleService, LocalizationService } from 'angular2localization/angular2localization';
+import { Locale, LocaleService, LocalizationService } from 'angular2localization';
 
 export type LayoutDirection = 'ltr' | 'rtl';
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgLocalization } from '@angular/common';
 // Services.
-import { Locale, LocalizationService } from 'angular2localization/angular2localization';
+import { Locale, LocalizationService } from 'angular2localization';
 
 class MessagesLocalization extends NgLocalization {
     getPluralCategory(value: any): string {

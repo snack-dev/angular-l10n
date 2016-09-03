@@ -5,15 +5,15 @@ webpackJsonp([0],{
 
 	"use strict";
 	var platform_browser_dynamic_1 = __webpack_require__(1);
-	var core_1 = __webpack_require__(11);
-	var app_module_1 = __webpack_require__(337);
+	var core_1 = __webpack_require__(3);
+	var app_module_1 = __webpack_require__(24);
 	core_1.enableProdMode();
 	platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule);
 
 
 /***/ },
 
-/***/ 337:
+/***/ 24:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27,23 +27,20 @@ webpackJsonp([0],{
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	// Root module.
-	var core_1 = __webpack_require__(11);
-	var platform_browser_1 = __webpack_require__(203);
+	var core_1 = __webpack_require__(3);
+	var platform_browser_1 = __webpack_require__(22);
 	// Bootstrap component.
-	var app_component_1 = __webpack_require__(338);
-	var app_routes_1 = __webpack_require__(412);
+	var app_component_1 = __webpack_require__(25);
+	var app_routes_1 = __webpack_require__(34);
 	// Components.
-	var home_component_1 = __webpack_require__(472);
-	var i18n_component_1 = __webpack_require__(473);
-	var validation_component_1 = __webpack_require__(474);
+	var home_component_1 = __webpack_require__(62);
+	var i18n_component_1 = __webpack_require__(63);
+	var validation_component_1 = __webpack_require__(64);
 	// Feature modules.
-	var shared_module_1 = __webpack_require__(479);
-	var material_module_1 = __webpack_require__(480);
+	var shared_module_1 = __webpack_require__(68);
+	var material_module_1 = __webpack_require__(69);
 	// Angular 2 Localization.
-	var angular2localization_1 = __webpack_require__(339);
-	// Loader for webpack.
-	var core_2 = __webpack_require__(11);
-	var async_ng_module_loader_1 = __webpack_require__(475);
+	var angular2localization_1 = __webpack_require__(26);
 	var AppModule = (function () {
 	    function AppModule() {
 	    }
@@ -63,7 +60,7 @@ webpackJsonp([0],{
 	                i18n_component_1.I18nComponent,
 	                validation_component_1.ValidationComponent
 	            ],
-	            providers: [{ provide: core_2.NgModuleFactoryLoader, useClass: async_ng_module_loader_1.AsyncNgModuleLoader }, platform_browser_1.Title],
+	            providers: [platform_browser_1.Title],
 	            bootstrap: [app_component_1.AppComponent]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -75,7 +72,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 338:
+/***/ 25:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -93,10 +90,10 @@ webpackJsonp([0],{
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(11);
-	var platform_browser_1 = __webpack_require__(203);
+	var core_1 = __webpack_require__(3);
+	var platform_browser_1 = __webpack_require__(22);
 	// Services.
-	var angular2localization_1 = __webpack_require__(339);
+	var angular2localization_1 = __webpack_require__(26);
 	var AppComponent = (function (_super) {
 	    __extends(AppComponent, _super);
 	    function AppComponent(locale, localization, title) {
@@ -158,28 +155,27 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 412:
+/***/ 34:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var router_1 = __webpack_require__(413);
+	var router_1 = __webpack_require__(35);
 	// Components.
-	var home_component_1 = __webpack_require__(472);
-	var i18n_component_1 = __webpack_require__(473);
-	var validation_component_1 = __webpack_require__(474);
-	// Loader for webpack.
-	var async_ng_module_loader_1 = __webpack_require__(475);
+	var home_component_1 = __webpack_require__(62);
+	var i18n_component_1 = __webpack_require__(63);
+	var validation_component_1 = __webpack_require__(64);
 	var appRoutes = [
 	    { path: '', redirectTo: 'home', pathMatch: 'full' },
 	    { path: 'home', component: home_component_1.HomeComponent },
 	    { path: 'i18n', component: i18n_component_1.I18nComponent },
 	    {
-	        path: 'list',
-	        loadChildren: async_ng_module_loader_1.load(function () { return new Promise(function (resolve) {
-	            __webpack_require__.e/* nsure */(1, function (require) {
-	                resolve(__webpack_require__(476).default);
+	        path: 'list', loadChildren: function () {
+	            return new Promise(function (resolve) {
+	                return __webpack_require__.e/* nsure */(1, function () {
+	                    return resolve(__webpack_require__(65).default);
+	                });
 	            });
-	        }); })
+	        }
 	    },
 	    { path: 'validation', component: validation_component_1.ValidationComponent }
 	];
@@ -188,7 +184,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 472:
+/***/ 62:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -206,9 +202,9 @@ webpackJsonp([0],{
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(11);
+	var core_1 = __webpack_require__(3);
 	// Services.
-	var angular2localization_1 = __webpack_require__(339);
+	var angular2localization_1 = __webpack_require__(26);
 	var HomeComponent = (function (_super) {
 	    __extends(HomeComponent, _super);
 	    function HomeComponent(locale, localization) {
@@ -236,7 +232,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 473:
+/***/ 63:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -254,10 +250,10 @@ webpackJsonp([0],{
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(11);
-	var common_1 = __webpack_require__(205);
+	var core_1 = __webpack_require__(3);
+	var common_1 = __webpack_require__(23);
 	// Services.
-	var angular2localization_1 = __webpack_require__(339);
+	var angular2localization_1 = __webpack_require__(26);
 	var MessagesLocalization = (function (_super) {
 	    __extends(MessagesLocalization, _super);
 	    function MessagesLocalization() {
@@ -306,7 +302,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 474:
+/***/ 64:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -324,13 +320,13 @@ webpackJsonp([0],{
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(11);
+	var core_1 = __webpack_require__(3);
 	// FormBuilder with formControl.
-	var forms_1 = __webpack_require__(372);
+	var forms_1 = __webpack_require__(30);
 	// Services.
-	var angular2localization_1 = __webpack_require__(339);
+	var angular2localization_1 = __webpack_require__(26);
 	// Directives for FormBuilder with formControl.
-	var angular2localization_2 = __webpack_require__(339);
+	var angular2localization_2 = __webpack_require__(26);
 	var ValidationComponent = (function (_super) {
 	    __extends(ValidationComponent, _super);
 	    function ValidationComponent(locale, localization, fb) {
@@ -365,70 +361,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 475:
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-	 * Based on
-	 * https://gist.github.com/brandonroberts/02cc07face25886fe142c4dbd8da1340
-	 */
-	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(11);
-	var LoaderCallback = (function () {
-	    function LoaderCallback(callback) {
-	        this.callback = callback;
-	    }
-	    return LoaderCallback;
-	}());
-	exports.load = function (callback) {
-	    return new LoaderCallback(callback);
-	};
-	/**
-	 * NgModuleFactoryLoader that uses Promise to load NgModule type and then compiles them.
-	 * @experimental
-	 */
-	var AsyncNgModuleLoader = (function () {
-	    function AsyncNgModuleLoader(compiler) {
-	        this.compiler = compiler;
-	    }
-	    AsyncNgModuleLoader.prototype.load = function (modulePath) {
-	        var _this = this;
-	        if (modulePath instanceof LoaderCallback) {
-	            var loader = modulePath.callback();
-	            return Promise
-	                .resolve(loader)
-	                .then(function (type) { return checkNotEmpty(type, '', ''); })
-	                .then(function (type) { return _this.compiler.compileModuleAsync(type); });
-	        }
-	        return Promise.resolve(null);
-	    };
-	    AsyncNgModuleLoader = __decorate([
-	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [core_1.Compiler])
-	    ], AsyncNgModuleLoader);
-	    return AsyncNgModuleLoader;
-	}());
-	exports.AsyncNgModuleLoader = AsyncNgModuleLoader;
-	function checkNotEmpty(value, modulePath, exportName) {
-	    if (!value) {
-	        throw new Error("Cannot find '" + exportName + "' in '" + modulePath + "'");
-	    }
-	    return value;
-	}
-
-
-/***/ },
-
-/***/ 479:
+/***/ 68:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -441,10 +374,10 @@ webpackJsonp([0],{
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(11);
-	var http_1 = __webpack_require__(342);
-	var common_1 = __webpack_require__(205);
-	var forms_1 = __webpack_require__(372);
+	var core_1 = __webpack_require__(3);
+	var http_1 = __webpack_require__(27);
+	var common_1 = __webpack_require__(23);
+	var forms_1 = __webpack_require__(30);
 	var SHARED_MODULES = [
 	    http_1.HttpModule,
 	    common_1.CommonModule,
@@ -468,7 +401,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 480:
+/***/ 69:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -481,19 +414,19 @@ webpackJsonp([0],{
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(11);
+	var core_1 = __webpack_require__(3);
 	// Angular 2 Material.
-	var dir_1 = __webpack_require__(481);
-	var sidenav_1 = __webpack_require__(482);
-	var list_1 = __webpack_require__(486);
-	var toolbar_1 = __webpack_require__(488);
-	var card_1 = __webpack_require__(489);
-	var radio_1 = __webpack_require__(490);
-	var input_1 = __webpack_require__(492);
-	var button_1 = __webpack_require__(493);
-	var icon_1 = __webpack_require__(496);
+	var core_2 = __webpack_require__(70);
+	var sidenav_1 = __webpack_require__(71);
+	var list_1 = __webpack_require__(72);
+	var toolbar_1 = __webpack_require__(73);
+	var card_1 = __webpack_require__(74);
+	var radio_1 = __webpack_require__(75);
+	var input_1 = __webpack_require__(76);
+	var button_1 = __webpack_require__(77);
+	var icon_1 = __webpack_require__(78);
 	var MATERIAL_MODULES = [
-	    dir_1.RtlModule,
+	    core_2.MdCoreModule,
 	    sidenav_1.MdSidenavModule,
 	    list_1.MdListModule,
 	    toolbar_1.MdToolbarModule,
@@ -508,7 +441,17 @@ webpackJsonp([0],{
 	    }
 	    MaterialModule = __decorate([
 	        core_1.NgModule({
-	            imports: MATERIAL_MODULES,
+	            imports: [
+	                core_2.MdCoreModule.forRoot(),
+	                sidenav_1.MdSidenavModule.forRoot(),
+	                list_1.MdListModule.forRoot(),
+	                toolbar_1.MdToolbarModule.forRoot(),
+	                card_1.MdCardModule.forRoot(),
+	                radio_1.MdRadioModule.forRoot(),
+	                input_1.MdInputModule.forRoot(),
+	                button_1.MdButtonModule.forRoot(),
+	                icon_1.MdIconModule.forRoot()
+	            ],
 	            exports: MATERIAL_MODULES
 	        }), 
 	        __metadata('design:paramtypes', [])

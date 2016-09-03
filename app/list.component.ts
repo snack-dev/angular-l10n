@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 /*import { Observer } from 'rxjs/Observer';
 import { Observable } from 'rxjs/Observable';*/
 // Services.
-import { Locale, LocaleService, LocalizationService, IntlSupport } from 'angular2localization/angular2localization';
+import { Locale, LocaleService, LocalizationService, IntlSupport } from 'angular2localization';
 
 @Component({
     templateUrl: './app/list.component.html'

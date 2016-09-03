@@ -6,7 +6,7 @@ import { routing }       from './list.routes';
 import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './shared/material.module';
 // Angular 2 Localization.
-import { LocaleModule, LocalizationModule } from 'angular2localization/angular2localization';
+import { LocaleModule, LocalizationModule } from 'angular2localization';
 
 @NgModule({
     imports: [
@@ -14,7 +14,7 @@ import { LocaleModule, LocalizationModule } from 'angular2localization/angular2l
         SharedModule,
         MaterialModule,
         LocaleModule, // LocaleService is singleton.
-        LocalizationModule.forRoot() // New instance of LocalizationService.
+        LocalizationModule.forChild() // New instance of LocalizationService.
     ],
     declarations: [ListComponent]
 })

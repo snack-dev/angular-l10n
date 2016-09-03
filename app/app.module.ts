@@ -12,10 +12,7 @@ import { ValidationComponent } from './validation.component';
 import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './shared/material.module';
 // Angular 2 Localization.
-import { LocaleModule, LocalizationModule } from 'angular2localization/angular2localization';
-// Loader for webpack.
-import { NgModuleFactoryLoader } from '@angular/core';
-import { AsyncNgModuleLoader } from './utils/async-ng-module-loader';
+import { LocaleModule, LocalizationModule } from 'angular2localization';
 
 @NgModule({
     imports: [
@@ -32,7 +29,7 @@ import { AsyncNgModuleLoader } from './utils/async-ng-module-loader';
         I18nComponent,
         ValidationComponent
     ],
-    providers: [{ provide: NgModuleFactoryLoader, useClass: AsyncNgModuleLoader }, Title],
+    providers: [Title],
     bootstrap: [AppComponent]
 })
 
