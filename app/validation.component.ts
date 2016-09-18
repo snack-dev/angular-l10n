@@ -7,7 +7,7 @@ import { Locale, LocaleService, LocalizationService, LocaleParser } from 'angula
 import { validateLocaleNumber } from 'angular2localization';
 
 @Component({
-    templateUrl: './app/validation.component.html'
+    templateUrl: 'validation.component.html'
 })
 
 export class ValidationComponent extends Locale {

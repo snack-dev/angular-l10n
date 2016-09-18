@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Title }     from '@angular/platform-browser';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 // Services.
 import { Locale, LocaleService, LocalizationService } from 'angular2localization';
 
@@ -7,7 +7,8 @@ export type LayoutDirection = 'ltr' | 'rtl';
 
 @Component({
     selector: 'app-component',
-    templateUrl: './app/app.component.html'
+    templateUrl: 'app.component.html',
+    encapsulation: ViewEncapsulation.None
 })
 
 export class AppComponent extends Locale {

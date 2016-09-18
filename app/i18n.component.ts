@@ -3,7 +3,7 @@ import { NgLocalization } from '@angular/common';
 // Services.
 import { Locale, LocalizationService } from 'angular2localization';
 
-class MessagesLocalization extends NgLocalization {
+export class MessagesLocalization extends NgLocalization {
     getPluralCategory(value: any): string {
         if (value > 1) {
             return 'other';
@@ -12,7 +12,7 @@ class MessagesLocalization extends NgLocalization {
 }
 
 @Component({
-    templateUrl: './app/i18n.component.html',
+    templateUrl: 'i18n.component.html',
     providers: [{ provide: NgLocalization, useClass: MessagesLocalization }]
 })
 

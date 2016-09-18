@@ -10,12 +10,7 @@ const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'i18n', component: I18nComponent },
     {
-        path: 'list', loadChildren: () =>
-            new Promise((resolve: any) =>
-                (require as any).ensure([], () =>
-                    resolve(require('./list.module').default)
-                )
-            )
+        path: 'list', loadChildren: "es6-promise!./list.module#ListModule"
     },
     { path: 'validation', component: ValidationComponent }
 ];

@@ -19,4 +19,4 @@ import { LocaleModule, LocalizationModule } from 'angular2localization';
     declarations: [ListComponent]
 })
 
-export default class ListModule { }
+export class ListModule { }

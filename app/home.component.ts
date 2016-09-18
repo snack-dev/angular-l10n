@@ -3,7 +3,7 @@
 import { Locale, LocaleService, LocalizationService, IntlSupport } from 'angular2localization';
 
 @Component({
-    templateUrl: './app/home.component.html'
+    templateUrl: 'home.component.html'
 })
 
 export class HomeComponent extends Locale {

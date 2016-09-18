@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';*/
 import { Locale, LocaleService, LocalizationService, IntlSupport } from 'angular2localization';
 
 @Component({
-    templateUrl: './app/list.component.html'
+    templateUrl: 'list.component.html'
 })
 
 export class ListComponent extends Locale {
