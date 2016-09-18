@@ -2,7 +2,7 @@
 > An Angular 2 library to translate messages, dates and numbers.
 
 ## Sample app
-[Sample app](http://robisim74.github.io/angular2localization) built with Angular 2 Material & webpack.
+[Sample app](http://robisim74.github.io/angular2localization) built with Angular 2 Material. AoT compilation & webpack.
 
 ## Running locally the sample app
 What you need to run the sample app:
