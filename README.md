@@ -9,17 +9,13 @@ What you need to run the sample app:
 - this repository
 - `Node and npm`, `typings` already installed.
 
-Open `index.html`, and uncomment the following lines:
+Open `index.html`, and uncomment the following line:
 ```Html
 <base href="/">
-...
-<script src="dist/app.bundle.js"></script>
 ```
-and comment these lines:
+and comment this line:
 ```Html
 <base href="/angular2localization/">
-...
-<script src="dist/app.bundle.js.gz"></script>
 ```
 
 In the command line, go to the directory that contains `index.html`:
