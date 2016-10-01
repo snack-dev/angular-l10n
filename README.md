@@ -7,7 +7,7 @@
 ## Running locally the sample app
 What you need to run the sample app:
 - this repository
-- `Node and npm`, `typings` already installed.
+- `Node and npm` already installed.
 
 Open `index.html`, and uncomment the following line:
 ```Html
@@ -21,7 +21,6 @@ and comment this line:
 In the command line, go to the directory that contains `index.html`:
 ```Shell
 npm install
-typings install
 
 npm start
 ```
