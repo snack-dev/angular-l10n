@@ -13,7 +13,7 @@ module.exports = {
     },
 
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.ts$/,
                 loaders: [
@@ -55,7 +55,7 @@ module.exports = {
     ],
 
     resolve: {
-        extensions: ['', '.ts', '.js']
+        extensions: ['.ts', '.js']
     },
 
     devtool: false

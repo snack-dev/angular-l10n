@@ -8,13 +8,17 @@
         "experimentalDecorators": true,
         "removeComments": true,
         "noImplicitAny": true,
-        "suppressImplicitAnyIndexErrors": true
+        "suppressImplicitAnyIndexErrors": true,
+        "skipLibCheck": true,
+        "lib": [
+            "es2015",
+            "dom"
+        ]
     },
     "files": [
         "app/app.module.ts",
         "app/list.module.ts",
-        "app/main.ts",
-        "./typings/index.d.ts"
+        "app/main.ts"
     ],
     "angularCompilerOptions": {
         "genDir": "aot",
