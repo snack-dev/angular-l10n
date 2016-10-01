@@ -17,20 +17,25 @@ module.exports = {
             {
                 test: /\.ts$/,
                 loaders: [
-                    'awesome-typescript?tsconfig=tsconfig.json',
+                    'awesome-typescript-loader',
                     "angular2-load-children-loader", // This loader replaces loadChildren value to function to call require.
-                    'angular2-template'
+                    'angular2-template-loader'
                 ]
             },
             {
                 test: /\.html$/,
-                loader: 'raw'
+                loader: 'raw' // html
             },
             {
                 test: /\.css$/,
-                loader: "style-loader!css-loader"
+                loader: "style-loader!css-loader" // css
             },
-        ]
+            {
+                test: /\.scss$/,
+                loaders: ["style", "css", "sass"] // scss
+            }
+        ],
+        exprContextCritical: false
     },
 
     plugins: [

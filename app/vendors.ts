@@ -7,7 +7,7 @@ import 'rxjs';
 
 import 'hammerjs';
 
-// Styles.
-import '../styles/app.css';
 // Angular 2 Material.
-import '@angular/material/core/theming/prebuilt/indigo-pink.css';
+import '../styles/blue-amber.scss';
+// App.
+import '../styles/app.css';
