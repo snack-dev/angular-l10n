@@ -26,11 +26,8 @@ export class AppComponent extends Locale {
 
         );
 
-        // Adds a new language (ISO 639 two-letter or three-letter code).
-        this.locale.addLanguage('en');
-        this.locale.addLanguage('it');
-        this.locale.addLanguage('ar');
-        // Add a new language here.
+        // Adds the languages (ISO 639 two-letter or three-letter code).
+        this.locale.addLanguages(['en', 'it', 'ar']);
 
         /*this.locale.useLocalStorage();*/
 

@@ -23,7 +23,7 @@ In the command line, go to the directory that contains `index.html`:
 npm install
 typings install
 
-npm run serve
+npm start
 ```
 
 ## Links

@@ -2,17 +2,6 @@
 var gulp = require('gulp'),
     tslint = require('gulp-tslint');
 
-gulp.task('copy:css', function () {
-
-    return gulp
-        .src([
-            'node_modules/@angular2-material/core/style/core.css',
-            'node_modules/@angular2-material/core/overlay/overlay.css'
-        ])
-        .pipe(gulp.dest('styles'));
-
-});
-
 // TSLint with Codelyzer.
 // https://github.com/palantir/tslint/blob/master/src/configs/recommended.ts
 // https://github.com/mgechev/codelyzer
@@ -30,4 +19,4 @@ gulp.task('lint', () => {
 
 });
 
-gulp.task('default', ['copy:css', 'lint']);
+gulp.task('default', ['lint']);

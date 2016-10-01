@@ -4,7 +4,8 @@ import { ListComponent } from './list.component';
 import { routing }       from './list.routes';
 // Feature modules.
 import { SharedModule } from './shared/shared.module';
-import { MaterialModule } from './shared/material.module';
+// Angular 2 Material.
+import { MaterialModule } from '@angular/material';
 // Angular 2 Localization.
 import { LocaleModule, LocalizationModule } from 'angular2localization';
 

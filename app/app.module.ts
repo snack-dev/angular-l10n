@@ -10,7 +10,8 @@ import { I18nComponent } from './i18n.component';
 import { ValidationComponent } from './validation.component';
 // Feature modules.
 import { SharedModule } from './shared/shared.module';
-import { MaterialModule } from './shared/material.module';
+// Angular 2 Material.
+import { MaterialModule } from '@angular/material';
 // Angular 2 Localization.
 import { LocaleModule, LocalizationModule } from 'angular2localization';
 
@@ -19,7 +20,7 @@ import { LocaleModule, LocalizationModule } from 'angular2localization';
         BrowserModule,
         routing,
         SharedModule,
-        MaterialModule,
+        MaterialModule.forRoot(),
         LocaleModule.forRoot(), // New instance of LocaleService.
         LocalizationModule.forRoot() // New instance of LocalizationService.
     ],
