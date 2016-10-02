@@ -3,13 +3,14 @@ let webpack = require('webpack');
 
 module.exports = {
     entry: {
-        'app': './app/main.ts'
+        'app': './app/main.ts',
+        'app-aot': './app/main-aot.ts'
     },
 
     output: {
         path: __dirname,
         filename: "./dist/[name].bundle.js",
-        chunkFilename: './dist/[id].chunk.js'
+        chunkFilename: './dist/[name].chunk.js'
     },
 
     module: {
