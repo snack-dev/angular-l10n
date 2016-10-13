@@ -1,7 +1,7 @@
-import { NgModule }      from '@angular/core';
-
+import { NgModule } from '@angular/core';
+// List component.
 import { ListComponent } from './list.component';
-import { routing }       from './list.routes';
+import { routing } from './list.routes';
 // Feature modules.
 import { SharedModule } from './shared/shared.module';
 // Angular 2 Material.
