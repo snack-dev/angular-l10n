@@ -6,7 +6,7 @@
     "scripts": {
         "ngc": "ngc -p ./tsconfig-aot.json",
         "webpack": "webpack --config webpack.config.js",
-        "serve": "http-server -a 0.0.0.0 -p 9000",
+        "serve": "http-server",
         "start": "npm run ngc && npm run webpack && npm run serve"
     },
     "keywords": [

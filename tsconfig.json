@@ -16,5 +16,8 @@
         "types": [
             "node"
         ]
+    },
+    "awesomeTypescriptLoaderOptions": {
+        "useWebpackText": true
     }
 }
