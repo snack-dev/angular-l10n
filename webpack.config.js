@@ -19,7 +19,7 @@ module.exports = {
                 test: /\.ts$/,
                 loaders: [
                     'awesome-typescript-loader',
-                    "angular2-load-children-loader", // This loader replaces loadChildren value to function to call require.
+                    'angular2-load-children-loader',
                     'angular2-template-loader'
                 ]
             },
