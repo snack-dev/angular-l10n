@@ -1,6 +1,6 @@
 {
     "name": "angular2localization-sample",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "An Angular 2 library to translate messages, dates and numbers",
     "main": "",
     "scripts": {
@@ -42,7 +42,7 @@
         "@angular/platform-browser-dynamic": "2.1.0",
         "@angular/platform-server": "2.1.0",
         "@angular/router": "3.1.0",
-        "angular2localization": "1.1.0",
+        "angular2localization": "1.1.1",
         "core-js": "2.4.1",
         "hammerjs": "2.0.8",
         "reflect-metadata": "0.1.8",
