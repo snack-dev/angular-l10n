@@ -1,12 +1,14 @@
-// Polyfills.
+// AoT compilation entry point.
+
+// Polyfills (no need reflect-metadata).
 import 'core-js/client/shim';
 import 'zone.js/dist/zone';
 
 import 'hammerjs';
 
-// Angular 2 Material.
+// Angular 2 Material theme.
 import '../styles/blue-amber.scss';
-// App.
+// App styles.
 import '../styles/app.scss';
 
 import { platformBrowser } from '@angular/platform-browser';

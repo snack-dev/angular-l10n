@@ -3,8 +3,8 @@ let webpack = require('webpack');
 
 module.exports = {
     entry: {
-        'app': './app/main.ts',
-        'app-aot': './app/main-aot.ts'
+        /*'app': './app/main.ts',*/ // JiT compilation.
+        'app-aot': './app/main-aot.ts' // AoT compilation.
     },
 
     output: {
@@ -19,7 +19,7 @@ module.exports = {
                 test: /\.ts$/,
                 loaders: [
                     'awesome-typescript-loader',
-                    'angular2-load-children-loader',
+                    'angular2-router-loader?aot=true&genDir=aot/app',
                     'angular2-template-loader'
                 ]
             },
