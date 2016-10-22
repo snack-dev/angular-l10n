@@ -1,64 +1,161 @@
 'use strict';
 let webpack = require('webpack');
+let CleanWebpackPlugin = require('clean-webpack-plugin');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
-    entry: {
-        /*'app': './app/main.ts',*/ // JiT compilation.
-        'app-aot': './app/main-aot.ts' // AoT compilation.
-    },
+let isProd = process.env.NODE_ENV === 'production';
 
-    output: {
-        path: __dirname,
-        filename: "./dist/[name].bundle.js",
-        chunkFilename: './dist/[name].chunk.js'
-    },
+if (!isProd) {
 
-    module: {
-        rules: [
-            {
-                test: /\.ts$/,
-                loaders: [
-                    'awesome-typescript-loader',
-                    'angular2-router-loader?aot=true&genDir=aot/app',
-                    'angular2-template-loader'
-                ]
-            },
-            {
-                test: /\.html$/,
-                loader: 'raw' // html
-            },
-            {
-                test: /\.css$/,
-                loader: "style-loader!css-loader" // css
-            },
-            {
-                test: /\.scss$/,
-                loaders: ["style", "css", "sass"] // scss
-            }
+    // In development mode, we use JiT compilation & source map file, without minification.
+    module.exports = {
+        entry: {
+            'app': './app/main.ts'
+        },
+
+        output: {
+            path: __dirname,
+            filename: "dist/[name].bundle.js",
+            chunkFilename: 'dist/[name].chunk.js'
+        },
+
+        module: {
+            rules: [
+                {
+                    test: /\.ts$/,
+                    loaders: [
+                        'awesome-typescript-loader',
+                        'angular2-router-loader', // for lazy loading
+                        'angular2-template-loader', // for templateUrl & styleUrls
+                        'source-map-loader' // for source map files
+                    ]
+                },
+                // html
+                {
+                    test: /\.html$/,
+                    loader: 'raw-loader'
+                },
+                // css
+                {
+                    test: /\.css$/,
+                    loaders: [
+                       'style-loader',
+                       'css-loader',
+                       'raw-loader'
+                    ]
+                },
+                // scss
+                {
+                    test: /\.scss$/,
+                    loaders: [
+                       'style-loader',
+                       'css-loader',
+                       'sass-loader'
+                    ]
+                }
+            ],
+            exprContextCritical: false
+        },
+
+        plugins: [
+            // Adds script for the bundle in index.html.
+            new HtmlWebpackPlugin({
+                filename: 'index.html',
+                inject: 'body',
+                template: 'app/index.html'
+            })
         ],
-        exprContextCritical: false
-    },
 
-    plugins: [
-        new webpack.LoaderOptionsPlugin({
-            minimize: true,
-            debug: false
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            },
-            output: {
-                comments: false
-            },
-            sourceMap: false
-        })
-    ],
+        resolve: {
+            extensions: ['.ts', '.js', '.html', '.css', '.scss']
+        },
 
-    resolve: {
-        extensions: ['.ts', '.js', '.html', '.css', '.scss']
-    },
+        devtool: 'source-map'
 
-    devtool: false
+    };
 
-};
+} else {
+
+    // In production mode, we use AoT compilation & minification.
+    module.exports = {
+        entry: {
+            'app-aot': './app/main-aot.js'
+        },
+
+        output: {
+            path: __dirname,
+            filename: "dist/[name].bundle.js",
+            chunkFilename: 'dist/[name].chunk.js'
+        },
+
+        module: {
+            rules: [
+                {
+                    test: /\.ts$/,
+                    loaders: [
+                        'awesome-typescript-loader',
+                        'angular2-router-loader?aot=true&genDir=aot/app'
+                    ]
+                },
+                // html
+                {
+                    test: /\.html$/,
+                    loader: 'raw-loader'
+                },
+                // css
+                {
+                    test: /\.css$/,
+                    loaders: [
+                       'style-loader',
+                       'css-loader',
+                       'raw-loader'
+                    ]
+                },
+                // scss
+                {
+                    test: /\.scss$/,
+                    loaders: [
+                       'style-loader',
+                       'css-loader',
+                       'sass-loader'
+                    ]
+                }
+            ],
+            exprContextCritical: false
+        },
+
+        plugins: [
+            // Cleans dist folder.
+            new CleanWebpackPlugin(['./dist']),
+            // Minimizes the bundle.
+            new webpack.LoaderOptionsPlugin({
+                minimize: true,
+                debug: false
+            }),
+            new webpack.optimize.UglifyJsPlugin({
+                compress: {
+                    warnings: false
+                },
+                output: {
+                    comments: false
+                },
+                sourceMap: false
+            }),
+            // Adds script for the bundle in index.html.
+            new HtmlWebpackPlugin({
+                filename: 'index.html',
+                inject: 'body',
+                template: 'app/index.html'
+            })
+        ],
+
+        resolve: {
+            extensions: ['.ts', '.js', '.html', '.css', '.scss']
+        },
+
+        devtool: false
+
+    };
+
+}
+
