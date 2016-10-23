@@ -23,8 +23,5 @@
     "angularCompilerOptions": {
         "genDir": "aot",
         "skipMetadataEmit": true
-    },
-    "awesomeTypescriptLoaderOptions": {
-        "useWebpackText": true
     }
 }
