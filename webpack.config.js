@@ -1,4 +1,5 @@
 'use strict';
+let path = require('path');
 let webpack = require('webpack');
 let CleanWebpackPlugin = require('clean-webpack-plugin');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -16,7 +17,7 @@ if (!isProd) {
         output: {
             path: __dirname,
             filename: "dist/[name].bundle.js",
-            chunkFilename: 'dist/[name].chunk.js'
+            chunkFilename: 'dist/[id].chunk.js'
         },
 
         module: {
@@ -39,18 +40,18 @@ if (!isProd) {
                 {
                     test: /\.css$/,
                     loaders: [
-                       'style-loader',
-                       'css-loader',
-                       'raw-loader'
+                        'style-loader',
+                        'css-loader',
+                        'raw-loader'
                     ]
                 },
                 // scss
                 {
                     test: /\.scss$/,
                     loaders: [
-                       'style-loader',
-                       'css-loader',
-                       'sass-loader'
+                        'style-loader',
+                        'css-loader',
+                        'sass-loader'
                     ]
                 }
             ],
@@ -85,7 +86,7 @@ if (!isProd) {
         output: {
             path: __dirname,
             filename: "dist/[name].bundle.js",
-            chunkFilename: 'dist/[name].chunk.js'
+            chunkFilename: 'dist/[id].chunk.js'
         },
 
         module: {
@@ -106,18 +107,18 @@ if (!isProd) {
                 {
                     test: /\.css$/,
                     loaders: [
-                       'style-loader',
-                       'css-loader',
-                       'raw-loader'
+                        'style-loader',
+                        'css-loader',
+                        'raw-loader'
                     ]
                 },
                 // scss
                 {
                     test: /\.scss$/,
                     loaders: [
-                       'style-loader',
-                       'css-loader',
-                       'sass-loader'
+                        'style-loader',
+                        'css-loader',
+                        'sass-loader'
                     ]
                 }
             ],
@@ -128,10 +129,6 @@ if (!isProd) {
             // Cleans dist folder.
             new CleanWebpackPlugin(['./dist']),
             // Minimizes the bundle.
-            new webpack.LoaderOptionsPlugin({
-                minimize: true,
-                debug: false
-            }),
             new webpack.optimize.UglifyJsPlugin({
                 compress: {
                     warnings: false
@@ -150,6 +147,10 @@ if (!isProd) {
         ],
 
         resolve: {
+            modules: [
+                'node_modules',
+                path.resolve(__dirname, 'app')
+            ],
             extensions: ['.ts', '.js', '.html', '.css', '.scss']
         },
 
@@ -158,4 +159,3 @@ if (!isProd) {
     };
 
 }
-
