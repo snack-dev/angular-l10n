@@ -5,7 +5,7 @@
 [Sample app](http://robisim74.github.io/angular2localization) built with Angular 2 Material, AoT compilation & webpack.
 
 ## Running locally the sample app
-- For development, we use JiT compilation & source map files, without minification:
+- For development, we use _JiT compilation_ & source map files, with files watching:
 ```Shell
 npm install
 
@@ -13,7 +13,7 @@ npm start
 ```
 Make the changes, and simply refresh the page on the browser.
 
-- For production, we use AoT compilation & minification:
+- For production, we use _AoT compilation_, tree shaking & minification:
 ```Shell
 npm run build
 ```
