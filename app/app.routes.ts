@@ -10,7 +10,7 @@ const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'i18n', component: I18nComponent },
     {
-        path: 'list', loadChildren: "./list.module#ListModule"
+        path: 'list', loadChildren: './list.module#ListModule'
     },
     { path: 'validation', component: ValidationComponent }
 ];

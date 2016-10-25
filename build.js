@@ -10,8 +10,9 @@ const chalk = require('chalk');
 echo('Start building for production...');
 
 
-/* Cleans aot folder */
+/* Cleans aot & dist folders */
 rm('-Rf', 'aot/*');
+rm('-Rf', 'dist/*');
 
 
 /* TSLint with Codelyzer */

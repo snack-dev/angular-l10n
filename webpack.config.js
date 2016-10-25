@@ -1,7 +1,6 @@
 'use strict';
 let path = require('path');
 let webpack = require('webpack');
-let CleanWebpackPlugin = require('clean-webpack-plugin');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 
 let isProd = process.env.NODE_ENV === 'production';
@@ -126,8 +125,6 @@ if (!isProd) {
         },
 
         plugins: [
-            // Cleans dist folder.
-            new CleanWebpackPlugin(['./dist']),
             // Minimizes the bundle.
             new webpack.optimize.UglifyJsPlugin({
                 compress: {
