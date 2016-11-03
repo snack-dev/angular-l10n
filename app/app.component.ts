@@ -17,29 +17,15 @@ export class AppComponent extends Locale {
     constructor(public locale: LocaleService, public localization: LocalizationService, public title: Title) {
         super(null, localization);
 
-        // Set document title.
+        // Initializes the document title with the current translation at the time of the component loading.
+        this.title.setTitle(this.localization.translate('TITLE'));
+
         this.localization.translationChanged.subscribe(
 
-            // Refresh the document title with the new translation when the selected language changes.
+            // Refreshes the document title with the new translation when the selected language changes.
             () => { this.title.setTitle(this.localization.translate('TITLE')); }
 
         );
-
-        // Adds the languages (ISO 639 two-letter or three-letter code).
-        this.locale.addLanguages(['en', 'it', 'ar']);
-
-        /*this.locale.useLocalStorage();*/
-
-        // Required: default language, country (ISO 3166 two-letter, uppercase code) and expiry (No days). If the expiry is omitted, the cookie becomes a session cookie.
-        this.locale.definePreferredLocale('en', 'US', 30);
-
-        // Optional: default currency (ISO 4217 three-letter code).
-        this.locale.definePreferredCurrency('USD');
-
-        // Initializes LocalizationService: asynchronous loading.
-        this.localization.translationProvider('./resources/locale-'); // Required: initializes the translation provider with the given path prefix.
-        /*this.localization.translationProvider('http://localhost:54703/api/values/', 'json', true); */
-        this.localization.updateTranslation(); // Need to update the translation.
 
         // Initializes direction.
         if (this.locale.getCurrentLanguage() == "ar") {
