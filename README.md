@@ -17,6 +17,7 @@ Make the changes, and simply refresh the page on the browser.
 ```Shell
 npm run build
 ```
+_N.B. If you get errors when installing the packages, make sure you've updated node and npm to the latest version: https://docs.npmjs.com/getting-started/installing-node_
 
 ## Links
 - [Material Design for Angular 2](https://github.com/angular/material2)
