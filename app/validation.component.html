@@ -35,7 +35,7 @@
             <form (ngSubmit)="onSubmit(decimal.value)" #numberForm="ngForm">
                 <div>
 
-                    <md-input [validateLocaleNumber]="digits" [minValue]="minValue" [maxValue]="maxValue" placeholder="{{ 0 | localedecimal:defaultLocale:digits }}"
+                    <md-input [validateLocaleNumber]="digits" [minValue]="minValue" [maxValue]="maxValue" placeholder="{{ 0 | localeDecimal:defaultLocale:digits }}"
                         name="decimal" #decimal="ngModel" ngModel style="width: 100%"></md-input>
 
                     <div [hidden]="(decimal.errors != null && decimal.value !='') ? !decimal.errors.hasOwnProperty('format') : true" style="color: #D32F2F;">
