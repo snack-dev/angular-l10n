@@ -1,12 +1,16 @@
 ﻿import { Component } from '@angular/core';
 // Services.
-import { Locale, LocaleService, LocalizationService, IntlSupport } from 'angular2localization';
+import { LocaleService, IntlSupport } from 'angular2localization';
 
 @Component({
     templateUrl: 'home.component.html'
 })
 
-export class HomeComponent extends Locale {
+/**
+ * HomeComponent class doesn't extend Locale superclass
+ * because the view uses only Html attributes and not the pipes to get the translation.
+ */
+export class HomeComponent {
 
     intlSupport: boolean;
 
@@ -15,8 +19,7 @@ export class HomeComponent extends Locale {
     a: number;
     b: number;
 
-    constructor(public locale: LocaleService, public localization: LocalizationService) {
-        super(locale, localization);
+    constructor(public locale: LocaleService) {
 
         this.today = Date.now();
 
