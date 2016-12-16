@@ -49,8 +49,10 @@ md-list {
 
 md-nav-list {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
 
-	a[md-list-item].active .md-list-item {
+.active-link {
+	.md-list-item {
 		color: #1976D2;
 	}
 }
