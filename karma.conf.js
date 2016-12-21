@@ -57,6 +57,7 @@ module.exports = function (config) {
             resolve: {
                 extensions: ['.ts', '.js', '.html']
             },
+            performance: { hints: false }
         },
 
         webpackServer: {
