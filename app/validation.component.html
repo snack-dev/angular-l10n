@@ -6,8 +6,9 @@
         <md-card-content>
             <form [formGroup]="numberForm" (ngSubmit)="onSubmit(numberForm.value)">
                 <div>
-                    <md-input placeholder="{{ 0 | localeDecimal:defaultLocale:digits }}" [formControl]="decimal" (keyup)="decimal.valid ? parsedValue : parsedValue = null"
-                        style="width: 100%"></md-input>
+                    <md-input-container style="width: 100%">
+                        <input md-input placeholder="{{ 0 | localeDecimal:defaultLocale:digits }}" [formControl]="decimal" (keyup)="decimal.valid ? parsedValue : parsedValue = null">
+                    </md-input-container>
 
                     <div *ngIf="decimal.hasError('format') && decimal.value != ''" style="color: #D32F2F;">
                         {{ 'NUMBER_IS_INVALID' | translate:lang }} {{ 0 | localeDecimal:defaultLocale:digits }}
@@ -34,9 +35,11 @@
         <md-card-content>
             <form (ngSubmit)="onSubmit(decimal.value)" #numberForm="ngForm">
                 <div>
-
-                    <md-input [validateLocaleNumber]="digits" [minValue]="minValue" [maxValue]="maxValue" placeholder="{{ 0 | localeDecimal:defaultLocale:digits }}"
-                        name="decimal" #decimal="ngModel" ngModel style="width: 100%"></md-input>
+                    
+                    <md-input-container style="width: 100%">
+                        <input md-input [validateLocaleNumber]="digits" [minValue]="minValue" [maxValue]="maxValue" placeholder="{{ 0 | localeDecimal:defaultLocale:digits }}"
+                            name="decimal" #decimal="ngModel" ngModel>
+                    </md-input-container>
 
                     <div [hidden]="(decimal.errors != null && decimal.value !='') ? !decimal.errors.hasOwnProperty('format') : true" style="color: #D32F2F;">
                         {{ 'NUMBER_IS_INVALID' | translate:lang }} {{ 0 | localeDecimal:defaultLocale:digits }}

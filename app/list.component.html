@@ -40,7 +40,9 @@
         <button type="submit" md-raised-button color="primary" (click)="orderBy('position')">{{ 'ORDER_BY_POSITION' | translate:lang }}</button><br>
         <button type="submit" md-raised-button color="primary" (click)="orderBy('position', 'desc')">{{ 'ORDER_BY_DESC_POSITION' | translate:lang }}</button><br>
 
-        <md-input ref-s (keyup)="search(s.value)" placeholder="{{ 'SEARCH_BY_POSITION' | translate:lang}}"></md-input>
+        <md-input-container>
+            <input md-input ref-s (keyup)="search(s.value)" placeholder="{{ 'SEARCH_BY_POSITION' | translate:lang}}">
+        </md-input-container>
 
     </div>
 
