@@ -5,6 +5,11 @@
 [Sample app](http://robisim74.github.io/angular2localization) built with Angular 2 Material, AoT compilation & webpack.
 
 ## Running locally the sample app
+Before running the following commands, make sure that you have the latest version of _npm_:
+```Shell
+npm install npm@latest -g
+```
+
 - For development, we use _JiT compilation_ & source map files, with files watching:
 ```Shell
 npm install
@@ -22,7 +27,6 @@ npm run build
 ```Shell
 npm test
 ```
-_N.B. If you get errors when installing the packages, make sure you've updated node and npm to the latest version: https://docs.npmjs.com/getting-started/installing-node_
 
 ## Links
 - [Material Design for Angular 2](https://github.com/angular/material2)
