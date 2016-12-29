@@ -29,4 +29,4 @@ _N.B. If you get errors when installing the packages, make sure you've updated n
 - [AHEAD-OF-TIME COMPILATION](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)
 - [Building an Angular 2 Application for Production](http://blog.mgechev.com/2016/06/26/tree-shaking-angular2-production-build-rollup-javascript/)
 - [Angular 2 AOT (Ahead Of Time) offline compilation example with Webpack](https://github.com/blacksonic/angular2-aot-webpack)
-- [angular2-router-loader](https://github.com/brandonroberts/angular2-router-loader)
+- [angular-router-loader](https://github.com/brandonroberts/angular-router-loader)
