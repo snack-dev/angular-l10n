@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-// Async methods.
-/*import { Observer } from 'rxjs/Observer';
-import { Observable } from 'rxjs/Observable';*/
+
+import { Observable } from 'rxjs/Observable';
 // Services.
 import { Locale, LocaleService, LocalizationService, IntlSupport } from 'angular2localization';
 
@@ -13,6 +12,7 @@ export class ListComponent extends Locale {
 
     intlSupport: boolean;
 
+    // Data.
     DATA: Array<Data>;
 
     // Array that contains the columns to look for.
@@ -27,18 +27,6 @@ export class ListComponent extends Locale {
     // The string to search.
     s: string;
 
-    // Async methods.
-    /*get ASYNC_DATA(): Observable<Array<Data>> {
-
-        return new Observable<any>((observer: Observer<Array<Data>>) => {
-
-            observer.next(this.DATA);
-            observer.complete();
-
-        });
-
-    }*/
-
     constructor(public locale: LocaleService, public localization: LocalizationService) {
         super(locale, localization);
 
@@ -49,6 +37,7 @@ export class ListComponent extends Locale {
         this.intlSupport = IntlSupport.Collator(this.locale.getCurrentLanguage());
 
         this.DATA = this.loadData();
+
         this.keyNames.push('position');
         this.keyName = "";
         this.order = "";
@@ -58,17 +47,13 @@ export class ListComponent extends Locale {
 
     orderBy(keyName: string, order?: string): void {
 
-        if (this.keyName != keyName || this.order != order) {
+        if (keyName != "" && order != "") {
 
-            this.DATA = this.localization.sort(this.DATA, keyName, order, "", { sensitivity: 'variant' });
+            this.localization.sortAsync(this.DATA, keyName, order, "", { sensitivity: 'variant' }).subscribe(
 
-            // Async methods.
-            /*this.localization.sortAsync(this.DATA, keyName, order, "", { sensitivity: 'variant' }).forEach(
-    
-                // Next.
-                (list: Array<Data>) => { this.DATA = list }
-    
-            );*/
+                (list: Array<Data>) => { this.DATA = list; }
+
+            );
 
             // Stores parameters.
             this.keyName = keyName;
@@ -80,41 +65,19 @@ export class ListComponent extends Locale {
 
     search(s: string): void {
 
-        // Initializes the data if the search string is shorter than the previous.
-        if (s.length < this.s.length) {
-
-            this.DATA = this.localization.search(s, this.loadData(), this.keyNames, { usage: 'search', sensitivity: 'base' });
-            // Keeps sorting.
-            this.orderBy(this.keyName, this.order);
-
-        } else {
-
-            // Continues the search with the entered string.
-            this.DATA = this.localization.search(s, this.DATA, this.keyNames, { usage: 'search', sensitivity: 'base' });
-
-        }
-
-        // Async methods.
-        /*this.DATA = new Array<Data>();
+        this.DATA = new Array<Data>();
 
         this.localization.searchAsync(s, this.loadData(), this.keyNames, { usage: 'search', sensitivity: 'base' }).forEach(
 
             // Next.
-            (data: Data) => { this.DATA.push(data) }
+            (data: Data) => { this.DATA.push(data); }
 
-        );*/
+        ).then(() => {
 
-        // Stores the parameter.
-        this.s = s;
+            // Keeps sorting.
+            this.orderBy(this.keyName, this.order);
 
-    }
-
-    reset(): void {
-
-        // Initializes the data.
-        this.DATA = this.loadData();
-        // Keeps sorting.
-        this.orderBy(this.keyName, this.order);
+        });
 
     }
 

@@ -17,28 +17,10 @@
 
     </div>
 
-    <!--Async methods-->
-    <!--<div class="app-card-container">
-
-        <md-card *ngFor="let item of ASYNC_DATA | async">
-            <md-card-title>{{ item.name }}</md-card-title>
-            <md-card-content>
-                <md-list>
-                    <md-list-item>
-                        <h3 md-line>{{ item.position | translate:lang }}</h3>
-                        <p md-line>{{ item.salary | localeCurrency:defaultLocale:currency:true:'1.0-0' }}</p>
-                        <p md-line>{{ item.startDate | localeDate:defaultLocale:'mediumDate' }}</p>
-                    </md-list-item>
-                </md-list>
-            </md-card-content>
-        </md-card>
-
-    </div>-->
-
     <div class="app-aside-container" *ngIf="intlSupport == true">
 
-        <button type="submit" md-raised-button color="primary" (click)="orderBy('position')">{{ 'ORDER_BY_POSITION' | translate:lang }}</button><br>
-        <button type="submit" md-raised-button color="primary" (click)="orderBy('position', 'desc')">{{ 'ORDER_BY_DESC_POSITION' | translate:lang }}</button><br>
+        <button type="submit" md-raised-button color="primary" (click)="orderBy('position', 'asc')" [disabled]="order == 'asc'">{{ 'ORDER_BY_POSITION' | translate:lang }}</button><br>
+        <button type="submit" md-raised-button color="primary" (click)="orderBy('position', 'desc')" [disabled]="order == 'desc'">{{ 'ORDER_BY_DESC_POSITION' | translate:lang }}</button><br>
 
         <md-input-container>
             <input md-input ref-s (keyup)="search(s.value)" placeholder="{{ 'SEARCH_BY_POSITION' | translate:lang}}">
