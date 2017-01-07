@@ -12,11 +12,10 @@ export class ListComponent extends Locale {
 
     intlSupport: boolean;
 
-    // Data.
-    DATA: Array<Data>;
+    DATA: Observable<Array<Data>>;
 
     // Array that contains the columns to look for.
-    keyNames: any[] = [];
+    keyNames: any[];
 
     // The column that contains the keys of the values to be ordered.
     keyName: any;
@@ -36,46 +35,49 @@ export class ListComponent extends Locale {
 
         this.intlSupport = IntlSupport.Collator(this.locale.getCurrentLanguage());
 
-        this.DATA = this.loadData();
+        this.initializeFilters();
 
+        // Reinitializes filters when language changes.
+        this.localization.translationChanged.subscribe(
+            () => { this.initializeFilters(); }
+        );
+
+    }
+
+    initializeFilters(): void {
+
+        this.keyNames = [];
         this.keyNames.push('position');
-        this.keyName = "";
-        this.order = "";
+
+        this.keyName = "position";
+        this.order = "asc";
         this.s = "";
 
-    }
-
-    orderBy(keyName: string, order?: string): void {
-
-        if (keyName != "" && order != "") {
-
-            this.localization.sortAsync(this.DATA, keyName, order, "", { sensitivity: 'variant' }).subscribe(
-
-                (list: Array<Data>) => { this.DATA = list; }
-
-            );
-
-            // Stores parameters.
-            this.keyName = keyName;
-            this.order = order;
-
-        }
+        this.filterData(this.keyName, this.order);
 
     }
 
-    search(s: string): void {
+    filterData(keyName: string, order: string): void {
 
-        this.DATA = new Array<Data>();
+        this.keyName = keyName;
+        this.order = order;
 
-        this.localization.searchAsync(s, this.loadData(), this.keyNames, { usage: 'search', sensitivity: 'base' }).forEach(
+        var filteredDATA: Array<Data> = new Array<Data>();
+
+        // Searching.
+        this.localization.searchAsync(this.s, this.loadData(), this.keyNames, { usage: 'search', sensitivity: 'base' }).forEach(
 
             // Next.
-            (data: Data) => { this.DATA.push(data); }
+            (value: Data) => {
+
+                filteredDATA.push(value);
+
+            }
 
         ).then(() => {
 
-            // Keeps sorting.
-            this.orderBy(this.keyName, this.order);
+            // Sorting.
+            this.DATA = this.localization.sortAsync(filteredDATA, this.keyName, this.order, "", { sensitivity: 'variant' });
 
         });
 

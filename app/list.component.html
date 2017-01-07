@@ -2,7 +2,7 @@
 
     <div class="app-card-container">
 
-        <md-card *ngFor="let item of DATA">
+        <md-card *ngFor="let item of DATA | async">
             <md-card-title>{{ item.name }}</md-card-title>
             <md-card-content>
                 <md-list>
@@ -19,11 +19,11 @@
 
     <div class="app-aside-container" *ngIf="intlSupport == true">
 
-        <button type="submit" md-raised-button color="primary" (click)="orderBy('position', 'asc')" [disabled]="order == 'asc'">{{ 'ORDER_BY_POSITION' | translate:lang }}</button><br>
-        <button type="submit" md-raised-button color="primary" (click)="orderBy('position', 'desc')" [disabled]="order == 'desc'">{{ 'ORDER_BY_DESC_POSITION' | translate:lang }}</button><br>
+        <button type="submit" md-raised-button color="primary" (click)="filterData('position', 'asc')" [disabled]="order == 'asc'">{{ 'ORDER_BY_POSITION' | translate:lang }}</button><br>
+        <button type="submit" md-raised-button color="primary" (click)="filterData('position', 'desc')" [disabled]="order == 'desc'">{{ 'ORDER_BY_DESC_POSITION' | translate:lang }}</button><br>
 
         <md-input-container>
-            <input md-input ref-s (keyup)="search(s.value)" placeholder="{{ 'SEARCH_BY_POSITION' | translate:lang}}">
+            <input md-input [(ngModel)]="s" (keyup)="filterData(keyName, order)" placeholder="{{ 'SEARCH_BY_POSITION' | translate:lang}}">
         </md-input-container>
 
     </div>
