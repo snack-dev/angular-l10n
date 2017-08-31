@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Roberto Simonetti">
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Getting the translation - Angular localization</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+	
+	<script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../..">Angular localization</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                    <li >
+                        <a href="../../quick-start/">Quick start</a>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Specification <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../library-structure/">Library structure</a>
+</li>
+                            
+<li >
+    <a href="../configuration/">Configuration</a>
+</li>
+                            
+<li class="active">
+    <a href="./">Getting the translation</a>
+</li>
+                            
+<li >
+    <a href="../lazy-loading/">Lazy loaded modules & Shared modules</a>
+</li>
+                            
+<li >
+    <a href="../validation/">Validation by locales</a>
+</li>
+                            
+<li >
+    <a href="../collator/">Collator</a>
+</li>
+                            
+<li >
+    <a href="../testing/">Unit testing</a>
+</li>
+                            
+<li >
+    <a href="../api/">Services APIs</a>
+</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../configuration/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../lazy-loading/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/robisim74/angular-l10n">
+                                <i class="fa fa-github"></i>GitHub
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#getting-the-translation">Getting the translation</a></li>
+            <li><a href="#pure-pipes">Pure pipes</a></li>
+            <li><a href="#directives">Directives</a></li>
+            <li><a href="#using-html-tags-in-translation">Using Html tags in translation</a></li>
+            <li><a href="#getting-the-translation-in-component-class">Getting the translation in component class</a></li>
+            <li><a href="#handle-the-translation">Handle the translation</a></li>
+            <li><a href="#changing-language-default-locale-currency-or-timezone-at-runtime">Changing language, default locale, currency or timezone at runtime</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h2 id="getting-the-translation">Getting the translation</h2>
+<p>To get the translation, this library uses <em>pure pipes</em> (to know the difference between <em>pure</em> and <em>impure pipes</em> see <a href="https://angular.io/guide/pipes#pure-and-impure-pipes">here</a>) or <em>directives</em>. 
+You can also get the translation in component class.</p>
+<p><br></p>
+<hr />
+<h3 id="pure-pipes">Pure pipes</h3>
+<table>
+<thead>
+<tr>
+<th>Pipe</th>
+<th>Type</th>
+<th>Format</th>
+<th>Pipe syntax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Translate</td>
+<td>Message</td>
+<td>String</td>
+<td><code>expression | translate:lang</code></td>
+</tr>
+<tr>
+<td>L10nDate</td>
+<td>Date</td>
+<td>Date/Number/ISO string</td>
+<td><code>expression | l10nDate[:defaultLocale[:format[:timezone]]]</code></td>
+</tr>
+<tr>
+<td>L10nDecimal</td>
+<td>Decimal</td>
+<td>Number/string</td>
+<td><code>expression | l10nDecimal[:defaultLocale[:digitInfo]]</code></td>
+</tr>
+<tr>
+<td>L10nPercent</td>
+<td>Percentage</td>
+<td>Number/string</td>
+<td><code>expression | l10nPercent[:defaultLocale[:digitInfo]]</code></td>
+</tr>
+<tr>
+<td>L10nCurrency</td>
+<td>Currency</td>
+<td>Number/string</td>
+<td><code>expression | l10nCurrency[:defaultLocale[:currency[:currencyDisplay[:digitInfo]]]]</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>You can dynamically change parameters and expressions values.</p>
+</blockquote>
+<p><br></p>
+<h4 id="messages">Messages</h4>
+<p>Implement <em>Language</em> decorator in the component to provide the parameter to the <em>translate</em> pipe:</p>
+<pre><code class="TypeScript">export class HomeComponent implements OnInit {
+
+    @Language() lang: string;
+
+    ngOnInit(): void { }
+
+}
+</code></pre>
+
+<blockquote>
+<p>To use AoT compilation you have to implement OnInit, and to cancel subscriptions OnDestroy, even if they are empty.</p>
+</blockquote>
+<pre><code>expression | translate:lang
+</code></pre>
+
+<p>where <code>expression</code> is a string key that indicates the message to translate:</p>
+<pre><code class="Html">{{ 'Title' | translate:lang }}
+</code></pre>
+
+<p><em>Json</em>:</p>
+<pre><code>{
+    &quot;Title&quot;: &quot;Angular localization&quot;
+}
+</code></pre>
+
+<p><br></p>
+<h5 id="composed-keys">Composed keys</h5>
+<p>Set <code>composedKeySeparator</code> during the configuration, e.g. to <code>'.'</code>:</p>
+<pre><code class="Html">{{ 'Home.Title' | translate:lang }}
+</code></pre>
+
+<p><em>Json</em>:</p>
+<pre><code>{
+    &quot;Home&quot;: {
+        &quot;Title&quot;: &quot;Angular localization&quot;
+    }
+}
+</code></pre>
+
+<p><br></p>
+<h5 id="parameters">Parameters</h5>
+<pre><code class="Html">{{ 'User notifications' | translate:lang:{ user: username, NoMessages: messages.length } }}
+</code></pre>
+
+<p><em>Json</em>:</p>
+<pre><code>{
+    &quot;User notifications&quot;: &quot;{{ user }}, you have {{ NoMessages }} new messages&quot;
+}
+</code></pre>
+
+<p><br></p>
+<h4 id="dates-numbers">Dates &amp; Numbers</h4>
+<p>Implement <em>DefaultLocale</em>, <em>Currency</em> &amp; optionally <em>Timezone</em> decorators in the component to provide <em>defaultLocale</em>, <em>currency</em>, <em>timezone</em> to <em>l10nDate</em>, <em>l10nDecimal</em>, <em>l10nPercent</em> &amp; <em>l10nCurrency</em> pipes.</p>
+<pre><code class="TypeScript">export class HomeComponent implements OnInit {
+
+    @DefaultLocale() defaultLocale: string;
+    @Currency() currency: string;
+    @Timezone() timezone: string;
+
+    ngOnInit(): void { }
+
+}
+</code></pre>
+
+<blockquote>
+<p>To use AoT compilation you have to implement OnInit, and to cancel subscriptions OnDestroy, even if they are empty.</p>
+</blockquote>
+<p><br></p>
+<h5 id="dates">Dates</h5>
+<pre><code>expression | l10nDate[:defaultLocale[:format[:timezone]]]
+</code></pre>
+
+<p>Where:</p>
+<ul>
+<li><code>expression</code> is a date object or a number (milliseconds since UTC epoch) or an ISO string.</li>
+<li>
+<p><code>format</code> indicates which date/time components to include. The format can be an alias as shown below:</p>
+<ul>
+<li><code>'short'</code>: equivalent to <code>'M/d/y, h:mm'</code> (e.g. <code>8/29/2017, 4:37 PM</code> for <code>en-US</code>)</li>
+<li><code>'medium'</code>: equivalent to <code>'MMM d, y, h:mm:ss'</code> (e.g. <code>Aug 29, 2017, 4:32:43 PM</code> for <code>en-US</code>)</li>
+<li><code>'shortDate'</code>: equivalent to <code>'M/d/y'</code> (e.g. <code>8/29/2017</code> for <code>en-US</code>)</li>
+<li><code>'mediumDate'</code>: equivalent to <code>'MMM d, y'</code> (e.g. <code>Aug 29, 2017</code> for <code>en-US</code>)</li>
+<li><code>'longDate'</code>: equivalent to <code>'MMMM d, y'</code> (e.g. <code>August 29, 2017</code> for <code>en-US</code>)</li>
+<li><code>'fullDate'</code>: equivalent to <code>'EEEE, MMMM d, y'</code> (e.g. <code>Tuesday, August 29, 2017</code> for <code>en-US</code>)</li>
+<li><code>'shortTime'</code>: equivalent to <code>'h:mm'</code> (e.g. <code>4:53 PM</code> for <code>en-US</code>)</li>
+<li><code>'mediumTime'</code>: equivalent to <code>'h:mm:ss'</code> (e.g. <code>4:54:15 PM</code> for <code>en-US</code>)</li>
+</ul>
+<p><br>
+It can also be an object with some or all of the following properties:</p>
+<ul>
+<li><code>weekday</code> The representation of the weekday. Possible values are <em>narrow</em>, <em>short</em>, <em>long</em>.</li>
+<li><code>era</code> The representation of the era. Possible values are <em>narrow</em>, <em>short</em>, <em>long</em>.</li>
+<li><code>year</code> The representation of the year. Possible values are <em>numeric</em>, <em>2-digit</em>.</li>
+<li><code>month</code> The representation of the month. Possible values are <em>numeric</em>, <em>2-digit</em>, <em>narrow</em>, <em>short</em>, <em>long</em>.</li>
+<li><code>day</code> The representation of the day. Possible values are <em>numeric</em>, <em>2-digit</em>.</li>
+<li><code>hour</code> The representation of the hour. Possible values are <em>numeric</em>, <em>2-digit</em>.</li>
+<li><code>minute</code> The representation of the minute. Possible values are <em>numeric</em>, <em>2-digit</em>.</li>
+<li><code>second</code> The representation of the second. Possible values are <em>numeric</em>, <em>2-digit</em>.</li>
+<li><code>timeZoneName</code> The representation of the time zone name. Possible values are <em>short</em>, <em>long</em>.</li>
+<li><code>hour12</code> Whether to use 12-hour time (as opposed to 24-hour time). Possible values are true and false; the default is locale dependent.</li>
+</ul>
+<p><br>
+See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat">DateTimeFormat</a> for further information.</p>
+</li>
+</ul>
+<p><br></p>
+<h6 id="using-format-aliases">Using format aliases</h6>
+<pre><code class="Html">{{ today | l10nDate:defaultLocale:'fullDate' }}
+</code></pre>
+
+<p><br></p>
+<h6 id="using-a-custom-format">Using a custom format</h6>
+<pre><code class="TypeScript">@Component({
+    template: `
+        &lt;p&gt;{{ today | l10nDate:defaultLocale:options }}&lt;/p&gt;
+    `
+})
+export class HomeComponent implements OnInit {
+
+    @DefaultLocale() defaultLocale: string;
+
+    today: Date = new Date();
+    options: DateTimeOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+    ngOnInit(): void { }
+
+}
+</code></pre>
+
+<p><br></p>
+<h6 id="using-timezone">Using timezone</h6>
+<pre><code class="TypeScript">@Component({
+    template: `
+        &lt;p&gt;{{ today | l10nDate:defaultLocale:'medium':timezone }}&lt;/p&gt;
+    `
+})
+export class HomeComponent implements OnInit {
+
+    @DefaultLocale() defaultLocale: string;
+    @Timezone() timezone: string;
+
+    today: Date = new Date();
+
+    ngOnInit(): void { }
+
+}
+</code></pre>
+
+<p><br></p>
+<h5 id="decimals">Decimals</h5>
+<pre><code>expression | l10nDecimal[:defaultLocale:[digitInfo]]
+</code></pre>
+
+<p>where <code>expression</code> is a number and <code>digitInfo</code> has the following format: <code>{minIntegerDigits}.{minFractionDigits}-{maxFractionDigits}</code>.</p>
+<pre><code class="Html">{{ value | l10nDecimal:defaultLocale:'1.5-5' }}
+</code></pre>
+
+<p><br></p>
+<h5 id="percentages">Percentages</h5>
+<pre><code>expression | l10nPercent[:defaultLocale:[digitInfo]]
+</code></pre>
+
+<pre><code class="Html">{{ value | l10nPercent:defaultLocale:'1.1-1' }}
+</code></pre>
+
+<p><br></p>
+<h5 id="currencies">Currencies</h5>
+<pre><code>expression | l10nCurrency[:defaultLocale[:currency[:currencyDisplay[:digitInfo]]]]
+</code></pre>
+
+<p>where <code>currencyDisplay</code> is the currency formatting. Possible values are <em>'symbol'</em> to use a localized currency symbol such as <em>€</em>, <em>'code'</em> to use the ISO currency code, <em>'name'</em> to use a localized currency name such as <em>dollar</em>; the default is <em>'symbol'</em>. </p>
+<pre><code class="Html">{{ value | l10nCurrency:defaultLocale:currency:'symbol':'1.2-2' }}
+</code></pre>
+
+<p><br></p>
+<h4 id="translation-localization-classes">Translation &amp; Localization classes</h4>
+<p>When using <em>pipes</em>, alternatively to <em>decorators</em> you can 
+extend <code>Translation</code> or <code>Localization</code> classes.</p>
+<p>Extend <code>Translation</code> class in the component to provide <em>lang</em> to the <em>translate</em> pipe:</p>
+<pre><code class="TypeScript">export class HomeComponent extends Translation { }
+</code></pre>
+
+<p>Extend <code>Localization</code> class in the component to provide <em>lang</em> to the <em>translate</em> pipe,  <em>defaultLocale</em>, <em>currency</em>, <em>timezone</em> to <em>l10nDate</em>, <em>l10nDecimal</em>, <em>l10nPercent</em> &amp; <em>l10nCurrency</em> pipes.</p>
+<pre><code class="TypeScript">export class HomeComponent extends Localization { } 
+</code></pre>
+
+<p>To cancel subscriptions for the params, you can call the <code>cancelParamSubscriptions</code> method into <code>ngOnDestroy</code>.</p>
+<p><br></p>
+<h4 id="onpush-changedetectionstrategy">OnPush ChangeDetectionStrategy</h4>
+<p><em>Pure pipes</em> don't need to set <code>ChangeDetectionStrategy</code> to <code>OnPush</code>. If into your components you need to use it, you have to extend <code>Translation</code> or <code>Localization</code> class and pass <code>ChangeDetectorRef</code>:</p>
+<pre><code class="TypeScript">import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+
+import { Translation } from 'angular-l10n'
+
+@Component({
+    ...
+    changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class HomeComponent extends Translation {
+
+    constructor(public ref: ChangeDetectorRef) {
+        super(ref);
+        ...
+    }
+
+} 
+</code></pre>
+
+<p>That's because we need to know the component reference that implements the <code>OnPush</code> strategy.</p>
+<p><br></p>
+<hr />
+<h3 id="directives">Directives</h3>
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Selectors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Translate</td>
+<td><code>l10nTranslate</code>, <code>translate</code></td>
+</tr>
+<tr>
+<td>L10nDate</td>
+<td><code>l10nDate</code></td>
+</tr>
+<tr>
+<td>L10nDecimal</td>
+<td><code>l10nDecimal</code></td>
+</tr>
+<tr>
+<td>L10nPercent</td>
+<td><code>l10nPercent</code></td>
+</tr>
+<tr>
+<td>L10nCurrency</td>
+<td><code>l10nCurrency</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Type</th>
+<th>Format</th>
+<th>Html syntax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Translate</td>
+<td>Message</td>
+<td>String</td>
+<td><code>&lt;tag l10n-attribute attribute="expr1" l10nTranslate&gt;expr2&lt;/tag&gt;</code></td>
+</tr>
+<tr>
+<td>L10nDate</td>
+<td>Date</td>
+<td>Date/Number/ISO string</td>
+<td><code>&lt;tag l10n-attribute attribute="expr1" l10nDate="[format]"&gt;expr2&lt;/tag&gt;</code></td>
+</tr>
+<tr>
+<td>L10nDecimal</td>
+<td>Decimal</td>
+<td>Number/string</td>
+<td><code>&lt;tag l10n-attribute attribute="expr1" l10nDecimal="[digitInfo]"&gt;expr2&lt;/tag&gt;</code></td>
+</tr>
+<tr>
+<td>L10nPercent</td>
+<td>Percentage</td>
+<td>Number/string</td>
+<td><code>&lt;tag l10n-attribute attribute="expr1" l10nPercent="[digitInfo]"&gt;expr2&lt;/tag&gt;</code></td>
+</tr>
+<tr>
+<td>L10nCurrency</td>
+<td>Currency</td>
+<td>Number/string</td>
+<td><code>&lt;tag l10n-attribute attribute="expr1" l10nCurrency="[digitInfo]" [currencyDisplay]="[currencyDisplay]"&gt;expr2&lt;/tag&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>You can dynamically change parameters and expressions values as with pipes. How does it work? To observe the expression change (not the parameters), a <code>MutationObserver</code> is used: the observer is added only if detected in the browser. If you want to use this feature also reaching older browsers, we recommend using pipes.</p>
+</blockquote>
+<p><br></p>
+<blockquote>
+<p>If you use in the component only the directives and not the pipes, you don't need to use decorators.</p>
+</blockquote>
+<p><br></p>
+<h4 id="messages_1">Messages</h4>
+<pre><code class="Html">&lt;h1 l10nTranslate&gt;Title&lt;/h1&gt;
+</code></pre>
+
+<p><br></p>
+<h5 id="parameters_1">Parameters</h5>
+<pre><code class="Html">&lt;p [l10nTranslate]=&quot;{ user: username, NoMessages: messages.length }&quot;&gt;User notifications&lt;/p&gt;
+</code></pre>
+
+<p><br></p>
+<h4 id="dates-numbers_1">Dates &amp; Numbers</h4>
+<pre><code class="Html">&lt;p l10nDate&gt;{{ today }}&lt;/p&gt;
+&lt;p l10nDate=&quot;fullDate&quot;&gt;{{ today }}&lt;/p&gt;
+
+&lt;p l10nDecimal&gt;{{ value }}&lt;/p&gt;
+&lt;p l10nDecimal=&quot;1.5-5&quot;&gt;{{ value }}&lt;/p&gt;
+
+&lt;p l10nPercent&gt;{{ value }}&lt;/p&gt;
+&lt;p l10nPercent=&quot;1.1-1&quot;&gt;{{ value }}&lt;/p&gt;
+
+&lt;p l10nCurrency&gt;{{ value }}&lt;/p&gt;
+&lt;p l10nCurrency=&quot;1.2-2&quot; [currencyDisplay]=&quot;'symbol'&quot;&gt;{{ value }}&lt;/p&gt;
+</code></pre>
+
+<p><br></p>
+<h4 id="attributes">Attributes</h4>
+<pre><code class="Html">&lt;p l10n-title title=&quot;Greeting&quot; l10nTranslate&gt;Title&lt;/p&gt;
+</code></pre>
+
+<p>All attributes will be translated according to the master directive: <code>l10nTranslate</code>, <code>l10nDate</code> and so on.</p>
+<blockquote>
+<p>You can't dynamically change expressions in attributes.</p>
+</blockquote>
+<p><br></p>
+<h5 id="parameters_2">Parameters</h5>
+<pre><code class="Html">&lt;p l10n-title title=&quot;Greeting&quot; [l10nTranslate]=&quot;{ user: username, NoMessages: messages.length }&quot;&gt;User notifications&lt;/p&gt;
+</code></pre>
+
+<p><em>Json</em>:</p>
+<pre><code>{
+    &quot;Greeting&quot;: &quot;Hi {{ user }}&quot;,
+    &quot;User notifications&quot;: &quot;{{ user }}, you have {{ NoMessages }} new messages&quot;
+}
+</code></pre>
+
+<p><br></p>
+<h4 id="ui-components">UI components</h4>
+<p>You can properly translate UI components like Angular Material or Ionic:</p>
+<pre><code class="Html">&lt;a routerLinkActive=&quot;active-link&quot; md-list-item routerLink=&quot;/home&quot; l10nTranslate&gt;App.Home&lt;/a&gt;
+</code></pre>
+
+<p>rendered as:</p>
+<pre><code class="Html">&lt;a md-list-item=&quot;&quot; role=&quot;listitem&quot; routerlink=&quot;/home&quot; routerlinkactive=&quot;active-link&quot; l10nTranslate=&quot;&quot; href=&quot;#/home&quot; class=&quot;active-link&quot;&gt;
+    &lt;div class=&quot;md-list-item&quot;&gt;
+        &lt;div class=&quot;md-list-text&quot;&gt;&lt;/div&gt;
+        App.Home
+    &lt;/div&gt;
+&lt;/a&gt;
+</code></pre>
+
+<blockquote>
+<p>How does it work? The algorithm searches the text in the subtree. If there is a depth higher than 4 (in the example above the text to translate has a depth 2), we recommend using pipes.</p>
+</blockquote>
+<p><br></p>
+<hr />
+<h3 id="using-html-tags-in-translation">Using Html tags in translation</h3>
+<p>If you have Html tags in translation like this:</p>
+<pre><code>&quot;Strong subtitle&quot;: &quot;&lt;strong&gt;It's a small world&lt;/strong&gt;&quot;
+</code></pre>
+
+<p>you have to use <code>innerHTML</code> property.</p>
+<p>Using <em>pipes</em>:</p>
+<pre><code class="Html">&lt;p [innerHTML]=&quot;'Strong subtitle' | translate:lang&quot;&gt;&lt;/p&gt;
+</code></pre>
+
+<p>Using <em>directives</em>:</p>
+<pre><code class="Html">&lt;p [innerHTML]=&quot;'Strong subtitle'&quot; l10nTranslate&gt;&lt;/p&gt;
+</code></pre>
+
+<p><br></p>
+<hr />
+<h3 id="getting-the-translation-in-component-class">Getting the translation in component class</h3>
+<h4 id="messages_2">Messages</h4>
+<p>To get the translation in component class, <code>TranslationService</code> has the following methods:</p>
+<ul>
+<li><code>translate(keys: string | string[], args?: any, lang?: string): string | any</code></li>
+<li><code>translateAsync(keys: string | string[], args?: any, lang?: string): Observable&lt;string | any&gt;</code></li>
+</ul>
+<p>When you use those methods, <em>you must be sure that the Http request is completed</em>, and the translation file has been loaded:</p>
+<pre><code class="TypeScript">@Component({
+    ...
+    template: `
+        &lt;h1&gt;{{ title }}&lt;/h1&gt;
+        &lt;button (click)=&quot;getTranslation()&quot;&gt;Translate&lt;/button&gt;
+    `
+})
+export class HomeComponent {
+
+    title: string;
+
+    constructor(public translation: TranslationService) { }
+
+    getTranslation(): void {
+        this.title = this.translation.translate('Title');
+    }
+
+}
+</code></pre>
+
+<p>To get the translation <em>when the component is loaded</em> and <em>when the current language changes</em>, 
+<em>you must</em> subscribe to the following method:</p>
+<ul>
+<li><code>translationChanged(): Observable&lt;string&gt;</code></li>
+</ul>
+<pre><code class="TypeScript">@Component({
+    ...
+    template: `&lt;h1&gt;{{ title }}&lt;/h1&gt;`
+})
+export class HomeComponent implements OnInit {
+
+    title: string;
+
+    constructor(public translation: TranslationService) { }
+
+    ngOnInit(): void {
+        this.translation.translationChanged().subscribe(
+            () =&gt; { this.title = this.translation.translate('Title'); }
+        );
+    }
+
+}
+</code></pre>
+
+<p><br></p>
+<h4 id="dates-numbers_2">Dates &amp; numbers</h4>
+<p>To get the translation of dates and numbers, you can use the <code>transform</code> method of the corresponding pipe to get the translation: you have the <code>getDefaultLocale</code> method of <code>LocaleService</code>, and the <code>defaultLocaleChanged</code> event to know when <code>defaultLocale</code> changes.</p>
+<pre><code class="TypeScript">@Component({
+    ...
+    template: `&lt;p&gt;{{ value }}&lt;/p&gt;`
+})
+export class HomeComponent {
+
+    pipe: L10nDecimalPipe = new L10nDecimalPipe();
+    value: any = this.pipe.transform(1234.5, this.locale.getDefaultLocale(), '1.2-2');
+
+    constructor(public locale: LocaleService) { }
+
+    ngOnInit(): void {
+        this.locale.defaultLocaleChanged.subscribe(
+            (defaultLocale: string) =&gt; {
+                this.value = this.pipe.transform(1234.5, defaultLocale, '1.2-2');
+            }
+        );
+    }
+
+}
+</code></pre>
+
+<p><br></p>
+<hr />
+<h3 id="handle-the-translation">Handle the translation</h3>
+<p>The default translation handler does not perform operations on the translated values: it handles the missing keys returning the path of the key or the value set by <code>missingValue</code> during the configuration, and replaces parameters.</p>
+<p>To perform custom operations, you can implement <code>TranslationHandler</code> class-interface and the <code>parseValue</code> method:</p>
+<pre><code class="TypeScript">@Injectable() export class CustomTranslationHandler implements TranslationHandler {
+
+    /**
+     * This method must contain the logic to parse the translated value.
+     * @param path The path of the key
+     * @param key The key that has been requested
+     * @param value The translated value
+     * @param args The parameters passed along with the key
+     * @param lang The current language
+     * @return The parsed value
+     */
+    public parseValue(path: string, key: string, value: string | null, args: any, lang: string): string {
+        ..
+        return ...
+    }
+
+}
+</code></pre>
+
+<p>Then provide the class in the module:</p>
+<pre><code class="TypeScript">@NgModule({
+    imports: [
+        ...
+        TranslationModule.forRoot(
+            l10nConfig,
+            { translationHandler: CustomTranslationHandler }
+        )
+    ],
+    ...
+})
+</code></pre>
+
+<p>See also <a href="https://github.com/robisim74/angular-l10n/blob/master/src/services/translation-handler.ts">TranslationHandler</a> code.</p>
+<p><br></p>
+<hr />
+<h3 id="changing-language-default-locale-currency-or-timezone-at-runtime">Changing language, default locale, currency or timezone at runtime</h3>
+<p>To change language, default locale, currency or timezone at runtime, <code>LocaleService</code> has the following methods:</p>
+<ul>
+<li><code>setCurrentLanguage(languageCode: string): void</code></li>
+<li><code>setDefaultLocale(languageCode: string, countryCode?: string, scriptCode?: string, numberingSystem?: string, calendar?: string): void</code></li>
+<li><code>setCurrentCurrency(currencyCode: string): void</code></li>
+<li><code>setCurrentTimezone(zoneName: string): void</code></li>
+</ul></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

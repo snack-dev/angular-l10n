@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Roberto Simonetti">
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Library structure - Angular localization</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+	
+	<script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../..">Angular localization</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                    <li >
+                        <a href="../../quick-start/">Quick start</a>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Specification <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li class="active">
+    <a href="./">Library structure</a>
+</li>
+                            
+<li >
+    <a href="../configuration/">Configuration</a>
+</li>
+                            
+<li >
+    <a href="../getting-the-translation/">Getting the translation</a>
+</li>
+                            
+<li >
+    <a href="../lazy-loading/">Lazy loaded modules & Shared modules</a>
+</li>
+                            
+<li >
+    <a href="../validation/">Validation by locales</a>
+</li>
+                            
+<li >
+    <a href="../collator/">Collator</a>
+</li>
+                            
+<li >
+    <a href="../testing/">Unit testing</a>
+</li>
+                            
+<li >
+    <a href="../api/">Services APIs</a>
+</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../../quick-start/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../configuration/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/robisim74/angular-l10n">
+                                <i class="fa fa-github"></i>GitHub
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#library-structure">Library structure</a></li>
+            <li><a href="#main-modules">Main modules</a></li>
+            <li><a href="#main-services">Main services</a></li>
+            <li><a href="#main-class-interfaces">Main class-interfaces</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h2 id="library-structure">Library structure</h2>
+<p><br></p>
+<hr />
+<h3 id="main-modules">Main modules</h3>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Contract</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TranslationModule</code></td>
+<td>Provides dependencies, pipes &amp; directives for translating messages</td>
+</tr>
+<tr>
+<td><code>LocalizationModule</code></td>
+<td>Provides dependencies, pipes &amp; directives for translating messages, dates &amp; numbers</td>
+</tr>
+<tr>
+<td><code>LocaleValidationModule</code></td>
+<td>Provides dependencies &amp; directives for locale validation</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<h3 id="main-services">Main services</h3>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Contract</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>L10nLoader</code></td>
+<td>Initializes the services</td>
+</tr>
+<tr>
+<td><code>LocaleService</code></td>
+<td>Manages language, default locale, currency &amp; timezone</td>
+</tr>
+<tr>
+<td><code>TranslationService</code></td>
+<td>Manages the translation data</td>
+</tr>
+<tr>
+<td><code>Translation</code></td>
+<td>Provides <em>lang</em> to the <em>translate</em> pipe</td>
+</tr>
+<tr>
+<td><code>Localization</code></td>
+<td>Provides <em>lang</em> to the <em>translate</em> pipe, <em>defaultLocale</em>, <em>currency</em>, <em>timezone</em> to <em>l10nDate</em>, <em>l10nDecimal</em>, <em>l10nPercent</em> &amp; <em>l10nCurrency</em> pipes</td>
+</tr>
+<tr>
+<td><code>LocaleValidation</code></td>
+<td>Provides the methods to convert strings according to default locale</td>
+</tr>
+<tr>
+<td><code>Collator</code></td>
+<td>Intl.Collator APIs</td>
+</tr>
+<tr>
+<td><code>IntlAPI</code></td>
+<td>Provides the methods to check if Intl APIs are supported</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<h3 id="main-class-interfaces">Main class-interfaces</h3>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Contract</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LocaleStorage</code></td>
+<td>Class-interface to create a custom storage for default locale &amp; currency</td>
+</tr>
+<tr>
+<td><code>TranslationProvider</code></td>
+<td>Class-interface to create a custom provider for translation data</td>
+</tr>
+<tr>
+<td><code>TranslationHandler</code></td>
+<td>Class-interface to create a custom handler for translated values</td>
+</tr>
+</tbody>
+</table></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

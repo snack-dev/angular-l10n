@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Roberto Simonetti">
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Configuration - Angular localization</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+	
+	<script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../..">Angular localization</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                    <li >
+                        <a href="../../quick-start/">Quick start</a>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Specification <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../library-structure/">Library structure</a>
+</li>
+                            
+<li class="active">
+    <a href="./">Configuration</a>
+</li>
+                            
+<li >
+    <a href="../getting-the-translation/">Getting the translation</a>
+</li>
+                            
+<li >
+    <a href="../lazy-loading/">Lazy loaded modules & Shared modules</a>
+</li>
+                            
+<li >
+    <a href="../validation/">Validation by locales</a>
+</li>
+                            
+<li >
+    <a href="../collator/">Collator</a>
+</li>
+                            
+<li >
+    <a href="../testing/">Unit testing</a>
+</li>
+                            
+<li >
+    <a href="../api/">Services APIs</a>
+</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../library-structure/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../getting-the-translation/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/robisim74/angular-l10n">
+                                <i class="fa fa-github"></i>GitHub
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#configuration">Configuration</a></li>
+            <li><a href="#first-scenario-you-only-need-to-translate-messages">First scenario: you only need to translate messages</a></li>
+            <li><a href="#second-scenario-you-need-to-translate-messages-dates-numbers">Second scenario: you need to translate messages, dates &amp; numbers</a></li>
+            <li><a href="#configuration-settings">Configuration settings</a></li>
+            <li><a href="#loading-the-translation-data">Loading the translation data</a></li>
+            <li><a href="#using-a-composed-language">Using a composed language</a></li>
+            <li><a href="#default-locale-currency-timezone">Default locale, currency &amp; timezone</a></li>
+            <li><a href="#storage">Storage</a></li>
+            <li><a href="#caching">Caching</a></li>
+            <li><a href="#intl-api">Intl API</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h2 id="configuration">Configuration</h2>
+<p><br></p>
+<hr />
+<h3 id="first-scenario-you-only-need-to-translate-messages">First scenario: you only need to translate messages</h3>
+<p>Import the modules you need and configure the library in the application root module:</p>
+<pre><code class="TypeScript">const l10nConfig: L10nConfig = {
+    locale: {
+        languages: [
+            { code: 'en', dir: 'ltr' },
+            { code: 'it', dir: 'ltr' }
+        ],
+        language: 'en',
+        storage: StorageStrategy.Cookie
+    },
+    translation: {
+        providers: [
+            { type: ProviderType.Static, prefix: './assets/locale-' }
+        ],
+        caching: true,
+        missingValue: 'No key'
+    }
+};
+
+@NgModule({
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        TranslationModule.forRoot(l10nConfig)
+    ],
+    declarations: [AppComponent, HomeComponent],
+    bootstrap: [AppComponent]
+})
+export class AppModule {
+
+    constructor(public l10nLoader: L10nLoader) {
+        this.l10nLoader.load();
+    }
+
+}
+</code></pre>
+
+<p><br></p>
+<hr />
+<h3 id="second-scenario-you-need-to-translate-messages-dates-numbers">Second scenario: you need to translate messages, dates &amp; numbers</h3>
+<p>Import the modules you need and configure the library in the application root module:</p>
+<pre><code class="TypeScript">const l10nConfig: L10nConfig = {
+    locale: {
+        languages: [
+            { code: 'en', dir: 'ltr' },
+            { code: 'it', dir: 'ltr' }
+        ],
+        defaultLocale: { languageCode: 'en', countryCode: 'US' },
+        currency: 'USD',
+        storage: StorageStrategy.Cookie
+    },
+    translation: {
+        providers: [
+            { type: ProviderType.Static, prefix: './assets/locale-' }
+        ],
+        caching: true,
+        missingValue: 'No key'
+    }
+};
+
+@NgModule({
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        LocalizationModule.forRoot(l10nConfig)
+    ],
+    declarations: [AppComponent, HomeComponent],
+    bootstrap: [AppComponent]
+})
+export class AppModule {
+
+    constructor(public l10nLoader: L10nLoader) {
+        this.l10nLoader.load();
+    }
+
+}
+</code></pre>
+
+<p><br></p>
+<hr />
+<h3 id="configuration-settings">Configuration settings</h3>
+<p>The <code>L10nConfig</code> interface contains an interface to configure <code>LocaleService</code> and one to configure <code>TranslationService</code>.</p>
+<p><br></p>
+<h4 id="localeconfig">LocaleConfig</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>languages?: Language[]</code></td>
+<td>Adds the languages to use in the app</td>
+</tr>
+<tr>
+<td><code>language?: string</code></td>
+<td>Defines the language ISO 639 two-letter or three-letter code to be used, if the language is not found in the browser</td>
+</tr>
+<tr>
+<td><code>defaultLocale?: DefaultLocaleCodes</code></td>
+<td>Defines the default locale to be used, regardless of the browser language</td>
+</tr>
+<tr>
+<td><code>currency?: string</code></td>
+<td>Defines the currency ISO 4217 three-letter code to be used</td>
+</tr>
+<tr>
+<td><code>timezone?: string</code></td>
+<td>The time zone name of the IANA time zone database to use</td>
+</tr>
+<tr>
+<td><code>storage?: StorageStrategy</code></td>
+<td>Defines the storage to be used for language, default locale &amp; currency</td>
+</tr>
+<tr>
+<td><code>cookieExpiration?: number</code></td>
+<td>If the cookie expiration is omitted, the cookie becomes a session cookie</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h4 id="translationconfig">TranslationConfig</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>translationData?: Array&lt;{ languageCode: string; data: any; }&gt;</code></td>
+<td>Direct loading: adds translation data</td>
+</tr>
+<tr>
+<td><code>providers?: any[]</code></td>
+<td>Asynchronous loading: adds translation providers</td>
+</tr>
+<tr>
+<td><code>caching?: Boolean</code></td>
+<td>Asynchronous loading: disables/enables the cache for translation providers</td>
+</tr>
+<tr>
+<td><code>composedLanguage?: ISOCode[]</code></td>
+<td>Sets a composed language for translations</td>
+</tr>
+<tr>
+<td><code>missingValue?: string</code></td>
+<td>Sets the value to use for missing keys</td>
+</tr>
+<tr>
+<td><code>missingKey?: string</code></td>
+<td>Sets the key to use for missing keys</td>
+</tr>
+<tr>
+<td><code>composedKeySeparator?: string</code></td>
+<td>Sets composed key separator</td>
+</tr>
+<tr>
+<td><code>i18nPlural?: boolean</code></td>
+<td>Disables/enables the translation of numbers that are contained at the beginning of the keys</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>There aren't default values: you must explicitly set each parameter you need.</p>
+</blockquote>
+<p><br></p>
+<hr />
+<h3 id="loading-the-translation-data">Loading the translation data</h3>
+<h4 id="direct-loading">Direct loading</h4>
+<p>You can use <code>translationData</code> setting when you configure the service, 
+adding all the translation data:</p>
+<pre><code class="TypeScript">const translationEN: any = {
+    Title: &quot;Angular localization&quot;
+};
+const translationIT: any = {
+    Title: &quot;Localizzazione in Angular&quot;
+};
+
+const l10nConfig: L10nConfig = {
+    ...
+    translation: {
+        translationData: [
+            { languageCode: 'en', data: translationEN },
+            { languageCode: 'it', data: translationIT }
+        ]
+    }
+};
+</code></pre>
+
+<p><br></p>
+<h4 id="asynchronous-loading-of-json-files">Asynchronous loading of json files</h4>
+<p>You can add all the providers you need:</p>
+<pre><code class="TypeScript">const l10nConfig: L10nConfig = {
+    ...
+    translation: {
+        providers: [
+            { type: ProviderType.Static, prefix: './assets/global-' },
+            { type: ProviderType.Static, prefix: './assets/locale-' }
+        ]
+    }
+};
+</code></pre>
+
+<blockquote>
+<p>You can't use Direct and Asynchronous loading at the same time.</p>
+</blockquote>
+<p><br></p>
+<h4 id="asynchronous-loading-through-a-web-api">Asynchronous loading through a Web API</h4>
+<p>You can also load the data through a Web API:</p>
+<pre><code class="TypeScript">const l10nConfig: L10nConfig = {
+    ...
+    translation: {
+        providers: [
+            { type: ProviderType.WebAPI, path: 'http://localhost:54703/api/values/' }
+        ]
+    }
+};
+...
+export class AppModule {
+    constructor(private translation: TranslationService) {
+        this.translation.translationError.subscribe((error: any) =&gt; console.log(error));
+    }
+}
+</code></pre>
+
+<p><code>[path]{languageCode}</code> will be the URL used by the Http GET requests. So the example URI will be something like: <code>http://localhost:54703/api/values/en</code>.</p>
+<p>The example above also showed as you can perform a custom action if you get a bad response.</p>
+<p><br></p>
+<h4 id="using-fallback-providers">Using fallback providers</h4>
+<p>if you need a cascade fallback when the key is not found, you can use fallback providers:</p>
+<pre><code class="TypeScript">const l10nConfig: L10nConfig = {
+    ...
+    translation: {
+        providers: [
+            { type: ProviderType.Fallback, prefix: './assets/global', fallbackLanguage: [] },
+            { type: ProviderType.Fallback, prefix: './assets/locale-', fallbackLanguage: [ISOCode.Language] },
+            { type: ProviderType.Static, prefix: './assets/locale-' }
+        ],
+        composedLanguage: [ISOCode.Language, ISOCode.Country]
+    }
+};
+</code></pre>
+
+<p>and create the <em>json</em> files such as <code>global.json</code>, <code>locale-en.json</code>, <code>locale-en-US.json</code>. When you set a fallback provider, <em>the translation data will be merged in order</em>: if a key is found in the <em>en-US</em> file, it is used, otherwise the key in <em>en</em> file and finally the key in <em>global</em> file.</p>
+<p><br></p>
+<h4 id="using-a-custom-provider">Using a custom provider</h4>
+<p>If you need, you can create a custom provider to load translation data.</p>
+<p>Implement <code>TranslationProvider</code> class-interface and the <code>getTranslation</code> method with the logic to retrieve the data:</p>
+<pre><code class="TypeScript">@Injectable() export class CustomTranslationProvider implements TranslationProvider {
+
+    /**
+     * This method must contain the logic of data access.
+     * @param language The current language
+     * @param args The parameter of addCustomProvider method
+     * @return An observable of an object of translation data: {key: value}
+     */
+    public getTranslation(language: string, args: any): Observable&lt;any&gt; {
+        ...
+        return ...
+    }
+
+}
+</code></pre>
+
+<p>Note that the method must return an <em>observable</em> of an <em>object</em>. Then provide the class in the module:</p>
+<pre><code class="TypeScript">@NgModule({
+    imports: [
+        ...
+        TranslationModule.forRoot(
+            l10nConfig,
+            { translationProvider: CustomTranslationProvider }
+        )
+    ],
+    ...
+})
+</code></pre>
+
+<p><code>args</code> will be the object set during the configuration of <code>providers</code>.</p>
+<p>See also <a href="https://github.com/robisim74/angular-l10n/blob/master/src/services/translation-provider.ts">TranslationProvider</a> code.</p>
+<p><br></p>
+<hr />
+<h3 id="using-a-composed-language">Using a composed language</h3>
+<p>By default, the <code>languageCode</code> is added as extension to the translation files. If you set <code>composedLanguage</code> during the configuration, the combination of supplied codes will be used as language:</p>
+<pre><code class="TypeScript">const l10nConfig: L10nConfig = {
+    locale: {
+        languages: [
+            { code: 'en', dir: 'ltr' }
+        ],
+        defaultLocale: { languageCode: 'en', countryCode: 'US' }
+    },
+    translation: {
+        providers: [
+            { type: ProviderType.Static, prefix: './assets/locale-' }
+        ],
+        composedLanguage: [ISOCode.Language, ISOCode.Country]
+    }
+};
+</code></pre>
+
+<p>Your <em>json</em> files should be something like: <code>./assets/locale-en-US.json</code> and so on. The available ISO codes are: <em>language</em>, <em>country</em>, <em>script</em>.</p>
+<p><br></p>
+<hr />
+<h3 id="default-locale-currency-timezone">Default locale, currency &amp; timezone</h3>
+<p>The <em>default locale</em> contains the current language and culture. It consists of:</p>
+<ul>
+<li><code>language code</code>: ISO 639 two-letter or three-letter code of the language</li>
+<li><code>country code</code>: ISO 3166 two-letter, uppercase code of the country</li>
+</ul>
+<p>and optionally:</p>
+<ul>
+<li><code>script code</code>: used to indicate the script or writing system variations that distinguish the written forms of a language or its dialects. It consists of four letters and was defined according to the assignments found in ISO 15924</li>
+<li><code>numbering system</code>: possible values include: <em>arab</em>, <em>arabext</em>, <em>bali</em>, <em>beng</em>, <em>deva</em>, <em>fullwide</em>, <em>gujr</em>, <em>guru</em>, <em>hanidec</em>, <em>khmr</em>, <em>knda</em>, <em>laoo</em>, <em>latn</em>, <em>limb</em>, <em>mlym</em>, <em>mong</em>, <em>mymr</em>, <em>orya</em>, <em>tamldec</em>, <em>telu</em>, <em>thai</em>, <em>tibt</em></li>
+<li><code>calendar</code>: possible values include: <em>buddhist</em>, <em>chinese</em>, <em>coptic</em>, <em>ethioaa</em>, <em>ethiopic</em>, <em>gregory</em>, <em>hebrew</em>, <em>indian</em>, <em>islamic</em>, <em>islamicc</em>, <em>iso8601</em>, <em>japanese</em>, <em>persian</em>, <em>roc</em></li>
+</ul>
+<p>The <em>currency</em> contains the ISO 4217 currency codes.</p>
+<p>The <em>timezone</em> contains the time zone names of the IANA time zone database.</p>
+<p>For more information see <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl">Intl API</a>.</p>
+<p><br></p>
+<hr />
+<h3 id="storage">Storage</h3>
+<p>The <code>defaultLocale</code>, the <code>currency</code> and the <code>timezone</code> chosen by the user are stored, and retrieved at the next access. During the configuration, you can choose your <code>StorageStrategy</code>: <em>Session</em>, <em>Local</em>, <em>Cookie</em>, <em>Disabled</em>. If you don't provide a different expiration using <code>cookieExpiration</code>, the cookie becomes a session cookie.</p>
+<p>You can also create a custom storage.</p>
+<p>Implement <code>LocaleStorage</code> class-interface and the <code>read</code> and <code>write</code> methods:</p>
+<pre><code class="TypeScript">@Injectable() export class CustomStorage implements LocaleStorage {
+
+    /**
+     * This method must contain the logic to read the storage.
+     * @param name 'defaultLocale' or 'currency'
+     * @return A promise with the value of the given name
+     */
+    public async read(name: string): Promise&lt;string | null&gt; {
+        ...
+        return ...
+    }
+
+    /**
+     * This method must contain the logic to write the storage.
+     * @param name 'defaultLocale' or 'currency'
+     * @param value The value for the given name
+     */
+    public async write(name: string, value: string): Promise&lt;void&gt; {
+        ...
+    }
+
+}
+</code></pre>
+
+<p>Note that the <code>read</code> method must return a <em>promise</em>. Then provide the class in the module:</p>
+<pre><code class="TypeScript">@NgModule({
+    imports: [
+        ...
+        TranslationModule.forRoot(
+            l10nConfig,
+            { localeStorage: CustomStorage }
+        )
+    ],
+    ...
+})
+</code></pre>
+
+<p>See also <a href="https://github.com/robisim74/angular-l10n/blob/master/src/services/locale-storage.ts">LocaleStorage</a> code.</p>
+<p><br></p>
+<hr />
+<h3 id="caching">Caching</h3>
+<p>You can enable the cache during configuration:</p>
+<pre><code class="TypeScript">const l10nConfig: L10nConfig = {
+    ...
+    translation: {
+        providers: [
+            { type: ProviderType.Static, prefix: './assets/global-' },
+            { type: ProviderType.Static, prefix: './assets/locale-' }
+        ],
+        caching: true
+    }
+};
+</code></pre>
+
+<p>The next time a translation file will be required, will be taken from the cache without making a new <em>http request</em>, with a significant performance improvement:</p>
+<ul>
+<li>if the user returns to a language already selected;</li>
+<li>if you use a global file shared across <em>lazy loaded modules</em>.</li>
+</ul>
+<p><br></p>
+<hr />
+<h3 id="intl-api">Intl API</h3>
+<p>To localize <em>dates and numbers</em>, this library uses the <a href="https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Intl">Intl API</a>.</p>
+<p>Check the current browser support:</p>
+<ul>
+<li><a href="http://kangax.github.io/compat-table/esintl/">ECMAScript compatibility tables</a></li>
+<li><a href="http://caniuse.com/#feat=internationalization">Can I use</a></li>
+</ul>
+<p>All modern browsers have implemented this API. You can use <a href="https://github.com/andyearnshaw/Intl.js">Intl.js</a> to extend support to old browsers.</p>
+<p>Just add one script tag in your <code>index.html</code>:</p>
+<pre><code class="Html">&lt;script src=&quot;https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en-US&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<p>When specifying the <code>features</code>, you have to specify what locale, or locales to load.</p>
+<p>The <em>timezone</em> is also provided via <em>Intl API</em>. Except IE, all modern browsers have implemented the timezone. To extend the support, you can use <a href="https://github.com/yahoo/date-time-format-timezone">Intl.DateTimeFormat timezone polyfill</a>.</p>
+<blockquote>
+<p>When a feature is not supported, however, for example in older browsers, Angular localization does not generate an error in the browser, but returns the value without performing operations.</p>
+</blockquote></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,9 +1,0 @@
-$ cat .gitignore
-/node_modules
-/typings
-/aot
-
-/app/**/*.js
-/app/**/*.map
-/app/*.js
-/app/*.map

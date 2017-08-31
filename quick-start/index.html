@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Roberto Simonetti">
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Quick start - Angular localization</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+	
+	<script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="..">Angular localization</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                    <li class="active">
+                        <a href="./">Quick start</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Specification <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../spec/library-structure/">Library structure</a>
+</li>
+                            
+<li >
+    <a href="../spec/configuration/">Configuration</a>
+</li>
+                            
+<li >
+    <a href="../spec/getting-the-translation/">Getting the translation</a>
+</li>
+                            
+<li >
+    <a href="../spec/lazy-loading/">Lazy loaded modules & Shared modules</a>
+</li>
+                            
+<li >
+    <a href="../spec/validation/">Validation by locales</a>
+</li>
+                            
+<li >
+    <a href="../spec/collator/">Collator</a>
+</li>
+                            
+<li >
+    <a href="../spec/testing/">Unit testing</a>
+</li>
+                            
+<li >
+    <a href="../spec/api/">Services APIs</a>
+</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="..">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../spec/library-structure/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/robisim74/angular-l10n">
+                                <i class="fa fa-github"></i>GitHub
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#quick-start">Quick start</a></li>
+            <li><a href="#first-scenario-you-only-need-to-translate-texts">First scenario: you only need to translate texts</a></li>
+            <li><a href="#second-scenario-you-need-to-translate-texts-dates-numbers">Second scenario: you need to translate texts, dates &amp; numbers</a></li>
+            <li><a href="#advanced-initialization">Advanced initialization</a></li>
+            <li><a href="#appendix-a-using-angular-cli">Appendix A - Using Angular CLI</a></li>
+            <li><a href="#appendix-b-using-ionic">Appendix B - Using Ionic</a></li>
+            <li><a href="#appendix-c-using-angular-meteor">Appendix C - Using Angular Meteor</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h2 id="quick-start">Quick start</h2>
+<p><em>The samples are based on <a href="https://github.com/angular/quickstart">Angular QuickStart</a></em></p>
+<p><br></p>
+<hr />
+<h3 id="first-scenario-you-only-need-to-translate-texts">First scenario: you only need to translate texts</h3>
+<p>Install the library:</p>
+<pre><code class="Shell">npm install angular-l10n --save
+</code></pre>
+
+<p>Add the library to <code>systemjs.config.js</code> file (skip this step if you don't use <em>SystemJS</em>):</p>
+<pre><code class="JavaScript">System.config({
+    ...
+    map: {
+        ...
+        'angular-l10n': 'npm:angular-l10n/bundles/angular-l10n.umd.js'
+    },
+    ...
+});
+</code></pre>
+
+<p>Import the modules you need and configure the library in <code>app.module.ts</code>:</p>
+<pre><code class="TypeScript">import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home.component';
+
+import { L10nConfig, L10nLoader, TranslationModule, StorageStrategy, ProviderType } from 'angular-l10n';
+
+const l10nConfig: L10nConfig = {
+    locale: {
+        languages: [
+            { code: 'en', dir: 'ltr' },
+            { code: 'it', dir: 'ltr' }
+        ],
+        language: 'en',
+        storage: StorageStrategy.Cookie
+    },
+    translation: {
+        providers: [
+            { type: ProviderType.Static, prefix: './assets/locale-' }
+        ],
+        caching: true,
+        missingValue: 'No key'
+    }
+};
+
+@NgModule({
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        TranslationModule.forRoot(l10nConfig)
+    ],
+    declarations: [AppComponent, HomeComponent],
+    bootstrap: [AppComponent]
+})
+export class AppModule {
+
+    constructor(public l10nLoader: L10nLoader) {
+        this.l10nLoader.load();
+    }
+
+}
+</code></pre>
+
+<p>Add to <code>app.component.ts</code>:</p>
+<pre><code class="TypeScript">import { Component, OnInit } from '@angular/core';
+
+import { LocaleService, TranslationService, Language } from 'angular-l10n';
+
+@Component({
+    selector: 'my-app',
+    template: `
+        &lt;h1&gt;{{ title }}&lt;/h1&gt;
+
+        &lt;h3&gt;{{ 'Change language' | translate:lang }}&lt;/h3&gt;
+
+        &lt;button (click)=&quot;selectLanguage('en');&quot;&gt;English&lt;/button&gt;
+        &lt;button (click)=&quot;selectLanguage('it');&quot;&gt;Italiano&lt;/button&gt;
+
+        &lt;home-component&gt;&lt;/home-component&gt;
+    `
+})
+export class AppComponent implements OnInit {
+
+    @Language() lang: string;
+
+    title: string;
+
+    constructor(public locale: LocaleService, public translation: TranslationService) { }
+
+    ngOnInit(): void {
+        this.translation.translationChanged().subscribe(
+            () =&gt; { this.title = this.translation.translate('Title'); }
+        );
+    }
+
+    selectLanguage(language: string): void {
+        this.locale.setCurrentLanguage(language);
+    }
+
+}
+</code></pre>
+
+<p>Add <code>home.component.ts</code>:</p>
+<pre><code class="TypeScript">import { Component, OnInit } from '@angular/core';
+
+import { Language } from 'angular-l10n';
+
+@Component({
+    selector: 'home-component',
+    template: `
+        &lt;p&gt;{{ 'Greeting' | translate:lang }}&lt;/p&gt;
+
+        &lt;p title=&quot;{{ 'Greeting' | translate:lang }}&quot;&gt;{{ 'Subtitle' | translate:lang }}&lt;/p&gt;
+    `
+})
+export class HomeComponent implements OnInit {
+
+    @Language() lang: string;
+
+    ngOnInit(): void { }
+
+}
+</code></pre>
+
+<p>and create the <em>json</em> files of the translations such as <code>locale-en.json</code> and <code>locale-it.json</code> in <code>src/assets</code> folder:</p>
+<pre><code class="Json">{
+    &quot;Title&quot;: &quot;Angular localization&quot;,
+    &quot;Subtitle&quot;: &quot;It's a small world&quot;,
+    &quot;Change language&quot;: &quot;Change language&quot;,
+    &quot;Greeting&quot;: &quot;Hi!&quot;
+}
+</code></pre>
+
+<pre><code class="Json">{
+    &quot;Title&quot;: &quot;Localizzazione in Angular&quot;,
+    &quot;Subtitle&quot;: &quot;Il mondo è piccolo&quot;,
+    &quot;Change language&quot;: &quot;Cambia lingua&quot;,
+    &quot;Greeting&quot;: &quot;Ciao!&quot;
+}
+</code></pre>
+
+<p><br></p>
+<h4 id="using-directives">Using directives</h4>
+<p>In addition to the <em>pipes</em>, you can use <em>directives</em>. Try to change <code>home.component.ts</code>:</p>
+<pre><code class="TypeScript">import { Component } from '@angular/core';
+
+@Component({
+    selector: 'home-component',
+    template: `
+        &lt;p l10nTranslate&gt;Greeting&lt;/p&gt;
+
+        &lt;p l10n-title title=&quot;Greeting&quot; l10nTranslate&gt;Subtitle&lt;/p&gt;
+    `
+})
+export class HomeComponent { }
+</code></pre>
+
+<p>Note that if you use in the component only the <em>directives</em> and not the <em>pipes</em>, you don't need to use <code>@Language()</code> <em>decorator</em>.</p>
+<p><br></p>
+<hr />
+<h3 id="second-scenario-you-need-to-translate-texts-dates-numbers">Second scenario: you need to translate texts, dates &amp; numbers</h3>
+<p>Install the library:</p>
+<pre><code class="Shell">npm install angular-l10n --save
+</code></pre>
+
+<p>Add the library to <code>systemjs.config.js</code> file (skip this step if you don't use <em>SystemJS</em>):</p>
+<pre><code class="JavaScript">System.config({
+    ...
+    map: {
+        ...
+        'angular-l10n': 'npm:angular-l10n/bundles/angular-l10n.umd.js'
+    },
+    ...
+});
+</code></pre>
+
+<p>Import the modules you need and configure the library in <code>app.module.ts</code>:</p>
+<pre><code class="TypeScript">import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home.component';
+
+import { L10nConfig, L10nLoader, LocalizationModule, StorageStrategy, ProviderType } from 'angular-l10n';
+
+const l10nConfig: L10nConfig = {
+    locale: {
+        languages: [
+            { code: 'en', dir: 'ltr' },
+            { code: 'it', dir: 'ltr' }
+        ],
+        defaultLocale: { languageCode: 'en', countryCode: 'US' },
+        currency: 'USD',
+        storage: StorageStrategy.Cookie
+    },
+    translation: {
+        providers: [
+            { type: ProviderType.Static, prefix: './assets/locale-' }
+        ],
+        caching: true,
+        missingValue: 'No key'
+    }
+};
+
+@NgModule({
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        LocalizationModule.forRoot(l10nConfig)
+    ],
+    declarations: [AppComponent, HomeComponent],
+    bootstrap: [AppComponent]
+})
+export class AppModule {
+
+    constructor(public l10nLoader: L10nLoader) {
+        this.l10nLoader.load();
+    }
+
+}
+</code></pre>
+
+<p>Add to <code>app.component.ts</code>:</p>
+<pre><code class="TypeScript">import { Component, OnInit } from '@angular/core';
+
+import { LocaleService, TranslationService, Language } from 'angular-l10n';
+
+@Component({
+    selector: 'my-app',
+    template: `
+        &lt;h1&gt;{{ title }}&lt;/h1&gt;
+
+        &lt;h3&gt;{{ 'Change country' | translate:lang }}&lt;/h3&gt;
+
+        &lt;button (click)=&quot;selectLocale('en', 'US', 'USD');&quot;&gt;United States&lt;/button&gt;
+        &lt;button (click)=&quot;selectLocale('en', 'GB', 'GBP');&quot;&gt;United Kingdom&lt;/button&gt;
+        &lt;button (click)=&quot;selectLocale('it', 'IT', 'EUR');&quot;&gt;Italia&lt;/button&gt;
+
+        &lt;home-component&gt;&lt;/home-component&gt;
+    `
+})
+export class AppComponent implements OnInit {
+
+    @Language() lang: string;
+
+    title: string;
+
+    constructor(public locale: LocaleService, public translation: TranslationService) { }
+
+    ngOnInit(): void {
+        this.translation.translationChanged().subscribe(
+            () =&gt; { this.title = this.translation.translate('Title'); }
+        );
+    }
+
+    selectLocale(language: string, country: string, currency: string): void {
+        this.locale.setDefaultLocale(language, country);
+        this.locale.setCurrentCurrency(currency);
+    }
+
+}
+</code></pre>
+
+<p>and create the <em>json</em> files of the translations such as <code>locale-en.json</code> and <code>locale-it.json</code> in <code>src/assets</code> folder:</p>
+<pre><code class="Json">{
+    &quot;Title&quot;: &quot;Angular localization&quot;,
+    &quot;Subtitle&quot;: &quot;It's a small world&quot;,
+    &quot;Change country&quot;: &quot;Change country&quot;,
+    &quot;Greeting&quot;: &quot;Hi!&quot;,
+    &quot;Change&quot;: &quot;Change&quot;
+}
+</code></pre>
+
+<pre><code class="Json">{
+    &quot;Title&quot;: &quot;Localizzazione in Angular&quot;,
+    &quot;Subtitle&quot;: &quot;Il mondo è piccolo&quot;,
+    &quot;Change country&quot;: &quot;Cambia Paese&quot;,
+    &quot;Greeting&quot;: &quot;Ciao!&quot;,
+    &quot;Change&quot;: &quot;Cambia&quot;
+}
+</code></pre>
+
+<p>Add <code>home.component.ts</code>:</p>
+<pre><code class="TypeScript">import { Component, OnInit } from '@angular/core';
+
+import { Language, DefaultLocale, Currency } from 'angular-l10n';
+
+@Component({
+    selector: 'home-component',
+    template: `
+        &lt;p&gt;{{ 'Greeting' | translate:lang }}&lt;/p&gt;
+
+        &lt;p title=&quot;{{ 'Greeting' | translate:lang }}&quot;&gt;{{ 'Subtitle' | translate:lang }}&lt;/p&gt;
+
+        &lt;p&gt;{{ today | l10nDate:defaultLocale:'fullDate' }}&lt;/p&gt;       
+        &lt;p&gt;{{ pi | l10nDecimal:defaultLocale:'1.5-5' }}&lt;/p&gt;
+        &lt;p&gt;{{ value | l10nCurrency:defaultLocale:currency:'symbol':'1.2-2' }}&lt;/p&gt;
+
+        &lt;button (click)=&quot;change()&quot;&gt;{{ 'Change' | translate:lang }}&lt;/button&gt;
+    `
+})
+export class HomeComponent implements OnInit {
+
+    @Language() lang: string;
+    @DefaultLocale() defaultLocale: string;
+    @Currency() currency: string;
+
+    today: number;
+    pi: number;
+    value: number;
+
+    ngOnInit(): void {
+        this.today = Date.now();
+        this.pi = 3.14159;
+        this.value = Math.round(Math.random() * 1000000) / 100;
+    }
+
+    change(): void {
+        this.value = Math.round(Math.random() * 1000000) / 100;
+    }
+
+}
+</code></pre>
+
+<p>Finally, to extend the support to old browsers, add the following script tag in <code>index.html</code>:</p>
+<pre><code class="Html">&lt;script src=&quot;https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en-US,Intl.~locale.en-GB,Intl.~locale.it-IT&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<p><br></p>
+<h4 id="using-directives_1">Using directives</h4>
+<p>In addition to the <em>pipes</em>, you can use <em>directives</em>. Try to change <code>home.component.ts</code>:</p>
+<pre><code class="TypeScript">import { Component, OnInit } from '@angular/core';
+
+@Component({
+    selector: 'home-component',
+    template: `
+        &lt;p l10nTranslate&gt;Greeting&lt;/p&gt;
+
+        &lt;p l10n-title title=&quot;Greeting&quot; l10nTranslate&gt;Subtitle&lt;/p&gt;
+
+        &lt;p l10nDate=&quot;fullDate&quot;&gt;{{ today }}&lt;/p&gt;    
+        &lt;p l10nDecimal=&quot;1.5-5&quot;&gt;{{ pi }}&lt;/p&gt;
+        &lt;p l10nCurrency=&quot;1.2-2&quot; [currencyDisplay]=&quot;'symbol'&quot;&gt;{{ value }}&lt;/p&gt;
+
+        &lt;button (click)=&quot;change()&quot; l10nTranslate&gt;Change&lt;/button&gt;
+    `
+})
+export class HomeComponent implements OnInit {
+
+    today: number;
+    pi: number;
+    value: number;
+
+    ngOnInit(): void {
+        this.today = Date.now();
+        this.pi = 3.14159;
+        this.value = Math.round(Math.random() * 1000000) / 100;
+    }
+
+    change(): void {
+        this.value = Math.round(Math.random() * 1000000) / 100;
+    }
+
+}
+</code></pre>
+
+<p>Note that if you use in the component only the <em>directives</em> and not the <em>pipes</em>, you don't need to use <em>decorators</em>.</p>
+<p><br></p>
+<hr />
+<h3 id="advanced-initialization">Advanced initialization</h3>
+<p>If you want the app to be rendered only after the translation file is loaded, 
+you can use these settings in <code>app.module.ts</code>:</p>
+<pre><code class="TypeScript">import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home.component';
+
+import { L10nConfig, L10nLoader, TranslationModule, StorageStrategy, ProviderType } from 'angular-l10n';
+
+const l10nConfig: L10nConfig = {
+    locale: {
+        languages: [
+            { code: 'en', dir: 'ltr' },
+            { code: 'it', dir: 'ltr' }
+        ],
+        language: 'en',
+        storage: StorageStrategy.Cookie
+    },
+    translation: {
+        providers: [
+            { type: ProviderType.Static, prefix: './assets/locale-' }
+        ],
+        caching: true,
+        missingValue: 'No key'
+    }
+};
+
+// Advanced initialization.
+export function initL10n(l10nLoader: L10nLoader): Function {
+    return () =&gt; l10nLoader.load();
+}
+
+// APP_INITIALIZER will execute the function when the app is initialized and delay what it provides.
+@NgModule({
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        TranslationModule.forRoot(l10nConfig)
+    ],
+    declarations: [AppComponent, HomeComponent],
+    providers: [
+        {
+            provide: APP_INITIALIZER,
+            useFactory: initL10n,
+            deps: [L10nLoader],
+            multi: true
+        }
+    ],
+    bootstrap: [AppComponent]
+})
+export class AppModule { }
+</code></pre>
+
+<p><br></p>
+<hr />
+<h3 id="appendix-a-using-angular-cli">Appendix A - Using Angular CLI</h3>
+<p>If you are using <em>Angular CLI</em>, you have to add the <em>json</em> files in <code>src/assets</code> folder, 
+copied as-is when building your project. 
+Always configure your provider in this way:</p>
+<pre><code class="TypeScript">...
+    providers: [
+        { type: ProviderType.Static, prefix: './assets/locale-' }
+    ],
+...
+</code></pre>
+
+<p><br></p>
+<hr />
+<h3 id="appendix-b-using-ionic">Appendix B - Using Ionic</h3>
+<p>You have to add the <em>json</em> files in <code>www/assets</code> folder. 
+Always configure your provider in this way:</p>
+<pre><code class="TypeScript">...
+    providers: [
+        { type: ProviderType.Static, prefix: './assets/locale-' }
+    ],
+...
+</code></pre>
+
+<p><br></p>
+<hr />
+<h3 id="appendix-c-using-angular-meteor">Appendix C - Using Angular Meteor</h3>
+<p>You must create <code>public/assets</code> folder at the root of your app. 
+In this way, <code>assets</code> folder is copied directly into your application bundle. 
+Always configure your provider in this way:</p>
+<pre><code class="TypeScript">...
+    providers: [
+        { type: ProviderType.Static, prefix: './assets/locale-' }
+    ],
+...
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '..';</script>
+        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+        <script src="../js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
