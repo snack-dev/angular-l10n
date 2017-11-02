@@ -131,23 +131,11 @@
                 <div class="col-md-9" role="main">
 
 <h2 id="quick-start">Quick start</h2>
-<p><em>The samples are based on <a href="https://github.com/angular/quickstart">Angular QuickStart</a></em></p>
 <p><br></p>
 <hr />
 <h3 id="first-scenario-you-only-need-to-translate-texts">First scenario: you only need to translate texts</h3>
 <p>Install the library:</p>
 <pre><code class="Shell">npm install angular-l10n --save
-</code></pre>
-
-<p>Add the library to <code>systemjs.config.js</code> file (skip this step if you don't use <em>SystemJS</em>):</p>
-<pre><code class="JavaScript">System.config({
-    ...
-    map: {
-        ...
-        'angular-l10n': 'npm:angular-l10n/bundles/angular-l10n.umd.js'
-    },
-    ...
-});
 </code></pre>
 
 <p>Import the modules you need and configure the library in <code>app.module.ts</code>:</p>
@@ -156,7 +144,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home.component';
+import { HomeComponent } from './home/home.component';
 
 import { L10nConfig, L10nLoader, TranslationModule, StorageStrategy, ProviderType } from 'angular-l10n';
 
@@ -202,7 +190,7 @@ export class AppModule {
 import { LocaleService, TranslationService, Language } from 'angular-l10n';
 
 @Component({
-    selector: 'my-app',
+    selector: 'app-root',
     template: `
         &lt;h1&gt;{{ title }}&lt;/h1&gt;
 
@@ -211,7 +199,7 @@ import { LocaleService, TranslationService, Language } from 'angular-l10n';
         &lt;button (click)=&quot;selectLanguage('en');&quot;&gt;English&lt;/button&gt;
         &lt;button (click)=&quot;selectLanguage('it');&quot;&gt;Italiano&lt;/button&gt;
 
-        &lt;home-component&gt;&lt;/home-component&gt;
+        &lt;app-home&gt;&lt;/app-home&gt;
     `
 })
 export class AppComponent implements OnInit {
@@ -241,7 +229,7 @@ export class AppComponent implements OnInit {
 import { Language } from 'angular-l10n';
 
 @Component({
-    selector: 'home-component',
+    selector: 'app-home',
     template: `
         &lt;p&gt;{{ 'Greeting' | translate:lang }}&lt;/p&gt;
 
@@ -280,7 +268,7 @@ export class HomeComponent implements OnInit {
 <pre><code class="TypeScript">import { Component } from '@angular/core';
 
 @Component({
-    selector: 'home-component',
+    selector: 'app-home',
     template: `
         &lt;p l10nTranslate&gt;Greeting&lt;/p&gt;
 
@@ -298,24 +286,13 @@ export class HomeComponent { }
 <pre><code class="Shell">npm install angular-l10n --save
 </code></pre>
 
-<p>Add the library to <code>systemjs.config.js</code> file (skip this step if you don't use <em>SystemJS</em>):</p>
-<pre><code class="JavaScript">System.config({
-    ...
-    map: {
-        ...
-        'angular-l10n': 'npm:angular-l10n/bundles/angular-l10n.umd.js'
-    },
-    ...
-});
-</code></pre>
-
 <p>Import the modules you need and configure the library in <code>app.module.ts</code>:</p>
 <pre><code class="TypeScript">import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home.component';
+import { HomeComponent } from './home/home.component';
 
 import { L10nConfig, L10nLoader, LocalizationModule, StorageStrategy, ProviderType } from 'angular-l10n';
 
@@ -362,7 +339,7 @@ export class AppModule {
 import { LocaleService, TranslationService, Language } from 'angular-l10n';
 
 @Component({
-    selector: 'my-app',
+    selector: 'app-root',
     template: `
         &lt;h1&gt;{{ title }}&lt;/h1&gt;
 
@@ -372,7 +349,7 @@ import { LocaleService, TranslationService, Language } from 'angular-l10n';
         &lt;button (click)=&quot;selectLocale('en', 'GB', 'GBP');&quot;&gt;United Kingdom&lt;/button&gt;
         &lt;button (click)=&quot;selectLocale('it', 'IT', 'EUR');&quot;&gt;Italia&lt;/button&gt;
 
-        &lt;home-component&gt;&lt;/home-component&gt;
+        &lt;app-home&gt;&lt;/app-home&gt;
     `
 })
 export class AppComponent implements OnInit {
@@ -422,7 +399,7 @@ export class AppComponent implements OnInit {
 import { Language, DefaultLocale, Currency } from 'angular-l10n';
 
 @Component({
-    selector: 'home-component',
+    selector: 'app-home',
     template: `
         &lt;p&gt;{{ 'Greeting' | translate:lang }}&lt;/p&gt;
 
@@ -468,7 +445,7 @@ export class HomeComponent implements OnInit {
 <pre><code class="TypeScript">import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'home-component',
+    selector: 'app-home',
     template: `
         &lt;p l10nTranslate&gt;Greeting&lt;/p&gt;
 
@@ -511,7 +488,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home.component';
+import { HomeComponent } from './home/home.component';
 
 import { L10nConfig, L10nLoader, TranslationModule, StorageStrategy, ProviderType } from 'angular-l10n';
 
