@@ -123,6 +123,7 @@
             <li><a href="#first-scenario-you-only-need-to-translate-messages">First scenario: you only need to translate messages</a></li>
             <li><a href="#second-scenario-you-need-to-translate-messages-dates-numbers">Second scenario: you need to translate messages, dates &amp; numbers</a></li>
             <li><a href="#configuration-settings">Configuration settings</a></li>
+            <li><a href="#dynamic-settings">Dynamic settings</a></li>
             <li><a href="#loading-the-translation-data">Loading the translation data</a></li>
             <li><a href="#using-a-composed-language">Using a composed language</a></li>
             <li><a href="#default-locale-currency-timezone">Default locale, currency &amp; timezone</a></li>
@@ -306,6 +307,58 @@ export class AppModule {
 <blockquote>
 <p>There aren't default values: you must explicitly set each parameter you need.</p>
 </blockquote>
+<p><br></p>
+<hr />
+<h3 id="dynamic-settings">Dynamic settings</h3>
+<p>If you need to load the configuration data dynamically, you can provide a partial or empty <code>L10nConfig</code> in <code>AppModule</code>, 
+and then update the <em>configuration tokens</em> in your class (just before calling the <code>load</code> method of <code>L10nLoader</code>):</p>
+<pre><code class="TypeScript">const l10nConfig: L10nConfig = {
+    locale: {
+        languages: [], // Not available here.
+        defaultLocale: { languageCode: 'en', countryCode: 'US' },
+        currency: 'USD',
+        storage: StorageStrategy.Cookie
+    },
+    translation: {
+        providers: [], // Not available here.
+        caching: true,
+        missingValue: 'No key'
+    }
+};
+
+@NgModule({
+    imports: [
+        ...
+        LocalizationModule.forRoot(l10nConfig)
+    ],
+    declarations: [AppComponent, HomeComponent],
+    bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+...
+
+export class AppComponent {
+
+    constructor(
+        public l10nLoader: L10nLoader,
+        @Inject(LOCALE_CONFIG) private localeConfig,
+        @Inject(TRANSLATION_CONFIG) private translationConfig
+    ) {
+        ...
+
+        this.localeConfig.languages = MY_LANGUAGES;
+
+        this.translationConfig.providers = [
+            { type: ProviderType.WebAPI, path: MY_URL + '/api/values/' }
+        ];
+
+        this.l10nLoader.load();
+    }
+
+}
+</code></pre>
+
 <p><br></p>
 <hr />
 <h3 id="loading-the-translation-data">Loading the translation data</h3>
