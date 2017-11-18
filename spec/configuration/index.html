@@ -310,15 +310,29 @@ export class AppModule {
 <p><br></p>
 <hr />
 <h3 id="dynamic-settings">Dynamic settings</h3>
+<p>The configuration settings are stored in the following <code>InjectionToken</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Token</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LocaleConfig</code></td>
+<td><code>LOCALE_CONFIG</code></td>
+</tr>
+<tr>
+<td><code>TranslationConfig</code></td>
+<td><code>TRANSLATION_CONFIG</code></td>
+</tr>
+</tbody>
+</table>
 <p>If you need to load the configuration data dynamically, you can provide a partial or empty <code>L10nConfig</code> in <code>AppModule</code>, 
-and then update the <em>configuration tokens</em> in your class (just before calling the <code>load</code> method of <code>L10nLoader</code>):</p>
+and then update the <em>tokens</em> in your class:</p>
 <pre><code class="TypeScript">const l10nConfig: L10nConfig = {
-    locale: {
-        languages: [], // Not available here.
-        defaultLocale: { languageCode: 'en', countryCode: 'US' },
-        currency: 'USD',
-        storage: StorageStrategy.Cookie
-    },
+    ...
     translation: {
         providers: [], // Not available here.
         caching: true,
@@ -331,32 +345,67 @@ and then update the <em>configuration tokens</em> in your class (just before cal
         ...
         LocalizationModule.forRoot(l10nConfig)
     ],
-    declarations: [AppComponent, HomeComponent],
-    bootstrap: [AppComponent]
+    ...
 })
-export class AppModule { }
-
-...
-
-export class AppComponent {
+export class AppModule {
 
     constructor(
         public l10nLoader: L10nLoader,
-        @Inject(LOCALE_CONFIG) private localeConfig,
-        @Inject(TRANSLATION_CONFIG) private translationConfig
+        @Inject(TRANSLATION_CONFIG) private translationConfig: TranslationConfig
     ) {
-        ...
-
-        this.localeConfig.languages = MY_LANGUAGES;
-
         this.translationConfig.providers = [
-            { type: ProviderType.WebAPI, path: MY_URL + '/api/values/' }
+            { type: ProviderType.Static, prefix: './assets/locale-' }
         ];
 
         this.l10nLoader.load();
     }
 
 }
+</code></pre>
+
+<blockquote>
+<p>Configuration must be completed before invoking the <code>load</code> method of <code>L10nLoader</code>.</p>
+</blockquote>
+<p>Or whether you use the <em>advanced initialization</em>:</p>
+<pre><code class="TypeScript">@Injectable() export class LocalizationConfig {
+
+    constructor(
+        public l10nLoader: L10nLoader,
+        @Inject(TRANSLATION_CONFIG) private translationConfig: TranslationConfig
+    ) { }
+
+    load(): Promise&lt;void&gt; {
+        this.translationConfig.providers = [
+            { type: ProviderType.Static, prefix: './assets/locale-' }
+        ];
+
+        return this.l10nLoader.load();
+    }
+
+}
+
+export function initLocalization(localizationConfig: LocalizationConfig): Function {
+    return () =&gt; localizationConfig.load();
+}
+
+@NgModule({
+    imports: [
+        ...
+        LocalizationModule.forRoot(l10nConfig)
+    ],
+    providers: [
+        ...
+        LocalizationConfig,
+        {
+            provide: APP_INITIALIZER,
+            useFactory: initLocalization,
+            deps: [LocalizationConfig],
+            multi: true
+        }
+    ],
+    ...
+})
+export class AppModule { }
 </code></pre>
 
 <p><br></p>
@@ -447,7 +496,7 @@ export class AppModule {
     /**
      * This method must contain the logic of data access.
      * @param language The current language
-     * @param args The parameter of addCustomProvider method
+     * @param args The object set during the configuration of 'providers'
      * @return An observable of an object of translation data: {key: value}
      */
     public getTranslation(language: string, args: any): Observable&lt;any&gt; {
@@ -471,7 +520,6 @@ export class AppModule {
 })
 </code></pre>
 
-<p><code>args</code> will be the object set during the configuration of <code>providers</code>.</p>
 <p>See also <a href="https://github.com/robisim74/angular-l10n/blob/master/src/services/translation-provider.ts">TranslationProvider</a> code.</p>
 <p><br></p>
 <hr />
