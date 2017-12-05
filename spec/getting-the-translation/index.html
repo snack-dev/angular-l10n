@@ -522,14 +522,15 @@ export class HomeComponent extends Translation {
 <p><br></p>
 <h4 id="ui-components">UI components</h4>
 <p>You can properly translate UI components like Angular Material or Ionic:</p>
-<pre><code class="Html">&lt;a routerLinkActive=&quot;active-link&quot; md-list-item routerLink=&quot;/home&quot; l10nTranslate&gt;App.Home&lt;/a&gt;
+<pre><code class="Html">&lt;a mat-list-item routerLinkActive=&quot;active-link&quot; routerLink=&quot;/home&quot; l10nTranslate&gt;App.Home&lt;/a&gt;
 </code></pre>
 
 <p>rendered as:</p>
-<pre><code class="Html">&lt;a md-list-item=&quot;&quot; role=&quot;listitem&quot; routerlink=&quot;/home&quot; routerlinkactive=&quot;active-link&quot; l10nTranslate=&quot;&quot; href=&quot;#/home&quot; class=&quot;active-link&quot;&gt;
-    &lt;div class=&quot;md-list-item&quot;&gt;
-        &lt;div class=&quot;md-list-text&quot;&gt;&lt;/div&gt;
-        App.Home
+<pre><code class="Html">&lt;a class=&quot;mat-list-item ng-star-inserted active-link&quot; l10ntranslate=&quot;&quot; mat-list-item=&quot;&quot; role=&quot;listitem&quot; routerlinkactive=&quot;active-link&quot; href=&quot;#/home&quot; style=&quot;&quot;&gt;
+    &lt;div class=&quot;mat-list-item-content&quot;&gt;
+        &lt;div class=&quot;mat-list-item-ripple mat-ripple&quot; mat-ripple=&quot;&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;mat-list-text&quot;&gt;&lt;/div&gt;
+            Home
     &lt;/div&gt;
 &lt;/a&gt;
 </code></pre>
