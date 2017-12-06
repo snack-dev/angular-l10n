@@ -588,10 +588,10 @@ Always configure your provider in this way:</p>
 </ul>
 <p><strong>Note</strong></p>
 <ul>
-<li>This library builds only one app, and not an app for each language as Angular i18n native solution: so your prerendered <code>index.html</code> will contain the translation according to the language defined during the configuration</li>
+<li>This library builds only one app, and not an app for each language as <em>Angular i18n</em> native solution: so your prerendered <code>index.html</code> will contain the translation according to the language defined during the configuration</li>
 <li>If you use <em>Direct loading</em>, there are no particular warnings</li>
 <li>If you use <em>Asynchronous loading</em>, you have to solve the problem of <em>http requests</em> during <em>prerender</em> or <em>ssr</em><ul>
-<li>About <em>prerender</em>: you need to provide <em>absolute URLs</em> to a running server that will be the same that will serve the data </li>
+<li>About <em>prerender</em>: you need to provide <em>absolute URLs</em> to a running server that will be the same that will serve the data: if this is not possible and you want to use the <em>prerender</em> instead of <em>ssr</em>, you should use <em>Angular i18n</em> native solution</li>
 <li>About <em>ssr</em>: you only need to use <em>absolute URLs</em>, so for example:</li>
 </ul>
 </li>
