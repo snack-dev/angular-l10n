@@ -124,6 +124,7 @@
             <li><a href="#appendix-a-using-angular-cli">Appendix A - Using Angular CLI</a></li>
             <li><a href="#appendix-b-using-ionic">Appendix B - Using Ionic</a></li>
             <li><a href="#appendix-c-using-angular-meteor">Appendix C - Using Angular Meteor</a></li>
+            <li><a href="#appendix-d-using-angular-universal">Appendix D - Using Angular Universal</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -570,7 +571,39 @@ Always configure your provider in this way:</p>
         { type: ProviderType.Static, prefix: './assets/locale-' }
     ],
 ...
-</code></pre></div>
+</code></pre>
+
+<h3 id="appendix-d-using-angular-universal">Appendix D - Using Angular Universal</h3>
+<h4 id="prerender-prerender">Prerender (prerender)</h4>
+<ul>
+<li>Happens at build time</li>
+<li>Renders your application and replaces the dist <em>index.html</em> with a version rendered at the route <code>/</code></li>
+</ul>
+<h4 id="server-side-rendering-ssr">Server-Side Rendering (ssr)</h4>
+<ul>
+<li>Happens at runtime</li>
+<li>Uses a server <em>Engine</em> to render you application on the fly at the requested url</li>
+</ul>
+<p><strong>Note</strong></p>
+<ul>
+<li>This library builds only one app, and not an app for each language as Angular i18n native solution: so your prerendered <code>index.html</code> will contain the translation according to the language defined during the configuration</li>
+<li>If you use <em>Direct loading</em>, there are no particular warnings</li>
+<li>If you use <em>Asynchronous loading</em>, you have to solve the problem of <em>http requests</em> during <em>prerender</em> or <em>ssr</em><ul>
+<li>About <em>prerender</em>: you need to provide <em>absolute URLs</em> to a running server that will be the same that will serve the data </li>
+<li>About <em>ssr</em>: you only need to use <em>absolute URLs</em>, so for example:</li>
+</ul>
+</li>
+</ul>
+<pre><code class="TypeScript">...
+    providers: [
+        { type: ProviderType.Static, prefix: 'http:localhost:4000/assets/locale-' }
+    ],
+...
+</code></pre>
+
+<blockquote>
+<p>Please note that problems with <em>http requests</em> are not due to this library, but to common questions about <em>http requests</em> in <em>Universal</em> apps.</p>
+</blockquote></div>
         </div>
 
         <footer class="col-md-12">
