@@ -576,6 +576,7 @@ Always configure your provider in this way:</p>
 <p><br></p>
 <hr />
 <h3 id="appendix-d-using-angular-universal">Appendix D - Using Angular Universal</h3>
+<p>There are two ways:</p>
 <h4 id="prerender-prerender">Prerender (prerender)</h4>
 <ul>
 <li>Happens at build time</li>
@@ -591,21 +592,111 @@ Always configure your provider in this way:</p>
 <li>This library builds only one app, and not an app for each language as <em>Angular i18n</em> native solution: so your prerendered <code>index.html</code> will contain the translation according to the language defined during the configuration</li>
 <li>If you use <em>Direct loading</em>, there are no particular warnings</li>
 <li>If you use <em>Asynchronous loading</em>, you have to solve the problem of <em>http requests</em> during <em>prerender</em> or <em>ssr</em><ul>
-<li>About <em>prerender</em>: you need to provide <em>absolute URLs</em> to a running server that will be the same that will serve the data: if this is not possible and you want to use the <em>prerender</em> instead of <em>ssr</em>, you should use <em>Angular i18n</em> native solution</li>
+<li>About <em>prerender</em>: you need to provide <em>absolute URLs</em> to a running server that will be the same that will serve the data (or through a proxy): if this is not possible and you want to use the <em>prerender</em> instead of <em>ssr</em>, you should use <em>Angular i18n</em> native solution</li>
 <li>About <em>ssr</em>: you only need to use <em>absolute URLs</em>, so for example:</li>
 </ul>
 </li>
 </ul>
 <pre><code class="TypeScript">...
-    providers: [
-        { type: ProviderType.Static, prefix: 'http:localhost:4000/assets/locale-' }
-    ],
+providers: [
+    { type: ProviderType.Static, prefix: 'http:localhost:4000/assets/locale-' }
+],
 ...
 </code></pre>
 
 <blockquote>
 <p>Please note that problems with <em>http requests</em> are not due to this library, but to common questions about <em>http requests</em> in <em>Universal</em> apps.</p>
-</blockquote></div>
+</blockquote>
+<p>The following is an example that uses <em>Asynchronous loading</em>, based on <em>Angular Universal Starter</em>:</p>
+<p><code>app.module.ts</code>:</p>
+<pre><code class="TypeScript">const l10nConfig: L10nConfig = {
+    locale: {
+        languages: [
+            { code: 'en', dir: 'ltr' },
+            { code: 'it', dir: 'ltr' }
+        ],
+        defaultLocale: { languageCode: 'en', countryCode: 'US' },
+        currency: 'USD',
+        storage: StorageStrategy.Cookie
+    },
+    translation: {
+        providers: [],
+        caching: true
+    }
+};
+
+@Injectable() export class LocalizationConfig {
+
+    constructor(
+        public l10nLoader: L10nLoader,
+        @Inject(TRANSLATION_CONFIG) private translationConfig: TranslationConfig,
+        @Inject(PLATFORM_ID) private platformId: Object
+    ) { }
+
+    load(): Promise&lt;void&gt; {
+        if (isPlatformBrowser(this.platformId)) {
+            // Client only code.
+            this.translationConfig.providers = [
+                { type: ProviderType.Static, prefix: './assets/locale-' }
+            ];
+        }
+        if (isPlatformServer(this.platformId)) {
+            // Server only code.
+            this.translationConfig.providers = [
+                { type: ProviderType.Static, prefix: 'http://localhost:4000/assets/locale-' }
+            ];
+        }
+
+        return this.l10nLoader.load();
+    }
+
+}
+
+export function initLocalization(localizationConfig: LocalizationConfig): Function {
+    return () =&gt; localizationConfig.load();
+}
+
+@NgModule({
+    ...
+    imports: [
+        ...
+        HttpClientModule,
+        LocalizationModule.forRoot(l10nConfig)
+    ],
+    providers: [
+        LocalizationConfig,
+        {
+            provide: APP_INITIALIZER,
+            useFactory: initLocalization,
+            deps: [LocalizationConfig],
+            multi: true
+        }
+    ],
+    bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+</code></pre>
+
+<p>Now, depending on whether you want to use the <em>prerender</em> or <em>ssr</em> in production, you must proceed as follows:</p>
+<h4 id="prerender">prerender</h4>
+<pre><code class="Shell">npm run build:ssr
+npm run serve:ssr
+</code></pre>
+
+<p>The server is ready, so you can generate the pre-built files. Open a <em>new terminal</em> and type:</p>
+<pre><code class="Shell">npm run generate:prerender
+</code></pre>
+
+<p>If you see in the <em>dist/browser</em> folder, your <em>html</em> files should have the translated values (in the default language).
+To test it:</p>
+<pre><code class="Shell">npm run serve:prerender
+</code></pre>
+
+<h4 id="ssr">ssr</h4>
+<pre><code class="Shell">npm run build:ssr
+npm run serve:ssr
+</code></pre></div>
         </div>
 
         <footer class="col-md-12">
