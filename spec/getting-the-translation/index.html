@@ -507,6 +507,13 @@ export class HomeComponent extends Translation {
 <blockquote>
 <p>You can't dynamically change expressions in attributes.</p>
 </blockquote>
+<p>If you need to translate only the attributes and there isn't a master key to translate, you should use pipes:</p>
+<pre><code class="Html">&lt;input type=&quot;text&quot; placeholder=&quot;{{ 'Greeting' | translate:lang }}&quot;&gt;
+</code></pre>
+
+<blockquote>
+<p>Why? Because the master directive tries to find anyway a key to translate, walking the DOM: this may cause unexpected behavior if other translation directives are present in the subtree.</p>
+</blockquote>
 <p><br></p>
 <h5 id="parameters_2">Parameters</h5>
 <pre><code class="Html">&lt;p l10n-title title=&quot;Greeting&quot; [l10nTranslate]=&quot;{ user: username, NoMessages: messages.length }&quot;&gt;User notifications&lt;/p&gt;
