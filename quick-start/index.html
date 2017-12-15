@@ -450,9 +450,9 @@ export class HomeComponent implements OnInit {
 
         &lt;p l10n-title title=&quot;Greeting&quot; l10nTranslate&gt;Subtitle&lt;/p&gt;
 
-        &lt;p l10nDate=&quot;fullDate&quot;&gt;{{ today }}&lt;/p&gt;    
-        &lt;p l10nDecimal=&quot;1.5-5&quot;&gt;{{ pi }}&lt;/p&gt;
-        &lt;p l10nCurrency=&quot;1.2-2&quot; [currencyDisplay]=&quot;'symbol'&quot;&gt;{{ value }}&lt;/p&gt;
+        &lt;p format=&quot;fullDate&quot; l10nDate&gt;{{ today }}&lt;/p&gt;    
+        &lt;p digits=&quot;1.5-5&quot; l10nDecimal&gt;{{ pi }}&lt;/p&gt;
+        &lt;p digits=&quot;1.2-2&quot; currencyDisplay=&quot;symbol&quot; l10nCurrency&gt;{{ value }}&lt;/p&gt;
 
         &lt;button (click)=&quot;change()&quot; l10nTranslate&gt;Change&lt;/button&gt;
     `

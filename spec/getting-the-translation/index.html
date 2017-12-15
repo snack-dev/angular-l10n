@@ -438,31 +438,31 @@ export class HomeComponent extends Translation {
 <td>Translate</td>
 <td>Message</td>
 <td>String</td>
-<td><code>&lt;tag l10n-attribute attribute="expr1" l10nTranslate&gt;expr2&lt;/tag&gt;</code></td>
+<td><code>&lt;tag l10n-attribute attribute="expr1" [params]="[params]" l10nTranslate&gt;expr2&lt;/tag&gt;</code></td>
 </tr>
 <tr>
 <td>L10nDate</td>
 <td>Date</td>
 <td>Date/Number/ISO string</td>
-<td><code>&lt;tag l10n-attribute attribute="expr1" l10nDate="[format]"&gt;expr2&lt;/tag&gt;</code></td>
+<td><code>&lt;tag l10n-attribute attribute="expr1" format="[format]" l10nDate&gt;expr2&lt;/tag&gt;</code></td>
 </tr>
 <tr>
 <td>L10nDecimal</td>
 <td>Decimal</td>
 <td>Number/string</td>
-<td><code>&lt;tag l10n-attribute attribute="expr1" l10nDecimal="[digitInfo]"&gt;expr2&lt;/tag&gt;</code></td>
+<td><code>&lt;tag l10n-attribute attribute="expr1" digits="[digitInfo]" l10nDecimal&gt;expr2&lt;/tag&gt;</code></td>
 </tr>
 <tr>
 <td>L10nPercent</td>
 <td>Percentage</td>
 <td>Number/string</td>
-<td><code>&lt;tag l10n-attribute attribute="expr1" l10nPercent="[digitInfo]"&gt;expr2&lt;/tag&gt;</code></td>
+<td><code>&lt;tag l10n-attribute attribute="expr1" digits="[digitInfo]" l10nPercent&gt;expr2&lt;/tag&gt;</code></td>
 </tr>
 <tr>
 <td>L10nCurrency</td>
 <td>Currency</td>
 <td>Number/string</td>
-<td><code>&lt;tag l10n-attribute attribute="expr1" l10nCurrency="[digitInfo]" [currencyDisplay]="[currencyDisplay]"&gt;expr2&lt;/tag&gt;</code></td>
+<td><code>&lt;tag l10n-attribute attribute="expr1" digits="[digitInfo]" currencyDisplay="[currencyDisplay]" l10nCurrency&gt;expr2&lt;/tag&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -480,22 +480,22 @@ export class HomeComponent extends Translation {
 
 <p><br></p>
 <h5 id="parameters_1">Parameters</h5>
-<pre><code class="Html">&lt;p [l10nTranslate]=&quot;{ user: username, NoMessages: messages.length }&quot;&gt;User notifications&lt;/p&gt;
+<pre><code class="Html">&lt;p [params]=&quot;{ user: username, NoMessages: messages.length }&quot; l10nTranslate&gt;User notifications&lt;/p&gt;
 </code></pre>
 
 <p><br></p>
 <h4 id="dates-numbers_1">Dates &amp; Numbers</h4>
 <pre><code class="Html">&lt;p l10nDate&gt;{{ today }}&lt;/p&gt;
-&lt;p l10nDate=&quot;fullDate&quot;&gt;{{ today }}&lt;/p&gt;
+&lt;p format=&quot;fullDate&quot; l10nDate&gt;{{ today }}&lt;/p&gt;
 
 &lt;p l10nDecimal&gt;{{ value }}&lt;/p&gt;
-&lt;p l10nDecimal=&quot;1.5-5&quot;&gt;{{ value }}&lt;/p&gt;
+&lt;p digits=&quot;1.5-5&quot; l10nDecimal&gt;{{ value }}&lt;/p&gt;
 
 &lt;p l10nPercent&gt;{{ value }}&lt;/p&gt;
-&lt;p l10nPercent=&quot;1.1-1&quot;&gt;{{ value }}&lt;/p&gt;
+&lt;p digits=&quot;1.1-1&quot; l10nPercent&gt;{{ value }}&lt;/p&gt;
 
 &lt;p l10nCurrency&gt;{{ value }}&lt;/p&gt;
-&lt;p l10nCurrency=&quot;1.2-2&quot; [currencyDisplay]=&quot;'symbol'&quot;&gt;{{ value }}&lt;/p&gt;
+&lt;p digits=&quot;1.2-2&quot; currencyDisplay=&quot;symbol&quot; l10nCurrency&gt;{{ value }}&lt;/p&gt;
 </code></pre>
 
 <p><br></p>
@@ -507,16 +507,9 @@ export class HomeComponent extends Translation {
 <blockquote>
 <p>You can't dynamically change expressions in attributes.</p>
 </blockquote>
-<p>If you need to translate only the attributes and there isn't a master key to translate, you should use pipes:</p>
-<pre><code class="Html">&lt;input type=&quot;text&quot; placeholder=&quot;{{ 'Greeting' | translate:lang }}&quot;&gt;
-</code></pre>
-
-<blockquote>
-<p>Why? Because the master directive tries to find anyway a key to translate, walking the DOM: this may cause unexpected behavior if other translation directives are present in the subtree.</p>
-</blockquote>
 <p><br></p>
 <h5 id="parameters_2">Parameters</h5>
-<pre><code class="Html">&lt;p l10n-title title=&quot;Greeting&quot; [l10nTranslate]=&quot;{ user: username, NoMessages: messages.length }&quot;&gt;User notifications&lt;/p&gt;
+<pre><code class="Html">&lt;p l10n-title title=&quot;Greeting&quot; [params]=&quot;{ user: username, NoMessages: messages.length }&quot; l10nTranslate&gt;User notifications&lt;/p&gt;
 </code></pre>
 
 <p><em>Json</em>:</p>

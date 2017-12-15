@@ -166,18 +166,18 @@ export class AppModule { }
 <tbody>
 <tr>
 <td><code>L10nNumberValidator</code></td>
-<td><code>l10nValidateNumber=[digitInfo]</code></td>
+<td><code>digits=[digitInfo]</code></td>
 <td><code>[minValue]</code> <code>[maxValue]</code></td>
 <td><code>format</code> or <code>minValue</code> or <code>maxValue</code></td>
 </tr>
 </tbody>
 </table>
 <p>where <code>digitInfo</code> has the following format: <code>{minIntegerDigits}.{minFractionDigits}-{maxFractionDigits}</code>, and <code>minValue</code> and <code>maxValue</code> attributes are optional:</p>
-<pre><code class="Html">&lt;input l10nValidateNumber=&quot;1.2-2&quot; [minValue]=&quot;0&quot; [maxValue]=&quot;1000&quot; name=&quot;decimal&quot; [(ngModel)]=&quot;decimal&quot;&gt;
+<pre><code class="Html">&lt;input digits=&quot;1.2-2&quot; [minValue]=&quot;0&quot; [maxValue]=&quot;1000&quot; name=&quot;decimal&quot; [(ngModel)]=&quot;decimal&quot; l10nValidateNumber&gt;
 </code></pre>
 
 <p>or, if you use variables:</p>
-<pre><code class="Html">&lt;input [l10nValidateNumber]=&quot;digits&quot; [minValue]=&quot;minValue&quot; [maxValue]=&quot;maxValue&quot; name=&quot;decimal&quot; [(ngModel)]=&quot;decimal&quot;&gt;
+<pre><code class="Html">&lt;input [digits]=&quot;digits&quot; [minValue]=&quot;minValue&quot; [maxValue]=&quot;maxValue&quot; name=&quot;decimal&quot; [(ngModel)]=&quot;decimal&quot; l10nValidateNumber&gt;
 </code></pre>
 
 <p>The number can be entered with or without the thousands separator.</p>
