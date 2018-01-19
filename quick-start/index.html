@@ -244,7 +244,10 @@ export class HomeComponent implements OnInit {
 }
 </code></pre>
 
-<p>and create the <em>json</em> files of the translations such as <code>locale-en.json</code> and <code>locale-it.json</code> in <code>src/assets</code> folder:</p>
+<blockquote>
+<p>To use AoT compilation you have to implement OnInit, and to cancel subscriptions OnDestroy, even if they are empty.</p>
+</blockquote>
+<p>Create the <em>json</em> files of the translations such as <code>locale-en.json</code> and <code>locale-it.json</code> in <code>src/assets</code> folder:</p>
 <pre><code class="Json">{
     &quot;Title&quot;: &quot;Angular localization&quot;,
     &quot;Subtitle&quot;: &quot;It's a small world&quot;,
@@ -277,7 +280,9 @@ export class HomeComponent implements OnInit {
 export class HomeComponent { }
 </code></pre>
 
+<blockquote>
 <p>Note that if you use in the component only the <em>directives</em> and not the <em>pipes</em>, you don't need to use <code>@Language()</code> <em>decorator</em>.</p>
+</blockquote>
 <p><br></p>
 <hr />
 <h3 id="second-scenario-you-need-to-translate-texts-dates-numbers">Second scenario: you need to translate texts, dates &amp; numbers</h3>
@@ -373,25 +378,6 @@ export class AppComponent implements OnInit {
 }
 </code></pre>
 
-<p>and create the <em>json</em> files of the translations such as <code>locale-en.json</code> and <code>locale-it.json</code> in <code>src/assets</code> folder:</p>
-<pre><code class="Json">{
-    &quot;Title&quot;: &quot;Angular localization&quot;,
-    &quot;Subtitle&quot;: &quot;It's a small world&quot;,
-    &quot;Change country&quot;: &quot;Change country&quot;,
-    &quot;Greeting&quot;: &quot;Hi!&quot;,
-    &quot;Change&quot;: &quot;Change&quot;
-}
-</code></pre>
-
-<pre><code class="Json">{
-    &quot;Title&quot;: &quot;Localizzazione in Angular&quot;,
-    &quot;Subtitle&quot;: &quot;Il mondo è piccolo&quot;,
-    &quot;Change country&quot;: &quot;Cambia Paese&quot;,
-    &quot;Greeting&quot;: &quot;Ciao!&quot;,
-    &quot;Change&quot;: &quot;Cambia&quot;
-}
-</code></pre>
-
 <p>Add <code>home.component.ts</code>:</p>
 <pre><code class="TypeScript">import { Component, OnInit } from '@angular/core';
 
@@ -431,6 +417,28 @@ export class HomeComponent implements OnInit {
         this.value = Math.round(Math.random() * 1000000) / 100;
     }
 
+}
+</code></pre>
+
+<blockquote>
+<p>To use AoT compilation you have to implement OnInit, and to cancel subscriptions OnDestroy, even if they are empty.</p>
+</blockquote>
+<p>Create the <em>json</em> files of the translations such as <code>locale-en.json</code> and <code>locale-it.json</code> in <code>src/assets</code> folder:</p>
+<pre><code class="Json">{
+    &quot;Title&quot;: &quot;Angular localization&quot;,
+    &quot;Subtitle&quot;: &quot;It's a small world&quot;,
+    &quot;Change country&quot;: &quot;Change country&quot;,
+    &quot;Greeting&quot;: &quot;Hi!&quot;,
+    &quot;Change&quot;: &quot;Change&quot;
+}
+</code></pre>
+
+<pre><code class="Json">{
+    &quot;Title&quot;: &quot;Localizzazione in Angular&quot;,
+    &quot;Subtitle&quot;: &quot;Il mondo è piccolo&quot;,
+    &quot;Change country&quot;: &quot;Cambia Paese&quot;,
+    &quot;Greeting&quot;: &quot;Ciao!&quot;,
+    &quot;Change&quot;: &quot;Cambia&quot;
 }
 </code></pre>
 
@@ -476,7 +484,9 @@ export class HomeComponent implements OnInit {
 }
 </code></pre>
 
+<blockquote>
 <p>Note that if you use in the component only the <em>directives</em> and not the <em>pipes</em>, you don't need to use <em>decorators</em>.</p>
+</blockquote>
 <p><br></p>
 <hr />
 <h3 id="advanced-initialization">Advanced initialization</h3>
