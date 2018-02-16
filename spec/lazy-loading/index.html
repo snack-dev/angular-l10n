@@ -124,11 +124,11 @@
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="lazy-loaded-modules-shared-modules">Lazy loaded modules &amp; Shared modules</h2>
+<h2 id="lazy-loaded-modules-shared-modules">Lazy loaded modules &amp; Shared modules<a class="headerlink" href="#lazy-loaded-modules-shared-modules" title="Permanent link"></a></h2>
 <p>Before you start using this configuration, you need to know how <em>lazy-loading</em> works: <a href="https://angular.io/guide/ngmodule#lazy-loading-modules-with-the-router">Lazy-loading modules with the router</a>.</p>
 <p><br></p>
 <hr />
-<h3 id="lazy-loaded-modules-with-the-router">Lazy loaded modules with the router</h3>
+<h3 id="lazy-loaded-modules-with-the-router">Lazy loaded modules with the router<a class="headerlink" href="#lazy-loaded-modules-with-the-router" title="Permanent link"></a></h3>
 <p>You can create an instance of <code>TranslationService</code> with its own translation data for every <em>lazy loaded</em> module, as shown:
 <img alt="LazyLoading" src="../../images/LazyLoading.png" /></p>
 <p>You can create a new instance of <code>TranslationService</code> calling the <code>forChild</code> method of the module you are using, 
@@ -165,7 +165,7 @@ export class ListModule {
 <p>In this way, application performance and memory usage are optimized.</p>
 <p><br></p>
 <hr />
-<h3 id="shared-modules">Shared modules</h3>
+<h3 id="shared-modules">Shared modules<a class="headerlink" href="#shared-modules" title="Permanent link"></a></h3>
 <p>If you don't want a new instance of <code>TranslationService</code> with its own translation data for each feature module, but you want it to be <em>singleton</em> and shared by other modules, you have to call <code>forRoot</code> method of the module you are using once in <code>AppModule</code>:</p>
 <pre><code class="TypeScript">@NgModule({
     imports: [

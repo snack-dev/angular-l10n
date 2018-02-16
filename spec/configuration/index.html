@@ -126,16 +126,17 @@
             <li><a href="#using-a-composed-language">Using a composed language</a></li>
             <li><a href="#default-locale-currency-timezone">Default locale, currency &amp; timezone</a></li>
             <li><a href="#storage">Storage</a></li>
+            <li><a href="#getting-browser-language">Getting browser language</a></li>
             <li><a href="#caching">Caching</a></li>
             <li><a href="#intl-api">Intl API</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="configuration">Configuration</h2>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link"></a></h2>
 <p><br></p>
 <hr />
-<h3 id="first-scenario-you-only-need-to-translate-messages">First scenario: you only need to translate messages</h3>
+<h3 id="first-scenario-you-only-need-to-translate-messages">First scenario: you only need to translate messages<a class="headerlink" href="#first-scenario-you-only-need-to-translate-messages" title="Permanent link"></a></h3>
 <p>Import the modules you need and configure the library in the application root module:</p>
 <pre><code class="TypeScript">const l10nConfig: L10nConfig = {
     locale: {
@@ -175,7 +176,7 @@ export class AppModule {
 
 <p><br></p>
 <hr />
-<h3 id="second-scenario-you-need-to-translate-messages-dates-numbers">Second scenario: you need to translate messages, dates &amp; numbers</h3>
+<h3 id="second-scenario-you-need-to-translate-messages-dates-numbers">Second scenario: you need to translate messages, dates &amp; numbers<a class="headerlink" href="#second-scenario-you-need-to-translate-messages-dates-numbers" title="Permanent link"></a></h3>
 <p>Import the modules you need and configure the library in the application root module:</p>
 <pre><code class="TypeScript">const l10nConfig: L10nConfig = {
     locale: {
@@ -216,10 +217,10 @@ export class AppModule {
 
 <p><br></p>
 <hr />
-<h3 id="configuration-settings">Configuration settings</h3>
+<h3 id="configuration-settings">Configuration settings<a class="headerlink" href="#configuration-settings" title="Permanent link"></a></h3>
 <p>The <code>L10nConfig</code> interface contains an interface to configure <code>LocaleService</code> and one to configure <code>TranslationService</code>.</p>
 <p><br></p>
-<h4 id="localeconfig">LocaleConfig</h4>
+<h4 id="localeconfig">LocaleConfig<a class="headerlink" href="#localeconfig" title="Permanent link"></a></h4>
 <table>
 <thead>
 <tr>
@@ -259,7 +260,7 @@ export class AppModule {
 </tbody>
 </table>
 <p><br></p>
-<h4 id="translationconfig">TranslationConfig</h4>
+<h4 id="translationconfig">TranslationConfig<a class="headerlink" href="#translationconfig" title="Permanent link"></a></h4>
 <table>
 <thead>
 <tr>
@@ -285,8 +286,8 @@ export class AppModule {
 <td>Sets a composed language for translations</td>
 </tr>
 <tr>
-<td><code>missingValue?: string</code></td>
-<td>Sets the value to use for missing keys</td>
+<td><code>missingValue?: string | ((path: string) =&gt; string)</code></td>
+<td>Sets the value or the function to use for missing keys</td>
 </tr>
 <tr>
 <td><code>missingKey?: string</code></td>
@@ -307,7 +308,7 @@ export class AppModule {
 </blockquote>
 <p><br></p>
 <hr />
-<h3 id="dynamic-settings">Dynamic settings</h3>
+<h3 id="dynamic-settings">Dynamic settings<a class="headerlink" href="#dynamic-settings" title="Permanent link"></a></h3>
 <p>The configuration settings are stored in the following <code>InjectionToken</code>:</p>
 <table>
 <thead>
@@ -408,8 +409,8 @@ export class AppModule { }
 
 <p><br></p>
 <hr />
-<h3 id="loading-the-translation-data">Loading the translation data</h3>
-<h4 id="direct-loading">Direct loading</h4>
+<h3 id="loading-the-translation-data">Loading the translation data<a class="headerlink" href="#loading-the-translation-data" title="Permanent link"></a></h3>
+<h4 id="direct-loading">Direct loading<a class="headerlink" href="#direct-loading" title="Permanent link"></a></h4>
 <p>You can use <code>translationData</code> setting when you configure the service, 
 adding all the translation data:</p>
 <pre><code class="TypeScript">const translationEN: any = {
@@ -431,7 +432,7 @@ const l10nConfig: L10nConfig = {
 </code></pre>
 
 <p><br></p>
-<h4 id="asynchronous-loading-of-json-files">Asynchronous loading of json files</h4>
+<h4 id="asynchronous-loading-of-json-files">Asynchronous loading of json files<a class="headerlink" href="#asynchronous-loading-of-json-files" title="Permanent link"></a></h4>
 <p>You can add all the providers you need:</p>
 <pre><code class="TypeScript">const l10nConfig: L10nConfig = {
     ...
@@ -448,7 +449,7 @@ const l10nConfig: L10nConfig = {
 <p>You can't use Direct and Asynchronous loading at the same time.</p>
 </blockquote>
 <p><br></p>
-<h4 id="asynchronous-loading-through-a-web-api">Asynchronous loading through a Web API</h4>
+<h4 id="asynchronous-loading-through-a-web-api">Asynchronous loading through a Web API<a class="headerlink" href="#asynchronous-loading-through-a-web-api" title="Permanent link"></a></h4>
 <p>You can also load the data through a Web API:</p>
 <pre><code class="TypeScript">const l10nConfig: L10nConfig = {
     ...
@@ -469,7 +470,7 @@ export class AppModule {
 <p><code>[path]{languageCode}</code> will be the URL used by the Http GET requests. So the example URI will be something like: <code>http://localhost:54703/api/values/en</code>.</p>
 <p>The example above also showed as you can perform a custom action if you get a bad response.</p>
 <p><br></p>
-<h4 id="using-fallback-providers">Using fallback providers</h4>
+<h4 id="using-fallback-providers">Using fallback providers<a class="headerlink" href="#using-fallback-providers" title="Permanent link"></a></h4>
 <p>if you need a cascade fallback when the key is not found, you can use fallback providers:</p>
 <pre><code class="TypeScript">const l10nConfig: L10nConfig = {
     ...
@@ -486,7 +487,7 @@ export class AppModule {
 
 <p>and create the <em>json</em> files such as <code>global.json</code>, <code>locale-en.json</code>, <code>locale-en-US.json</code>. When you set a fallback provider, <em>the translation data will be merged in order</em>: if a key is found in the <em>en-US</em> file, it is used, otherwise the key in <em>en</em> file and finally the key in <em>global</em> file.</p>
 <p><br></p>
-<h4 id="using-a-custom-provider">Using a custom provider</h4>
+<h4 id="using-a-custom-provider">Using a custom provider<a class="headerlink" href="#using-a-custom-provider" title="Permanent link"></a></h4>
 <p>If you need, you can create a custom provider to load translation data.</p>
 <p>Implement <code>TranslationProvider</code> class-interface and the <code>getTranslation</code> method with the logic to retrieve the data:</p>
 <pre><code class="TypeScript">@Injectable() export class CustomTranslationProvider implements TranslationProvider {
@@ -521,7 +522,7 @@ export class AppModule {
 <p>See also <a href="https://github.com/robisim74/angular-l10n/blob/master/src/services/translation-provider.ts">TranslationProvider</a> code.</p>
 <p><br></p>
 <hr />
-<h3 id="using-a-composed-language">Using a composed language</h3>
+<h3 id="using-a-composed-language">Using a composed language<a class="headerlink" href="#using-a-composed-language" title="Permanent link"></a></h3>
 <p>By default, the <code>languageCode</code> is added as extension to the translation files. If you set <code>composedLanguage</code> during the configuration, the combination of supplied codes will be used as language:</p>
 <pre><code class="TypeScript">const l10nConfig: L10nConfig = {
     locale: {
@@ -540,9 +541,12 @@ export class AppModule {
 </code></pre>
 
 <p>Your <em>json</em> files should be something like: <code>./assets/locale-en-US.json</code> and so on. The available ISO codes are: <em>language</em>, <em>country</em>, <em>script</em>.</p>
+<blockquote>
+<p>Note that you have to configure <code>defaultLocale</code> and not only <code>language</code>. You must also use <code>setDefaultLocale</code> when the language changes.</p>
+</blockquote>
 <p><br></p>
 <hr />
-<h3 id="default-locale-currency-timezone">Default locale, currency &amp; timezone</h3>
+<h3 id="default-locale-currency-timezone">Default locale, currency &amp; timezone<a class="headerlink" href="#default-locale-currency-timezone" title="Permanent link"></a></h3>
 <p>The <em>default locale</em> contains the current language and culture. It consists of:</p>
 <ul>
 <li><code>language code</code>: ISO 639 two-letter or three-letter code of the language</li>
@@ -559,7 +563,7 @@ export class AppModule {
 <p>For more information see <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl">Intl API</a>.</p>
 <p><br></p>
 <hr />
-<h3 id="storage">Storage</h3>
+<h3 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link"></a></h3>
 <p>The <code>defaultLocale</code>, the <code>currency</code> and the <code>timezone</code> chosen by the user are stored, and retrieved at the next access. During the configuration, you can choose your <code>StorageStrategy</code>: <em>Session</em>, <em>Local</em>, <em>Cookie</em>, <em>Disabled</em>. If you don't provide a different expiration using <code>cookieExpiration</code>, the cookie becomes a session cookie.</p>
 <p>You can also create a custom storage.</p>
 <p>Implement <code>LocaleStorage</code> class-interface and the <code>read</code> and <code>write</code> methods:</p>
@@ -603,7 +607,23 @@ export class AppModule {
 <p>See also <a href="https://github.com/robisim74/angular-l10n/blob/master/src/services/locale-storage.ts">LocaleStorage</a> code.</p>
 <p><br></p>
 <hr />
-<h3 id="caching">Caching</h3>
+<h3 id="getting-browser-language">Getting browser language<a class="headerlink" href="#getting-browser-language" title="Permanent link"></a></h3>
+<p>Depending on the configuration, the library will try to get the language from the browser or not:</p>
+<p><strong>If you set <code>language</code></strong></p>
+<ul>
+<li>tries to get the <code>language</code> from the storage</li>
+<li>or tries to get the <code>language</code> from the browser</li>
+<li>or uses the <code>language</code> set in the configuration</li>
+</ul>
+<p><strong>If you set <code>defaultLocale</code></strong></p>
+<ul>
+<li>tries to get the <code>defaultLocale</code> from the storage</li>
+<li>or uses the <code>defaultLocale</code> set in the configuration</li>
+</ul>
+<p>That's because not all browsers return <code>languageCode-countryCode</code>.</p>
+<p><br></p>
+<hr />
+<h3 id="caching">Caching<a class="headerlink" href="#caching" title="Permanent link"></a></h3>
 <p>You can enable the cache during configuration:</p>
 <pre><code class="TypeScript">const l10nConfig: L10nConfig = {
     ...
@@ -624,7 +644,7 @@ export class AppModule {
 </ul>
 <p><br></p>
 <hr />
-<h3 id="intl-api">Intl API</h3>
+<h3 id="intl-api">Intl API<a class="headerlink" href="#intl-api" title="Permanent link"></a></h3>
 <p>To localize <em>dates and numbers</em>, this library uses the <a href="https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Intl">Intl API</a>.</p>
 <p>Check the current browser support:</p>
 <ul>

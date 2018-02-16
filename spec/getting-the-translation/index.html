@@ -128,12 +128,12 @@
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="getting-the-translation">Getting the translation</h2>
+<h2 id="getting-the-translation">Getting the translation<a class="headerlink" href="#getting-the-translation" title="Permanent link"></a></h2>
 <p>To get the translation, this library uses <em>pure pipes</em> (to know the difference between <em>pure</em> and <em>impure pipes</em> see <a href="https://angular.io/guide/pipes#pure-and-impure-pipes">here</a>) or <em>directives</em>. 
 You can also get the translation in component class.</p>
 <p><br></p>
 <hr />
-<h3 id="pure-pipes">Pure pipes</h3>
+<h3 id="pure-pipes">Pure pipes<a class="headerlink" href="#pure-pipes" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -180,7 +180,7 @@ You can also get the translation in component class.</p>
 <p>You can dynamically change parameters and expressions values.</p>
 </blockquote>
 <p><br></p>
-<h4 id="messages">Messages</h4>
+<h4 id="messages">Messages<a class="headerlink" href="#messages" title="Permanent link"></a></h4>
 <p>Implement <em>Language</em> decorator in the component to provide the parameter to the <em>translate</em> pipe:</p>
 <pre><code class="TypeScript">export class HomeComponent implements OnInit {
 
@@ -208,7 +208,7 @@ You can also get the translation in component class.</p>
 </code></pre>
 
 <p><br></p>
-<h5 id="composed-keys">Composed keys</h5>
+<h5 id="composed-keys">Composed keys<a class="headerlink" href="#composed-keys" title="Permanent link"></a></h5>
 <p>Set <code>composedKeySeparator</code> during the configuration, e.g. to <code>'.'</code>:</p>
 <pre><code class="Html">{{ 'Home.Title' | translate:lang }}
 </code></pre>
@@ -222,7 +222,7 @@ You can also get the translation in component class.</p>
 </code></pre>
 
 <p><br></p>
-<h5 id="parameters">Parameters</h5>
+<h5 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link"></a></h5>
 <pre><code class="Html">{{ 'User notifications' | translate:lang:{ user: username, NoMessages: messages.length } }}
 </code></pre>
 
@@ -233,7 +233,7 @@ You can also get the translation in component class.</p>
 </code></pre>
 
 <p><br></p>
-<h4 id="dates-numbers">Dates &amp; Numbers</h4>
+<h4 id="dates-numbers">Dates &amp; Numbers<a class="headerlink" href="#dates-numbers" title="Permanent link"></a></h4>
 <p>Implement <em>DefaultLocale</em>, <em>Currency</em> &amp; optionally <em>Timezone</em> decorators in the component to provide <em>defaultLocale</em>, <em>currency</em>, <em>timezone</em> to <em>l10nDate</em>, <em>l10nDecimal</em>, <em>l10nPercent</em> &amp; <em>l10nCurrency</em> pipes.</p>
 <pre><code class="TypeScript">export class HomeComponent implements OnInit {
 
@@ -250,7 +250,7 @@ You can also get the translation in component class.</p>
 <p>To use AoT compilation you have to implement OnInit, and to cancel subscriptions OnDestroy, even if they are empty.</p>
 </blockquote>
 <p><br></p>
-<h5 id="dates">Dates</h5>
+<h5 id="dates">Dates<a class="headerlink" href="#dates" title="Permanent link"></a></h5>
 <pre><code>expression | l10nDate[:defaultLocale[:format[:timezone]]]
 </code></pre>
 
@@ -288,12 +288,12 @@ See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/G
 </li>
 </ul>
 <p><br></p>
-<h6 id="using-format-aliases">Using format aliases</h6>
+<h6 id="using-format-aliases">Using format aliases<a class="headerlink" href="#using-format-aliases" title="Permanent link"></a></h6>
 <pre><code class="Html">{{ today | l10nDate:defaultLocale:'fullDate' }}
 </code></pre>
 
 <p><br></p>
-<h6 id="using-a-custom-format">Using a custom format</h6>
+<h6 id="using-a-custom-format">Using a custom format<a class="headerlink" href="#using-a-custom-format" title="Permanent link"></a></h6>
 <pre><code class="TypeScript">@Component({
     template: `
         &lt;p&gt;{{ today | l10nDate:defaultLocale:options }}&lt;/p&gt;
@@ -312,7 +312,7 @@ export class HomeComponent implements OnInit {
 </code></pre>
 
 <p><br></p>
-<h6 id="using-timezone">Using timezone</h6>
+<h6 id="using-timezone">Using timezone<a class="headerlink" href="#using-timezone" title="Permanent link"></a></h6>
 <pre><code class="TypeScript">@Component({
     template: `
         &lt;p&gt;{{ today | l10nDate:defaultLocale:'medium':timezone }}&lt;/p&gt;
@@ -331,7 +331,7 @@ export class HomeComponent implements OnInit {
 </code></pre>
 
 <p><br></p>
-<h5 id="decimals">Decimals</h5>
+<h5 id="decimals">Decimals<a class="headerlink" href="#decimals" title="Permanent link"></a></h5>
 <pre><code>expression | l10nDecimal[:defaultLocale:[digitInfo]]
 </code></pre>
 
@@ -340,7 +340,7 @@ export class HomeComponent implements OnInit {
 </code></pre>
 
 <p><br></p>
-<h5 id="percentages">Percentages</h5>
+<h5 id="percentages">Percentages<a class="headerlink" href="#percentages" title="Permanent link"></a></h5>
 <pre><code>expression | l10nPercent[:defaultLocale:[digitInfo]]
 </code></pre>
 
@@ -348,7 +348,7 @@ export class HomeComponent implements OnInit {
 </code></pre>
 
 <p><br></p>
-<h5 id="currencies">Currencies</h5>
+<h5 id="currencies">Currencies<a class="headerlink" href="#currencies" title="Permanent link"></a></h5>
 <pre><code>expression | l10nCurrency[:defaultLocale[:currency[:currencyDisplay[:digitInfo]]]]
 </code></pre>
 
@@ -357,7 +357,7 @@ export class HomeComponent implements OnInit {
 </code></pre>
 
 <p><br></p>
-<h4 id="translation-localization-classes">Translation &amp; Localization classes</h4>
+<h4 id="translation-localization-classes">Translation &amp; Localization classes<a class="headerlink" href="#translation-localization-classes" title="Permanent link"></a></h4>
 <p>When using <em>pipes</em>, alternatively to <em>decorators</em> you can 
 extend <code>Translation</code> or <code>Localization</code> classes.</p>
 <p>Extend <code>Translation</code> class in the component to provide <em>lang</em> to the <em>translate</em> pipe:</p>
@@ -370,7 +370,7 @@ extend <code>Translation</code> or <code>Localization</code> classes.</p>
 
 <p>To cancel subscriptions for the params, you can call the <code>cancelParamSubscriptions</code> method into <code>ngOnDestroy</code>.</p>
 <p><br></p>
-<h4 id="onpush-changedetectionstrategy">OnPush ChangeDetectionStrategy</h4>
+<h4 id="onpush-changedetectionstrategy">OnPush ChangeDetectionStrategy<a class="headerlink" href="#onpush-changedetectionstrategy" title="Permanent link"></a></h4>
 <p><em>Pure pipes</em> don't need to set <code>ChangeDetectionStrategy</code> to <code>OnPush</code>. If into your components you need to use it, you have to extend <code>Translation</code> or <code>Localization</code> class and pass <code>ChangeDetectorRef</code>:</p>
 <pre><code class="TypeScript">import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 
@@ -393,7 +393,7 @@ export class HomeComponent extends Translation {
 <p>That's because we need to know the component reference that implements the <code>OnPush</code> strategy.</p>
 <p><br></p>
 <hr />
-<h3 id="directives">Directives</h3>
+<h3 id="directives">Directives<a class="headerlink" href="#directives" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -474,17 +474,17 @@ export class HomeComponent extends Translation {
 <p>If you use in the component only the directives and not the pipes, you don't need to use decorators.</p>
 </blockquote>
 <p><br></p>
-<h4 id="messages_1">Messages</h4>
+<h4 id="messages_1">Messages<a class="headerlink" href="#messages_1" title="Permanent link"></a></h4>
 <pre><code class="Html">&lt;h1 l10nTranslate&gt;Title&lt;/h1&gt;
 </code></pre>
 
 <p><br></p>
-<h5 id="parameters_1">Parameters</h5>
+<h5 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link"></a></h5>
 <pre><code class="Html">&lt;p [params]=&quot;{ user: username, NoMessages: messages.length }&quot; l10nTranslate&gt;User notifications&lt;/p&gt;
 </code></pre>
 
 <p><br></p>
-<h4 id="dates-numbers_1">Dates &amp; Numbers</h4>
+<h4 id="dates-numbers_1">Dates &amp; Numbers<a class="headerlink" href="#dates-numbers_1" title="Permanent link"></a></h4>
 <pre><code class="Html">&lt;p l10nDate&gt;{{ today }}&lt;/p&gt;
 &lt;p format=&quot;fullDate&quot; l10nDate&gt;{{ today }}&lt;/p&gt;
 
@@ -499,7 +499,7 @@ export class HomeComponent extends Translation {
 </code></pre>
 
 <p><br></p>
-<h4 id="attributes">Attributes</h4>
+<h4 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link"></a></h4>
 <pre><code class="Html">&lt;p l10n-title title=&quot;Greeting&quot; l10nTranslate&gt;Title&lt;/p&gt;
 </code></pre>
 
@@ -508,7 +508,7 @@ export class HomeComponent extends Translation {
 <p>You can't dynamically change expressions in attributes.</p>
 </blockquote>
 <p><br></p>
-<h5 id="parameters_2">Parameters</h5>
+<h5 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link"></a></h5>
 <pre><code class="Html">&lt;p l10n-title title=&quot;Greeting&quot; [params]=&quot;{ user: username, NoMessages: messages.length }&quot; l10nTranslate&gt;User notifications&lt;/p&gt;
 </code></pre>
 
@@ -520,7 +520,7 @@ export class HomeComponent extends Translation {
 </code></pre>
 
 <p><br></p>
-<h4 id="ui-components">UI components</h4>
+<h4 id="ui-components">UI components<a class="headerlink" href="#ui-components" title="Permanent link"></a></h4>
 <p>You can properly translate UI components like Angular Material or Ionic:</p>
 <pre><code class="Html">&lt;a mat-list-item routerLinkActive=&quot;active-link&quot; routerLink=&quot;/home&quot; l10nTranslate&gt;App.Home&lt;/a&gt;
 </code></pre>
@@ -540,7 +540,7 @@ export class HomeComponent extends Translation {
 </blockquote>
 <p><br></p>
 <hr />
-<h3 id="using-html-tags-in-translation">Using Html tags in translation</h3>
+<h3 id="using-html-tags-in-translation">Using Html tags in translation<a class="headerlink" href="#using-html-tags-in-translation" title="Permanent link"></a></h3>
 <p>If you have Html tags in translation like this:</p>
 <pre><code>&quot;Strong subtitle&quot;: &quot;&lt;strong&gt;It's a small world&lt;/strong&gt;&quot;
 </code></pre>
@@ -556,8 +556,8 @@ export class HomeComponent extends Translation {
 
 <p><br></p>
 <hr />
-<h3 id="getting-the-translation-in-component-class">Getting the translation in component class</h3>
-<h4 id="messages_2">Messages</h4>
+<h3 id="getting-the-translation-in-component-class">Getting the translation in component class<a class="headerlink" href="#getting-the-translation-in-component-class" title="Permanent link"></a></h3>
+<h4 id="messages_2">Messages<a class="headerlink" href="#messages_2" title="Permanent link"></a></h4>
 <p>To get the translation in component class, <code>TranslationService</code> has the following methods:</p>
 <ul>
 <li><code>translate(keys: string | string[], args?: any, lang?: string): string | any</code></li>
@@ -609,7 +609,7 @@ export class HomeComponent implements OnInit {
 </code></pre>
 
 <p><br></p>
-<h4 id="dates-numbers_2">Dates &amp; numbers</h4>
+<h4 id="dates-numbers_2">Dates &amp; numbers<a class="headerlink" href="#dates-numbers_2" title="Permanent link"></a></h4>
 <p>To get the translation of dates and numbers, you can use the <code>transform</code> method of the corresponding pipe to get the translation: you have the <code>getDefaultLocale</code> method of <code>LocaleService</code>, and the <code>defaultLocaleChanged</code> event to know when <code>defaultLocale</code> changes.</p>
 <pre><code class="TypeScript">@Component({
     ...
@@ -635,7 +635,7 @@ export class HomeComponent {
 
 <p><br></p>
 <hr />
-<h3 id="handle-the-translation">Handle the translation</h3>
+<h3 id="handle-the-translation">Handle the translation<a class="headerlink" href="#handle-the-translation" title="Permanent link"></a></h3>
 <p>The default translation handler does not perform operations on the translated values: it handles the missing keys returning the path of the key or the value set by <code>missingValue</code> during the configuration, and replaces parameters.</p>
 <p>To perform custom operations, you can implement <code>TranslationHandler</code> class-interface and the <code>parseValue</code> method:</p>
 <pre><code class="TypeScript">@Injectable() export class CustomTranslationHandler implements TranslationHandler {
@@ -673,7 +673,7 @@ export class HomeComponent {
 <p>See also <a href="https://github.com/robisim74/angular-l10n/blob/master/src/services/translation-handler.ts">TranslationHandler</a> code.</p>
 <p><br></p>
 <hr />
-<h3 id="changing-language-default-locale-currency-or-timezone-at-runtime">Changing language, default locale, currency or timezone at runtime</h3>
+<h3 id="changing-language-default-locale-currency-or-timezone-at-runtime">Changing language, default locale, currency or timezone at runtime<a class="headerlink" href="#changing-language-default-locale-currency-or-timezone-at-runtime" title="Permanent link"></a></h3>
 <p>To change language, default locale, currency or timezone at runtime, <code>LocaleService</code> has the following methods:</p>
 <ul>
 <li><code>setCurrentLanguage(languageCode: string): void</code></li>
