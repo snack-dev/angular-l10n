@@ -174,7 +174,7 @@ export class AppModule { }
 </tbody>
 </table>
 <p>where <code>digitInfo</code> has the following format: <code>{minIntegerDigits}.{minFractionDigits}-{maxFractionDigits}</code>, and <code>minValue</code> and <code>maxValue</code> attributes are optional:</p>
-<pre><code class="Html">&lt;input digits=&quot;1.2-2&quot; [minValue]=&quot;0&quot; [maxValue]=&quot;1000&quot; name=&quot;decimal&quot; [(ngModel)]=&quot;decimal&quot; l10nValidateNumber&gt;
+<pre><code class="Html">&lt;input digits=&quot;1.2-2&quot; minValue=&quot;0&quot; maxValue=&quot;1000&quot; name=&quot;decimal&quot; [(ngModel)]=&quot;decimal&quot; l10nValidateNumber&gt;
 </code></pre>
 
 <p>or, if you use variables:</p>
