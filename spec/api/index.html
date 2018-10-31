@@ -285,7 +285,7 @@
 </tr>
 <tr>
 <td><code>getCurrentLocale(): string</code></td>
-<td></td>
+<td>Returns the well formatted locale as {languageCode}[-scriptCode][-countryCode]</td>
 </tr>
 <tr>
 <td><code>getCurrentScript(): string</code></td>
@@ -324,11 +324,23 @@
 <td></td>
 </tr>
 <tr>
+<td><code>setCurrentNumberingSystem(numberingSystem: string): void</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>setCurrentCalendar(calendar: string): void</code></td>
+<td></td>
+</tr>
+<tr>
 <td><code>setCurrentCurrency(currencyCode: string): void</code></td>
 <td></td>
 </tr>
 <tr>
 <td><code>setCurrentTimezone(zoneName: string): void</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>composeLocale(codes: ISOCode[]): string</code></td>
 <td></td>
 </tr>
 </tbody>

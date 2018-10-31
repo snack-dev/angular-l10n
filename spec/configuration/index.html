@@ -130,6 +130,7 @@
             <li><a href="#getting-browser-language">Getting browser language</a></li>
             <li><a href="#caching">Caching</a></li>
             <li><a href="#intl-api">Intl API</a></li>
+            <li><a href="#localized-routing-for-seo">Localized routing for SEO</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -257,6 +258,10 @@ export class AppModule {
 <tr>
 <td><code>cookieExpiration?: number</code></td>
 <td>If the cookie expiration is omitted, the cookie becomes a session cookie</td>
+</tr>
+<tr>
+<td><code>localizedRouting?: ISOCode[]</code></td>
+<td>Enables localized routing with the provided ISO codes</td>
 </tr>
 </tbody>
 </table>
@@ -669,7 +674,59 @@ export class AppModule {
 <p>The <em>timezone</em> is also provided via <em>Intl API</em>. Except IE, all modern browsers have implemented the timezone. To extend the support, you can use <a href="https://github.com/yahoo/date-time-format-timezone">Intl.DateTimeFormat timezone polyfill</a>.</p>
 <blockquote>
 <p>When a feature is not supported, however, for example in older browsers, Angular localization does not generate an error in the browser, but returns the value without performing operations.</p>
-</blockquote></div>
+</blockquote>
+<h3 id="localized-routing-for-seo">Localized routing for SEO<a class="headerlink" href="#localized-routing-for-seo" title="Permanent link"></a></h3>
+<p>In <em>locale-adaptive</em> apps (like the apps that use this library, that return different content based on the preferred locale of the visitor), <em>Google might not crawl, index, or rank all the content for different locales</em>.</p>
+<p>To solve this problem, you can enable localized routing during configuration:</p>
+<pre><code class="TypeScript">const l10nConfig: L10nConfig = {
+    locale: {
+        ...
+        localizedRouting: [ISOCode.Language, /* ISOCode.Script, */ /* ISOCode.Country */]
+    },
+    ...
+};
+</code></pre>
+
+<p><strong>Features:</strong></p>
+<ul>
+<li>A prefix is added to the path of each navigation, containing the language or the locale, creating a semantic URL:</li>
+</ul>
+<pre><code>baseHref[language[-script][-country]]path
+
+https://example.com/en/home
+https://example.com/en-US/home
+</code></pre>
+
+<ul>
+<li>If the localized link is called, the content is automatically translated.</li>
+<li>When the language changes, the link is also updated.</li>
+<li>Changes to localized links are pushed into browser history.</li>
+<li>It works also with SSR.</li>
+</ul>
+<p>To achieve this, the router configuration in your app is not rewritten (operation that would poor performance and could cause errors): the <code>Location</code> class provided by Angular is used for the replacement of the URL, in order to provide the different contents localized both to the crawlers and to the users that can refer to the localized links.</p>
+<blockquote>
+<p>Since the link contains only the locale, if your app also uses numbering system, calendar, currency or timezone, you need to update them manually when the application is loaded.</p>
+</blockquote>
+<h4 id="using-hreflang-and-sitemap">Using hreflang and sitemap<a class="headerlink" href="#using-hreflang-and-sitemap" title="Permanent link"></a></h4>
+<p>You can use the Sitemap to tell Google all of the locale variants for each URL:</p>
+<pre><code class="XML">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot; xmlns:xhtml=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://example.com/en/home&lt;/loc&gt;
+    &lt;xhtml:link rel=&quot;alternate&quot; hreflang=&quot;it&quot; href=&quot;https://example.com/en/home&quot;/&gt;
+    &lt;xhtml:link rel=&quot;alternate&quot; hreflang=&quot;en&quot; href=&quot;https://example.com/it/home&quot;/&gt;
+    ...
+    &lt;xhtml:link rel=&quot;alternate&quot; hreflang=&quot;x-default&quot; href=&quot;https://example.com/home&quot;/&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://example.com/it/home&lt;/loc&gt;
+    ...
+  &lt;/url&gt;
+  ...
+&lt;/urlset&gt;
+</code></pre>
+
+<p>For more info, visit <a href="https://support.google.com/webmasters/topic/2370587?hl=en&amp;ref_topic=4598733">Search Console Help - International</a></p></div>
         </div>
 
         <footer class="col-md-12">
