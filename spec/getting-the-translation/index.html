@@ -1,140 +1,926 @@
+
+
+
+
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="An Angular library to translate messages, dates and numbers">
+      
+      
+      
         <meta name="author" content="Roberto Simonetti">
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.3, mkdocs-material-3.0.6">
+    
+    
+      
         <title>Getting the translation - Angular localization</title>
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
-        <script src="../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script> 
-    </head>
-
-    <body>
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../..">Angular localization</a>
-                </div>
-
-                <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li >
-                                <a href="../..">Home</a>
-                            </li>
-                            <li >
-                                <a href="../../quick-start/">Quick start</a>
-                            </li>
-                            <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Specification <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../library-structure/">Library structure</a>
-</li>
-                                    
-<li >
-    <a href="../configuration/">Configuration</a>
-</li>
-                                    
-<li class="active">
-    <a href="./">Getting the translation</a>
-</li>
-                                    
-<li >
-    <a href="../lazy-loading/">Lazy loaded modules & Shared modules</a>
-</li>
-                                    
-<li >
-    <a href="../validation/">Validation by locales</a>
-</li>
-                                    
-<li >
-    <a href="../collator/">Collator</a>
-</li>
-                                    
-<li >
-    <a href="../testing/">Unit testing</a>
-</li>
-                                    
-<li >
-    <a href="../api/">Services APIs</a>
-</li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li >
-                                <a rel="next" href="../configuration/">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li >
-                                <a rel="prev" href="../lazy-loading/">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/robisim74/angular-l10n/edit/master/docs/spec/getting-the-translation.md"><i class="fa fa-github"></i> Edit on GitHub</a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#getting-the-translation" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Angular localization" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Angular localization
+              </span>
+              <span class="md-header-nav__topic">
+                Getting the translation
+              </span>
+            
+          
         </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
 
-        <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#getting-the-translation">Getting the translation</a></li>
-            <li><a href="#pure-pipes">Pure pipes</a></li>
-            <li><a href="#directives">Directives</a></li>
-            <li><a href="#using-html-tags-in-translation">Using Html tags in translation</a></li>
-            <li><a href="#getting-the-translation-in-component-class">Getting the translation in component class</a></li>
-            <li><a href="#handle-the-translation">Handle the translation</a></li>
-            <li><a href="#changing-language-default-locale-currency-or-timezone-at-runtime">Changing language, default locale, currency or timezone at runtime</a></li>
+
+  
+
+
+  <a href="https://github.com/robisim74/angular-l10n/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Angular localization" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Angular localization
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/robisim74/angular-l10n/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../quick-start/" title="Quick start" class="md-nav__link">
+      Quick start
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Specification
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Specification
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../library-structure/" title="Library structure" class="md-nav__link">
+      Library structure
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../configuration/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Getting the translation
+      </label>
+    
+    <a href="./" title="Getting the translation" class="md-nav__link md-nav__link--active">
+      Getting the translation
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pure-pipes" title="Pure pipes" class="md-nav__link">
+    Pure pipes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#messages" title="Messages" class="md-nav__link">
+    Messages
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#composed-keys" title="Composed keys" class="md-nav__link">
+    Composed keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dates-numbers" title="Dates &amp; Numbers" class="md-nav__link">
+    Dates &amp; Numbers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dates" title="Dates" class="md-nav__link">
+    Dates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-format-aliases" title="Using format aliases" class="md-nav__link">
+    Using format aliases
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-custom-format" title="Using a custom format" class="md-nav__link">
+    Using a custom format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-timezone" title="Using timezone" class="md-nav__link">
+    Using timezone
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decimals" title="Decimals" class="md-nav__link">
+    Decimals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#percentages" title="Percentages" class="md-nav__link">
+    Percentages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#currencies" title="Currencies" class="md-nav__link">
+    Currencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#translation-localization-classes" title="Translation &amp; Localization classes" class="md-nav__link">
+    Translation &amp; Localization classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onpush-changedetectionstrategy" title="OnPush ChangeDetectionStrategy" class="md-nav__link">
+    OnPush ChangeDetectionStrategy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directives" title="Directives" class="md-nav__link">
+    Directives
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#messages_1" title="Messages" class="md-nav__link">
+    Messages
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dates-numbers_1" title="Dates &amp; Numbers" class="md-nav__link">
+    Dates &amp; Numbers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attributes" title="Attributes" class="md-nav__link">
+    Attributes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui-components" title="UI components" class="md-nav__link">
+    UI components
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-html-tags-in-translation" title="Using Html tags in translation" class="md-nav__link">
+    Using Html tags in translation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-the-translation-in-component-class" title="Getting the translation in component class" class="md-nav__link">
+    Getting the translation in component class
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#messages_2" title="Messages" class="md-nav__link">
+    Messages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dates-numbers_2" title="Dates &amp; numbers" class="md-nav__link">
+    Dates &amp; numbers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handle-the-translation" title="Handle the translation" class="md-nav__link">
+    Handle the translation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-language-default-locale-currency-or-timezone-at-runtime" title="Changing language, default locale, currency or timezone at runtime" class="md-nav__link">
+    Changing language, default locale, currency or timezone at runtime
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
     </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+  
+</nav>
+    
+  </li>
 
-<h2 id="getting-the-translation">Getting the translation<a class="headerlink" href="#getting-the-translation" title="Permanent link"></a></h2>
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lazy-loading/" title="Lazy loaded modules & Shared modules" class="md-nav__link">
+      Lazy loaded modules & Shared modules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../validation/" title="Validation by locales" class="md-nav__link">
+      Validation by locales
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../collator/" title="Collator" class="md-nav__link">
+      Collator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../testing/" title="Unit testing" class="md-nav__link">
+      Unit testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/" title="Services APIs" class="md-nav__link">
+      Services APIs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pure-pipes" title="Pure pipes" class="md-nav__link">
+    Pure pipes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#messages" title="Messages" class="md-nav__link">
+    Messages
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#composed-keys" title="Composed keys" class="md-nav__link">
+    Composed keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dates-numbers" title="Dates &amp; Numbers" class="md-nav__link">
+    Dates &amp; Numbers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dates" title="Dates" class="md-nav__link">
+    Dates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-format-aliases" title="Using format aliases" class="md-nav__link">
+    Using format aliases
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-custom-format" title="Using a custom format" class="md-nav__link">
+    Using a custom format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-timezone" title="Using timezone" class="md-nav__link">
+    Using timezone
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decimals" title="Decimals" class="md-nav__link">
+    Decimals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#percentages" title="Percentages" class="md-nav__link">
+    Percentages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#currencies" title="Currencies" class="md-nav__link">
+    Currencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#translation-localization-classes" title="Translation &amp; Localization classes" class="md-nav__link">
+    Translation &amp; Localization classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onpush-changedetectionstrategy" title="OnPush ChangeDetectionStrategy" class="md-nav__link">
+    OnPush ChangeDetectionStrategy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directives" title="Directives" class="md-nav__link">
+    Directives
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#messages_1" title="Messages" class="md-nav__link">
+    Messages
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dates-numbers_1" title="Dates &amp; Numbers" class="md-nav__link">
+    Dates &amp; Numbers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attributes" title="Attributes" class="md-nav__link">
+    Attributes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui-components" title="UI components" class="md-nav__link">
+    UI components
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-html-tags-in-translation" title="Using Html tags in translation" class="md-nav__link">
+    Using Html tags in translation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-the-translation-in-component-class" title="Getting the translation in component class" class="md-nav__link">
+    Getting the translation in component class
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#messages_2" title="Messages" class="md-nav__link">
+    Messages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dates-numbers_2" title="Dates &amp; numbers" class="md-nav__link">
+    Dates &amp; numbers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handle-the-translation" title="Handle the translation" class="md-nav__link">
+    Handle the translation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-language-default-locale-currency-or-timezone-at-runtime" title="Changing language, default locale, currency or timezone at runtime" class="md-nav__link">
+    Changing language, default locale, currency or timezone at runtime
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/robisim74/angular-l10n/edit/master/docs/spec/getting-the-translation.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="getting-the-translation">Getting the translation<a class="headerlink" href="#getting-the-translation" title="Permanent link">&para;</a></h1>
 <p>To get the translation, this library uses <em>pure pipes</em> (to know the difference between <em>pure</em> and <em>impure pipes</em> see <a href="https://angular.io/guide/pipes#pure-and-impure-pipes">here</a>) or <em>directives</em>. 
 You can also get the translation in component class.</p>
-<p><br></p>
-<hr />
-<h3 id="pure-pipes">Pure pipes<a class="headerlink" href="#pure-pipes" title="Permanent link"></a></h3>
+<h2 id="pure-pipes">Pure pipes<a class="headerlink" href="#pure-pipes" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -180,8 +966,7 @@ You can also get the translation in component class.</p>
 <blockquote>
 <p>You can dynamically change parameters and expressions values.</p>
 </blockquote>
-<p><br></p>
-<h4 id="messages">Messages<a class="headerlink" href="#messages" title="Permanent link"></a></h4>
+<h3 id="messages">Messages<a class="headerlink" href="#messages" title="Permanent link">&para;</a></h3>
 <p>Implement <em>Language</em> decorator in the component to provide the parameter to the <em>translate</em> pipe:</p>
 <pre><code class="TypeScript">export class HomeComponent implements OnInit {
 
@@ -208,8 +993,7 @@ You can also get the translation in component class.</p>
 }
 </code></pre>
 
-<p><br></p>
-<h5 id="composed-keys">Composed keys<a class="headerlink" href="#composed-keys" title="Permanent link"></a></h5>
+<h4 id="composed-keys">Composed keys<a class="headerlink" href="#composed-keys" title="Permanent link">&para;</a></h4>
 <p>Set <code>composedKeySeparator</code> during the configuration, e.g. to <code>'.'</code>:</p>
 <pre><code class="Html">{{ 'Home.Title' | translate:lang }}
 </code></pre>
@@ -222,8 +1006,7 @@ You can also get the translation in component class.</p>
 }
 </code></pre>
 
-<p><br></p>
-<h5 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link"></a></h5>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <pre><code class="Html">{{ 'User notifications' | translate:lang:{ user: username, NoMessages: messages.length } }}
 </code></pre>
 
@@ -233,8 +1016,7 @@ You can also get the translation in component class.</p>
 }
 </code></pre>
 
-<p><br></p>
-<h4 id="dates-numbers">Dates &amp; Numbers<a class="headerlink" href="#dates-numbers" title="Permanent link"></a></h4>
+<h3 id="dates-numbers">Dates &amp; Numbers<a class="headerlink" href="#dates-numbers" title="Permanent link">&para;</a></h3>
 <p>Implement <em>DefaultLocale</em>, <em>Currency</em> &amp; optionally <em>Timezone</em> decorators in the component to provide <em>defaultLocale</em>, <em>currency</em>, <em>timezone</em> to <em>l10nDate</em>, <em>l10nDecimal</em>, <em>l10nPercent</em> &amp; <em>l10nCurrency</em> pipes.</p>
 <pre><code class="TypeScript">export class HomeComponent implements OnInit {
 
@@ -250,8 +1032,7 @@ You can also get the translation in component class.</p>
 <blockquote>
 <p>To use AoT compilation you have to implement OnInit, and to cancel subscriptions OnDestroy, even if they are empty.</p>
 </blockquote>
-<p><br></p>
-<h5 id="dates">Dates<a class="headerlink" href="#dates" title="Permanent link"></a></h5>
+<h4 id="dates">Dates<a class="headerlink" href="#dates" title="Permanent link">&para;</a></h4>
 <pre><code>expression | l10nDate[:defaultLocale[:format[:timezone]]]
 </code></pre>
 
@@ -270,8 +1051,7 @@ You can also get the translation in component class.</p>
 <li><code>'shortTime'</code>: equivalent to <code>'h:mm'</code> (e.g. <code>4:53 PM</code> for <code>en-US</code>)</li>
 <li><code>'mediumTime'</code>: equivalent to <code>'h:mm:ss'</code> (e.g. <code>4:54:15 PM</code> for <code>en-US</code>)</li>
 </ul>
-<p><br>
-It can also be an object with some or all of the following properties:</p>
+<p>It can also be an object with some or all of the following properties:</p>
 <ul>
 <li><code>weekday</code> The representation of the weekday. Possible values are <em>narrow</em>, <em>short</em>, <em>long</em>.</li>
 <li><code>era</code> The representation of the era. Possible values are <em>narrow</em>, <em>short</em>, <em>long</em>.</li>
@@ -284,17 +1064,14 @@ It can also be an object with some or all of the following properties:</p>
 <li><code>timeZoneName</code> The representation of the time zone name. Possible values are <em>short</em>, <em>long</em>.</li>
 <li><code>hour12</code> Whether to use 12-hour time (as opposed to 24-hour time). Possible values are true and false; the default is locale dependent.</li>
 </ul>
-<p><br>
-See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat">DateTimeFormat</a> for further information.</p>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat">DateTimeFormat</a> for further information.</p>
 </li>
 </ul>
-<p><br></p>
-<h6 id="using-format-aliases">Using format aliases<a class="headerlink" href="#using-format-aliases" title="Permanent link"></a></h6>
+<h4 id="using-format-aliases">Using format aliases<a class="headerlink" href="#using-format-aliases" title="Permanent link">&para;</a></h4>
 <pre><code class="Html">{{ today | l10nDate:defaultLocale:'fullDate' }}
 </code></pre>
 
-<p><br></p>
-<h6 id="using-a-custom-format">Using a custom format<a class="headerlink" href="#using-a-custom-format" title="Permanent link"></a></h6>
+<h4 id="using-a-custom-format">Using a custom format<a class="headerlink" href="#using-a-custom-format" title="Permanent link">&para;</a></h4>
 <pre><code class="TypeScript">@Component({
     template: `
         &lt;p&gt;{{ today | l10nDate:defaultLocale:options }}&lt;/p&gt;
@@ -312,8 +1089,7 @@ export class HomeComponent implements OnInit {
 }
 </code></pre>
 
-<p><br></p>
-<h6 id="using-timezone">Using timezone<a class="headerlink" href="#using-timezone" title="Permanent link"></a></h6>
+<h4 id="using-timezone">Using timezone<a class="headerlink" href="#using-timezone" title="Permanent link">&para;</a></h4>
 <pre><code class="TypeScript">@Component({
     template: `
         &lt;p&gt;{{ today | l10nDate:defaultLocale:'medium':timezone }}&lt;/p&gt;
@@ -331,8 +1107,7 @@ export class HomeComponent implements OnInit {
 }
 </code></pre>
 
-<p><br></p>
-<h5 id="decimals">Decimals<a class="headerlink" href="#decimals" title="Permanent link"></a></h5>
+<h4 id="decimals">Decimals<a class="headerlink" href="#decimals" title="Permanent link">&para;</a></h4>
 <pre><code>expression | l10nDecimal[:defaultLocale:[digitInfo]]
 </code></pre>
 
@@ -340,16 +1115,14 @@ export class HomeComponent implements OnInit {
 <pre><code class="Html">{{ value | l10nDecimal:defaultLocale:'1.5-5' }}
 </code></pre>
 
-<p><br></p>
-<h5 id="percentages">Percentages<a class="headerlink" href="#percentages" title="Permanent link"></a></h5>
+<h4 id="percentages">Percentages<a class="headerlink" href="#percentages" title="Permanent link">&para;</a></h4>
 <pre><code>expression | l10nPercent[:defaultLocale:[digitInfo]]
 </code></pre>
 
 <pre><code class="Html">{{ value | l10nPercent:defaultLocale:'1.1-1' }}
 </code></pre>
 
-<p><br></p>
-<h5 id="currencies">Currencies<a class="headerlink" href="#currencies" title="Permanent link"></a></h5>
+<h4 id="currencies">Currencies<a class="headerlink" href="#currencies" title="Permanent link">&para;</a></h4>
 <pre><code>expression | l10nCurrency[:defaultLocale[:currency[:currencyDisplay[:digitInfo]]]]
 </code></pre>
 
@@ -357,8 +1130,7 @@ export class HomeComponent implements OnInit {
 <pre><code class="Html">{{ value | l10nCurrency:defaultLocale:currency:'symbol':'1.2-2' }}
 </code></pre>
 
-<p><br></p>
-<h4 id="translation-localization-classes">Translation &amp; Localization classes<a class="headerlink" href="#translation-localization-classes" title="Permanent link"></a></h4>
+<h3 id="translation-localization-classes">Translation &amp; Localization classes<a class="headerlink" href="#translation-localization-classes" title="Permanent link">&para;</a></h3>
 <p>When using <em>pipes</em>, alternatively to <em>decorators</em> you can 
 extend <code>Translation</code> or <code>Localization</code> classes.</p>
 <p>Extend <code>Translation</code> class in the component to provide <em>lang</em> to the <em>translate</em> pipe:</p>
@@ -370,8 +1142,7 @@ extend <code>Translation</code> or <code>Localization</code> classes.</p>
 </code></pre>
 
 <p>To cancel subscriptions for the params, you can call the <code>cancelParamSubscriptions</code> method into <code>ngOnDestroy</code>.</p>
-<p><br></p>
-<h4 id="onpush-changedetectionstrategy">OnPush ChangeDetectionStrategy<a class="headerlink" href="#onpush-changedetectionstrategy" title="Permanent link"></a></h4>
+<h3 id="onpush-changedetectionstrategy">OnPush ChangeDetectionStrategy<a class="headerlink" href="#onpush-changedetectionstrategy" title="Permanent link">&para;</a></h3>
 <p><em>Pure pipes</em> don't need to set <code>ChangeDetectionStrategy</code> to <code>OnPush</code>. If into your components you need to use it, you have to extend <code>Translation</code> or <code>Localization</code> class and pass <code>ChangeDetectorRef</code>:</p>
 <pre><code class="TypeScript">import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 
@@ -392,9 +1163,8 @@ export class HomeComponent extends Translation {
 </code></pre>
 
 <p>That's because we need to know the component reference that implements the <code>OnPush</code> strategy.</p>
-<p><br></p>
 <hr />
-<h3 id="directives">Directives<a class="headerlink" href="#directives" title="Permanent link"></a></h3>
+<h2 id="directives">Directives<a class="headerlink" href="#directives" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -469,23 +1239,17 @@ export class HomeComponent extends Translation {
 </table>
 <blockquote>
 <p>You can dynamically change parameters and expressions values as with pipes. How does it work? To observe the expression change (not the parameters), a <code>MutationObserver</code> is used: the observer is added only if detected in the browser. If you want to use this feature also reaching older browsers, we recommend using pipes.</p>
-</blockquote>
-<p><br></p>
-<blockquote>
 <p>If you use in the component only the directives and not the pipes, you don't need to use decorators.</p>
 </blockquote>
-<p><br></p>
-<h4 id="messages_1">Messages<a class="headerlink" href="#messages_1" title="Permanent link"></a></h4>
+<h3 id="messages_1">Messages<a class="headerlink" href="#messages_1" title="Permanent link">&para;</a></h3>
 <pre><code class="Html">&lt;h1 l10nTranslate&gt;Title&lt;/h1&gt;
 </code></pre>
 
-<p><br></p>
-<h5 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link"></a></h5>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <pre><code class="Html">&lt;p [params]=&quot;{ user: username, NoMessages: messages.length }&quot; l10nTranslate&gt;User notifications&lt;/p&gt;
 </code></pre>
 
-<p><br></p>
-<h4 id="dates-numbers_1">Dates &amp; Numbers<a class="headerlink" href="#dates-numbers_1" title="Permanent link"></a></h4>
+<h3 id="dates-numbers_1">Dates &amp; Numbers<a class="headerlink" href="#dates-numbers_1" title="Permanent link">&para;</a></h3>
 <pre><code class="Html">&lt;p l10nDate&gt;{{ today }}&lt;/p&gt;
 &lt;p format=&quot;fullDate&quot; l10nDate&gt;{{ today }}&lt;/p&gt;
 
@@ -499,8 +1263,7 @@ export class HomeComponent extends Translation {
 &lt;p digits=&quot;1.2-2&quot; currencyDisplay=&quot;symbol&quot; l10nCurrency&gt;{{ value }}&lt;/p&gt;
 </code></pre>
 
-<p><br></p>
-<h4 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link"></a></h4>
+<h3 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link">&para;</a></h3>
 <pre><code class="Html">&lt;p l10n-title title=&quot;Greeting&quot; l10nTranslate&gt;Title&lt;/p&gt;
 </code></pre>
 
@@ -508,8 +1271,7 @@ export class HomeComponent extends Translation {
 <blockquote>
 <p>You can't dynamically change expressions in attributes.</p>
 </blockquote>
-<p><br></p>
-<h5 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link"></a></h5>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <pre><code class="Html">&lt;p l10n-title title=&quot;Greeting&quot; [params]=&quot;{ user: username, NoMessages: messages.length }&quot; l10nTranslate&gt;User notifications&lt;/p&gt;
 </code></pre>
 
@@ -520,8 +1282,7 @@ export class HomeComponent extends Translation {
 }
 </code></pre>
 
-<p><br></p>
-<h4 id="ui-components">UI components<a class="headerlink" href="#ui-components" title="Permanent link"></a></h4>
+<h3 id="ui-components">UI components<a class="headerlink" href="#ui-components" title="Permanent link">&para;</a></h3>
 <p>You can properly translate UI components like Angular Material or Ionic:</p>
 <pre><code class="Html">&lt;a mat-list-item routerLinkActive=&quot;active-link&quot; routerLink=&quot;/home&quot; l10nTranslate&gt;App.Home&lt;/a&gt;
 </code></pre>
@@ -539,9 +1300,8 @@ export class HomeComponent extends Translation {
 <blockquote>
 <p>How does it work? The algorithm searches the text in the subtree. If there is a depth higher than 4 (in the example above the text to translate has a depth 2), we recommend using pipes.</p>
 </blockquote>
-<p><br></p>
 <hr />
-<h3 id="using-html-tags-in-translation">Using Html tags in translation<a class="headerlink" href="#using-html-tags-in-translation" title="Permanent link"></a></h3>
+<h2 id="using-html-tags-in-translation">Using Html tags in translation<a class="headerlink" href="#using-html-tags-in-translation" title="Permanent link">&para;</a></h2>
 <p>If you have Html tags in translation like this:</p>
 <pre><code>&quot;Strong subtitle&quot;: &quot;&lt;strong&gt;It's a small world&lt;/strong&gt;&quot;
 </code></pre>
@@ -555,10 +1315,9 @@ export class HomeComponent extends Translation {
 <pre><code class="Html">&lt;p [innerHTML]=&quot;'Strong subtitle'&quot; l10nTranslate&gt;&lt;/p&gt;
 </code></pre>
 
-<p><br></p>
 <hr />
-<h3 id="getting-the-translation-in-component-class">Getting the translation in component class<a class="headerlink" href="#getting-the-translation-in-component-class" title="Permanent link"></a></h3>
-<h4 id="messages_2">Messages<a class="headerlink" href="#messages_2" title="Permanent link"></a></h4>
+<h2 id="getting-the-translation-in-component-class">Getting the translation in component class<a class="headerlink" href="#getting-the-translation-in-component-class" title="Permanent link">&para;</a></h2>
+<h3 id="messages_2">Messages<a class="headerlink" href="#messages_2" title="Permanent link">&para;</a></h3>
 <p>To get the translation in component class, <code>TranslationService</code> has the following methods:</p>
 <ul>
 <li><code>translate(keys: string | string[], args?: any, lang?: string): string | any</code></li>
@@ -609,8 +1368,7 @@ export class HomeComponent implements OnInit {
 }
 </code></pre>
 
-<p><br></p>
-<h4 id="dates-numbers_2">Dates &amp; numbers<a class="headerlink" href="#dates-numbers_2" title="Permanent link"></a></h4>
+<h3 id="dates-numbers_2">Dates &amp; numbers<a class="headerlink" href="#dates-numbers_2" title="Permanent link">&para;</a></h3>
 <p>To get the translation of dates and numbers, you can use the <code>transform</code> method of the corresponding pipe to get the translation: you have the <code>getDefaultLocale</code> method of <code>LocaleService</code>, and the <code>defaultLocaleChanged</code> event to know when <code>defaultLocale</code> changes.</p>
 <pre><code class="TypeScript">@Component({
     ...
@@ -634,9 +1392,8 @@ export class HomeComponent {
 }
 </code></pre>
 
-<p><br></p>
 <hr />
-<h3 id="handle-the-translation">Handle the translation<a class="headerlink" href="#handle-the-translation" title="Permanent link"></a></h3>
+<h2 id="handle-the-translation">Handle the translation<a class="headerlink" href="#handle-the-translation" title="Permanent link">&para;</a></h2>
 <p>The default translation handler does not perform operations on the translated values: it handles the missing keys returning the path of the key or the value set by <code>missingValue</code> during the configuration, and replaces parameters.</p>
 <p>To perform custom operations, you can implement <code>TranslationHandler</code> class-interface and the <code>parseValue</code> method:</p>
 <pre><code class="TypeScript">@Injectable() export class CustomTranslationHandler implements TranslationHandler {
@@ -672,92 +1429,93 @@ export class HomeComponent {
 </code></pre>
 
 <p>See also <a href="https://github.com/robisim74/angular-l10n/blob/master/src/services/translation-handler.ts">TranslationHandler</a> code.</p>
-<p><br></p>
 <hr />
-<h3 id="changing-language-default-locale-currency-or-timezone-at-runtime">Changing language, default locale, currency or timezone at runtime<a class="headerlink" href="#changing-language-default-locale-currency-or-timezone-at-runtime" title="Permanent link"></a></h3>
+<h2 id="changing-language-default-locale-currency-or-timezone-at-runtime">Changing language, default locale, currency or timezone at runtime<a class="headerlink" href="#changing-language-default-locale-currency-or-timezone-at-runtime" title="Permanent link">&para;</a></h2>
 <p>To change language, default locale, currency or timezone at runtime, <code>LocaleService</code> has the following methods:</p>
 <ul>
 <li><code>setCurrentLanguage(languageCode: string): void</code></li>
 <li><code>setDefaultLocale(languageCode: string, countryCode?: string, scriptCode?: string, numberingSystem?: string, calendar?: string): void</code></li>
 <li><code>setCurrentCurrency(currencyCode: string): void</code></li>
 <li><code>setCurrentTimezone(zoneName: string): void</code></li>
-</ul></div>
-        </div>
+</ul>
+                
+                  
+                
+              
+              
+                
 
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js" defer></script>
-        <script src="../../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
-            </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
+              
+            </article>
+          </div>
         </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../configuration/" title="Configuration" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Configuration
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../lazy-loading/" title="Lazy loaded modules & Shared modules" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Lazy loaded modules & Shared modules
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
     </div>
-</div>
-
-    </body>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.5e60981f.js"></script>
+      
+      <script>app.initialize({version:"1.0.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
 </html>
