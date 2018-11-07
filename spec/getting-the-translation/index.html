@@ -438,13 +438,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#translation-localization-classes" title="Translation &amp; Localization classes" class="md-nav__link">
-    Translation &amp; Localization classes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#onpush-changedetectionstrategy" title="OnPush ChangeDetectionStrategy" class="md-nav__link">
     OnPush ChangeDetectionStrategy
   </a>
@@ -761,13 +754,6 @@
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#translation-localization-classes" title="Translation &amp; Localization classes" class="md-nav__link">
-    Translation &amp; Localization classes
-  </a>
   
 </li>
         
@@ -1130,39 +1116,29 @@ export class HomeComponent implements OnInit {
 <pre><code class="Html">{{ value | l10nCurrency:defaultLocale:currency:'symbol':'1.2-2' }}
 </code></pre>
 
-<h3 id="translation-localization-classes">Translation &amp; Localization classes<a class="headerlink" href="#translation-localization-classes" title="Permanent link">&para;</a></h3>
-<p>When using <em>pipes</em>, alternatively to <em>decorators</em> you can 
-extend <code>Translation</code> or <code>Localization</code> classes.</p>
-<p>Extend <code>Translation</code> class in the component to provide <em>lang</em> to the <em>translate</em> pipe:</p>
-<pre><code class="TypeScript">export class HomeComponent extends Translation { }
-</code></pre>
-
-<p>Extend <code>Localization</code> class in the component to provide <em>lang</em> to the <em>translate</em> pipe,  <em>defaultLocale</em>, <em>currency</em>, <em>timezone</em> to <em>l10nDate</em>, <em>l10nDecimal</em>, <em>l10nPercent</em> &amp; <em>l10nCurrency</em> pipes.</p>
-<pre><code class="TypeScript">export class HomeComponent extends Localization { } 
-</code></pre>
-
-<p>To cancel subscriptions for the params, you can call the <code>cancelParamSubscriptions</code> method into <code>ngOnDestroy</code>.</p>
 <h3 id="onpush-changedetectionstrategy">OnPush ChangeDetectionStrategy<a class="headerlink" href="#onpush-changedetectionstrategy" title="Permanent link">&para;</a></h3>
-<p><em>Pure pipes</em> don't need to set <code>ChangeDetectionStrategy</code> to <code>OnPush</code>. If into your components you need to use it, you have to extend <code>Translation</code> or <code>Localization</code> class and pass <code>ChangeDetectorRef</code>:</p>
+<p><em>Pure pipes</em> don't need to set <code>ChangeDetectionStrategy</code> to <code>OnPush</code>. If into your components you need to use it, you have to inject <code>ChangeDetectorRef</code>:</p>
 <pre><code class="TypeScript">import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-
-import { Translation } from 'angular-l10n'
 
 @Component({
     ...
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent extends Translation {
+export class HomeComponent implements OnInit {
 
-    constructor(public ref: ChangeDetectorRef) {
-        super(ref);
-        ...
-    }
+    @Language() lang: string;
+
+    constructor(private cdr: ChangeDetectorRef) { }
+
+    ngOnInit(): void { }
 
 } 
 </code></pre>
 
 <p>That's because we need to know the component reference that implements the <code>OnPush</code> strategy.</p>
+<blockquote>
+<p>Note that if you use in the component only the <em>directives</em> and not the <em>pipes</em>, you don't need to inject <code>ChangeDetectorRef</code>.</p>
+</blockquote>
 <hr />
 <h2 id="directives">Directives<a class="headerlink" href="#directives" title="Permanent link">&para;</a></h2>
 <table>
@@ -1502,6 +1478,15 @@ export class HomeComponent {
       </div>
       
         
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/robisim74" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/robisim74" class="md-footer-social__link fa fa-twitter"></a>
+    
+  </div>
+
       
     </div>
   </div>
