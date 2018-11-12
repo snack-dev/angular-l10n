@@ -509,8 +509,8 @@ and configure the service with the new providers:</p>
 })
 export class ListModule {
 
-    constructor(public l10nLoader: L10nLoader) {
-        this.l10nLoader.load();
+    constructor(public translation: TranslationService) {
+        this.translation.init();
     }
 
 }
