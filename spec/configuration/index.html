@@ -537,8 +537,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#schema" title="Schema" class="md-nav__link">
+    Schema
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-the-locale-in-accept-language-header-on-outgoing-requests" title="Setting the locale in Accept-Language header on outgoing requests" class="md-nav__link">
+    Setting the locale in Accept-Language header on outgoing requests
+  </a>
   
 </li>
         
@@ -864,8 +878,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#schema" title="Schema" class="md-nav__link">
+    Schema
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-the-locale-in-accept-language-header-on-outgoing-requests" title="Setting the locale in Accept-Language header on outgoing requests" class="md-nav__link">
+    Setting the locale in Accept-Language header on outgoing requests
+  </a>
   
 </li>
         
@@ -1039,6 +1067,10 @@ export class AppModule {
 <tr>
 <td><code>localizedRoutingOptions?: LocalizedRoutingOptions</code></td>
 <td>Options for localized routing</td>
+</tr>
+<tr>
+<td><code>localeInterceptor?: ISOCode[]</code></td>
+<td>Provides ISO codes to locale interceptor</td>
 </tr>
 </tbody>
 </table>
@@ -1340,8 +1372,8 @@ export class AppModule {
 <li><code>numbering system</code>: possible values include: <em>arab</em>, <em>arabext</em>, <em>bali</em>, <em>beng</em>, <em>deva</em>, <em>fullwide</em>, <em>gujr</em>, <em>guru</em>, <em>hanidec</em>, <em>khmr</em>, <em>knda</em>, <em>laoo</em>, <em>latn</em>, <em>limb</em>, <em>mlym</em>, <em>mong</em>, <em>mymr</em>, <em>orya</em>, <em>tamldec</em>, <em>telu</em>, <em>thai</em>, <em>tibt</em></li>
 <li><code>calendar</code>: possible values include: <em>buddhist</em>, <em>chinese</em>, <em>coptic</em>, <em>ethioaa</em>, <em>ethiopic</em>, <em>gregory</em>, <em>hebrew</em>, <em>indian</em>, <em>islamic</em>, <em>islamicc</em>, <em>iso8601</em>, <em>japanese</em>, <em>persian</em>, <em>roc</em></li>
 </ul>
-<p>The <em>currency</em> contains the ISO 4217 currency codes.</p>
-<p>The <em>timezone</em> contains the time zone names of the IANA time zone database.</p>
+<p>The <code>currency</code> contains the ISO 4217 currency codes.</p>
+<p>The <code>timezone</code> contains the time zone names of the IANA time zone database.</p>
 <p>For more information see <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl">Intl API</a>.</p>
 <hr />
 <h2 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h2>
@@ -1464,12 +1496,12 @@ https://example.com/en-US/home
 <ul>
 <li>If the localized link is called, the content is automatically translated.</li>
 <li>When the language changes, the link is also updated.</li>
-<li>Changes to localized links are pushed into browser history.</li>
+<li>Changes to localized links do not change browser history.</li>
 <li>It works also with SSR.</li>
 </ul>
 <p>To achieve this, the router configuration in your app is not rewritten (operation that would poor performance and could cause errors): the <code>Location</code> class provided by Angular is used for the replacement of the URL, in order to provide the different contents localized both to the crawlers and to the users that can refer to the localized links.</p>
 <blockquote>
-<p>Since the link contains only the locale, if your app also uses numbering system, calendar, currency or timezone, you need to update them manually when the application is loaded.</p>
+<p>Since the link contains only the locale, if your app also uses <em>numbering system</em>, <em>calendar</em>, <em>currency</em> or <em>timezone</em>, you should set <em>schema</em> option below.</p>
 </blockquote>
 <h3 id="using-hreflang-and-sitemap">Using hreflang and sitemap<a class="headerlink" href="#using-hreflang-and-sitemap" title="Permanent link">&para;</a></h3>
 <p>You can use the Sitemap to tell Google all of the locale variants for each URL:</p>
@@ -1504,6 +1536,45 @@ https://example.com/en-US/home
     },
     ...
 };
+</code></pre>
+
+<h4 id="schema">Schema<a class="headerlink" href="#schema" title="Permanent link">&para;</a></h4>
+<p>If your app uses <em>numbering system</em>, <em>calendar</em>, <em>currency</em> or <em>timezone</em>, it is recommended to provide the <em>schema</em> option, to manage the localized links and refreshes:</p>
+<pre><code class="TypeScript">const l10nConfig: L10nConfig = {
+    locale: {
+        ...
+        localizedRouting: [ISOCode.Language, /* ISOCode.Script, */ /* ISOCode.Country */],
+        localizedRoutingOptions: {
+            schema: [
+                { text: 'United States', languageCode: 'en', countryCode: 'US', currency: 'USD' },
+                { text: 'Italia', languageCode: 'it', countryCode: 'IT', currency: 'EUR' },
+            ]
+        }
+    },
+    ...
+};
+</code></pre>
+
+<h3 id="setting-the-locale-in-accept-language-header-on-outgoing-requests">Setting the locale in <em>Accept-Language</em> header on outgoing requests<a class="headerlink" href="#setting-the-locale-in-accept-language-header-on-outgoing-requests" title="Permanent link">&para;</a></h3>
+<p>To set the locale in <em>Accept-Language</em> header on all outgoing requests, provide the <em>localeInterceptor</em> option during the configuration:</p>
+<pre><code class="TypeScript">const l10nConfig: L10nConfig = {
+    locale: {
+        ...
+        localeInterceptor: [ISOCode.Language, /* ISOCode.Script, */ /* ISOCode.Country */]
+    },
+    ...
+};
+</code></pre>
+
+<p>Then import the module:</p>
+<pre><code class="TypeScript">@NgModule({
+    imports: [
+        ...
+        LocaleInterceptorModule
+    ],
+    ...
+})
+export class AppModule { }
 </code></pre>
                 
                   
