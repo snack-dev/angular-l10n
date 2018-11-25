@@ -690,7 +690,7 @@
 </thead>
 <tbody>
 <tr>
-<td><code>load(): Promise&lt;void&gt;</code></td>
+<td><code>load(): Promise&lt;any&gt;</code></td>
 <td>Loads l10n services</td>
 </tr>
 </tbody>
@@ -812,14 +812,6 @@
 <td></td>
 </tr>
 <tr>
-<td><code>setCurrentNumberingSystem(numberingSystem: string): void</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>setCurrentCalendar(calendar: string): void</code></td>
-<td></td>
-</tr>
-<tr>
 <td><code>setCurrentCurrency(currencyCode: string): void</code></td>
 <td></td>
 </tr>
@@ -829,6 +821,10 @@
 </tr>
 <tr>
 <td><code>composeLocale(codes: ISOCode[]): string</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>rollback(): void</code></td>
 <td></td>
 </tr>
 </tbody>
@@ -845,7 +841,7 @@
 <tbody>
 <tr>
 <td><code>translationError: Subject&lt;any&gt;</code></td>
-<td></td>
+<td>Fired when the translation data could not been loaded. Returns the error</td>
 </tr>
 </tbody>
 </table>
@@ -862,7 +858,7 @@
 <td></td>
 </tr>
 <tr>
-<td><code>init(): Promise&lt;void&gt;</code></td>
+<td><code>init(): Promise&lt;any&gt;</code></td>
 <td></td>
 </tr>
 <tr>

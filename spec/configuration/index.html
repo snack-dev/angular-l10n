@@ -466,6 +466,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#caching" title="Caching" class="md-nav__link">
+    Caching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling-of-data-loading" title="Error handling of data loading" class="md-nav__link">
+    Error handling of data loading
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rollback-on-errror" title="Rollback on errror" class="md-nav__link">
+    Rollback on errror
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#using-a-composed-language" title="Using a composed language" class="md-nav__link">
     Using a composed language
   </a>
@@ -489,13 +516,6 @@
         <li class="md-nav__item">
   <a href="#getting-browser-language" title="Getting browser language" class="md-nav__link">
     Getting browser language
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#caching" title="Caching" class="md-nav__link">
-    Caching
   </a>
   
 </li>
@@ -807,6 +827,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#caching" title="Caching" class="md-nav__link">
+    Caching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling-of-data-loading" title="Error handling of data loading" class="md-nav__link">
+    Error handling of data loading
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rollback-on-errror" title="Rollback on errror" class="md-nav__link">
+    Rollback on errror
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#using-a-composed-language" title="Using a composed language" class="md-nav__link">
     Using a composed language
   </a>
@@ -830,13 +877,6 @@
         <li class="md-nav__item">
   <a href="#getting-browser-language" title="Getting browser language" class="md-nav__link">
     Getting browser language
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#caching" title="Caching" class="md-nav__link">
-    Caching
   </a>
   
 </li>
@@ -1093,15 +1133,19 @@ export class AppModule {
 </tr>
 <tr>
 <td><code>caching?: Boolean</code></td>
-<td>Asynchronous loading: disables/enables the cache for translation providers</td>
+<td>Asynchronous loading: disables/enables the cache for translation providers. Provide it only at the root level</td>
 </tr>
 <tr>
 <td><code>version?: string</code></td>
-<td>Asynchronous loading: adds the query parameter 'ver' to the http requests</td>
+<td>Asynchronous loading: adds the query parameter <code>ver</code> to the http requests. Provide it only at the root level</td>
 </tr>
 <tr>
 <td><code>timeout?: number</code></td>
-<td>Asynchronous loading: sets a timeout in milliseconds for the http requests</td>
+<td>Asynchronous loading: sets a timeout in milliseconds for the http requests. Provide it only at the root level</td>
+</tr>
+<tr>
+<td><code>rollbackOnError?: boolean</code></td>
+<td>Asynchronous loading: rollbacks to previous default locale, currency and timezone on error</td>
 </tr>
 <tr>
 <td><code>composedLanguage?: ISOCode[]</code></td>
@@ -1109,7 +1153,7 @@ export class AppModule {
 </tr>
 <tr>
 <td><code>missingValue?: string | ((path: string) =&gt; string)</code></td>
-<td>Sets the value or the function to use for missing keys</td>
+<td>Sets the value or the function to use for missing keys. Provide it only at the root level</td>
 </tr>
 <tr>
 <td><code>missingKey?: string</code></td>
@@ -1265,7 +1309,7 @@ const l10nConfig: L10nConfig = {
 </code></pre>
 
 <blockquote>
-<p>You can't use Direct and Asynchronous loading at the same time.</p>
+<p>You can use Direct and Asynchronous loading at the same time. Translation data of Direct loading will be merged before the data of Asynchronous loading.</p>
 </blockquote>
 <h3 id="asynchronous-loading-through-a-web-api">Asynchronous loading through a Web API<a class="headerlink" href="#asynchronous-loading-through-a-web-api" title="Permanent link">&para;</a></h3>
 <p>You can also load the data through a Web API:</p>
@@ -1280,13 +1324,16 @@ const l10nConfig: L10nConfig = {
 ...
 export class AppModule {
     constructor(private translation: TranslationService) {
-        this.translation.translationError.subscribe((error: any) =&gt; console.log(error));
+        this.translation.translationError.subscribe((error) =&gt; {
+            if (error) {
+                console.log(error);
+            }
+        });
     }
 }
 </code></pre>
 
 <p><code>[path]{languageCode}</code> will be the URL used by the Http GET requests. So the example URI will be something like: <code>http://localhost:54703/api/values/en</code>.</p>
-<p>The example above also showed as you can perform a custom action if you get a bad response.</p>
 <h3 id="using-fallback-providers">Using fallback providers<a class="headerlink" href="#using-fallback-providers" title="Permanent link">&para;</a></h3>
 <p>if you need a cascade fallback when the key is not found, you can use fallback providers:</p>
 <pre><code class="TypeScript">const l10nConfig: L10nConfig = {
@@ -1336,6 +1383,65 @@ export class AppModule {
 </code></pre>
 
 <p>See also <a href="https://github.com/robisim74/angular-l10n/blob/master/src/services/translation-provider.ts">TranslationProvider</a> code.</p>
+<hr />
+<h2 id="caching">Caching<a class="headerlink" href="#caching" title="Permanent link">&para;</a></h2>
+<p>You can enable the cache during configuration:</p>
+<pre><code class="TypeScript">const l10nConfig: L10nConfig = {
+    ...
+    translation: {
+        providers: [
+            { type: ProviderType.Static, prefix: './assets/global-' },
+            { type: ProviderType.Static, prefix: './assets/locale-' }
+        ],
+        caching: true
+    }
+};
+</code></pre>
+
+<p>The next time a translation file will be required, will be taken from the cache without making a new <em>http request</em>, with a significant performance improvement:</p>
+<ul>
+<li>if the user returns to a language already selected;</li>
+<li>if you use a global file shared across <em>lazy loaded modules</em>.</li>
+</ul>
+<hr />
+<h2 id="error-handling-of-data-loading">Error handling of data loading<a class="headerlink" href="#error-handling-of-data-loading" title="Permanent link">&para;</a></h2>
+<p>To find out if an error occurred during asynchronous loading of translation data, you have the <code>translationError</code> event:</p>
+<pre><code class="TypeScript">...
+export class AppComponent {
+    constructor(private translation: TranslationService) {
+        this.translation.translationError.subscribe((error) =&gt; {
+            if (error) {
+                console.log(error);
+            }
+        });
+    }
+}
+</code></pre>
+
+<p>If the error occurs on the first loading of the application or a lazy loaded module, you can catch it with the <code>load</code> method: </p>
+<pre><code class="TypeScript">export class AppModule {
+    constructor(public l10nLoader: L10nLoader) {
+        this.l10nLoader.load()
+            .catch(err =&gt; console.error(err));
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>If you use <em>advanced initialization</em>, you can catch it with the <code>bootstrapModule</code> method in <code>main.ts</code>.</p>
+</blockquote>
+<h3 id="rollback-on-errror">Rollback on errror<a class="headerlink" href="#rollback-on-errror" title="Permanent link">&para;</a></h3>
+<p>If the error occurs when the user changes language, you can enable <code>rollbackOnError</code> option during the configuration:</p>
+<pre><code class="TypeScript">const l10nConfig: L10nConfig = {
+    ...
+    translation: {
+        ...
+        rollbackOnError: true
+    }
+};
+</code></pre>
+
+<p>In this way, the application will keep the previous locatization without changing settings.</p>
 <hr />
 <h2 id="using-a-composed-language">Using a composed language<a class="headerlink" href="#using-a-composed-language" title="Permanent link">&para;</a></h2>
 <p>By default, the <code>languageCode</code> is added as extension to the translation files. If you set <code>composedLanguage</code> during the configuration, the combination of supplied codes will be used as language:</p>
@@ -1433,26 +1539,6 @@ export class AppModule {
 <li>or uses the <code>defaultLocale</code> set in the configuration</li>
 </ul>
 <p>That's because not all browsers return <code>languageCode-countryCode</code>.</p>
-<hr />
-<h2 id="caching">Caching<a class="headerlink" href="#caching" title="Permanent link">&para;</a></h2>
-<p>You can enable the cache during configuration:</p>
-<pre><code class="TypeScript">const l10nConfig: L10nConfig = {
-    ...
-    translation: {
-        providers: [
-            { type: ProviderType.Static, prefix: './assets/global-' },
-            { type: ProviderType.Static, prefix: './assets/locale-' }
-        ],
-        caching: true
-    }
-};
-</code></pre>
-
-<p>The next time a translation file will be required, will be taken from the cache without making a new <em>http request</em>, with a significant performance improvement:</p>
-<ul>
-<li>if the user returns to a language already selected;</li>
-<li>if you use a global file shared across <em>lazy loaded modules</em>.</li>
-</ul>
 <hr />
 <h2 id="intl-api">Intl API<a class="headerlink" href="#intl-api" title="Permanent link">&para;</a></h2>
 <p>To localize <em>dates and numbers</em>, this library uses the <a href="https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Intl">Intl API</a>.</p>

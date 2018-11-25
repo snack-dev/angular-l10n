@@ -524,6 +524,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pluralization" title="Pluralization" class="md-nav__link">
+    Pluralization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#getting-the-translation-in-component-class" title="Getting the translation in component class" class="md-nav__link">
     Getting the translation in component class
   </a>
@@ -839,6 +846,13 @@
         <li class="md-nav__item">
   <a href="#using-html-tags-in-translation" title="Using Html tags in translation" class="md-nav__link">
     Using Html tags in translation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pluralization" title="Pluralization" class="md-nav__link">
+    Pluralization
   </a>
   
 </li>
@@ -1289,6 +1303,26 @@ export class HomeComponent implements OnInit {
 
 <p>Using <em>directives</em>:</p>
 <pre><code class="Html">&lt;p [innerHTML]=&quot;'Strong subtitle'&quot; l10nTranslate&gt;&lt;/p&gt;
+</code></pre>
+
+<hr />
+<h2 id="pluralization">Pluralization<a class="headerlink" href="#pluralization" title="Permanent link">&para;</a></h2>
+<p>The library implements pluralization through the official <a href="https://angular.io/api/common/I18nPluralPipe">i18nPluralPipe</a>. Just add to it the translate pipe:</p>
+<pre><code class="Html">&lt;p&gt;{{ messages.length | i18nPlural:messageMapping | translate:lang }}&lt;/p&gt;
+</code></pre>
+
+<p>or the directive:</p>
+<pre><code class="Html">&lt;p l10nTranslate&gt;{{ messages.length | i18nPlural:messageMapping }}&lt;/p&gt;
+</code></pre>
+
+<p>and enable <code>i18nPlural</code> option during the configuration:</p>
+<pre><code class="TypeScript">const l10nConfig: L10nConfig = {
+    ...
+    translation: {
+        ...
+        i18nPlural: true
+    }
+};
 </code></pre>
 
 <hr />
