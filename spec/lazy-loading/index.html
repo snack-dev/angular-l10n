@@ -353,8 +353,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lazy-loaded-modules-with-the-router" title="Lazy loaded modules with the router" class="md-nav__link">
-    Lazy loaded modules with the router
+  <a href="#lazy-loaded-modules" title="Lazy loaded modules" class="md-nav__link">
+    Lazy loaded modules
   </a>
   
 </li>
@@ -397,6 +397,30 @@
   <li class="md-nav__item">
     <a href="../collator/" title="Collator" class="md-nav__link">
       Collator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../seo/" title="Support for SEO" class="md-nav__link">
+      Support for SEO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../interceptor/" title="Setting the locale in Accept-Language header" class="md-nav__link">
+      Setting the locale in Accept-Language header
     </a>
   </li>
 
@@ -451,8 +475,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lazy-loaded-modules-with-the-router" title="Lazy loaded modules with the router" class="md-nav__link">
-    Lazy loaded modules with the router
+  <a href="#lazy-loaded-modules" title="Lazy loaded modules" class="md-nav__link">
+    Lazy loaded modules
   </a>
   
 </li>
@@ -484,8 +508,7 @@
                 
                 
                 <h1 id="lazy-loaded-modules-shared-modules">Lazy loaded modules &amp; Shared modules<a class="headerlink" href="#lazy-loaded-modules-shared-modules" title="Permanent link">&para;</a></h1>
-<p>Before you start using this configuration, you need to know how <em>lazy-loading</em> works: <a href="https://angular.io/guide/ngmodule#lazy-loading-modules-with-the-router">Lazy-loading modules with the router</a>.</p>
-<h2 id="lazy-loaded-modules-with-the-router">Lazy loaded modules with the router<a class="headerlink" href="#lazy-loaded-modules-with-the-router" title="Permanent link">&para;</a></h2>
+<h2 id="lazy-loaded-modules">Lazy loaded modules<a class="headerlink" href="#lazy-loaded-modules" title="Permanent link">&para;</a></h2>
 <p>You can create an instance of <code>TranslationService</code> with its own translation data for every <em>lazy loaded</em> module, as shown:
 <img alt="LazyLoading" src="../../images/LazyLoading.png" /></p>
 <p>You can create a new instance of <code>TranslationService</code> calling the <code>forChild</code> method of the module you are using, 
@@ -509,7 +532,7 @@ and configure the service with the new providers:</p>
 })
 export class ListModule {
 
-    constructor(public l10nLoader: L10nLoader) {
+    constructor(private l10nLoader: L10nLoader) {
         this.l10nLoader.load();
     }
 

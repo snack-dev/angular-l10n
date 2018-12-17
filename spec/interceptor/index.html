@@ -40,7 +40,7 @@
     
     
       
-        <title>Library structure - Angular localization</title>
+        <title>Setting the locale in Accept-Language header - Angular localization</title>
       
     
     
@@ -102,7 +102,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#library-structure" tabindex="1" class="md-skip">
+      <a href="#setting-the-locale-in-accept-language-header" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -128,7 +128,7 @@
                 Angular localization
               </span>
               <span class="md-header-nav__topic">
-                Library structure
+                Setting the locale in Accept-Language header
               </span>
             
           
@@ -288,63 +288,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Library structure
-      </label>
-    
-    <a href="./" title="Library structure" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../library-structure/" title="Library structure" class="md-nav__link">
       Library structure
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#main-modules" title="Main modules" class="md-nav__link">
-    Main modules
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#main-services" title="Main services" class="md-nav__link">
-    Main services
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#main-class-interfaces" title="Main class-interfaces" class="md-nav__link">
-    Main class-interfaces
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -424,11 +372,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../interceptor/" title="Setting the locale in Accept-Language header" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Setting the locale in Accept-Language header" class="md-nav__link md-nav__link--active">
       Setting the locale in Accept-Language header
     </a>
+    
   </li>
 
         
@@ -478,36 +435,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#main-modules" title="Main modules" class="md-nav__link">
-    Main modules
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#main-services" title="Main services" class="md-nav__link">
-    Main services
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#main-class-interfaces" title="Main class-interfaces" class="md-nav__link">
-    Main class-interfaces
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -518,109 +445,29 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/robisim74/angular-l10n/edit/master/docs/spec/library-structure.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/robisim74/angular-l10n/edit/master/docs/spec/interceptor.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="library-structure">Library structure<a class="headerlink" href="#library-structure" title="Permanent link">&para;</a></h1>
-<h2 id="main-modules">Main modules<a class="headerlink" href="#main-modules" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Class</th>
-<th>Contract</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>TranslationModule</code></td>
-<td>Provides dependencies, pipes &amp; directives for translating messages</td>
-</tr>
-<tr>
-<td><code>LocalizationModule</code></td>
-<td>Provides dependencies, pipes &amp; directives for translating messages, dates &amp; numbers</td>
-</tr>
-<tr>
-<td><code>LocaleValidationModule</code></td>
-<td>Provides dependencies &amp; directives for validation by locales</td>
-</tr>
-<tr>
-<td><code>LocaleSeoModule</code></td>
-<td>Provides dependencies &amp; components for SEO by locales</td>
-</tr>
-<tr>
-<td><code>CollatorModule</code></td>
-<td>Provides dependencies for sorting and filtering a list by locales</td>
-</tr>
-<tr>
-<td><code>LocaleInterceptorModule</code></td>
-<td>Sets locale in <em>Accept-Language</em> header on outgoing requests</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="main-services">Main services<a class="headerlink" href="#main-services" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Class</th>
-<th>Contract</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>L10nLoader</code></td>
-<td>Initializes the services</td>
-</tr>
-<tr>
-<td><code>LocaleService</code></td>
-<td>Manages language, default locale, currency &amp; timezone</td>
-</tr>
-<tr>
-<td><code>TranslationService</code></td>
-<td>Manages the translation data</td>
-</tr>
-<tr>
-<td><code>LocaleValidation</code></td>
-<td>Provides the methods for locale validation</td>
-</tr>
-<tr>
-<td><code>SearchService</code></td>
-<td>Manages the translation of page 'title' and meta tags</td>
-</tr>
-<tr>
-<td><code>Collator</code></td>
-<td>Intl.Collator APIs</td>
-</tr>
-<tr>
-<td><code>IntlAPI</code></td>
-<td>Provides the methods to check if Intl APIs are supported</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="main-class-interfaces">Main class-interfaces<a class="headerlink" href="#main-class-interfaces" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Class</th>
-<th>Contract</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>LocaleStorage</code></td>
-<td>Class-interface to create a custom storage for default locale, currency &amp; timezone</td>
-</tr>
-<tr>
-<td><code>TranslationProvider</code></td>
-<td>Class-interface to create a custom provider for translation data</td>
-</tr>
-<tr>
-<td><code>TranslationHandler</code></td>
-<td>Class-interface to create a custom handler for translated values</td>
-</tr>
-</tbody>
-</table>
+                <h1 id="setting-the-locale-in-accept-language-header">Setting the locale in <em>Accept-Language</em> header<a class="headerlink" href="#setting-the-locale-in-accept-language-header" title="Permanent link">&para;</a></h1>
+<p>Import the module in the application root module:</p>
+<pre><code class="TypeScript">@NgModule({
+    imports: [
+        ...
+        LocaleInterceptorModule
+    ],
+    ...
+})
+export class AppModule { }
+</code></pre>
+
+<p>To set the locale in <em>Accept-Language</em> header on all outgoing requests, provide the <code>localeInterceptor</code> option during the configuration:</p>
+<pre><code class="TypeScript">const l10nConfig: L10nConfig = {
+    ...
+    localeInterceptor: {
+        format: [ISOCode.Language, /* ISOCode.Script, */ /* ISOCode.Country */]
+    }
+};
+</code></pre>
                 
                   
                 
@@ -641,7 +488,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../quick-start/" title="Quick start" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../seo/" title="Support for SEO" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -650,19 +497,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Quick start
+                Support for SEO
               </span>
             </div>
           </a>
         
         
-          <a href="../configuration/" title="Configuration" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../testing/" title="Unit testing" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Configuration
+                Unit testing
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

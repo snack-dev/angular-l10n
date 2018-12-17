@@ -486,6 +486,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../spec/seo/" title="Support for SEO" class="md-nav__link">
+      Support for SEO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../spec/interceptor/" title="Setting the locale in Accept-Language header" class="md-nav__link">
+      Setting the locale in Accept-Language header
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../spec/testing/" title="Unit testing" class="md-nav__link">
       Unit testing
     </a>
@@ -657,9 +681,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
-import { L10nConfig, L10nLoader, TranslationModule, StorageStrategy, ProviderType } from 'angular-l10n';
+import { L10nConfig, L10nLoader, TranslationModule, StorageStrategy, ProviderType, LogLevel } from 'angular-l10n';
 
 const l10nConfig: L10nConfig = {
+    logger: {
+        level: LogLevel.Warn
+    },
     locale: {
         languages: [
             { code: 'en', dir: 'ltr' },
@@ -673,6 +700,7 @@ const l10nConfig: L10nConfig = {
             { type: ProviderType.Static, prefix: './assets/locale-' }
         ],
         caching: true,
+        composedKeySeparator: '.',
         missingValue: 'No key'
     }
 };
@@ -705,7 +733,7 @@ import { LocaleService, TranslationService, Language } from 'angular-l10n';
     template: `
         &lt;h1&gt;{{ title }}&lt;/h1&gt;
 
-        &lt;h3&gt;{{ 'Change language' | translate:lang }}&lt;/h3&gt;
+        &lt;h3&gt;{{ 'changeLanguage' | translate:lang }}&lt;/h3&gt;
 
         &lt;button (click)=&quot;selectLanguage('en');&quot;&gt;English&lt;/button&gt;
         &lt;button (click)=&quot;selectLanguage('it');&quot;&gt;Italiano&lt;/button&gt;
@@ -723,7 +751,7 @@ export class AppComponent implements OnInit {
 
     ngOnInit(): void {
         this.translation.translationChanged().subscribe(
-            () =&gt; { this.title = this.translation.translate('Title'); }
+            () =&gt; { this.title = this.translation.translate('title'); }
         );
     }
 
@@ -742,9 +770,9 @@ import { Language } from 'angular-l10n';
 @Component({
     selector: 'app-home',
     template: `
-        &lt;p&gt;{{ 'Greeting' | translate:lang }}&lt;/p&gt;
+        &lt;p&gt;{{ 'greeting' | translate:lang }}&lt;/p&gt;
 
-        &lt;p title=&quot;{{ 'Greeting' | translate:lang }}&quot;&gt;{{ 'Subtitle' | translate:lang }}&lt;/p&gt;
+        &lt;p title=&quot;{{ 'greeting' | translate:lang }}&quot;&gt;{{ 'subtitle' | translate:lang }}&lt;/p&gt;
     `
 })
 export class HomeComponent implements OnInit {
@@ -761,18 +789,18 @@ export class HomeComponent implements OnInit {
 </blockquote>
 <p>Create the <em>json</em> files of the translations such as <code>locale-en.json</code> and <code>locale-it.json</code> in <code>src/assets</code> folder:</p>
 <pre><code class="Json">{
-    &quot;Title&quot;: &quot;Angular localization&quot;,
-    &quot;Subtitle&quot;: &quot;It's a small world&quot;,
-    &quot;Change language&quot;: &quot;Change language&quot;,
-    &quot;Greeting&quot;: &quot;Hi!&quot;
+    &quot;title&quot;: &quot;Angular localization&quot;,
+    &quot;subtitle&quot;: &quot;It's a small world&quot;,
+    &quot;changeLanguage&quot;: &quot;Change language&quot;,
+    &quot;greeting&quot;: &quot;Hi!&quot;
 }
 </code></pre>
 
 <pre><code class="Json">{
-    &quot;Title&quot;: &quot;Localizzazione in Angular&quot;,
-    &quot;Subtitle&quot;: &quot;Il mondo è piccolo&quot;,
-    &quot;Change language&quot;: &quot;Cambia lingua&quot;,
-    &quot;Greeting&quot;: &quot;Ciao!&quot;
+    &quot;title&quot;: &quot;Localizzazione in Angular&quot;,
+    &quot;subtitle&quot;: &quot;Il mondo è piccolo&quot;,
+    &quot;changeLanguage&quot;: &quot;Cambia lingua&quot;,
+    &quot;greeting&quot;: &quot;Ciao!&quot;
 }
 </code></pre>
 
@@ -783,9 +811,9 @@ export class HomeComponent implements OnInit {
 @Component({
     selector: 'app-home',
     template: `
-        &lt;p l10nTranslate&gt;Greeting&lt;/p&gt;
+        &lt;p l10nTranslate&gt;greeting&lt;/p&gt;
 
-        &lt;p l10n-title title=&quot;Greeting&quot; l10nTranslate&gt;Subtitle&lt;/p&gt;
+        &lt;p l10n-title title=&quot;greeting&quot; l10nTranslate&gt;subtitle&lt;/p&gt;
     `
 })
 export class HomeComponent { }
@@ -808,9 +836,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
-import { L10nConfig, L10nLoader, LocalizationModule, StorageStrategy, ProviderType } from 'angular-l10n';
+import { L10nConfig, L10nLoader, LocalizationModule, StorageStrategy, ProviderType, LogLevel } from 'angular-l10n';
 
 const l10nConfig: L10nConfig = {
+    logger: {
+        level: LogLevel.Warn
+    },
     locale: {
         languages: [
             { code: 'en', dir: 'ltr' },
@@ -825,6 +856,7 @@ const l10nConfig: L10nConfig = {
             { type: ProviderType.Static, prefix: './assets/locale-' }
         ],
         caching: true,
+        composedKeySeparator: '.',
         missingValue: 'No key'
     }
 };
@@ -857,7 +889,7 @@ import { LocaleService, TranslationService, Language } from 'angular-l10n';
     template: `
         &lt;h1&gt;{{ title }}&lt;/h1&gt;
 
-        &lt;h3&gt;{{ 'Change country' | translate:lang }}&lt;/h3&gt;
+        &lt;h3&gt;{{ 'changeCountry' | translate:lang }}&lt;/h3&gt;
 
         &lt;button (click)=&quot;selectLocale('en', 'US', 'USD');&quot;&gt;United States&lt;/button&gt;
         &lt;button (click)=&quot;selectLocale('en', 'GB', 'GBP');&quot;&gt;United Kingdom&lt;/button&gt;
@@ -876,7 +908,7 @@ export class AppComponent implements OnInit {
 
     ngOnInit(): void {
         this.translation.translationChanged().subscribe(
-            () =&gt; { this.title = this.translation.translate('Title'); }
+            () =&gt; { this.title = this.translation.translate('title'); }
         );
     }
 
@@ -896,15 +928,15 @@ import { Language, DefaultLocale, Currency } from 'angular-l10n';
 @Component({
     selector: 'app-home',
     template: `
-        &lt;p&gt;{{ 'Greeting' | translate:lang }}&lt;/p&gt;
+        &lt;p&gt;{{ 'greeting' | translate:lang }}&lt;/p&gt;
 
-        &lt;p title=&quot;{{ 'Greeting' | translate:lang }}&quot;&gt;{{ 'Subtitle' | translate:lang }}&lt;/p&gt;
+        &lt;p title=&quot;{{ 'greeting' | translate:lang }}&quot;&gt;{{ 'subtitle' | translate:lang }}&lt;/p&gt;
 
         &lt;p&gt;{{ today | l10nDate:defaultLocale:'fullDate' }}&lt;/p&gt;       
         &lt;p&gt;{{ pi | l10nDecimal:defaultLocale:'1.5-5' }}&lt;/p&gt;
         &lt;p&gt;{{ value | l10nCurrency:defaultLocale:currency:'symbol':'1.2-2' }}&lt;/p&gt;
 
-        &lt;button (click)=&quot;change()&quot;&gt;{{ 'Change' | translate:lang }}&lt;/button&gt;
+        &lt;button (click)=&quot;change()&quot;&gt;{{ 'change' | translate:lang }}&lt;/button&gt;
     `
 })
 export class HomeComponent implements OnInit {
@@ -935,20 +967,20 @@ export class HomeComponent implements OnInit {
 </blockquote>
 <p>Create the <em>json</em> files of the translations such as <code>locale-en.json</code> and <code>locale-it.json</code> in <code>src/assets</code> folder:</p>
 <pre><code class="Json">{
-    &quot;Title&quot;: &quot;Angular localization&quot;,
-    &quot;Subtitle&quot;: &quot;It's a small world&quot;,
-    &quot;Change country&quot;: &quot;Change country&quot;,
-    &quot;Greeting&quot;: &quot;Hi!&quot;,
-    &quot;Change&quot;: &quot;Change&quot;
+    &quot;title&quot;: &quot;Angular localization&quot;,
+    &quot;subtitle&quot;: &quot;It's a small world&quot;,
+    &quot;changeCountry&quot;: &quot;Change country&quot;,
+    &quot;greeting&quot;: &quot;Hi!&quot;,
+    &quot;change&quot;: &quot;Change&quot;
 }
 </code></pre>
 
 <pre><code class="Json">{
-    &quot;Title&quot;: &quot;Localizzazione in Angular&quot;,
-    &quot;Subtitle&quot;: &quot;Il mondo è piccolo&quot;,
-    &quot;Change country&quot;: &quot;Cambia Paese&quot;,
-    &quot;Greeting&quot;: &quot;Ciao!&quot;,
-    &quot;Change&quot;: &quot;Cambia&quot;
+    &quot;title&quot;: &quot;Localizzazione in Angular&quot;,
+    &quot;subtitle&quot;: &quot;Il mondo è piccolo&quot;,
+    &quot;changeCountry&quot;: &quot;Cambia Paese&quot;,
+    &quot;greeting&quot;: &quot;Ciao!&quot;,
+    &quot;change&quot;: &quot;Cambia&quot;
 }
 </code></pre>
 
@@ -963,15 +995,15 @@ export class HomeComponent implements OnInit {
 @Component({
     selector: 'app-home',
     template: `
-        &lt;p l10nTranslate&gt;Greeting&lt;/p&gt;
+        &lt;p l10nTranslate&gt;greeting&lt;/p&gt;
 
-        &lt;p l10n-title title=&quot;Greeting&quot; l10nTranslate&gt;Subtitle&lt;/p&gt;
+        &lt;p l10n-title title=&quot;greeting&quot; l10nTranslate&gt;subtitle&lt;/p&gt;
 
         &lt;p format=&quot;fullDate&quot; l10nDate&gt;{{ today }}&lt;/p&gt;    
         &lt;p digits=&quot;1.5-5&quot; l10nDecimal&gt;{{ pi }}&lt;/p&gt;
         &lt;p digits=&quot;1.2-2&quot; currencyDisplay=&quot;symbol&quot; l10nCurrency&gt;{{ value }}&lt;/p&gt;
 
-        &lt;button (click)=&quot;change()&quot; l10nTranslate&gt;Change&lt;/button&gt;
+        &lt;button (click)=&quot;change()&quot; l10nTranslate&gt;change&lt;/button&gt;
     `
 })
 export class HomeComponent implements OnInit {
@@ -1007,9 +1039,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
-import { L10nConfig, L10nLoader, TranslationModule, StorageStrategy, ProviderType } from 'angular-l10n';
+import { L10nConfig, L10nLoader, TranslationModule, StorageStrategy, ProviderType, LogLevel } from 'angular-l10n';
 
 const l10nConfig: L10nConfig = {
+    logger: {
+        level: LogLevel.Warn
+    },
     locale: {
         languages: [
             { code: 'en', dir: 'ltr' },
@@ -1023,6 +1058,7 @@ const l10nConfig: L10nConfig = {
             { type: ProviderType.Static, prefix: './assets/locale-' }
         ],
         caching: true,
+        composedKeySeparator: '.',
         missingValue: 'No key'
     }
 };
@@ -1124,6 +1160,9 @@ providers: [
 <p>The following is an example that uses <em>Asynchronous loading</em>, based on <em>Angular Universal Starter</em>:</p>
 <p><code>app.module.ts</code>:</p>
 <pre><code class="TypeScript">const l10nConfig: L10nConfig = {
+    logger: {
+        level: LogLevel.Warn
+    },
     locale: {
         languages: [
             { code: 'en', dir: 'ltr' },
@@ -1143,20 +1182,20 @@ providers: [
 
     constructor(
         public l10nLoader: L10nLoader,
-        @Inject(TRANSLATION_CONFIG) private translationConfig: TranslationConfig,
+        @Inject(L10N_CONFIG) private configuration: L10nConfigRef,
         @Inject(PLATFORM_ID) private platformId: Object
     ) { }
 
-    load(): Promise&lt;void&gt; {
+    load(): Promise&lt;any&gt; {
         if (isPlatformBrowser(this.platformId)) {
             // Client only code.
-            this.translationConfig.providers = [
+            this.configuration.translation.providers = [
                 { type: ProviderType.Static, prefix: './assets/locale-' }
             ];
         }
         if (isPlatformServer(this.platformId)) {
             // Server only code.
-            this.translationConfig.providers = [
+            this.configuration.translation.providers = [
                 { type: ProviderType.Static, prefix: 'http://localhost:4000/assets/locale-' }
             ];
         }

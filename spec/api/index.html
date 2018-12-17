@@ -362,6 +362,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../seo/" title="Support for SEO" class="md-nav__link">
+      Support for SEO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../interceptor/" title="Setting the locale in Accept-Language header" class="md-nav__link">
+      Setting the locale in Accept-Language header
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../testing/" title="Unit testing" class="md-nav__link">
       Unit testing
     </a>
@@ -422,6 +446,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#localeseomodule" title="LocaleSeoModule" class="md-nav__link">
+    LocaleSeoModule
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#l10nloader" title="L10nLoader" class="md-nav__link">
     L10nLoader
   </a>
@@ -445,6 +476,13 @@
         <li class="md-nav__item">
   <a href="#ilocalevalidation" title="ILocaleValidation" class="md-nav__link">
     ILocaleValidation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isearchservice" title="ISearchService" class="md-nav__link">
+    ISearchService
   </a>
   
 </li>
@@ -480,6 +518,20 @@
         <li class="md-nav__item">
   <a href="#translationhandler" title="TranslationHandler" class="md-nav__link">
     TranslationHandler
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#translation" title="Translation" class="md-nav__link">
+    Translation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#localization" title="Localization" class="md-nav__link">
+    Localization
   </a>
   
 </li>
@@ -542,6 +594,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#localeseomodule" title="LocaleSeoModule" class="md-nav__link">
+    LocaleSeoModule
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#l10nloader" title="L10nLoader" class="md-nav__link">
     L10nLoader
   </a>
@@ -565,6 +624,13 @@
         <li class="md-nav__item">
   <a href="#ilocalevalidation" title="ILocaleValidation" class="md-nav__link">
     ILocaleValidation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isearchservice" title="ISearchService" class="md-nav__link">
+    ISearchService
   </a>
   
 </li>
@@ -600,6 +666,20 @@
         <li class="md-nav__item">
   <a href="#translationhandler" title="TranslationHandler" class="md-nav__link">
     TranslationHandler
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#translation" title="Translation" class="md-nav__link">
+    Translation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#localization" title="Localization" class="md-nav__link">
+    Localization
   </a>
   
 </li>
@@ -680,6 +760,26 @@
 </tbody>
 </table>
 <hr />
+<h2 id="localeseomodule">LocaleSeoModule<a class="headerlink" href="#localeseomodule" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>static forRoot(): ModuleWithProviders&lt;LocaleSeoModule&gt;</code></td>
+<td>Use in <code>AppModule</code>: new instance of <code>SearchService</code></td>
+</tr>
+<tr>
+<td><code>static forChild(): ModuleWithProviders&lt;LocaleSeoModule&gt;</code></td>
+<td>Use in feature modules with lazy loading: new instance of <code>SearchService</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="l10nloader">L10nLoader<a class="headerlink" href="#l10nloader" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -690,7 +790,7 @@
 </thead>
 <tbody>
 <tr>
-<td><code>load(): Promise&lt;any&gt;</code></td>
+<td><code>abstract load(): Promise&lt;any&gt;</code></td>
 <td>Loads l10n services</td>
 </tr>
 </tbody>
@@ -706,32 +806,20 @@
 </thead>
 <tbody>
 <tr>
-<td><code>languageCodeChanged: EventEmitter&lt;string&gt;</code></td>
-<td></td>
+<td><code>languageCodeChanged: Subject&lt;string&gt;</code></td>
+<td>Fired when the language changes. Returns the language code</td>
 </tr>
 <tr>
-<td><code>defaultLocaleChanged: EventEmitter&lt;string&gt;</code></td>
-<td></td>
+<td><code>defaultLocaleChanged: Subject&lt;string&gt;</code></td>
+<td>Fired when the default locale changes. Returns the default locale</td>
 </tr>
 <tr>
-<td><code>currencyCodeChanged: EventEmitter&lt;string&gt;</code></td>
-<td></td>
+<td><code>currencyCodeChanged: Subject&lt;string&gt;</code></td>
+<td>Fired when the currency changes. Returns the currency code</td>
 </tr>
 <tr>
-<td><code>timezoneChanged: EventEmitter&lt;string&gt;</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>loadTranslation: Subject&lt;any&gt;</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>currencyCode: string</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>timezone: string</code></td>
-<td></td>
+<td><code>timezoneChanged: Subject&lt;string&gt;</code></td>
+<td>Fired when the timezone changes. Returns the timezone</td>
 </tr>
 </tbody>
 </table>
@@ -744,7 +832,7 @@
 </thead>
 <tbody>
 <tr>
-<td><code>getConfiguration(): LocaleConfig</code></td>
+<td><code>getConfiguration(): L10nConfigRef['locale']</code></td>
 <td></td>
 </tr>
 <tr>
@@ -796,7 +884,7 @@
 <td></td>
 </tr>
 <tr>
-<td><code>getCurrencySymbol(currencyDisplay?: 'code' | 'symbol' | 'name', defaultLocale?: string, currency?: string): string</code></td>
+<td><code>getCurrencySymbol(currencyDisplay?: string, defaultLocale?: string, currency?: string): string</code></td>
 <td></td>
 </tr>
 <tr>
@@ -820,12 +908,28 @@
 <td></td>
 </tr>
 <tr>
+<td><code>formatDate(value: any, format?: string | DateTimeOptions, defaultLocale?: string, timezone?: string): string</code></td>
+<td>Formats a date according to default locale</td>
+</tr>
+<tr>
+<td><code>formatDecimal(value: any, digits?: string | DigitsOptions, defaultLocale?: string): string</code></td>
+<td>Formats a decimal number according to default locale</td>
+</tr>
+<tr>
+<td><code>formatPercent(value: any, digits?: string | DigitsOptions, defaultLocale?: string): string</code></td>
+<td>Formats a number as a percentage according to default locale</td>
+</tr>
+<tr>
+<td><code>formatCurrency(value: any, digits?: string | DigitsOptions, currencyDisplay?: string, defaultLocale?: string, currency?: string): string</code></td>
+<td>Formats a number as a currency according to default locale</td>
+</tr>
+<tr>
 <td><code>composeLocale(codes: ISOCode[]): string</code></td>
 <td></td>
 </tr>
 <tr>
 <td><code>rollback(): void</code></td>
-<td></td>
+<td>Rollbacks to previous default locale, currency &amp; timezone</td>
 </tr>
 </tbody>
 </table>
@@ -854,7 +958,7 @@
 </thead>
 <tbody>
 <tr>
-<td><code>getConfiguration(): TranslationConfig</code></td>
+<td><code>getConfiguration(): L10nConfigRef['translation']</code></td>
 <td></td>
 </tr>
 <tr>
@@ -864,6 +968,10 @@
 <tr>
 <td><code>translationChanged(): Observable&lt;string&gt;</code></td>
 <td>Fired when the translation data has been loaded. Returns the translation language</td>
+</tr>
+<tr>
+<td><code>latestTranslation(): Observable&lt;string&gt;</code></td>
+<td>Fired when the latest <code>translationChanged</code> is emitted. Returns the translation language. Used when the reference to the service is not known, as in decorators</td>
 </tr>
 <tr>
 <td><code>translate(keys: string | string[], args?: any, lang?: string): string | any</code></td>
@@ -886,12 +994,24 @@
 </thead>
 <tbody>
 <tr>
-<td><code>parseNumber(s: string, defaultLocale?: string): number | null</code></td>
+<td><code>parseNumber(s: string, digits?: string, defaultLocale?: string): number | null</code></td>
 <td>Converts a string to a number according to default locale. If the string cannot be converted to a number, returns NaN</td>
 </tr>
+</tbody>
+</table>
+<hr />
+<h2 id="isearchservice">ISearchService<a class="headerlink" href="#isearchservice" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
 <tr>
-<td><code>getRegExp(digits: string, defaultLocale?: string): RegExp</code></td>
-<td></td>
+<th>Method</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>updateHead(page: string): void</code></td>
+<td>Translates the <em>title</em> of the page and the provided meta tags</td>
 </tr>
 </tbody>
 </table>
@@ -1008,6 +1128,50 @@
 <tr>
 <td><code>abstract parseValue(path: string, key: string, value: string | null, args: any, lang: string): string</code></td>
 <td>This method must contain the logic to parse the translated value</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="translation">Translation<a class="headerlink" href="#translation" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lang: string</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="localization">Localization<a class="headerlink" href="#localization" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lang: string</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>defaultLocale: string</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>currency: string</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>timezone: string</code></td>
+<td></td>
 </tr>
 </tbody>
 </table>

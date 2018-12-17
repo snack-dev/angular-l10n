@@ -438,8 +438,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#onpush-changedetectionstrategy" title="OnPush ChangeDetectionStrategy" class="md-nav__link">
-    OnPush ChangeDetectionStrategy
+  <a href="#extended-classes" title="Extended classes" class="md-nav__link">
+    Extended classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onpush-change-detection-strategy" title="OnPush Change detection strategy" class="md-nav__link">
+    OnPush Change detection strategy
   </a>
   
 </li>
@@ -624,6 +631,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../seo/" title="Support for SEO" class="md-nav__link">
+      Support for SEO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../interceptor/" title="Setting the locale in Accept-Language header" class="md-nav__link">
+      Setting the locale in Accept-Language header
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../testing/" title="Unit testing" class="md-nav__link">
       Unit testing
     </a>
@@ -765,8 +796,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#onpush-changedetectionstrategy" title="OnPush ChangeDetectionStrategy" class="md-nav__link">
-    OnPush ChangeDetectionStrategy
+  <a href="#extended-classes" title="Extended classes" class="md-nav__link">
+    Extended classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onpush-change-detection-strategy" title="OnPush Change detection strategy" class="md-nav__link">
+    OnPush Change detection strategy
   </a>
   
 </li>
@@ -947,19 +985,19 @@ You can also get the translation in component class.</p>
 <td>L10nDecimal</td>
 <td>Decimal</td>
 <td>Number/string</td>
-<td><code>expression | l10nDecimal[:defaultLocale[:digitInfo]]</code></td>
+<td><code>expression | l10nDecimal[:defaultLocale[:digits]]</code></td>
 </tr>
 <tr>
 <td>L10nPercent</td>
 <td>Percentage</td>
 <td>Number/string</td>
-<td><code>expression | l10nPercent[:defaultLocale[:digitInfo]]</code></td>
+<td><code>expression | l10nPercent[:defaultLocale[:digits]]</code></td>
 </tr>
 <tr>
 <td>L10nCurrency</td>
 <td>Currency</td>
 <td>Number/string</td>
-<td><code>expression | l10nCurrency[:defaultLocale[:currency[:currencyDisplay[:digitInfo]]]]</code></td>
+<td><code>expression | l10nCurrency[:defaultLocale[:currency[:currencyDisplay[:digits]]]]</code></td>
 </tr>
 </tbody>
 </table>
@@ -967,7 +1005,7 @@ You can also get the translation in component class.</p>
 <p>You can dynamically change parameters and expressions values.</p>
 </blockquote>
 <h3 id="messages">Messages<a class="headerlink" href="#messages" title="Permanent link">&para;</a></h3>
-<p>Implement <em>Language</em> decorator in the component to provide the parameter to the <em>translate</em> pipe:</p>
+<p>Implement <em>Language</em> decorator in the component to provide the parameter to <em>translate</em> pipe:</p>
 <pre><code class="TypeScript">export class HomeComponent implements OnInit {
 
     @Language() lang: string;
@@ -984,35 +1022,35 @@ You can also get the translation in component class.</p>
 </code></pre>
 
 <p>where <code>expression</code> is a string key that indicates the message to translate:</p>
-<pre><code class="Html">{{ 'Title' | translate:lang }}
+<pre><code class="Html">{{ 'title' | translate:lang }}
 </code></pre>
 
-<p><em>Json</em>:</p>
+<p><em>JSON</em>:</p>
 <pre><code>{
-    &quot;Title&quot;: &quot;Angular localization&quot;
+    &quot;title&quot;: &quot;Angular localization&quot;
 }
 </code></pre>
 
 <h4 id="composed-keys">Composed keys<a class="headerlink" href="#composed-keys" title="Permanent link">&para;</a></h4>
 <p>Set <code>composedKeySeparator</code> during the configuration, e.g. to <code>'.'</code>:</p>
-<pre><code class="Html">{{ 'Home.Title' | translate:lang }}
+<pre><code class="Html">{{ 'home.title' | translate:lang }}
 </code></pre>
 
-<p><em>Json</em>:</p>
+<p><em>JSON</em>:</p>
 <pre><code>{
-    &quot;Home&quot;: {
-        &quot;Title&quot;: &quot;Angular localization&quot;
+    &quot;home&quot;: {
+        &quot;title&quot;: &quot;Angular localization&quot;
     }
 }
 </code></pre>
 
 <h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
-<pre><code class="Html">{{ 'User notifications' | translate:lang:{ user: username, NoMessages: messages.length } }}
+<pre><code class="Html">{{ 'userNotifications' | translate:lang:{ user: username, NoMessages: messages.length } }}
 </code></pre>
 
-<p><em>Json</em>:</p>
+<p><em>JSON</em>:</p>
 <pre><code>{
-    &quot;User notifications&quot;: &quot;{{ user }}, you have {{ NoMessages }} new messages&quot;
+    &quot;userNotifications&quot;: &quot;{{ user }}, you have {{ NoMessages }} new messages&quot;
 }
 </code></pre>
 
@@ -1036,7 +1074,7 @@ You can also get the translation in component class.</p>
 <pre><code>expression | l10nDate[:defaultLocale[:format[:timezone]]]
 </code></pre>
 
-<p>Where:</p>
+<p>where:</p>
 <ul>
 <li><code>expression</code> is a date object or a number (milliseconds since UTC epoch) or an ISO string.</li>
 <li>
@@ -1044,6 +1082,7 @@ You can also get the translation in component class.</p>
 <ul>
 <li><code>'short'</code>: equivalent to <code>'M/d/y, h:mm'</code> (e.g. <code>8/29/2017, 4:37 PM</code> for <code>en-US</code>)</li>
 <li><code>'medium'</code>: equivalent to <code>'MMM d, y, h:mm:ss'</code> (e.g. <code>Aug 29, 2017, 4:32:43 PM</code> for <code>en-US</code>)</li>
+<li><code>'long'</code>: equivalent to <code>'MMMM d, y, h:mm:ss'</code> (e.g. <code>August 29, 2017, 4:32:43 PM</code> for <code>en-US</code>)</li>
 <li><code>'shortDate'</code>: equivalent to <code>'M/d/y'</code> (e.g. <code>8/29/2017</code> for <code>en-US</code>)</li>
 <li><code>'mediumDate'</code>: equivalent to <code>'MMM d, y'</code> (e.g. <code>Aug 29, 2017</code> for <code>en-US</code>)</li>
 <li><code>'longDate'</code>: equivalent to <code>'MMMM d, y'</code> (e.g. <code>August 29, 2017</code> for <code>en-US</code>)</li>
@@ -1051,7 +1090,7 @@ You can also get the translation in component class.</p>
 <li><code>'shortTime'</code>: equivalent to <code>'h:mm'</code> (e.g. <code>4:53 PM</code> for <code>en-US</code>)</li>
 <li><code>'mediumTime'</code>: equivalent to <code>'h:mm:ss'</code> (e.g. <code>4:54:15 PM</code> for <code>en-US</code>)</li>
 </ul>
-<p>It can also be an object with some or all of the following properties:</p>
+<p>It can also be a <code>DateTimeOptions</code> object with some or all of the following properties:</p>
 <ul>
 <li><code>weekday</code> The representation of the weekday. Possible values are <em>narrow</em>, <em>short</em>, <em>long</em>.</li>
 <li><code>era</code> The representation of the era. Possible values are <em>narrow</em>, <em>short</em>, <em>long</em>.</li>
@@ -1064,7 +1103,7 @@ You can also get the translation in component class.</p>
 <li><code>timeZoneName</code> The representation of the time zone name. Possible values are <em>short</em>, <em>long</em>.</li>
 <li><code>hour12</code> Whether to use 12-hour time (as opposed to 24-hour time). Possible values are true and false; the default is locale dependent.</li>
 </ul>
-<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat">DateTimeFormat</a> for further information.</p>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat">Intl.DateTimeFormat</a> for further information.</p>
 </li>
 </ul>
 <h4 id="using-format-aliases">Using format aliases<a class="headerlink" href="#using-format-aliases" title="Permanent link">&para;</a></h4>
@@ -1108,33 +1147,58 @@ export class HomeComponent implements OnInit {
 </code></pre>
 
 <h4 id="decimals">Decimals<a class="headerlink" href="#decimals" title="Permanent link">&para;</a></h4>
-<pre><code>expression | l10nDecimal[:defaultLocale:[digitInfo]]
+<pre><code>expression | l10nDecimal[:defaultLocale:[digits]]
 </code></pre>
 
-<p>where <code>expression</code> is a number and <code>digitInfo</code> has the following format: <code>{minIntegerDigits}.{minFractionDigits}-{maxFractionDigits}</code>.</p>
+<p>where:</p>
+<ul>
+<li><code>expression</code> is a number or a string.</li>
+<li>
+<p><code>digits</code> indicates the format of the digits. It can be an alias as:</p>
+<p><code>{minIntegerDigits}.{minFractionDigits}-{maxFractionDigits}</code></p>
+<p>or a <code>DigitsOptions</code> object with some or all of the following properties:</p>
+<ul>
+<li><code>minimumIntegerDigits</code> The minimum number of integer digits to use.</li>
+<li><code>minimumFractionDigits</code> The minimum number of fraction digits to use.</li>
+<li><code>maximumFractionDigits</code> The maximum number of fraction digits to use.</li>
+<li><code>minimumSignificantDigits</code> The minimum number of significant digits to use.</li>
+<li><code>maximumSignificantDigits</code> The maximum number of significant digits to use.</li>
+<li><code>useGrouping</code> Whether to use grouping separators, such as thousands separators.</li>
+</ul>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat">Intl.NumberFormat</a> for further information.</p>
+</li>
+</ul>
 <pre><code class="Html">{{ value | l10nDecimal:defaultLocale:'1.5-5' }}
 </code></pre>
 
 <h4 id="percentages">Percentages<a class="headerlink" href="#percentages" title="Permanent link">&para;</a></h4>
-<pre><code>expression | l10nPercent[:defaultLocale:[digitInfo]]
+<pre><code>expression | l10nPercent[:defaultLocale:[digits]]
 </code></pre>
 
 <pre><code class="Html">{{ value | l10nPercent:defaultLocale:'1.1-1' }}
 </code></pre>
 
 <h4 id="currencies">Currencies<a class="headerlink" href="#currencies" title="Permanent link">&para;</a></h4>
-<pre><code>expression | l10nCurrency[:defaultLocale[:currency[:currencyDisplay[:digitInfo]]]]
+<pre><code>expression | l10nCurrency[:defaultLocale[:currency[:currencyDisplay[:digits]]]]
 </code></pre>
 
 <p>where <code>currencyDisplay</code> is the currency formatting. Possible values are <em>'symbol'</em> to use a localized currency symbol such as <em>€</em>, <em>'code'</em> to use the ISO currency code, <em>'name'</em> to use a localized currency name such as <em>dollar</em>; the default is <em>'symbol'</em>. </p>
 <pre><code class="Html">{{ value | l10nCurrency:defaultLocale:currency:'symbol':'1.2-2' }}
 </code></pre>
 
-<h3 id="onpush-changedetectionstrategy">OnPush ChangeDetectionStrategy<a class="headerlink" href="#onpush-changedetectionstrategy" title="Permanent link">&para;</a></h3>
-<p><em>Pure pipes</em> don't need to set <code>ChangeDetectionStrategy</code> to <code>OnPush</code>. If into your components you need to use it, you have to inject <code>ChangeDetectorRef</code>:</p>
-<pre><code class="TypeScript">import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+<h3 id="extended-classes">Extended classes<a class="headerlink" href="#extended-classes" title="Permanent link">&para;</a></h3>
+<p>When using <em>pipes</em>, alternatively to <em>decorators</em> you can extend <code>Translation</code> or <code>Localization</code> classes.   </p>
+<p>Extend <code>Translation</code> class in the component to provide <em>lang</em> to <em>translate</em> pipe:  </p>
+<pre><code class="TypeScript">export class HomeComponent extends Translation { }  
+</code></pre>
 
-@Component({
+<p>Extend <code>Localization</code> class in the component to provide <em>lang</em> to <em>translate</em> pipe,  <em>defaultLocale</em>, <em>currency</em>, <em>timezone</em> to <em>l10nDate</em>, <em>l10nDecimal</em>, <em>l10nPercent</em> &amp; <em>l10nCurrency</em> pipes.    </p>
+<pre><code class="TypeScript">export class HomeComponent extends Localization { }     
+</code></pre>
+
+<h3 id="onpush-change-detection-strategy">OnPush Change detection strategy<a class="headerlink" href="#onpush-change-detection-strategy" title="Permanent link">&para;</a></h3>
+<p><em>Pure pipes</em> don't need to set <code>ChangeDetectionStrategy</code> to <code>OnPush</code>. If into your components you need to use it, you have to inject <code>ChangeDetectorRef</code>:</p>
+<pre><code class="TypeScript">@Component({
     ...
     changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -1145,6 +1209,16 @@ export class HomeComponent implements OnInit {
     constructor(private cdr: ChangeDetectorRef) { }
 
     ngOnInit(): void { }
+
+} 
+</code></pre>
+
+<p>Or if you use extended classes:</p>
+<pre><code class="TypeScript">export class HomeComponent extends Translation  {
+
+    constructor(private cdr: ChangeDetectorRef) {
+        super(cdr);
+    }
 
 } 
 </code></pre>
@@ -1211,19 +1285,19 @@ export class HomeComponent implements OnInit {
 <td>L10nDecimal</td>
 <td>Decimal</td>
 <td>Number/string</td>
-<td><code>&lt;tag l10n-attribute attribute="expr1" digits="[digitInfo]" l10nDecimal&gt;expr2&lt;/tag&gt;</code></td>
+<td><code>&lt;tag l10n-attribute attribute="expr1" digits="[digits]" l10nDecimal&gt;expr2&lt;/tag&gt;</code></td>
 </tr>
 <tr>
 <td>L10nPercent</td>
 <td>Percentage</td>
 <td>Number/string</td>
-<td><code>&lt;tag l10n-attribute attribute="expr1" digits="[digitInfo]" l10nPercent&gt;expr2&lt;/tag&gt;</code></td>
+<td><code>&lt;tag l10n-attribute attribute="expr1" digits="[digits]" l10nPercent&gt;expr2&lt;/tag&gt;</code></td>
 </tr>
 <tr>
 <td>L10nCurrency</td>
 <td>Currency</td>
 <td>Number/string</td>
-<td><code>&lt;tag l10n-attribute attribute="expr1" digits="[digitInfo]" currencyDisplay="[currencyDisplay]" l10nCurrency&gt;expr2&lt;/tag&gt;</code></td>
+<td><code>&lt;tag l10n-attribute attribute="expr1" digits="[digits]" currencyDisplay="[currencyDisplay]" l10nCurrency&gt;expr2&lt;/tag&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1232,11 +1306,11 @@ export class HomeComponent implements OnInit {
 <p>If you use in the component only the directives and not the pipes, you don't need to use decorators.</p>
 </blockquote>
 <h3 id="messages_1">Messages<a class="headerlink" href="#messages_1" title="Permanent link">&para;</a></h3>
-<pre><code class="Html">&lt;h1 l10nTranslate&gt;Title&lt;/h1&gt;
+<pre><code class="Html">&lt;h1 l10nTranslate&gt;title&lt;/h1&gt;
 </code></pre>
 
 <h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
-<pre><code class="Html">&lt;p [params]=&quot;{ user: username, NoMessages: messages.length }&quot; l10nTranslate&gt;User notifications&lt;/p&gt;
+<pre><code class="Html">&lt;p [params]=&quot;{ user: username, NoMessages: messages.length }&quot; l10nTranslate&gt;userNotifications&lt;/p&gt;
 </code></pre>
 
 <h3 id="dates-numbers_1">Dates &amp; Numbers<a class="headerlink" href="#dates-numbers_1" title="Permanent link">&para;</a></h3>
@@ -1254,7 +1328,7 @@ export class HomeComponent implements OnInit {
 </code></pre>
 
 <h3 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link">&para;</a></h3>
-<pre><code class="Html">&lt;p l10n-title title=&quot;Greeting&quot; l10nTranslate&gt;Title&lt;/p&gt;
+<pre><code class="Html">&lt;p l10n-title title=&quot;greeting&quot; l10nTranslate&gt;title&lt;/p&gt;
 </code></pre>
 
 <p>All attributes will be translated according to the master directive: <code>l10nTranslate</code>, <code>l10nDate</code> and so on.</p>
@@ -1262,19 +1336,19 @@ export class HomeComponent implements OnInit {
 <p>You can't dynamically change expressions in attributes.</p>
 </blockquote>
 <h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
-<pre><code class="Html">&lt;p l10n-title title=&quot;Greeting&quot; [params]=&quot;{ user: username, NoMessages: messages.length }&quot; l10nTranslate&gt;User notifications&lt;/p&gt;
+<pre><code class="Html">&lt;p l10n-title title=&quot;greeting&quot; [params]=&quot;{ user: username, NoMessages: messages.length }&quot; l10nTranslate&gt;userNotifications&lt;/p&gt;
 </code></pre>
 
-<p><em>Json</em>:</p>
+<p><em>JSON</em>:</p>
 <pre><code>{
-    &quot;Greeting&quot;: &quot;Hi {{ user }}&quot;,
-    &quot;User notifications&quot;: &quot;{{ user }}, you have {{ NoMessages }} new messages&quot;
+    &quot;greeting&quot;: &quot;Hi {{ user }}&quot;,
+    &quot;userNotifications&quot;: &quot;{{ user }}, you have {{ NoMessages }} new messages&quot;
 }
 </code></pre>
 
 <h3 id="ui-components">UI components<a class="headerlink" href="#ui-components" title="Permanent link">&para;</a></h3>
 <p>You can properly translate UI components like Angular Material or Ionic:</p>
-<pre><code class="Html">&lt;a mat-list-item routerLinkActive=&quot;active-link&quot; routerLink=&quot;/home&quot; l10nTranslate&gt;App.Home&lt;/a&gt;
+<pre><code class="Html">&lt;a mat-list-item routerLinkActive=&quot;active-link&quot; routerLink=&quot;/home&quot; l10nTranslate&gt;app.home&lt;/a&gt;
 </code></pre>
 
 <p>rendered as:</p>
@@ -1293,21 +1367,21 @@ export class HomeComponent implements OnInit {
 <hr />
 <h2 id="using-html-tags-in-translation">Using Html tags in translation<a class="headerlink" href="#using-html-tags-in-translation" title="Permanent link">&para;</a></h2>
 <p>If you have Html tags in translation like this:</p>
-<pre><code>&quot;Strong subtitle&quot;: &quot;&lt;strong&gt;It's a small world&lt;/strong&gt;&quot;
+<pre><code>&quot;strongSubtitle&quot;: &quot;&lt;strong&gt;It's a small world&lt;/strong&gt;&quot;
 </code></pre>
 
 <p>you have to use <code>innerHTML</code> property.</p>
 <p>Using <em>pipes</em>:</p>
-<pre><code class="Html">&lt;p [innerHTML]=&quot;'Strong subtitle' | translate:lang&quot;&gt;&lt;/p&gt;
+<pre><code class="Html">&lt;p [innerHTML]=&quot;'strongSubtitle' | translate:lang&quot;&gt;&lt;/p&gt;
 </code></pre>
 
 <p>Using <em>directives</em>:</p>
-<pre><code class="Html">&lt;p [innerHTML]=&quot;'Strong subtitle'&quot; l10nTranslate&gt;&lt;/p&gt;
+<pre><code class="Html">&lt;p [innerHTML]=&quot;'strongSubtitle'&quot; l10nTranslate&gt;&lt;/p&gt;
 </code></pre>
 
 <hr />
 <h2 id="pluralization">Pluralization<a class="headerlink" href="#pluralization" title="Permanent link">&para;</a></h2>
-<p>The library implements pluralization through the official <a href="https://angular.io/api/common/I18nPluralPipe">i18nPluralPipe</a>. Just add to it the translate pipe:</p>
+<p>The library implements pluralization through the official <a href="https://angular.io/api/common/I18nPluralPipe">i18nPluralPipe</a>. Just add to it the <em>translate</em> pipe:</p>
 <pre><code class="Html">&lt;p&gt;{{ messages.length | i18nPlural:messageMapping | translate:lang }}&lt;/p&gt;
 </code></pre>
 
@@ -1345,10 +1419,10 @@ export class HomeComponent {
 
     title: string;
 
-    constructor(public translation: TranslationService) { }
+    constructor(private translation: TranslationService) { }
 
     getTranslation(): void {
-        this.title = this.translation.translate('Title');
+        this.title = this.translation.translate('title');
     }
 
 }
@@ -1367,11 +1441,11 @@ export class HomeComponent implements OnInit {
 
     title: string;
 
-    constructor(public translation: TranslationService) { }
+    constructor(private translation: TranslationService) { }
 
     ngOnInit(): void {
         this.translation.translationChanged().subscribe(
-            () =&gt; { this.title = this.translation.translate('Title'); }
+            () =&gt; { this.title = this.translation.translate('title'); }
         );
     }
 
@@ -1379,29 +1453,13 @@ export class HomeComponent implements OnInit {
 </code></pre>
 
 <h3 id="dates-numbers_2">Dates &amp; numbers<a class="headerlink" href="#dates-numbers_2" title="Permanent link">&para;</a></h3>
-<p>To get the translation of dates and numbers, you can use the <code>transform</code> method of the corresponding pipe to get the translation: you have the <code>getDefaultLocale</code> method of <code>LocaleService</code>, and the <code>defaultLocaleChanged</code> event to know when <code>defaultLocale</code> changes.</p>
-<pre><code class="TypeScript">@Component({
-    ...
-    template: `&lt;p&gt;{{ value }}&lt;/p&gt;`
-})
-export class HomeComponent {
-
-    pipe: L10nDecimalPipe = new L10nDecimalPipe();
-    value: any = this.pipe.transform(1234.5, this.locale.getDefaultLocale(), '1.2-2');
-
-    constructor(public locale: LocaleService) { }
-
-    ngOnInit(): void {
-        this.locale.defaultLocaleChanged.subscribe(
-            (defaultLocale: string) =&gt; {
-                this.value = this.pipe.transform(1234.5, defaultLocale, '1.2-2');
-            }
-        );
-    }
-
-}
-</code></pre>
-
+<p>To get the translation of dates and numbers, <code>LocaleService</code> has the following methods:</p>
+<ul>
+<li><code>formatDate(value: any, format?: string | DateTimeOptions, defaultLocale?: string, timezone?: string): string</code></li>
+<li><code>formatDecimal(value: any, digits?: string | DigitsOptions, defaultLocale?: string): string</code></li>
+<li><code>formatPercent(value: any, digits?: string | DigitsOptions, defaultLocale?: string): string</code></li>
+<li><code>formatCurrency(value: any, digits?: string | DigitsOptions, currencyDisplay?: string, defaultLocale?: string, currency?: string): string</code></li>
+</ul>
 <hr />
 <h2 id="handle-the-translation">Handle the translation<a class="headerlink" href="#handle-the-translation" title="Permanent link">&para;</a></h2>
 <p>The default translation handler does not perform operations on the translated values: it handles the missing keys returning the path of the key or the value set by <code>missingValue</code> during the configuration, and replaces parameters.</p>
