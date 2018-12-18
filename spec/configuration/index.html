@@ -1018,38 +1018,38 @@ export class AppModule {
 </tr>
 <tr>
 <td></td>
-<td></td>
 <td><code>languages?: Language[]</code></td>
+<td>Adds the languages to use in the app</td>
 </tr>
 <tr>
-<td></td>
 <td></td>
 <td><code>language?: string</code></td>
+<td>Defines the language ISO 639 two-letter or three-letter code to be used, if the language is not found in the browser</td>
 </tr>
 <tr>
-<td></td>
 <td></td>
 <td><code>defaultLocale?: DefaultLocale</code></td>
+<td>Defines the default locale to be used, regardless of the browser language</td>
 </tr>
 <tr>
-<td></td>
 <td></td>
 <td><code>currency?: string</code></td>
+<td>Defines the currency ISO 4217 three-letter code to be used</td>
 </tr>
 <tr>
-<td></td>
 <td></td>
 <td><code>timezone?: string</code></td>
+<td>The time zone name of the IANA time zone database to use</td>
 </tr>
 <tr>
-<td></td>
 <td></td>
 <td><code>storage?: StorageStrategy</code></td>
+<td>Defines the storage to be used for default locale, currency &amp; timezone</td>
 </tr>
 <tr>
 <td></td>
-<td></td>
 <td><code>cookieExpiration?: number</code></td>
+<td>If the cookie expiration is omitted, the cookie becomes a session cookie</td>
 </tr>
 <tr>
 <td><code>translation?</code></td>
@@ -1058,58 +1058,58 @@ export class AppModule {
 </tr>
 <tr>
 <td></td>
-<td></td>
 <td><code>translationData?: Array&lt;{ languageCode: string; data: any; }&gt;</code></td>
+<td>Direct loading: adds translation data</td>
 </tr>
 <tr>
-<td></td>
 <td></td>
 <td><code>providers?: any[]</code></td>
+<td>Asynchronous loading: adds translation providers</td>
 </tr>
 <tr>
-<td></td>
 <td></td>
 <td><code>caching?: Boolean</code></td>
+<td>Asynchronous loading: disables/enables the cache for translation providers</td>
 </tr>
 <tr>
-<td></td>
 <td></td>
 <td><code>version?: string</code></td>
+<td>Asynchronous loading: adds the query parameter <code>ver</code> to the http requests</td>
 </tr>
 <tr>
-<td></td>
 <td></td>
 <td><code>timeout?: number</code></td>
+<td>Asynchronous loading: sets a timeout in milliseconds for the http requests</td>
 </tr>
 <tr>
-<td></td>
 <td></td>
 <td><code>rollbackOnError?: boolean</code></td>
+<td>Asynchronous loading: rollbacks to previous default locale, currency and timezone on error</td>
 </tr>
 <tr>
-<td></td>
 <td></td>
 <td><code>composedLanguage?: ISOCode[]</code></td>
+<td>Sets a composed language for translations</td>
 </tr>
 <tr>
-<td></td>
 <td></td>
 <td><code>missingValue?: string | ((path: string) =&gt; string)</code></td>
+<td>Sets the value or the function to use for missing keys</td>
 </tr>
 <tr>
-<td></td>
 <td></td>
 <td><code>missingKey?: string</code></td>
+<td>Sets the key to use for missing keys</td>
 </tr>
 <tr>
-<td></td>
 <td></td>
 <td><code>composedKeySeparator?: string</code></td>
+<td>Sets composed key separator</td>
 </tr>
 <tr>
 <td></td>
-<td></td>
 <td><code>i18nPlural?: boolean</code></td>
+<td>Disables/enables the translation of numbers that are contained at the beginning of the keys</td>
 </tr>
 <tr>
 <td><code>logger?</code></td>
@@ -1118,8 +1118,8 @@ export class AppModule {
 </tr>
 <tr>
 <td></td>
-<td></td>
 <td><code>level?: LogLevel</code></td>
+<td>Defines the log level</td>
 </tr>
 <tr>
 <td><code>localizedRouting?</code></td>
@@ -1128,18 +1128,18 @@ export class AppModule {
 </tr>
 <tr>
 <td></td>
-<td></td>
 <td><code>format?: ISOCode[]</code></td>
+<td>Defines the format of the localized routing</td>
 </tr>
 <tr>
-<td></td>
 <td></td>
 <td><code>defaultRouting?: boolean</code></td>
+<td>Disables/enables default routing for default language or locale</td>
 </tr>
 <tr>
 <td></td>
-<td></td>
 <td><code>schema?: Schema[]</code></td>
+<td>Provides the schema to the default behaviour of localized routing</td>
 </tr>
 <tr>
 <td><code>search?</code></td>
@@ -1148,8 +1148,8 @@ export class AppModule {
 </tr>
 <tr>
 <td></td>
-<td></td>
 <td><code>metaTags?: string[]</code></td>
+<td>List of meta tag names to translate</td>
 </tr>
 <tr>
 <td><code>localeInterceptor?</code></td>
@@ -1158,8 +1158,8 @@ export class AppModule {
 </tr>
 <tr>
 <td></td>
-<td></td>
 <td><code>format?: ISOCode[]</code></td>
+<td>Defines the format of the <em>Accept-Language</em> header</td>
 </tr>
 </tbody>
 </table>
