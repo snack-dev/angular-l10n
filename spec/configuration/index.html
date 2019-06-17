@@ -564,6 +564,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../extra/" title="Extra" class="md-nav__link">
+      Extra
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../lazy-loading/" title="Lazy loaded modules & Shared modules" class="md-nav__link">
       Lazy loaded modules & Shared modules
     </a>
@@ -578,18 +590,6 @@
   <li class="md-nav__item">
     <a href="../validation/" title="Validation by locales" class="md-nav__link">
       Validation by locales
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../collator/" title="Collator" class="md-nav__link">
-      Collator
     </a>
   </li>
 
@@ -1569,13 +1569,15 @@ export class AppComponent {
 <li><a href="http://kangax.github.io/compat-table/esintl/">ECMAScript compatibility tables</a></li>
 <li><a href="http://caniuse.com/#feat=internationalization">Can I use</a></li>
 </ul>
-<p>All modern browsers have implemented this API. You can use <a href="https://github.com/andyearnshaw/Intl.js">Intl.js</a> to extend support to old browsers.</p>
+<p>All modern browsers have implemented this API. You can use a polyfill like <a href="https://polyfill.io/v3/">Polyfill.io</a> to extend support to old browsers.</p>
 <p>Just add one script tag in your <code>index.html</code>:</p>
-<pre><code class="Html">&lt;script src=&quot;https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en-US&quot;&gt;&lt;/script&gt;
+<pre><code class="Html">&lt;script crossorigin=&quot;anonymous&quot;
+    src=&quot;https://polyfill.io/v3/polyfill.min.js?flags=gated&amp;features=Intl.~locale.en-US&quot;&gt;&lt;/script&gt;
 </code></pre>
 
 <p>When specifying the <code>features</code>, you have to specify what locale, or locales to load.</p>
 <p>The <em>timezone</em> is also provided via <em>Intl API</em>. Except IE, all modern browsers have implemented the timezone. To extend the support, you can use <a href="https://github.com/yahoo/date-time-format-timezone">Intl.DateTimeFormat timezone polyfill</a>.</p>
+<p>The <em>timeAgo</em> pipe and directive use the new <code>Intl.RelativeTimeFormat</code> API. To extend support to all browsers, you can install a specific polyfill like <a href="https://www.npmjs.com/package/@formatjs/intl-relativetimeformat">intl-relativetimeformat</a>.</p>
 <blockquote>
 <p>When a feature is not supported, however, for example in older browsers, Angular localization does not generate an error in the browser, but returns the value without performing operations.</p>
 </blockquote>

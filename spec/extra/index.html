@@ -40,7 +40,7 @@
     
     
       
-        <title>Collator - Angular localization</title>
+        <title>Extra - Angular localization</title>
       
     
     
@@ -103,7 +103,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#collator" tabindex="1" class="md-skip">
+      <a href="#extra" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -129,7 +129,7 @@
                 Angular localization
               </span>
               <span class="md-header-nav__topic">
-                Collator
+                Extra
               </span>
             
           
@@ -325,6 +325,96 @@
           
           
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Extra
+      </label>
+    
+    <a href="./" title="Extra" class="md-nav__link md-nav__link--active">
+      Extra
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pure-pipes" title="Pure pipes" class="md-nav__link">
+    Pure pipes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relative-time" title="Relative time" class="md-nav__link">
+    Relative time
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directives" title="Directives" class="md-nav__link">
+    Directives
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relative-time_1" title="Relative time" class="md-nav__link">
+    Relative time
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collator" title="Collator" class="md-nav__link">
+    Collator
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
 
   <li class="md-nav__item">
     <a href="../lazy-loading/" title="Lazy loaded modules & Shared modules" class="md-nav__link">
@@ -342,27 +432,6 @@
     <a href="../validation/" title="Validation by locales" class="md-nav__link">
       Validation by locales
     </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="Collator" class="md-nav__link md-nav__link--active">
-      Collator
-    </a>
-    
   </li>
 
         
@@ -436,6 +505,62 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pure-pipes" title="Pure pipes" class="md-nav__link">
+    Pure pipes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relative-time" title="Relative time" class="md-nav__link">
+    Relative time
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directives" title="Directives" class="md-nav__link">
+    Directives
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relative-time_1" title="Relative time" class="md-nav__link">
+    Relative time
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collator" title="Collator" class="md-nav__link">
+    Collator
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -446,22 +571,99 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/robisim74/angular-l10n/edit/master/docs/spec/collator.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/robisim74/angular-l10n/edit/master/docs/spec/extra.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="collator">Collator<a class="headerlink" href="#collator" title="Permanent link">&para;</a></h1>
-<p>Import the module:</p>
+                <h1 id="extra">Extra<a class="headerlink" href="#extra" title="Permanent link">&para;</a></h1>
+<p>The new features of <a href="../configuration/#intl-api">Intl API</a> are available through <code>LocalizationExtraModule</code>:</p>
 <pre><code class="TypeScript">@NgModule({
     imports: [
         ...
-        CollatorModule // New instance of Collator.
+        LocalizationExtraModule
     ],
-    declarations: [ListComponent]
+    ...
 })
-export class ListModule { }
+</code></pre>
+
+<h2 id="pure-pipes">Pure pipes<a class="headerlink" href="#pure-pipes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Pipe</th>
+<th>Type</th>
+<th>Format</th>
+<th>Pipe syntax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L10nTimeAgo</td>
+<td>Relative time</td>
+<td>Number/string</td>
+<td><code>expression | l10nTimeAgo[:defaultLocale[:unit[:format]]]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="relative-time">Relative time<a class="headerlink" href="#relative-time" title="Permanent link">&para;</a></h3>
+<pre><code>expression | l10nTimeAgo[:defaultLocale[:unit[:format]]]
+</code></pre>
+
+<p>where:</p>
+<ul>
+<li><code>expression</code> is a number or a string.</li>
+<li><code>unit</code> possible values are: <em>year</em>, <em>quarter</em>, <em>month</em>, <em>week</em>, <em>day</em>, <em>hour</em>, <em>minute</em>, <em>second</em></li>
+<li>
+<p><code>format</code> is a <code>RelativeTimeOptions</code> object with some or all of the following properties:</p>
+<ul>
+<li><code>numeric</code> The format of output message. Possible values are <em>always</em>, <em>auto</em>.</li>
+<li><code>style</code> The length of the internationalized message. Possible values are <em>long</em>, <em>short</em>, <em>narrow</em>.</li>
+</ul>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RelativeTimeFormat">Intl.RelativeTimeFormat</a> for further information.</p>
+</li>
+</ul>
+<pre><code class="Html">{{ value | l10nTimeAgo:defaultLocale:'second':{numeric:'always',style:'long'} }}
 </code></pre>
 
 <hr />
+<h2 id="directives">Directives<a class="headerlink" href="#directives" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Selectors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L10nTimeAgo</td>
+<td><code>l10nTimeAgo</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Type</th>
+<th>Format</th>
+<th>Html syntax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L10nTimeAgo</td>
+<td>Relative time</td>
+<td>Number/string</td>
+<td><code>&lt;tag format="[format]" unit="[unit]" l10nTimeAgo&gt;expr&lt;/tag&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="relative-time_1">Relative time<a class="headerlink" href="#relative-time_1" title="Permanent link">&para;</a></h3>
+<pre><code class="Html">&lt;p [format]=&quot;{numeric:'always',style:'long'}&quot; unit=&quot;second&quot; l10nTimeAgo&gt;{{ timeAgo }}&lt;/p&gt;
+</code></pre>
+
+<hr />
+<h2 id="collator">Collator<a class="headerlink" href="#collator" title="Permanent link">&para;</a></h2>
 <p><code>Collator</code> class has the following methods for sorting and filtering a list by locales:</p>
 <ul>
 <li><code>sort(list: any[], keyName: any, order?: string, extension?: string, options?: any): any[]</code></li>
@@ -490,7 +692,7 @@ export class ListModule { }
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../validation/" title="Validation by locales" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../getting-the-translation/" title="Getting the translation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -499,19 +701,19 @@ export class ListModule { }
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Validation by locales
+                Getting the translation
               </span>
             </div>
           </a>
         
         
-          <a href="../seo/" title="SEO by locales" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../lazy-loading/" title="Lazy loaded modules & Shared modules" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                SEO by locales
+                Lazy loaded modules & Shared modules
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
