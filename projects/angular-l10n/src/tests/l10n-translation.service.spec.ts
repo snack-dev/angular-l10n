@@ -42,7 +42,13 @@ describe('L10nTranslationService', () => {
                 title: 'Localizzazione in Angular',
                 subtitle: 'Il mondo è piccolo'
             }
-        }
+        },
+        'es-uy': {
+            home: {
+                title: 'Localización en Angular',
+                subtitle: 'El mundo es pequeño'
+            }
+        },
     };
     const config: L10nConfig = {
         format: 'language-region',
@@ -53,7 +59,8 @@ describe('L10nTranslationService', () => {
         defaultLocale: { language: 'en-US' },
         schema: [
             { locale: { language: 'en-US-u-nu-latn' }, dir: 'ltr' },
-            { locale: { language: 'it-IT-u-nu-latn' }, dir: 'ltr' }
+            { locale: { language: 'it-IT-u-nu-latn' }, dir: 'ltr' },
+            { locale: { language: 'es-uy' }, dir: 'ltr' }
         ]
     };
     beforeEach(async () => {
@@ -73,6 +80,10 @@ describe('L10nTranslationService', () => {
     it('should set the locale', async () => {
         await translation.setLocale({ language: 'it-IT' });
         expect(translation.getLocale()).toEqual(jasmine.objectContaining({ language: 'it-IT' }));
+    });
+    it('should set the locale', async () => {
+        await translation.setLocale({ language: 'es-uy' });
+        expect(translation.getLocale()).toEqual(jasmine.objectContaining({ language: 'es-uy' }));
     });
     it('should throw an error if the language is not valid', async () => {
         await expectAsync(translation.setLocale({ language: 'it-8i' })).toBeRejectedWith('angular-l10n (formatLanguage): Invalid language');
@@ -119,7 +130,7 @@ describe('L10nTranslationService', () => {
         expect(translation.getLanguageDirection()).toEqual('ltr');
     });
     it('should get available languages', async () => {
-        expect(translation.getAvailableLanguages()).toEqual(['en-US', 'it-IT']);
+        expect(translation.getAvailableLanguages()).toEqual(['en-US', 'it-IT', 'es-uy']);
     });
 });
 
