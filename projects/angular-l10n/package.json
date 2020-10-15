@@ -1,7 +1,7 @@
 {
-  "name": "angular-l10n",
-  "version": "10.1.0",
-  "author": "Roberto Simonetti",
+  "name": "@snack-dev/angular-l10n",
+  "version": "10.1.1",
+  "author": "Snack",
   "description": "An Angular library to translate texts, dates and numbers",
   "repository": {
     "type": "git",

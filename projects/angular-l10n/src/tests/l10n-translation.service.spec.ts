@@ -75,7 +75,7 @@ describe('L10nTranslationService', () => {
         expect(translation.getLocale()).toEqual(jasmine.objectContaining({ language: 'it-IT' }));
     });
     it('should throw an error if the language is not valid', async () => {
-        await expectAsync(translation.setLocale({ language: 'it-it' })).toBeRejectedWith('angular-l10n (formatLanguage): Invalid language');
+        await expectAsync(translation.setLocale({ language: 'it-8i' })).toBeRejectedWith('angular-l10n (formatLanguage): Invalid language');
     });
     it('should fire onChanges', async () => {
         translation.onChange().subscribe({

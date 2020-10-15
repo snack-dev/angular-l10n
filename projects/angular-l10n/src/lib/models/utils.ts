@@ -2,7 +2,7 @@ import { L10nFormat, L10nSchema } from './types';
 import { l10nError } from './l10n-error';
 
 export function validateLanguage(language: string): boolean {
-    const regExp = new RegExp(/^([a-z]{2,3})(\-[A-Z][a-z]{3})?(\-[A-Z][a-z]{2})?(-u.+)?$/);
+    const regExp = new RegExp(/^([a-z]{2,3})(\-[A-Z][a-z]{3})?(\-[A-Za-z]{2})?(-u.+)?$/);
     return regExp.test(language);
 }
 
@@ -10,7 +10,7 @@ export function formatLanguage(language: string, format: L10nFormat): string {
     if (language == null || language === '') return '';
     if (!validateLanguage(language)) throw l10nError(formatLanguage, 'Invalid language');
 
-    const [, LANGUAGE = '', SCRIPT = '', REGION = ''] = language.match(/^([a-z]{2,3})(\-[A-Z][a-z]{3})?(\-[A-Z]{2})?/) || [];
+    const [, LANGUAGE = '', SCRIPT = '', REGION = ''] = language.match(/^([a-z]{2,3})(\-[A-Z][a-z]{3})?(\-[A-Za-z]{2})?/) || [];
     switch (format) {
         case 'language':
             return LANGUAGE;
@@ -24,7 +24,7 @@ export function formatLanguage(language: string, format: L10nFormat): string {
 }
 
 export function parseLanguage(language: string) {
-    const groups = language.match(/^([a-z]{2,3})(\-([A-Z][a-z]{3}))?(\-([A-Z][a-z]{2}))?(-u.+)?$/);
+    const groups = language.match(/^([a-z]{2,3})(\-([A-Z][a-z]{3}))?(\-([A-Za-z]{2}))?(-u.+)?$/);
     if (groups == null) throw l10nError(parseLanguage, 'Invalid language');
 
     return {
