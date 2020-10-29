@@ -1,6 +1,6 @@
 {
   "name": "@snack-dev/angular-l10n",
-  "version": "10.1.3",
+  "version": "10.1.4",
   "author": "Snack",
   "description": "An Angular library to translate texts, dates and numbers",
   "repository": {
