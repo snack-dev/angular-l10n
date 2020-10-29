@@ -24,4 +24,7 @@ describe('L10nMissingTranslationHandler', () => {
     it('should handle missing values', () => {
         expect(missingTranslationHandler.handle('TITLE')).toEqual('TITLE');
     });
+    it('should handle missing values', () => {
+        expect(missingTranslationHandler.handle('TITLE', { var: 'variable' })).toEqual('TITLE');
+    });
 });
